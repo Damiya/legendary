@@ -43,6 +43,7 @@ module.exports = function (grunt) {
     },
     open: {
       server: {
+        app: 'google-chrome',
         url: 'http://localhost:<%= express.options.port %>'
       }
     },
