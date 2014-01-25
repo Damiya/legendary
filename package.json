@@ -4,7 +4,9 @@
   "dependencies": {
     "express": "~3.4.3",
     "lodash": "~2.4.1",
-    "ejs": "~0.8.4"
+    "ejs": "~0.8.4",
+    "passport": "~0.1.18",
+    "passport-local": "~0.1.6"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -47,7 +49,10 @@
     "karma-coffee-preprocessor": "~0.1.2",
     "karma-phantomjs-launcher": "~0.1.1",
     "karma": "~0.10.9",
-    "karma-ng-html2js-preprocessor": "~0.1.0"
+    "karma-ng-html2js-preprocessor": "~0.1.0",
+    "protractor": "~0.17.0",
+    "astrolabe": "~0.3.0-alpha",
+    "grunt-shell": "~0.6.4"
   },
   "engines": {
     "node": ">=0.8.0"

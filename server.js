@@ -1,7 +1,8 @@
 'use strict';
 
-var express = require('express');
-
+var express = require('express'),
+    securityApi = require('./lib/security/api'),
+    passport = require('passport');
 /**
  * Main application file
  */
@@ -13,12 +14,18 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var config = require('./lib/config/config');
 
 var app = express();
+app.use(passport.initialize());                             // Initialize PassportJS
+app.use(passport.session());
+
+securityApi.initialize();
 
 // Express settings
 require('./lib/config/express')(app);
 
 // Routing
-require('./lib/routes')(app);
+require('./lib/routes/general').addRoutes(app);
+require('./lib/routes/security').addRoutes(app, securityApi);
+
 
 // Start server
 app.listen(config.port, function () {
