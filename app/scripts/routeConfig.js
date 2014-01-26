@@ -1,30 +1,27 @@
 'use strict';
 
-angular.module('app')
+angular.module('roflclientJsApp')
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
       $urlRouterProvider.otherwise('/');
       $stateProvider
           .state('home', {
+            abstract: true,
             url: '/',
-            abstract: true
+            templateUrl: 'templates/home/index'
           })
-          .state('home.loggedIn', {
-            templateUrl: 'templates/main',
-            controller: 'MainCtrl',
-            url: '/index'
+          .state('home.landingPage', {
+            url: '',
+            resolve: {
+              currentUser: ['securityAuthorization', function (securityAuthorization) {
+                securityAuthorization.requireAuthenticatedUser();
+              }]
+            },
+            templateUrl: 'templates/home/landingPage',
+            controller: 'HomeController'
           })
-          .state('home.loggedOut', {
-            template: 'Please login',
-            url: '/login'
+          .state('home.loginRequired', {
+            url: 'login',
+            templateUrl: 'templates/security/loginForm',
+            controller: 'LoginFormController'
           });
-//      $routeProvider
-//          .when('/', {
-//            templateUrl: 'partials/main',
-//            controller: 'MainCtrl'
-//          })
-//          .otherwise({
-//            redirectTo: '/'
-//          });
-//
-//      $locationProvider.html5Mode(true);
     }]);
