@@ -10,6 +10,12 @@ module.exports = function (grunt) {
 
   // Define the configuration for all the tasks
   grunt.initConfig({
+    // Project settings
+    yeoman: {
+      // configurable paths
+      app: require('./bower.json').appPath || 'app',
+      dist: 'dist'
+    },
     shell: {
       protractor: {
         options: {
@@ -28,12 +34,19 @@ module.exports = function (grunt) {
         }
       }
     },
-
-    // Project settings
-    yeoman: {
-      // configurable paths
-      app: require('./bower.json').appPath || 'app',
-      dist: 'dist'
+    fileblocks: {
+      app: {
+        src: 'app/views/index.html',
+        options: {
+          removeFiles: true
+        },
+        blocks: {
+          'app': {
+            src: 'scripts/**/*.js',
+            cwd: 'app'
+          }
+        }
+      }
     },
     express: {
       options: {
@@ -59,8 +72,8 @@ module.exports = function (grunt) {
     },
     watch: {
       js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
+        files: ['<%= yeoman.app %>/scripts/**/*.js'],
+        tasks: ['fileblocks:app'],
         options: {
           livereload: true
         }
@@ -177,7 +190,7 @@ module.exports = function (grunt) {
     // Automatically inject Bower components into the app
     'bower-install': {
       app: {
-        html: '<%= yeoman.app %>/views/index.html',
+        src: '<%= yeoman.app %>/views/index.html',
         ignorePath: '<%= yeoman.app %>/'
       }
     },
@@ -366,7 +379,8 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'compass:server'
+        'compass:server',
+        'fileblocks'
       ],
       test: [
         'compass'
@@ -434,11 +448,6 @@ module.exports = function (grunt) {
     ]);
   });
 
-  grunt.registerTask('server', function () {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['serve']);
-  });
-
   grunt.registerTask('test', [
     'clean:server',
     'concurrent:test',
@@ -463,10 +472,6 @@ module.exports = function (grunt) {
     'usemin'
   ]);
 
-  grunt.registerTask('heroku', function () {
-    grunt.log.warn('The `heroku` task has been deprecated. Use `grunt build` to build for deployment.');
-    grunt.task.run(['build']);
-  });
 
   grunt.registerTask('default', [
     'newer:jshint',

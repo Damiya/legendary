@@ -8,28 +8,6 @@ angular.module('app', [
       'services.httpRequestTracker',
       'ui.router'
     ])
-    .config(function ($stateProvider, $urlRouterProvider) {
-      $urlRouterProvider.otherwise('/');
-      $stateProvider
-          .state('index', {
-            url: '/',
-            templateUrl: 'templates/main',
-            controller: 'MainCtrl'
-          })
-          .state('index.login', {
-            url: '/login'
-          });
-//      $routeProvider
-//          .when('/', {
-//            templateUrl: 'partials/main',
-//            controller: 'MainCtrl'
-//          })
-//          .otherwise({
-//            redirectTo: '/'
-//          });
-//
-//      $locationProvider.html5Mode(true);
-    })
     .run(['security', function (security) {
       security.requestCurrentUser();
     }])

@@ -9,10 +9,6 @@ angular.module('security.authorization', ['security.service'])
 // before allowing a route change to complete
     .provider('securityAuthorization', {
 
-      requireAdminUser: ['securityAuthorization', function (securityAuthorization) {
-        return securityAuthorization.requireAdminUser();
-      }],
-
       requireAuthenticatedUser: ['securityAuthorization', function (securityAuthorization) {
         return securityAuthorization.requireAuthenticatedUser();
       }],
@@ -28,18 +24,7 @@ angular.module('security.authorization', ['security.service'])
                 return queue.pushRetryFn('unauthenticated-client', service.requireAuthenticatedUser);
               }
             });
-          },
-
-          // Require that there is an administrator logged in
-          // (use this in a route resolve to prevent non-administrators from entering that route)
-          requireAdminUser: function () {
-            return security.requestCurrentUser().then(function (userInfo) {
-              if (!security.isAdmin()) {
-                return queue.pushRetryFn('unauthorized-client', service.requireAdminUser);
-              }
-            });
           }
-
         };
 
         return service;

@@ -6,7 +6,13 @@ angular.module('app')
         $scope.location = $location;
 
         $scope.isAuthenticated = security.isAuthenticated;
-        $scope.isAdmin = security.isAdmin;
+        $scope.login = security.showLogin;
+        $scope.logout = security.logout;
+        $scope.$watch(function () {
+          return security.currentUser;
+        }, function (currentUser) {
+          $scope.currentUser = currentUser;
+        });
 
         $scope.home = function () {
           if (security.isAuthenticated()) {

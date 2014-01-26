@@ -19,12 +19,24 @@
                 </ul>
             </li>
         </ul>
-        <login-toolbar></login-toolbar>
 
         <ul class="nav navbar-nav navbar-right" ng-show="hasPendingRequests()">
             <li class="divider-vertical"></li>
             <li><a href="#"><img src="images/spinner.gif"></a></li>
         </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="divider"></li>
+            <li ng-show="isAuthenticated()">
+                <a href="#">{{currentUser.firstName}} {{currentUser.lastName}}</a>
+            </li>
+            <li ng-show="isAuthenticated()" class="logout">
+                <form class="navbar-form">
+                    <button class="btn logout" ng-click="logout()">Log out</button>
+                </form>
+            </li>
+        </ul>
+
+
     </div>
 
 </div>

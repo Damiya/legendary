@@ -4,7 +4,7 @@
 
 angular.module('security.service', [
       'security.retryQueue',    // Keeps track of failed requests that need to be retried once the user logs in
-      'security.login',         // Contains the login form template and controller
+      'security.login.form',         // Contains the login form template and controller
       'ui.bootstrap'     // Used to display the login form as a modal dialog.
     ])
 
@@ -22,7 +22,7 @@ angular.module('security.service', [
           throw new Error('Trying to open a dialog that is already open!');
         }
         loginDialog = $modal.open({
-          templateUrl: 'templates/security/login/form',
+          templateUrl: 'templates/security/loginForm',
           controller: 'LoginFormController'
         });
         loginDialog.result.then(onLoginDialogClose);

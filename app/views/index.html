@@ -14,7 +14,6 @@
         <!-- endbuild -->
         <!-- build:css({.tmp,app}) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
-        <link rel="stylesheet"
         <!-- endbuild -->
     </head>
     <body ng-app="app">
@@ -54,19 +53,20 @@
         <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <!-- fileblock:js app -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/navbar.js"></script>
-        <script src="scripts/security/index.js"></script>
         <script src="scripts/security/authorization.js"></script>
+        <script src="scripts/security/index.js"></script>
         <script src="scripts/security/interceptor.js"></script>
+        <script src="scripts/security/loginFormController.js"></script>
         <script src="scripts/security/retryQueue.js"></script>
         <script src="scripts/security/security.js"></script>
-        <script src="scripts/security/login/login.js"></script>
-        <script src="scripts/security/login/LoginFormController.js"></script>
-        <script src="scripts/security/login/toolbar.js"></script>
-        <script src="scripts/services/localizedMessages.js"></script>
         <script src="scripts/services/httpRequestTracker.js"></script>
+        <script src="scripts/services/localizedMessages.js"></script>
+        <script src="scripts/routeConfig.js"></script>
+        <!-- endfileblock -->
         <!-- endbuild -->
     </body>
 </html>
