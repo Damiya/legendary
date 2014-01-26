@@ -4,7 +4,7 @@
 
 angular.module('security.service', [
       'security.retryQueue',    // Keeps track of failed requests that need to be retried once the user logs in
-      'security.login.form',         // Contains the login form template and controller
+      'security.login.form'         // Contains the login form template and controller
     ])
 
     .factory('security', ['$http', '$q', '$state', 'securityRetryQueue', function ($http, $q, $state, queue) {
@@ -14,7 +14,7 @@ angular.module('security.service', [
       }
 
       // Register a handler for when an item is added to the retry queue
-      queue.onItemAddedCallbacks.push(function (retryItem) {
+      queue.onItemAddedCallbacks.push(function () {
         if (queue.hasMore()) {
           redirect();
         }
