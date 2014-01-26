@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('roflclientJsApp')
+angular.module('legendary.js')
     .directive('navbar', function () {
       return {
         templateUrl: 'templates/navbar',

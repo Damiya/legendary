@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('roflclientJsApp')
+angular.module('legendary.js')
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
       $urlRouterProvider.otherwise('/');
       $stateProvider
