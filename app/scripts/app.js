@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('roflclientJsApp', [
+angular.module('legendary.js', [
       'ngCookies',
       'ngResource',
       'ngSanitize',
