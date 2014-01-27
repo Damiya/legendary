@@ -17,7 +17,8 @@ angular.module('legendary.js', [
           });
     }])
     .constant('I18N.MESSAGES', {
-      'login.reason.notAuthenticated': 'You must log in first.',
+      'login.reason.notAuthenticated': 'Your token has expired. You must log back in.',
       'login.error.invalidCredentials': 'Login failed.  Please check your credentials and try again.',
-      'login.error.serverError': 'There was a problem with authenticating: {{exception}}.'
+      'login.error.serverError': 'There was a problem with authenticating: {{exception}}.',
+      'logout.successful': 'You have successfully logged out.'
     });

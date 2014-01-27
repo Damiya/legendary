@@ -6,8 +6,8 @@ angular.module('security.service', [
       'ngCookies'
     ])
 
-    .factory('security', ['$http', '$q', '$state', 'securityRetryQueue', '$cookieStore', '$cookies', '$timeout',
-      function ($http, $q, $state, queue, $cookieStore, $cookies, $timeout) {
+    .factory('security', ['$http', '$q', '$state', 'securityRetryQueue', '$cookieStore', '$rootScope',
+      function ($http, $q, $state, queue, $cookieStore, $rootScope) {
         function redirect(url) {
           url = url || 'home.loginRequired';
           $state.go(url);
@@ -35,6 +35,7 @@ angular.module('security.service', [
               $cookieStore.put('djangotoken', response.data.token);
               service.setLoginToken();
               redirect('home.landingPage');
+              $rootScope.$emit('loggedIn');
             });
           },
 
@@ -57,9 +58,14 @@ angular.module('security.service', [
 
           // Logout the current user and redirect
           logout: function () {
-            $http.delete('http://localhost:8000/api-tokens/' + $cookieStore.get('djangotoken') + '/')
-            service.clearLocalToken();
-            redirect();
+            queue.cancelAll();
+
+            var request = $http.delete('http://localhost:8000/api-tokens/' + $cookieStore.get('djangotoken') + '/');
+            request.then(function (){
+              $rootScope.$emit('loggedOut');
+              service.clearLocalToken();
+              redirect();
+            });
           },
 
           // Ask the backend to see if a user is already authenticated - this may be from a previous session.

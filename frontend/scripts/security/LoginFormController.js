@@ -5,16 +5,17 @@
 angular.module('security.login.form', ['services.localizedMessages'])
 // The LoginFormController provides the behaviour behind a reusable form to allow users to authenticate.
 // This controller and its template (login/form.html) are used in a modal dialog box by the security service.
-    .controller('LoginFormController', ['$scope', 'security', 'localizedMessages', function ($scope, security, localizedMessages) {
+    .controller('LoginFormController', ['$scope', 'security', 'localizedMessages', '$rootScope', function ($scope, security, localizedMessages, $rootScope) {
       // The model for this form
       $scope.user = {
         username: null,
         password: null
       };
 
-      $scope.alerts = [];
+      $scope.alerts = $scope.alerts || [];
 
       if (security.getLoginReason()) {
+        security.clearLocalToken();
         $scope.alerts.push({
           msg: localizedMessages.get('login.reason.notAuthenticated'),
           type: 'warning'
@@ -32,7 +33,7 @@ angular.module('security.login.form', ['services.localizedMessages'])
 
         // Try to login
         security.login($scope.user.username, $scope.user.password).then(function (loggedIn) {
-          // We actually noop success
+          $scope.alerts = [];
         }, function (response) {
           // If we get here then there was a problem with the login request to the server
           $scope.alerts.push({
@@ -40,8 +41,6 @@ angular.module('security.login.form', ['services.localizedMessages'])
             type: 'danger'
           });
         });
-
-
       };
 
       $scope.clearForm = function () {
