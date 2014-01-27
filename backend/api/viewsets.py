@@ -3,7 +3,6 @@ import datetime
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from django.utils.timezone import utc
-from rest_framework.views import APIView
 from rest_framework import status, parsers, renderers
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.serializers import AuthTokenSerializer

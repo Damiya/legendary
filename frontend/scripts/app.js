@@ -6,6 +6,7 @@ angular.module('legendary', [
       'ngSanitize',
       'security',
       'services.httpRequestTracker',
+      'services.loginTokenProvider',
       'legendary.constants',
       'ui.router',
       'ui.bootstrap'
@@ -13,10 +14,4 @@ angular.module('legendary', [
     .run(['$cookieStore', function ($cookieStore) {
       $cookieStore.remove('django-authtoken');
       $cookieStore.remove('django-csrftoken');
-    }])
-    .constant('I18N.MESSAGES', {
-      'login.reason.notAuthenticated': 'Your token has expired. You must log back in.',
-      'login.error.invalidCredentials': 'Login failed.  Please check your credentials and try again.',
-      'login.error.serverError': 'There was a problem with authenticating: {{exception}}.',
-      'logout.successful': 'You have successfully logged out.'
-    });
+    }]);

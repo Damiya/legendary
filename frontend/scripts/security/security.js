@@ -4,13 +4,15 @@ angular.module('security.service', [
       'security.retryQueue',    // Keeps track of failed requests that need to be retried once the user logs in
       'security.login.form',         // Contains the login form template and controller,
       'ngCookies',
-      'legendary.constants'
+      'legendary.constants',
+      'services.localizedMessages'
     ])
 
-    .factory('security', ['$http', '$q', '$state', 'securityRetryQueue', '$cookieStore', '$rootScope', 'apiEndpoint',
-      function ($http, $q, $state, queue, $cookieStore, $rootScope, apiEndpoint) {
+    .factory('security', ['$http', '$q', '$state', 'securityRetryQueue', '$cookieStore', 'apiEndpoint', 'localizedMessages', '$rootScope',
+      function ($http, $q, $state, queue, $cookieStore, apiEndpoint, localizedMessages, $rootScope) {
         var authToken,
-            csrfToken;
+            csrfToken,
+            alerts = [];
 
         function redirect(url) {
           url = url || 'home.loginRequired';
@@ -31,24 +33,45 @@ angular.module('security.service', [
           return authToken && csrfToken;
         }
 
+        function addAlert(msg, type) {
+          clearAlerts();
+          alerts.push({
+            msg: msg,
+            type: type
+          });
+        }
+
+        function clearAlerts() {
+          alerts.length = 0;
+        }
+
         // The public API of the service
         var service = {
+          alerts: alerts,
 
           // Get the first reason for needing a login
-          getLoginReason: function () {
-            return queue.retryReason();
+          updateAlerts: function () {
+            if (queue.retryReason()) {
+              addAlert(localizedMessages.get('login.reason.notAuthenticated'), 'warning');
+            }
           },
 
           // Attempt to authenticate a user by the given email and password
           login: function (username, password) {
             var request = $http.post(apiEndpoint + 'api-tokens/', {username: username, password: password});
-            return request.success(function (data, status, headers) {
-              $cookieStore.put('django-authtoken', data.token);
-              $cookieStore.put('django-csrftoken', headers('x-csrftoken'));
-              service.currentUserId = data.user_id;
+            // This is gross but we're going to put user and pass in our namespace temporarily so we can reuse them into the login queue
+            $rootScope.username = username;
+            $rootScope.password = password;
+            return request.then(function success(response) {
+              clearAlerts();
+              $cookieStore.put('django-authtoken', response.data.token);
+              $cookieStore.put('django-csrftoken', response.headers('x-csrftoken'));
+              service.currentUserId = response.data.user_id;
               service.setLoginToken();
-              redirect('home.landingPage');
-              $rootScope.$emit('loggedIn');
+              redirect('home.noLeague');
+            }, function error(response) {
+              addAlert(localizedMessages.get('login.error.invalidCredentials'), 'danger');
+              redirect();
             });
           },
 
@@ -68,16 +91,15 @@ angular.module('security.service', [
 
           // Give up trying to login and clear the retry queue
           cancelLogin: function () {
+            clearAlerts();
             redirect();
           },
 
           // Logout the current user and redirect
           logout: function () {
-            queue.cancelAll();
-
             var request = $http.delete(apiEndpoint + 'api-tokens/' + authToken + '/');
-            request.then(function () {
-              $rootScope.$emit('loggedOut');
+            request.success(function () {
+              addAlert(localizedMessages.get('logout.successful'), 'success');
               service.clearLocalToken();
               redirect();
             });
@@ -91,6 +113,8 @@ angular.module('security.service', [
               return $http.get(apiEndpoint + 'users/current/').then(function (response) {
                 service.currentUser = response.data;
                 return service.currentUser;
+              }, function (response) {
+               console.log(response);
               });
             }
           },

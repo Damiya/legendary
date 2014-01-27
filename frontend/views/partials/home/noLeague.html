@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="col-lg-5 col-lg-offset-3">
+    <alert ng-repeat="alert in alerts" type="alert.type">{{ alert.msg }}</alert>
+    <div ng-hide="alerts.length">
+      <h3>Bro you should log into league</h3>
+      <button class="btn" ng-click="doAuth()">Click me</button>
+    </div>
+  </div>
+<div>

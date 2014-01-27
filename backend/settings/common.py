@@ -212,8 +212,6 @@ REST_FRAMEWORK = {
     )
 }
 
-#CSRF_COOKIE_NAME =
-
 CORS_EXPOSE_HEADERS = (
     'x-csrftoken',
 )

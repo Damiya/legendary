@@ -13,17 +13,26 @@ angular.module('security.authorization', ['security.service'])
         return securityAuthorization.requireAuthenticatedUser();
       }],
 
-      $get: ['security', 'securityRetryQueue', function (security, queue) {
+      $get: ['security', 'securityRetryQueue', '$q', function (security, queue, $q) {
         var service = {
-
+          promise: null,
           // Require that there is an authenticated user
           // (use this in a route resolve to prevent non-authenticated users from entering that route)
           requireAuthenticatedUser: function () {
-            return security.requestCurrentUser().then(function () {
+            var deferred = $q.defer();
+            security.requestCurrentUser().then(function () {
               if (!security.isAuthenticated()) {
-                return queue.pushRetryFn('unauthenticated-client', service.requireAuthenticatedUser);
+                queue.pushRetryFn('unauthenticated-client', service.requireAuthenticatedUser).then(function () {
+                  deferred.resolve();
+                }, function () {
+                  deferred.reject();
+                });
+              } else {
+                deferred.resolve();
               }
             });
+
+            service.promise = deferred.promise
           }
         };
 
