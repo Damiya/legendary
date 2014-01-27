@@ -2,7 +2,6 @@ import datetime
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from django.views.decorators.csrf import ensure_csrf_cookie
 from django.utils.timezone import utc
 from rest_framework.views import APIView
 from rest_framework import status, parsers, renderers
@@ -12,6 +11,7 @@ from django.utils.decorators import method_decorator
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
+from .csrf.decorators import ensure_csrf_cookie, csrf_exempt
 from .permissions import IsAdminOrSelf
 from .serializers import UserSerializer, GroupSerializer
 
@@ -35,7 +35,6 @@ class UserViewSet(viewsets.ModelViewSet):
             return Response(serializer.data)
 
 
-
 class GroupViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
     """
@@ -53,6 +52,8 @@ class AuthToken(viewsets.ViewSet):
     serializer_class = AuthTokenSerializer
     model = Token
 
+    @method_decorator(ensure_csrf_cookie)
+    @method_decorator(csrf_exempt)
     def create(self, request):
         serializer = self.serializer_class(data=request.DATA)
         if serializer.is_valid():
@@ -76,13 +77,3 @@ class AuthToken(viewsets.ViewSet):
             return Response(status=status.HTTP_403_FORBIDDEN)
         else:
             return Response(status=status.HTTP_404_NOT_FOUND)
-
-
-class GetCSRFToken(APIView):
-    @method_decorator(ensure_csrf_cookie)
-    def get(self, request):
-        token = {'token': request.META['CSRF_COOKIE']}
-        return Response(data=token, status=200)
-
-
-get_csrf_token = GetCSRFToken.as_view()

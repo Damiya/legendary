@@ -155,11 +155,12 @@ MIDDLEWARE_CLASSES = (
     # Default Django middleware.
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
 
     'corsheaders.middleware.CorsMiddleware',
+
+    'backend.api.csrf.middleware.CsrfViewMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
 
@@ -210,6 +211,12 @@ REST_FRAMEWORK = {
 }
 
 CSRF_COOKIE_DOMAIN = 'localhost'
+
+CSRF_COOKIE_NAME = 'x-csrftoken'
+
+CORS_EXPOSE_HEADERS = (
+    'x-csrftoken',
+)
 
 ########## LOGGING CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#logging

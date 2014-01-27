@@ -73,7 +73,6 @@ module.exports = function (grunt) {
     watch: {
       js: {
         files: ['<%= yeoman.app %>/scripts/**/*.js'],
-        tasks: ['fileblocks:app'],
         options: {
           livereload: true
         }
@@ -127,7 +126,7 @@ module.exports = function (grunt) {
         src: [ 'lib/{,*/}*.js']
       },
       all: [
-        '<%= yeoman.app %>/scripts/{,*/}*.js'
+        '<%= yeoman.app %>/scripts/**/*.js'
       ],
       test: {
         options: {

@@ -6,8 +6,11 @@ angular.module('security.service', [
       'ngCookies'
     ])
 
-    .factory('security', ['$http', '$q', '$state', 'securityRetryQueue', '$cookieStore', '$rootScope',
-      function ($http, $q, $state, queue, $cookieStore, $rootScope) {
+    .factory('security', ['$http', '$q', '$state', 'securityRetryQueue', '$cookieStore', '$rootScope', '$cookies', '$timeout',
+      function ($http, $q, $state, queue, $cookieStore, $rootScope, $cookies, $timeout) {
+        var authToken,
+            csrfToken;
+
         function redirect(url) {
           url = url || 'home.loginRequired';
           $state.go(url);
@@ -20,6 +23,14 @@ angular.module('security.service', [
           }
         });
 
+        function bothTokensPresent() {
+          authToken = $cookieStore.get('django-authtoken');
+
+          csrfToken = $cookieStore.get('django-csrftoken');
+
+          return authToken && csrfToken;
+        }
+
         // The public API of the service
         var service = {
 
@@ -31,9 +42,10 @@ angular.module('security.service', [
           // Attempt to authenticate a user by the given email and password
           login: function (username, password) {
             var request = $http.post('http://localhost:8000/api-tokens/', {username: username, password: password});
-            return request.then(function (response) {
-              $cookieStore.put('djangotoken', response.data.token);
-              service.currentUserId = response.data.user_id;
+            return request.success(function (data, status, headers) {
+              $cookieStore.put('django-authtoken', data.token);
+              $cookieStore.put('django-csrftoken', headers('x-csrftoken'));
+              service.currentUserId = data.user_id;
               service.setLoginToken();
               redirect('home.landingPage');
               $rootScope.$emit('loggedIn');
@@ -41,15 +53,17 @@ angular.module('security.service', [
           },
 
           setLoginToken: function () {
-            var token = $cookieStore.get('djangotoken');
-            if (token) {
-              $http.defaults.headers.common['Authorization'] = 'Token ' + $cookieStore.get('djangotoken');
+            if (bothTokensPresent()) {
+              $http.defaults.headers.common['Authorization'] = 'Token ' + authToken;
+              $http.defaults.headers.common['X-CSRFToken'] = csrfToken;
             }
           },
 
           clearLocalToken: function () {
-            $cookieStore.remove('djangotoken');
+            $cookieStore.remove('django-authtoken');
+            $cookieStore.remove('django-csrftoken');
             $http.defaults.headers.common['Authorization'] = null;
+            $http.defaults.headers.common['X-CSRFToken'] = null;
           },
 
           // Give up trying to login and clear the retry queue
@@ -61,7 +75,7 @@ angular.module('security.service', [
           logout: function () {
             queue.cancelAll();
 
-            var request = $http.delete('http://localhost:8000/api-tokens/' + $cookieStore.get('djangotoken') + '/');
+            var request = $http.delete('http://localhost:8000/api-tokens/' + authToken + '/');
             request.then(function () {
               $rootScope.$emit('loggedOut');
               service.clearLocalToken();
@@ -88,7 +102,7 @@ angular.module('security.service', [
 
           // Is the current user authenticated?
           isAuthenticated: function () {
-            return $cookieStore.get('djangotoken');
+            return bothTokensPresent();
           }
         };
 
