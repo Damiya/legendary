@@ -2,7 +2,7 @@ node_modules
 public
 .tmp
 .sass-cache
-app/bower_components
+frontend/bower_components
 heroku
 /views
 dist
