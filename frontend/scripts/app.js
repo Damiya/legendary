@@ -9,12 +9,9 @@ angular.module('legendary.js', [
       'ui.router',
       'ui.bootstrap'
     ])
-    .run(['security', '$http', '$cookieStore', function (security, $http, $cookieStore) {
-      $cookieStore.remove('djangotoken');
-      $http.get('http://localhost:8000/get-csrf-token/')
-          .success(function (data, status, headers, config) {
-            $http.defaults.headers.common['x-csrftoken'] = data.token;
-          });
+    .run(['$cookieStore', function ($cookieStore) {
+      $cookieStore.remove('django-authtoken');
+      $cookieStore.remove('django-csrftoken');
     }])
     .constant('I18N.MESSAGES', {
       'login.reason.notAuthenticated': 'Your token has expired. You must log back in.',
