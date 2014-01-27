@@ -1,4 +1,6 @@
 roflclient-js
 =============
 
-League of Legends mock frontend in Angular
+This is a portfolio piece and a learning project.
+
+Goal: Produce a working, HTML5 Frontend for League of Legends.
