@@ -1,3 +1,5 @@
+#This is literally a copypasta of the Django decorators, except they point to my modified middleware.
+
 from .middleware import CsrfViewMiddleware, get_token
 from django.utils.decorators import decorator_from_middleware, available_attrs
 from functools import wraps
