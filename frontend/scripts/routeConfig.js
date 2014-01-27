@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('legendary.js')
+angular.module('legendary')
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
       $urlRouterProvider.otherwise('/login');
       $stateProvider

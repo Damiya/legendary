@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('legendary.js')
+angular.module('legendary')
     .directive('navbar', function () {
       return {
         templateUrl: 'partials/navBar',

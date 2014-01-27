@@ -3,11 +3,12 @@
 angular.module('security.service', [
       'security.retryQueue',    // Keeps track of failed requests that need to be retried once the user logs in
       'security.login.form',         // Contains the login form template and controller,
-      'ngCookies'
+      'ngCookies',
+      'legendary.constants'
     ])
 
-    .factory('security', ['$http', '$q', '$state', 'securityRetryQueue', '$cookieStore', '$rootScope', '$cookies', '$timeout',
-      function ($http, $q, $state, queue, $cookieStore, $rootScope, $cookies, $timeout) {
+    .factory('security', ['$http', '$q', '$state', 'securityRetryQueue', '$cookieStore', '$rootScope', 'apiEndpoint',
+      function ($http, $q, $state, queue, $cookieStore, $rootScope, apiEndpoint) {
         var authToken,
             csrfToken;
 
@@ -25,7 +26,6 @@ angular.module('security.service', [
 
         function bothTokensPresent() {
           authToken = $cookieStore.get('django-authtoken');
-
           csrfToken = $cookieStore.get('django-csrftoken');
 
           return authToken && csrfToken;
@@ -41,7 +41,7 @@ angular.module('security.service', [
 
           // Attempt to authenticate a user by the given email and password
           login: function (username, password) {
-            var request = $http.post('http://localhost:8000/api-tokens/', {username: username, password: password});
+            var request = $http.post(apiEndpoint + 'api-tokens/', {username: username, password: password});
             return request.success(function (data, status, headers) {
               $cookieStore.put('django-authtoken', data.token);
               $cookieStore.put('django-csrftoken', headers('x-csrftoken'));
@@ -75,7 +75,7 @@ angular.module('security.service', [
           logout: function () {
             queue.cancelAll();
 
-            var request = $http.delete('http://localhost:8000/api-tokens/' + authToken + '/');
+            var request = $http.delete(apiEndpoint + 'api-tokens/' + authToken + '/');
             request.then(function () {
               $rootScope.$emit('loggedOut');
               service.clearLocalToken();
@@ -88,11 +88,10 @@ angular.module('security.service', [
             if (service.isAuthenticated()) {
               return $q.when(service.currentUser);
             } else {
-              return $http.get('http://localhost:8000/users/current/')
-                  .then(function (response) {
-                    service.currentUser = response.data;
-                    return service.currentUser;
-                  });
+              return $http.get(apiEndpoint + 'users/current/').then(function (response) {
+                service.currentUser = response.data;
+                return service.currentUser;
+              });
             }
           },
 
