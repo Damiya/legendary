@@ -3,6 +3,9 @@ Cross Site Request Forgery Middleware.
 
 This module provides a middleware that implements protection
 against request forgeries from other sites.
+
+This is identical to the Django CSRF Middleware with one exception: it sticks the CSRF Token in a header instead of a cookie.
+This is necessary due to restrictions where browsers won't set cookies via Ajax due to CORS
 """
 from __future__ import unicode_literals
 
