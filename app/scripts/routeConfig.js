@@ -7,7 +7,7 @@ angular.module('legendary.js')
           .state('home', {
             abstract: true,
             url: '/',
-            templateUrl: 'templates/home/index'
+            templateUrl: 'partials/home/index'
           })
           .state('home.landingPage', {
             url: '',
@@ -16,12 +16,12 @@ angular.module('legendary.js')
                 securityAuthorization.requireAuthenticatedUser();
               }]
             },
-            templateUrl: 'templates/home/landingPage',
+            templateUrl: 'partials/home/landingPage',
             controller: 'HomeController'
           })
           .state('home.loginRequired', {
             url: 'login',
-            templateUrl: 'templates/security/loginForm',
+            templateUrl: 'partials/security/loginForm',
             controller: 'LoginFormController'
           });
     }]);

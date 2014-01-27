@@ -3,7 +3,7 @@
 angular.module('legendary.js')
     .directive('navbar', function () {
       return {
-        templateUrl: 'templates/navbar',
+        templateUrl: 'partials/navBar',
         restrict: 'E',
         controller: ['$scope', '$location', 'security', 'httpRequestTracker',
           function ($scope, $location, security, httpRequestTracker) {
