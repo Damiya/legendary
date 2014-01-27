@@ -8,5 +8,5 @@ heroku
 dist
 .idea/*
 *.iml
-legendary/secret_settings.py
 *.db
+*.pyc
