@@ -33,6 +33,7 @@ angular.module('security.service', [
             var request = $http.post('http://localhost:8000/api-tokens/', {username: username, password: password});
             return request.then(function (response) {
               $cookieStore.put('djangotoken', response.data.token);
+              service.currentUserId = response.data.user_id;
               service.setLoginToken();
               redirect('home.landingPage');
               $rootScope.$emit('loggedIn');
@@ -61,7 +62,7 @@ angular.module('security.service', [
             queue.cancelAll();
 
             var request = $http.delete('http://localhost:8000/api-tokens/' + $cookieStore.get('djangotoken') + '/');
-            request.then(function (){
+            request.then(function () {
               $rootScope.$emit('loggedOut');
               service.clearLocalToken();
               redirect();
@@ -73,14 +74,16 @@ angular.module('security.service', [
             if (service.isAuthenticated()) {
               return $q.when(service.currentUser);
             } else {
-              return $http.get('/current-user').then(function (response) {
-                service.currentUser = response.data.user;
-                return service.currentUser;
-              });
+              return $http.get('http://localhost:8000/users/current/')
+                  .then(function (response) {
+                    service.currentUser = response.data;
+                    return service.currentUser;
+                  });
             }
           },
 
           // Information about the current user
+          currentUserId: 0,
           currentUser: null,
 
           // Is the current user authenticated?

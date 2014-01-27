@@ -12,20 +12,32 @@ from django.utils.decorators import method_decorator
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
-from backend.api.serializers import UserSerializer, GroupSerializer
+from .permissions import IsAdminOrSelf
+from .serializers import UserSerializer, GroupSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
-    queryset = User.objects.all()
+    permission_classes = (IsAdminOrSelf,)
     serializer_class = UserSerializer
+    model = User
+
+    def retrieve(self, request, *args, **kwargs):
+        if kwargs['pk'] == 'current' and request.user:
+            user_object = User.objects.get(id=request.user.id)
+        elif isinstance(kwargs['pk'], (int, long)):
+            user_object = User.objects.get(id=kwargs['pk'])
+
+        if user_object:
+            serializer = self.get_serializer(user_object)
+            return Response(serializer.data)
+
 
 
 class GroupViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
-
     """
     API endpoint that allows groups to be viewed or edited.
     """
@@ -44,14 +56,15 @@ class AuthToken(viewsets.ViewSet):
     def create(self, request):
         serializer = self.serializer_class(data=request.DATA)
         if serializer.is_valid():
-            token, created = Token.objects.get_or_create(user=serializer.object['user'])
+            serialized_user = serializer.object['user']
+            token, created = Token.objects.get_or_create(user=serialized_user)
 
             if not created:
                 # update the created time of the token to keep it valid
                 token.created = datetime.datetime.utcnow().replace(tzinfo=utc)
                 token.save()
 
-            return Response({'token': token.key})
+            return Response({'token': token.key, 'user_id': serialized_user.id})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, pk=None):

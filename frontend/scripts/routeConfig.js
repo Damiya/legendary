@@ -2,7 +2,7 @@
 
 angular.module('legendary.js')
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-      $urlRouterProvider.otherwise('/');
+      $urlRouterProvider.otherwise('/login');
       $stateProvider
           .state('home', {
             abstract: true,
