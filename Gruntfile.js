@@ -36,14 +36,14 @@ module.exports = function (grunt) {
     },
     fileblocks: {
       app: {
-        src: 'app/views/index.html',
+        src: '<%= yeoman.app %>/views/index.html',
         options: {
           removeFiles: true
         },
         blocks: {
           'app': {
             src: 'scripts/**/*.js',
-            cwd: 'app'
+            cwd: '<%= yeoman.app %>'
           }
         }
       }
@@ -120,13 +120,10 @@ module.exports = function (grunt) {
     // Make sure code styles are up to par and there are no obvious mistakes
     jshint: {
       options: {
-        jshintrc: 'app/.jshintrc',
+        jshintrc: '<%= yeoman.app %>/.jshintrc',
         reporter: require('jshint-stylish')
       },
       server: {
-        options: {
-          jshintrc: 'lib/.jshintrc'
-        },
         src: [ 'lib/{,*/}*.js']
       },
       all: [

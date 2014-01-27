@@ -1,0 +1,21 @@
+<div class="navbar navbar-default">
+  <div class="navbar-header">
+    <a class="navbar-brand" ui-sref="home.landingPage">Legendary.JS</a>
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-left" ng-show="isAuthenticated()">
+    </ul>
+    <ul class="nav navbar-nav navbar-right" ng-show="hasPendingRequests()">
+      <li class="divider-vertical"></li>
+      <li><a href="#"><img src="images/spinner.gif"></a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="divider"></li>
+      <li ng-show="isAuthenticated()" class="logout">
+        <form class="navbar-form">
+          <button class="btn logout" ng-click="logout()">Log out</button>
+        </form>
+      </li>
+    </ul>
+  </div>
+</div>

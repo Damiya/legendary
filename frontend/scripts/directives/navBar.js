@@ -3,15 +3,16 @@
 angular.module('legendary.js')
     .directive('navbar', function () {
       return {
-        templateUrl: 'templates/navbar',
+        templateUrl: 'partials/navBar',
         restrict: 'E',
-        controller: ['$scope', '$location', 'security', 'httpRequestTracker',
-          function ($scope, $location, security, httpRequestTracker) {
+        controller: ['$scope', '$location', 'security', 'httpRequestTracker', '$http',
+          function ($scope, $location, security, httpRequestTracker, $http) {
             $scope.location = $location;
 
             $scope.isAuthenticated = security.isAuthenticated;
             $scope.login = security.showLogin;
             $scope.logout = security.logout;
+
             $scope.$watch(function () {
               return security.currentUser;
             }, function (currentUser) {

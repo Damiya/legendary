@@ -5,22 +5,19 @@
 angular.module('security.login.form', ['services.localizedMessages'])
 // The LoginFormController provides the behaviour behind a reusable form to allow users to authenticate.
 // This controller and its template (login/form.html) are used in a modal dialog box by the security service.
-    .controller('LoginFormController', ['$scope', 'security', 'localizedMessages', function ($scope, security, localizedMessages) {
+    .controller('LoginFormController', ['$scope', 'security', 'localizedMessages', '$rootScope', function ($scope, security, localizedMessages, $rootScope) {
       // The model for this form
       $scope.user = {
-        email: null,
+        username: null,
         password: null
       };
 
-      $scope.alerts = [];
+      $scope.alerts = $scope.alerts || [];
 
       if (security.getLoginReason()) {
-        var alertMsg = security.isAuthenticated() ?
-            localizedMessages.get('login.reason.notAuthorized') :
-            localizedMessages.get('login.reason.notAuthenticated');
-
+        security.clearLocalToken();
         $scope.alerts.push({
-          msg: alertMsg,
+          msg: localizedMessages.get('login.reason.notAuthenticated'),
           type: 'warning'
         });
       }
@@ -35,27 +32,19 @@ angular.module('security.login.form', ['services.localizedMessages'])
         $scope.authError = null;
 
         // Try to login
-        security.login($scope.user.email, $scope.user.password).then(function (loggedIn) {
-          if (!loggedIn) {
-            // If we get here then the login failed due to bad credentials
-            $scope.alerts.push({
-              msg: localizedMessages.get('login.error.invalidCredentials'),
-              type: 'danger'
-            });
-          }
-        }, function (x) {
+        security.login($scope.user.username, $scope.user.password).then(function (loggedIn) {
+          $scope.alerts = [];
+        }, function (response) {
           // If we get here then there was a problem with the login request to the server
           $scope.alerts.push({
-            msg: localizedMessages.get('login.error.serverError', { exception: x }),
+            msg: response.data.non_field_errors[0],
             type: 'danger'
           });
         });
-
-
       };
 
       $scope.clearForm = function () {
-        $scope.user.email = null;
+        $scope.user.username = null;
         $scope.user.password = null;
       };
 
