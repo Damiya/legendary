@@ -64,27 +64,6 @@ angular.module('legendary')
                   $log.debug('Security: Invalid credentials');
                 }
             );
-          },
-
-          getCurrentUser: function () {
-            var deferred = $q.defer();
-
-            if (currentUser) {
-              deferred.resolve(currentUser);
-            } else {
-              $http.get(apiEndpoint + 'users/current/', {tracker: 'loadingTracker'}).then(
-                  function success(response) {
-                    $log.debug('Security: GetCurrentUser success');
-                    deferred.resolve(response.data);
-                  },
-                  function error(response) {
-                    $log.error(response);
-                    deferred.reject();
-                  }
-              );
-            }
-
-            return deferred.promise;
           }
 
         };

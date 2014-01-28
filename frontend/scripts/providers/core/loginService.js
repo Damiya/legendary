@@ -42,15 +42,15 @@ angular.module('legendary')
 
           login: function (username, password) {
             var deferred = $q.defer();
-            djangoAuthenticationFactory.conditionalLogin(username, password).then(
-                function success() {
+            djangoAuthenticationFactory.conditionalLogin(username, password)
+                .then(function success() {
                   djangoAuthenticated = true;
                   return loginQueueFactory.deferredLogin(username, password);
                 },
                 function failure(response) {
                   deferred.reject(response);
-                }).then(
-                function success() {
+                })
+                .then(function success() {
                   loginQueueAuthenticated = true;
                   deferred.resolve();
                   redirect('home.landingPage');
