@@ -1,8 +1,6 @@
-// Code from https://github.com/angular-app/angular-app
-
 'use strict';
 
-angular.module('services.localizedMessages', [])
+angular.module('legendary')
     .factory('localizedMessages', ['$interpolate', 'I18N.MESSAGES', function ($interpolate, i18nmessages) {
 
       var handleNotFound = function (msg, msgKey) {
@@ -19,4 +17,10 @@ angular.module('services.localizedMessages', [])
           }
         }
       };
-    }]);
+    }])
+    .value('I18N.MESSAGES', {
+      'login.reason.notAuthenticated': 'Your token has expired. You must log back in.',
+      'login.error.invalidCredentials': 'Login failed.  Please check your credentials and try again.',
+      'login.error.serverError': 'There was a problem with authenticating: {{exception}}.',
+      'logout.successful': 'You have successfully logged out.'
+    });

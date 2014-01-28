@@ -1,9 +1,12 @@
 <div class="container">
-  <div class="col-lg-5 col-lg-offset-3">
-    <alert ng-repeat="alert in alerts" type="alert.type">{{ alert.msg }}</alert>
-    <div ng-hide="alerts.length">
-      <h3>Bro you should log into league</h3>
-      <button class="btn" ng-click="doAuth()">Click me</button>
-    </div>
+  <div class="jumbotron">
+
+    <h1>Welcome to Legendary.JS</h1>
+
+    <p>You're not currently logged into League of Legends. Please log in now.</p>
+
+    <p>
+      <button type="button" class="btn btn-primary" ng-click="loginToLeague()">Log into League of Legends</button>
+    </p>
   </div>
-<div>
+</div>
