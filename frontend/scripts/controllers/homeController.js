@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('legendary.js')
-  .controller('HomeController', ['$scope','$http', '$state', function ($scope, $http, $state) {
-
-  }]);
+angular.module('legendary')
+    .controller('HomeController', ['$scope', '$http', '$rootScope',
+      function ($scope, $http, $rootScope) {
+        console.log('HomeController: Instantiated');
+      }]);

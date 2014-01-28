@@ -1,27 +1,17 @@
 'use strict';
 
-angular.module('legendary.js')
+angular.module('legendary')
     .directive('navbar', function () {
       return {
         templateUrl: 'partials/navBar',
         restrict: 'E',
-        controller: ['$scope', '$location', 'security', 'httpRequestTracker', '$http',
-          function ($scope, $location, security, httpRequestTracker, $http) {
-            $scope.location = $location;
+        controller: ['$scope',  'promiseTracker', 'loginService',
+          function ($scope, promiseTracker, loginService) {
+            $scope.isAuthenticated = loginService.isAuthenticated;
 
-            $scope.isAuthenticated = security.isAuthenticated;
-            $scope.login = security.showLogin;
-            $scope.logout = security.logout;
+            $scope.logout = loginService.logout;
 
-            $scope.$watch(function () {
-              return security.currentUser;
-            }, function (currentUser) {
-              $scope.currentUser = currentUser;
-            });
-
-            $scope.hasPendingRequests = function () {
-              return httpRequestTracker.hasPendingRequests();
-            };
+            $scope.loadingTracker = promiseTracker('loadingTracker');
           }]
       };
     });

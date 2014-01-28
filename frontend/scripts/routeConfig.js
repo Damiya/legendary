@@ -1,7 +1,14 @@
 'use strict';
 
-angular.module('legendary.js')
+angular.module('legendary')
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+      $urlRouterProvider.when('/', ['$state', 'loginService', function($state, loginService) {
+        if (!loginService.isAuthenticated()) {
+          $state.go('home.loginRequred');
+        } else {
+          $state.go('home.landingPage');
+        }
+      }]);
       $urlRouterProvider.otherwise('/login');
       $stateProvider
           .state('home', {
@@ -12,8 +19,8 @@ angular.module('legendary.js')
           .state('home.landingPage', {
             url: '',
             resolve: {
-              currentUser: ['securityAuthorization', function (securityAuthorization) {
-                securityAuthorization.requireAuthenticatedUser();
+              login: ['loginService', function (loginService) {
+                return loginService.requireAuthentication();
               }]
             },
             templateUrl: 'partials/home/landingPage',

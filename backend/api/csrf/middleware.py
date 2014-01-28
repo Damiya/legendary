@@ -193,7 +193,17 @@ class CsrfViewMiddleware(object):
         if not request.META.get("CSRF_COOKIE_USED", False):
             return response
 
-        response[settings.CSRF_COOKIE_NAME] = request.META["CSRF_COOKIE"]
+        response['x-csrftoken'] = request.META["CSRF_COOKIE"]
+        response.set_cookie(settings.CSRF_COOKIE_NAME,
+                            request.META["CSRF_COOKIE"],
+                            max_age=60 * 60 * 24 * 7 * 52,
+                            domain=settings.CSRF_COOKIE_DOMAIN,
+                            path=settings.CSRF_COOKIE_PATH,
+                            secure=settings.CSRF_COOKIE_SECURE,
+                            httponly=settings.CSRF_COOKIE_HTTPONLY
+        )
+        #Content varies with the CSRF cookie, so set the Vary header.
+        patch_vary_headers(response, ('Cookie',))
 
         response.csrf_processing_done = True
         return response

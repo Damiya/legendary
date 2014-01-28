@@ -159,8 +159,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 
     'corsheaders.middleware.CorsMiddleware',
-
-    'backend.api.csrf.middleware.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    #'backend.api.csrf.middleware.CsrfViewMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
 
@@ -207,12 +207,10 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'backend.api.authentication.ExpiringTokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     )
 }
-
-CSRF_COOKIE_DOMAIN = 'localhost'
-
-CSRF_COOKIE_NAME = 'x-csrftoken'
 
 CORS_EXPOSE_HEADERS = (
     'x-csrftoken',
