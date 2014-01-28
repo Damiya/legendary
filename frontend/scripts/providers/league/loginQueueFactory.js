@@ -6,17 +6,21 @@ angular.module('legendary')
         var deferred = $q.defer();
         var loginToken = cookieManager.get('lol-loginToken');
 
-        if (loginToken) {
-          $log.debug('loginQueueFactory: loginToken exists. Resolving');
-          deferred.resolve(loginToken);
-        }
-
         var service = {
+          getCookies: function () {
+            return cookieManager.get('lol-loginToken');
+          },
+
+          logout: function () {
+            cookieManager.remove('lol-loginToken');
+            loginToken = null;
+          },
+
           getLoginToken: function () {
             return deferred.promise;
           },
 
-          deferredAuthenticate: function (username, password) {
+          deferredLogin: function (username, password) {
             $http.post(apiEndpoint + 'login-queue/authenticate/', {user: username, password: password}, {tracker: 'loadingTracker'})
                 .then(function success(response) {
                   var data = response.data;
@@ -36,8 +40,8 @@ angular.module('legendary')
             return deferred.promise;
           },
 
-          authenticate: function (username, password) {
-            service.deferredAuthenticate(username, password);
+          login: function (username, password) {
+            service.deferredLogin(username, password);
           }
         };
 

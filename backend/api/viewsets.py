@@ -15,7 +15,7 @@ from .permissions import IsAdminOrSelf
 from .serializers import UserSerializer, GroupSerializer
 
 
-class UserViewSet(viewsets.ModelViewSet):
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
@@ -23,15 +23,6 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     model = User
 
-    def retrieve(self, request, *args, **kwargs):
-        if kwargs['pk'] == 'current' and request.user:
-            user_object = User.objects.get(id=request.user.id)
-        elif isinstance(kwargs['pk'], (int, long)):
-            user_object = User.objects.get(id=kwargs['pk'])
-
-        if user_object:
-            serializer = self.get_serializer(user_object)
-            return Response(serializer.data)
 
 
 class GroupViewSet(viewsets.ModelViewSet):
@@ -64,7 +55,7 @@ class AuthToken(viewsets.ViewSet):
                 token.created = datetime.datetime.utcnow().replace(tzinfo=utc)
                 token.save()
 
-            return Response({'token': token.key, 'user_id': serialized_user.id})
+            return Response({'token': token.key, 'user': UserSerializer(serialized_user).data})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, pk=None):

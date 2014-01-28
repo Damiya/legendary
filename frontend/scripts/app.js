@@ -4,7 +4,8 @@ angular.module('legendary', [
       'ngResource',
       'ngSanitize',
       'ui.router',
-      'ui.bootstrap'
+      'ui.bootstrap',
+      'ajoslin.promise-tracker'
     ]);
 //    .run(['cookieManager', function (cookieManager) {
 //      //cookieManager.remove('lol-loginToken');

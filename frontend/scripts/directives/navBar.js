@@ -5,21 +5,13 @@ angular.module('legendary')
       return {
         templateUrl: 'partials/navBar',
         restrict: 'E',
-        controller: ['$scope',  'promiseTracker',
-          function ($scope, promiseTracker) {
-//            $scope.location = $location;
-//
-//            $scope.isAuthenticated = security.isAuthenticated;
-//            $scope.login = security.showLogin;
-//            $scope.logout = security.logout;
-//
-//            $scope.$watch(function () {
-//              return security.currentUser;
-//            }, function (currentUser) {
-//              $scope.currentUser = currentUser;
-//            });
+        controller: ['$scope',  'promiseTracker', 'loginService',
+          function ($scope, promiseTracker, loginService) {
+            $scope.isAuthenticated = loginService.isAuthenticated;
 
-            $scope.loadingTracker = promiseTracker('loadingTracker')
+            $scope.logout = loginService.logout;
+
+            $scope.loadingTracker = promiseTracker('loadingTracker');
           }]
       };
     });

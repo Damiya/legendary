@@ -2,6 +2,13 @@
 
 angular.module('legendary')
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+      $urlRouterProvider.when('/', ['$state', 'loginService', function($state, loginService) {
+        if (!loginService.isAuthenticated()) {
+          $state.go('home.loginRequred');
+        } else {
+          $state.go('home.landingPage');
+        }
+      }]);
       $urlRouterProvider.otherwise('/login');
       $stateProvider
           .state('home', {
@@ -9,27 +16,11 @@ angular.module('legendary')
             url: '/',
             templateUrl: 'partials/home/index'
           })
-          .state('home.noLeague', {
-            url: 'noLeague',
-            resolve: {
-              currentUser: ['securityAuthorization', function (securityAuthorization) {
-                securityAuthorization.requireAuthenticatedUser();
-                return securityAuthorization.promise;
-              }]
-            },
-            templateUrl: 'partials/home/noLeague',
-            controller: 'NoLeagueHomeController'
-          })
           .state('home.landingPage', {
             url: '',
             resolve: {
-              currentUser: ['securityAuthorization', function (securityAuthorization) {
-                securityAuthorization.requireAuthenticatedUser();
-                return securityAuthorization.promise;
-              }],
-              loginToken: ['loginTokenProvider', function (loginTokenProvider) {
-                loginTokenProvider.requireLoginToken();
-                return loginTokenProvider.promise;
+              login: ['loginService', function (loginService) {
+                return loginService.requireAuthentication();
               }]
             },
             templateUrl: 'partials/home/landingPage',
