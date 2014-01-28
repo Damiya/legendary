@@ -11,6 +11,9 @@ object ApplicationBuild extends Build {
     "com.typesafe.slick" %% "slick" % "2.0.0",
     "postgresql" % "postgresql" % "9.1-901.jdbc4",
     "ws.securesocial" %% "securesocial" % "2.1.3",
+    "joda-time" % "joda-time" % "2.3 ",
+    "org.joda" % "joda-convert" % "1.5",
+    "com.github.tototoshi" %% "slick-joda-mapper" % "1.0.0",
     jdbc
   )
 

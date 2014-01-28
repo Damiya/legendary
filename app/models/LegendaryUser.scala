@@ -1,14 +1,9 @@
 package models
 
 import securesocial.core._
-import securesocial.core.OAuth2Info
-import securesocial.core.OAuth1Info
-import securesocial.core.IdentityId
-import securesocial.core.PasswordInfo
 import scala.slick.driver.PostgresDriver.simple._
-
+import play.Logger
 import play.api.db._
-import org.joda.time.DateTime
 
 case class LegendaryUser(pid: Option[Long] = None, identityId: IdentityId, firstName: String,
                          lastName: String, fullName: String, email: Option[String],
@@ -17,11 +12,7 @@ case class LegendaryUser(pid: Option[Long] = None, identityId: IdentityId, first
                          oAuth2Info: Option[OAuth2Info] = None,
                          passwordInfo: Option[PasswordInfo] = None) extends Identity
 
-case class Token(uuid: String, email: String, creationTime: DateTime, expirationTime: DateTime, isSignUp: Boolean) {
-  def isExpired = expirationTime.isBeforeNow
-}
-
-trait LegendaryUserComponent extends ModelImplicits {
+trait LegendaryUserComponent extends LegendaryUserModelImplicits {
 
   import play.api.Play.current
 
@@ -63,24 +54,21 @@ trait LegendaryUserComponent extends ModelImplicits {
     legendaryUsersAutoInc.insert(user)
   }
 
-  private def convertUserToIdentity(user: LegendaryUser): Identity = {
-    SocialUser(user.identityId, user.firstName, user.lastName, user.fullName, user.email, user.avatarUrl, user.authMethod,
-      user.oAuth1Info, user.oAuth2Info, user.passwordInfo).asInstanceOf[Identity]
-  }
-
   def findUserByIdentityId(id: IdentityId): Option[Identity] = {
     Database.forDataSource(DB.getDataSource()).withSession {
       implicit session =>
-        Some(LegendaryUsers.where(_.identityId === id).first())
+        LegendaryUsers.where(_.identityId === id).firstOption
     }
   }
 
   def findUserByEmailAndProvider(email: String, providerId: String): Option[Identity] = {
     Database.forDataSource(DB.getDataSource()).withSession {
       implicit session =>
-        val result = LegendaryUsers.where(_.email === email).first()
-        if (result.identityId.providerId == providerId) {
-          Some(result)
+        val result = LegendaryUsers.where(_.email === email).firstOption
+        if (result == None) {
+          None
+        } else if (result.get.identityId.providerId == providerId) {
+          result
         } else {
           None
         }
@@ -100,4 +88,4 @@ trait LegendaryUserComponent extends ModelImplicits {
 
 }
 
-
+object LegendaryUserDAO extends LegendaryUserComponent

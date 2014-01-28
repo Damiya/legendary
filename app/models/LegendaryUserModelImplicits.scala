@@ -7,9 +7,7 @@ import securesocial.core.OAuth2Info
 import securesocial.core.OAuth1Info
 import scala.slick.driver.PostgresDriver.simple._
 
-trait ModelImplicits {
-
-
+trait LegendaryUserModelImplicits {
   implicit def identityMapper = MappedColumnType.base[IdentityId, String](
   {
     i: IdentityId =>
