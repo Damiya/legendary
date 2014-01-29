@@ -1,5 +1,4 @@
 node_modules
-public
 .tmp
 .sass-cache
 heroku
@@ -27,6 +26,5 @@ dist
 /RUNNING_PID
 /.settings
 *.class
-/public
 /node_modules
-public/*
+public/bower_components
