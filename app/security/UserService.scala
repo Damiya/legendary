@@ -33,8 +33,9 @@ object UserService {
     UserDAO.findUserByEmail(email)
   }
 
-  def save(user: User): User = {
-    UserDAO.saveNewUser(user)
+  def createNewUser(user: User): Option[User] =  {
+    val newUser = user.copy (password = BCryptPasswordHasher.hash (user.password) )
+    UserDAO.saveNewUser(newUser)
   }
 
   def getAuthToken(user: User): AuthToken = {

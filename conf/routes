@@ -3,8 +3,8 @@
 # ~~~~
 
 # Home page
-GET         /                              controllers.Application.index(any = "none")
-GET         /test                          controllers.Application.test()
+GET         /                    controllers.Application.index(any = "none")
+GET         /test                controllers.Application.test()
 # Play routes serving JSON to AngularJS start with /api
 #GET           /api/celebrities            controllers.Celebrities.index
 #POST          /api/celebrities/new        controllers.Celebrities.create
@@ -13,9 +13,10 @@ GET         /test                          controllers.Application.test()
 #DELETE        /api/celebrities/:id        controllers.Celebrities.delete(id: String)
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file                  controllers.Assets.at(path="/public", file)
+GET         /assets/*file        controllers.Assets.at(path="/public", file)
 # Redirect all unknown routes to the index page
 #GET           /*any                       controllers.Application.index(any)
 
 
-POST        /login                          controllers.AuthController.authenticateAjax()
+POST        /login               controllers.AuthController.authenticateAjax()
+POST        /users/create        controllers.AuthController.registerNewUser()

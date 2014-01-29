@@ -19,7 +19,6 @@ package security
 
 import org.mindrot.jbcrypt.BCrypt
 
-
 object BCryptPasswordHasher {
   val DefaultRounds = 10
   val RoundsProperty = "bcrypt.rounds"

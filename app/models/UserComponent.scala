@@ -71,10 +71,16 @@ trait UserComponent {
     }
   }
 
-  def saveNewUser(user: User): User = {
+  def saveNewUser(user: User): Option[User] = {
     Database.forDataSource(DB.getDataSource()).withSession {
       implicit session =>
-        insert(user)
+        val existingUser = Users.where(_.username === user.username).firstOption
+        if (existingUser.isDefined) {
+          None
+        } else {
+          Some(insert(user))
+        }
+
     }
   }
 }

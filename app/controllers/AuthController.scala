@@ -20,10 +20,26 @@ package controllers
 import play.api.mvc.{Action, Controller}
 import play.api.libs.json._
 import play.Logger
-import models.AuthTokenParser
+import models.{User, ModelConverters}
 import security.{BCryptPasswordHasher, UserService}
 
-object AuthController extends Controller with AuthTokenParser {
+object AuthController extends Controller with ModelConverters {
+  def registerNewUser() = Action(parse.json) {
+    implicit request =>
+      request.body.validate[User].map {
+        user =>
+          val newUser = UserService.createNewUser(user)
+          newUser.map {
+            user =>
+              Ok(Json.toJson(user))
+          }.getOrElse {
+            BadRequest("User already exists")
+          }
+      }.getOrElse {
+        BadRequest(s"Invalid user registration")
+      }
+  }
+
   def authenticateAjax() = Action(parse.json) {
     implicit request =>
 
@@ -41,5 +57,4 @@ object AuthController extends Controller with AuthTokenParser {
           }
       } getOrElse Unauthorized("Invalid credentials submitted.")
   }
-
 }

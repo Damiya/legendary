@@ -16,19 +16,17 @@
 
 package models
 
+
 import play.api.libs.json._
-import org.joda.time.DateTime
+
 import com.github.tototoshi.slick.PostgresJodaSupport._
 import scala.slick.driver.PostgresDriver.simple._
 import java.util.UUID
 import play.api.db._
 import play.Logger
+import org.joda.time.DateTime
 
 case class AuthToken(id: Option[Long], token: String, creationTime: DateTime, expirationTime: DateTime, userId: Option[Long])
-
-trait AuthTokenParser {
-  implicit val authTokenFormat = Json.format[AuthToken]
-}
 
 trait AuthTokenComponent {
 
