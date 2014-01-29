@@ -11,9 +11,10 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
     // Project settings
-    yeoman: {
+    project: {
       // configurable paths
-      app: require('./bower.json').appPath || 'app',
+      scala: 'app',
+      app: 'public',
       dist: 'dist'
     },
     shell: {
@@ -36,56 +37,34 @@ module.exports = function (grunt) {
     },
     fileblocks: {
       app: {
-        src: '<%= yeoman.app %>/views/index.html',
+        src: '<%= project.scala %>/views/index.scala.html',
         options: {
+          templates: {
+            js: '<script src=\'@routes.Assets.at("${file}")\'></script>'
+          },
           removeFiles: true
         },
         blocks: {
           'app': {
             src: 'scripts/**/*.js',
-            cwd: '<%= yeoman.app %>'
+            cwd: '<%= project.app %>'
           }
         }
       }
     },
-    express: {
-      options: {
-        port: process.env.PORT || 9000
-      },
-      dev: {
-        options: {
-          script: 'server.js',
-          debug: true
-        }
-      },
-      prod: {
-        options: {
-          script: 'dist/server.js',
-          node_env: 'production'
-        }
-      }
-    },
-    open: {
-      server: {
-        url: 'http://localhost:<%= express.options.port %>'
-      }
-    },
     watch: {
-      js: {
-        files: ['<%= yeoman.app %>/scripts/**/*.js'],
-        options: {
-          livereload: true
-        }
-      },
-      jsTest: {
-        files: [
-          'test/e2e/**/*.spec.js',
-          'test/unit/**/*.spec.js'
-        ],
-        tasks: ['newer:jshint:test', 'karma']
-      },
+//      js: {
+//        files: ['<%= project.app %>/scripts/**/*.js']
+//      },
+//      jsTest: {
+//        files: [
+//          'test/e2e/**/*.spec.js',
+//          'test/unit/**/*.spec.js'
+//        ],
+//        tasks: ['newer:jshint:test', 'karma']
+//      },
       compass: {
-        files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}'],
+        files: ['<%= project.app %>/styles/**/*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
       },
       gruntfile: {
@@ -93,46 +72,16 @@ module.exports = function (grunt) {
       },
       livereload: {
         files: [
-          '<%= yeoman.app %>/views/**/*.{html,jade}',
-          '{.tmp,<%= yeoman.app %>}/styles/**/*.css',
-          '{.tmp,<%= yeoman.app %>}/scripts/**/*.js',
-          '<%= yeoman.app %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= project.scala %>/views/**/*.scala.html',
+          '<%= project.app %>/views/**/*.{html,jade}',
+          '{<%= project.app %>}/styles/**/*.css',
+          '{<%= project.app %>}/scripts/**/*.js',
+          '<%= project.app %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}'
         ],
 
         options: {
           livereload: true
         }
-      },
-      express: {
-        files: [
-          'server.js',
-          'lib/**/*.{js,json}'
-        ],
-        tasks: ['newer:jshint:server', 'express:dev'],
-        options: {
-          livereload: true,
-          nospawn: true //Without this option specified express won't be reloaded
-        }
-      }
-    },
-
-    // Make sure code styles are up to par and there are no obvious mistakes
-    jshint: {
-      options: {
-        jshintrc: '<%= yeoman.app %>/.jshintrc',
-        reporter: require('jshint-stylish')
-      },
-      server: {
-        src: [ 'lib/**/*.js']
-      },
-      all: [
-        '<%= yeoman.app %>/scripts/**/*.js'
-      ],
-      test: {
-        options: {
-          jshintrc: 'test/.jshintrc'
-        },
-        src: ['test/**/*..js']
       }
     },
 
@@ -151,18 +100,6 @@ module.exports = function (grunt) {
           }
         ]
       },
-      heroku: {
-        files: [
-          {
-            dot: true,
-            src: [
-              'heroku/*',
-              '!heroku/.git*',
-              '!heroku/Procfile'
-            ]
-          }
-        ]
-      },
       server: '.tmp'
     },
 
@@ -175,9 +112,9 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: '.tmp/styles/',
+            cwd: '<%= project.app%>/styles/',
             src: '**/*.css',
-            dest: '.tmp/styles/'
+            dest: '<%= project.app%>/styles/'
           }
         ]
       }
@@ -186,13 +123,13 @@ module.exports = function (grunt) {
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
       options: {
-        sassDir: '<%= yeoman.app %>/styles',
-        cssDir: '.tmp/styles',
-        generatedImagesDir: '.tmp/images/generated',
-        imagesDir: '<%= yeoman.app %>/images',
-        javascriptsDir: '<%= yeoman.app %>/scripts',
-        fontsDir: '<%= yeoman.app %>/styles/fonts',
-        importPath: '<%= yeoman.app %>/bower_components',
+        sassDir: '<%= project.app %>/styles',
+        cssDir: '<%= project.app %>/styles',
+        generatedImagesDir: '<%= project.app %>/images/generated',
+        imagesDir: '<%= project.app %>/images',
+        javascriptsDir: '<%= project.app %>/scripts',
+        fontsDir: '<%= project.app %>/styles/fonts',
+        importPath: '<%= project.app %>/bower_components',
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
         httpFontsPath: '/styles/fonts',
@@ -230,8 +167,8 @@ module.exports = function (grunt) {
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
     useminPrepare: {
-      html: ['<%= yeoman.app %>/views/index.html',
-        '<%= yeoman.app %>/views/index.jade'],
+      html: ['<%= project.app %>/views/index.html',
+        '<%= project.app %>/views/index.jade'],
       options: {
         dest: '<%= yeoman.dist %>/public'
       }
@@ -253,7 +190,7 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= yeoman.app %>/images',
+            cwd: '<%= project.app %>/images',
             src: '**/*.{png,jpg,jpeg,gif}',
             dest: '<%= yeoman.dist %>/public/images'
           }
@@ -266,7 +203,7 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= yeoman.app %>/images',
+            cwd: '<%= project.app %>/images',
             src: '**/*.svg',
             dest: '<%= yeoman.dist %>/public/images'
           }
@@ -285,7 +222,7 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= yeoman.app %>/views',
+            cwd: '<%= project.app %>/views',
             src: ['*.html', 'partials/*.html'],
             dest: '<%= yeoman.dist %>/views'
           }
@@ -322,7 +259,7 @@ module.exports = function (grunt) {
           {
             expand: true,
             dot: true,
-            cwd: '<%= yeoman.app %>',
+            cwd: '<%= project.app %>',
             dest: '<%= yeoman.dist %>/public',
             src: [
               '*.{ico,png,txt}',
@@ -335,7 +272,7 @@ module.exports = function (grunt) {
           {
             expand: true,
             dot: true,
-            cwd: '<%= yeoman.app %>/views',
+            cwd: '<%= project.app %>/views',
             dest: '<%= yeoman.dist %>/views',
             src: '**/*.jade'
           },
@@ -358,7 +295,7 @@ module.exports = function (grunt) {
       },
       styles: {
         expand: true,
-        cwd: '<%= yeoman.app %>/styles',
+        cwd: '<%= project.app %>/styles',
         dest: '.tmp/styles/',
         src: '**/*.css'
       }
@@ -389,7 +326,7 @@ module.exports = function (grunt) {
     //     files: {
     //       '<%= yeoman.dist %>/styles/main.css': [
     //         '.tmp/styles/**/*.css',
-    //         '<%= yeoman.app %>/styles/**/*.css'
+    //         '<%= project.app %>/styles/**/*.css'
     //       ]
     //     }
     //   }
@@ -429,8 +366,6 @@ module.exports = function (grunt) {
       'clean:server',
       'concurrent:server',
       'autoprefixer',
-      'express:dev',
-      'open',
       'watch'
     ]);
   });
