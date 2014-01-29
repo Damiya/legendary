@@ -14,28 +14,31 @@
  * limitations under the License.
  */
 
-import scala.slick.driver.PostgresDriver.simple._
+package security
 
-import play.api.db._
-import play.api._
-import models.{AuthTokenDAO, UserDAO}
+import play.api.Application
+import models.{AuthTokenDAO, AuthToken, User, UserDAO}
 
-import scala.slick.jdbc.meta.MTable
 
-object Global extends GlobalSettings {
-
-  import play.api.Play.current
-
-  override def onStart(app: Application) {
-    Database.forDataSource(DB.getDataSource()).withSession {
-      implicit session: Session =>
-        if (MTable.getTables("users").list().isEmpty) {
-          UserDAO.Users.ddl.create
-        }
-
-        if (MTable.getTables("auth_tokens").list().isEmpty) {
-          AuthTokenDAO.AuthTokens.ddl.create
-        }
+object UserService {
+  def find(username: String): Option[User] = {
+    if (username == null) {
+      return None
     }
+
+    UserDAO.findUserByName(username)
   }
+
+  def findByEmail(email: String): Option[User] = {
+    UserDAO.findUserByEmail(email)
+  }
+
+  def save(user: User): User = {
+    UserDAO.saveNewUser(user)
+  }
+
+  def getAuthToken(user: User): AuthToken = {
+    AuthTokenDAO.findOrCreateAuthToken(user)
+  }
+
 }
