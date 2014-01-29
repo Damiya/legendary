@@ -1,44 +1,42 @@
 package services
 
-import play.api.{Logger, Application}
+import play.api.Application
 import securesocial.core._
 import securesocial.core.IdentityId
 import securesocial.core.providers.Token
-import models.{LegendaryUserDAO, LegendaryTokenDAO}
+import models.{UserDAO, TokenDAO}
 
 
 class UserService(application: Application) extends UserServicePlugin(application)  {
-  private var tokens = Map[String, Token]()
-
   def find(id: IdentityId): Option[Identity] = {
-    LegendaryUserDAO.findUserByIdentityId(id)
+    UserDAO.findUserByIdentityId(id)
   }
 
   def findByEmailAndProvider(email: String, providerId: String): Option[Identity] = {
-    LegendaryUserDAO.findUserByEmailAndProvider(email, providerId)
+    UserDAO.findUserByEmailAndProvider(email, providerId)
   }
 
   def save(user: Identity): Identity = {
-    LegendaryUserDAO.saveNewUser(user)
+    UserDAO.saveNewUser(user)
   }
 
   def save(token: Token) {
-    LegendaryTokenDAO.saveNewToken(token)
+    TokenDAO.saveNewToken(token)
   }
 
   def findToken(token: String): Option[Token] = {
-    LegendaryTokenDAO.findToken(token)
+    TokenDAO.findToken(token)
   }
 
   def deleteToken(token: String) {
-    LegendaryTokenDAO.deleteToken(token)
+    TokenDAO.deleteToken(token)
   }
 
   def deleteTokens() {
-    LegendaryTokenDAO.deleteAllTokens()
+    TokenDAO.deleteAllTokens()
   }
 
   def deleteExpiredTokens() {
-    LegendaryTokenDAO.deleteExpiredTokens()
+    TokenDAO.deleteExpiredTokens()
   }
 }
