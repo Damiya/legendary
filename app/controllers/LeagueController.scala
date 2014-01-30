@@ -34,20 +34,22 @@ import akka.actor.Identify
 import play.Logger
 
 object LeagueController extends Controller {
-  private def findOrCreateLeagueClient(username:String): LeagueClient = {
+
+  private def getLeagueClient(username: String): LeagueClient = {
     implicit val timeout = Timeout(5.seconds)
     val potentialActor = Akka.system.actorSelection(s"/user/$username")
     val identifyFuture = new AskableActorSelection(potentialActor).ask(Identify(1))
     val usernameActorRef = Await.result(identifyFuture, timeout.duration).asInstanceOf[ActorIdentity].getRef
-    if (usernameActorRef == null) {
-      TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), name = username)
-    } else {
-      TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), usernameActorRef)
+    usernameActorRef match {
+      case actorRef =>
+        TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), usernameActorRef)
+      case null =>
+        TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), name = username)
     }
   }
 
   def login() = SecuredAction.async(parse.json) { authenticatedRequest =>
-    val loginActor = findOrCreateLeagueClient(authenticatedRequest.user.username)
+    val loginActor = getLeagueClient(authenticatedRequest.user.username)
 
     authenticatedRequest.request.body.validate[UserPass].asOpt match {
       case Some(user) =>
@@ -63,7 +65,7 @@ object LeagueController extends Controller {
   }
 
   def logout() = SecuredAction { authenticatedRequest =>
-    val loginActor = findOrCreateLeagueClient(authenticatedRequest.user.username)
+    val loginActor = getLeagueClient(authenticatedRequest.user.username)
     if (loginActor.isConnected) {
       loginActor.logout()
       Ok(Json.obj(
