@@ -23,7 +23,7 @@ angular.module('legendary')
                 csrfToken,
                 currentUser;
 
-            var checkDjangoTokens = function () {
+            var checkTokens = function () {
                 authToken = $window.sessionStorage.getItem('backend-authToken');
                // csrfToken = $window.sessionStorage.getItem('backend-csrfToken');
 
@@ -31,7 +31,7 @@ angular.module('legendary')
             };
 
             var setHttpHeaders = function () {
-                if (checkDjangoTokens()) {
+                if (checkTokens()) {
                     _setHeaders(authToken, csrfToken);
                 }
             };
@@ -45,6 +45,8 @@ angular.module('legendary')
                 $http.defaults.headers.common['X-AuthToken'] = auth;
              //   $http.defaults.headers.common['X-CSRFToken'] = csrf;
             };
+
+            setHttpHeaders();
 
             var factory = {
                 logout: function () {

@@ -22,6 +22,7 @@ import play.api.mvc.{Action, Controller}
 import services.UserService
 import utils.BCryptPasswordHasher
 import actions.SecuredAction
+import play.Logger
 
 object TokenController extends Controller {
 
@@ -31,6 +32,7 @@ object TokenController extends Controller {
         UserService.find(userPass.username) match {
           case Some(user) =>
             if (BCryptPasswordHasher.matches(user.password, userPass.password)) {
+              Logger.debug("Issued a new token to " + user.username)
               Ok(Json.toJson(UserService.getAuthToken(user)))
             } else {
               Unauthorized("Invalid credentials submitted.")

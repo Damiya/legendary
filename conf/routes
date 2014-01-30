@@ -3,14 +3,16 @@
 # ~~~~
 
 # Home page
-GET         /                     controllers.Application.index(any = "none")
+GET           /                         controllers.Application.index(any = "none")
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file         controllers.Assets.at(path="/public", file)
+GET           /assets/*file             controllers.Assets.at(path="/public", file)
 # Redirect all unknown routes to the index page
 #GET           /*any                       controllers.Application.index(any)
 
 
-POST        /api/token/new        controllers.TokenController.create()
-POST        /users/create         controllers.UserController.registerNewUser()
-POST         /test               controllers.TokenController.test()
+POST          /api/token/new            controllers.TokenController.create()
+POST          /api/league/login         controllers.LeagueController.login()
+DELETE        /api/league/logout        controllers.LeagueController.logout()
+POST          /users/create             controllers.UserController.registerNewUser()
+POST          /test                     controllers.TokenController.test()

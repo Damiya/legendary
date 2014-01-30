@@ -17,66 +17,59 @@
 'use strict';
 
 angular.module('legendary')
-    .factory('loginService', ['$state', '$q', 'loginQueueFactory', 'authenticationFactory',
-      function ($state, $q, loginQueueFactory, authenticationFactory) {
-        var backendAuthenticated,
-            loginQueueAuthenticated;
+    .factory('loginService', ['$state', '$q', 'authenticationFactory', 'leagueProxy',
+        function ($state, $q, authenticationFactory, leagueProxy) {
+            var backendAuthenticated;
 
-        var redirect = function (url) {
-          url = url || 'home.loginRequired';
-          $state.go(url);
-        };
+            var redirect = function (url) {
+                url = url || 'home.loginRequired';
+                $state.go(url);
+            };
 
-        var setAuthStatusFromCookies = function () {
-          backendAuthenticated = authenticationFactory.getTokens();
-          loginQueueAuthenticated = loginQueueFactory.getTokens();
-        };
 
-        var factory = {
-          isAuthenticated: function () {
-            setAuthStatusFromCookies();
-            return backendAuthenticated && loginQueueAuthenticated;
-          },
-
-          requireAuthentication: function () {
-            var deferred = $q.defer();
-
-            if (factory.isAuthenticated()) {
-              deferred.resolve();
-            } else {
-              deferred.reject();
-            }
-
-            return deferred.promise;
-          },
-
-          logout: function () {
-            authenticationFactory.logout();
-            loginQueueFactory.logout();
-            redirect();
-          },
-
-          login: function (username, password) {
-            var deferred = $q.defer();
-            authenticationFactory.conditionalLogin(username, password)
-                .then(function success() {
-                  backendAuthenticated = true;
-                  return loginQueueFactory.deferredLogin(username, password);
+            var factory = {
+                isAuthenticated: function () {
+                    return authenticationFactory.getTokens() && leagueProxy.isConnected();
                 },
-                function failure(response) {
-                  deferred.reject(response);
-                })
-                .then(function success() {
-                  loginQueueAuthenticated = true;
-                  deferred.resolve();
-                  redirect('home.landingPage');
-                },
-                function failure(response) {
-                  deferred.reject(response);
-                });
 
-            return deferred.promise;
-          }
-        };
-        return factory;
-      }]);
+                requireAuthentication: function () {
+                    var deferred = $q.defer();
+
+                    if (factory.isAuthenticated()) {
+                        deferred.resolve();
+                    } else {
+                        deferred.reject();
+                    }
+
+                    return deferred.promise;
+                },
+
+                logout: function () {
+                    leagueProxy.logout();
+                    authenticationFactory.logout();
+                    redirect();
+                },
+
+                login: function (username, password) {
+                    var deferred = $q.defer();
+                    authenticationFactory.conditionalLogin(username, password)
+                        .then(function success() {
+                            backendAuthenticated = true;
+                            return leagueProxy.deferredLogin(username, password);
+                        },
+                        function failure(response) {
+                            deferred.reject(response);
+                        })
+                        .then(function success() {
+                            deferred.resolve();
+                            redirect('home.landingPage');
+                        },
+                        function failure(response) {
+                            deferred.reject(response);
+                        });
+
+                    return deferred.promise;
+                }
+            };
+            return factory;
+        }]);
