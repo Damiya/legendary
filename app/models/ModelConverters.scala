@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Kate von Roeder (katevonroder at gmail dot com) - twitter: @itsdamiya
+ * Copyright 2014 Kate von Roeder (katevonroder at gmail dot com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,8 @@ trait ModelConverters {
     ) {
     (a: AuthToken) => (a.token, a.expirationTime)
   }
+
+  implicit val userPassReads = Json.reads[UserPass]
 
   implicit val userWrites: Writes[User] = (
     (__ \ "id").writeNullable[Long] and

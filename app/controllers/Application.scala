@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Kate von Roeder (katevonroder at gmail dot com) - twitter: @itsdamiya
+ * Copyright 2014 Kate von Roeder (katevonroder at gmail dot com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,17 +23,7 @@ import play.api.mvc.Controller
 import play.Logger
 
 object Application extends Controller {
-
-  /** serve the index page app/views/index.scala.html */
   def index(any: String) = Action {
     Ok(views.html.index())
-  }
-
-  def test() = Action {
-    DB.withConnection {
-      conn =>
-        Logger.info("Hellow orld")
-    }
-    Ok("ok")
   }
 }

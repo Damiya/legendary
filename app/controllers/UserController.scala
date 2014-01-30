@@ -14,17 +14,27 @@
  * limitations under the License.
  */
 
-'use strict';
+package controllers
 
-angular.module('legendary', [
-      'ngResource',
-      'ngSanitize',
-      'ui.router',
-      'ui.bootstrap',
-      'ajoslin.promise-tracker'
-    ]);
-//    .run(['cookieManager', function (cookieManager) {
-//      //cookieManager.remove('lol-loginToken');
-////      cookieManager.remove('django-authToken');
-////      cookieManager.remove('django-csrfToken');
-//    }]);
+
+import play.api.mvc.{Action, Controller}
+import play.api.libs.json._
+import play.Logger
+import models.{User, ModelConverters}
+import services.UserService
+
+
+object UserController extends Controller with ModelConverters {
+  def registerNewUser() = Action(parse.json) { implicit request =>
+    request.body.validate[User].map { user =>
+      val newUser = UserService.createNewUser(user)
+      newUser.map { createdUser =>
+        Ok(Json.toJson(createdUser))
+      }.getOrElse {
+        BadRequest("User already exists")
+      }
+    }.getOrElse {
+      BadRequest("Invalid user registration")
+    }
+  }
+}

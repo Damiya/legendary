@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Kate von Roeder (katevonroder at gmail dot com) - twitter: @itsdamiya
+ * Copyright 2014 Kate von Roeder (katevonroder at gmail dot com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,15 @@
  * limitations under the License.
  */
 
-package security
+package services
 
 import play.api.Application
 import models.{AuthTokenDAO, AuthToken, User, UserDAO}
+import utils.BCryptPasswordHasher
 
 
 object UserService {
   def find(username: String): Option[User] = {
-    if (username == null) {
-      return None
-    }
-
     UserDAO.findUserByName(username)
   }
 
@@ -33,8 +30,8 @@ object UserService {
     UserDAO.findUserByEmail(email)
   }
 
-  def createNewUser(user: User): Option[User] =  {
-    val newUser = user.copy (password = BCryptPasswordHasher.hash (user.password) )
+  def createNewUser(user: User): Option[User] = {
+    val newUser = user.copy(password = BCryptPasswordHasher.hash(user.password))
     UserDAO.saveNewUser(newUser)
   }
 

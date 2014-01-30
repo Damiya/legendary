@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Kate von Roeder (katevonroder at gmail dot com) - twitter: @itsdamiya
+ * Copyright 2014 Kate von Roeder (katevonroder at gmail dot com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,8 @@ import play.api.libs.json.{JsValue, Json}
 case class User(id: Option[Long] = None, username: String, firstName: String,
                 lastName: String, email: String,
                 password: String)
+
+case class UserPass(username: String, password: String)
 
 class Users(tag: Tag) extends Table[User](tag, "users") {
 
