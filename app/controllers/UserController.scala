@@ -14,12 +14,26 @@
  * limitations under the License.
  */
 
-'use strict';
+package controllers
 
-angular.module('legendary', [
-      'ngResource',
-      'ngSanitize',
-      'ui.router',
-      'ui.bootstrap',
-      'ajoslin.promise-tracker'
-    ]);
+
+import models.User
+import play.api.libs.json._
+import play.api.mvc.{Action, Controller}
+import services.UserService
+
+
+object UserController extends Controller {
+  def registerNewUser() = Action(parse.json) { implicit request =>
+    request.body.validate[User].map { user =>
+      val newUser = UserService.createNewUser(user)
+      newUser.map { createdUser =>
+        Ok(Json.toJson(createdUser))
+      }.getOrElse {
+        BadRequest("User already exists")
+      }
+    }.getOrElse {
+      BadRequest("Invalid user registration")
+    }
+  }
+}

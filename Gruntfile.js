@@ -53,9 +53,9 @@ module.exports = function (grunt) {
       }
     },
     watch: {
-//      js: {
-//        files: ['<%= project.app %>/scripts/**/*.js']
-//      },
+      js: {
+        files: ['<%= project.app %>/scripts/**/*.js']
+      },
 //      jsTest: {
 //        files: [
 //          'test/e2e/**/*.spec.js',
@@ -74,8 +74,8 @@ module.exports = function (grunt) {
         files: [
           '<%= project.scala %>/views/**/*.scala.html',
           '<%= project.app %>/views/**/*.{html,jade}',
-          '{<%= project.app %>}/styles/**/*.css',
-          '{<%= project.app %>}/scripts/**/*.js',
+          '<%= project.app %>/styles/**/*.css',
+          '<%= project.app %>/scripts/**/*.js',
           '<%= project.app %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}'
         ],
 
