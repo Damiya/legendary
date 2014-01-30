@@ -17,7 +17,16 @@
 'use strict';
 
 angular.module('legendary')
-    .controller('HomeController', ['$scope', '$http', '$rootScope',
-      function ($scope, $http, $rootScope) {
-        console.log('HomeController: Instantiated');
-      }]);
+    .controller('HomeController', ['$scope', '$http', '$rootScope', 'apiEndpoint', '$window',
+        function ($scope, $http, $rootScope, apiEndpoint, $window) {
+            var storedLandingPage = $window.sessionStorage.getItem('landingPage');
+            if (!storedLandingPage) {
+                $http.get(apiEndpoint + 'league/landingPage').then(function (response) {
+                    var stringifiedData = JSON.stringify(response.data);
+                    $window.sessionStorage.setItem('landingPage', stringifiedData);
+                    $scope.landingPage = response.data;
+                });
+            } else {
+                $scope.landingPage = JSON.parse(storedLandingPage);
+            }
+        }]);

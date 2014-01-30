@@ -16,13 +16,13 @@
 
 package controllers
 
-import models.{UserDAO, UserPass}
+import actions.SecuredAction
+import models.{AuthTokenDAO, UserPass}
+import play.Logger
 import play.api.libs.json.Json
 import play.api.mvc.{Action, Controller}
 import services.UserService
 import utils.BCryptPasswordHasher
-import actions.SecuredAction
-import play.Logger
 
 object TokenController extends Controller {
 
@@ -40,6 +40,15 @@ object TokenController extends Controller {
           case None => Unauthorized("Invalid credentials submitted.")
         }
       case None => BadRequest("Malformed credentials submitted.")
+    }
+  }
+
+  def destroy() = SecuredAction { authenticatedRequest =>
+    if (AuthTokenDAO.deleteAuthToken(authenticatedRequest.user)) {
+      Logger.debug(s"Deleted token for ${authenticatedRequest.user.username}")
+      Ok("")
+    } else {
+      BadRequest("No token found. This is a problem.")
     }
   }
 

@@ -16,22 +16,23 @@
 
 package controllers
 
-import play.api.mvc._
-import play.api.libs.concurrent.Execution.Implicits.defaultContext
-import scala.concurrent.duration._
-import actions.{AuthenticatedRequest, SecuredAction}
-import akka.actor._
+import actions.SecuredAction
 import actors.{ConnectionStatus, LeagueClientImpl, LeagueClient}
-import models.UserPass
-import play.api.libs.json._
-import play.api.libs.concurrent.Akka
-import scala.concurrent.{Await, Future}
-import play.api.Play.current
+import akka.actor._
 import akka.pattern.AskableActorSelection
 import akka.util.Timeout
-import scala.Some
-import akka.actor.Identify
+import models.UserPass
 import play.Logger
+import play.api.Play.current
+import play.api.libs.concurrent.Akka
+import play.api.libs.concurrent.Execution.Implicits.defaultContext
+import play.api.libs.json._
+import play.api.mvc._
+import scala.Some
+import scala.concurrent.duration._
+import scala.concurrent.{Await, Future}
+import play.api.libs.ws._
+import utils.MagicStrings
 
 object LeagueController extends Controller {
 
@@ -40,11 +41,10 @@ object LeagueController extends Controller {
     val potentialActor = Akka.system.actorSelection(s"/user/$username")
     val identifyFuture = new AskableActorSelection(potentialActor).ask(Identify(1))
     val usernameActorRef = Await.result(identifyFuture, timeout.duration).asInstanceOf[ActorIdentity].getRef
-    usernameActorRef match {
-      case actorRef =>
-        TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), usernameActorRef)
-      case null =>
-        TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), name = username)
+    if (usernameActorRef == null) {
+      TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), name = username)
+    } else {
+      TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), usernameActorRef)
     }
   }
 
@@ -61,6 +61,18 @@ object LeagueController extends Controller {
         }
       case None =>
         Future.successful(Ok("Ok"))
+    }
+  }
+
+  def landingPage() = SecuredAction.async { authenticatedRequest =>
+    val landingPageResponse = WS.url(MagicStrings.landingPageUrl)
+      .withHeaders(
+        "User-Agent" -> MagicStrings.userAgent,
+        "Referer" -> MagicStrings.referer
+      ).get()
+
+    landingPageResponse.map { response =>
+      Ok(response.json)
     }
   }
 

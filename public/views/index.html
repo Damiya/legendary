@@ -29,7 +29,7 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css"/>
+    <link rel="stylesheet" href=".tmp/styles/main.css"/>
     <!-- endbuild -->
   </head>
   <body ng-controller="MainController">
@@ -49,7 +49,6 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-promise-tracker/promise-tracker.js"></script>
-    <script src="bower_components/cookies-js/src/cookies.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -64,8 +63,8 @@
     <script src="scripts/controllers/loginFormController.js"></script>
     <script src="scripts/providers/core/localizedMessages.js"></script>
     <script src="scripts/providers/core/loginService.js"></script>
-    <script src="scripts/providers/league/loginQueueFactory.js"></script>
     <script src="scripts/providers/security/authenticationFactory.js"></script>
+    <script src="scripts/providers/league/leagueProxy.js"></script>
     <!-- endfileblock -->
     <!-- endbuild -->
   </body>

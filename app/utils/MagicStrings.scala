@@ -14,20 +14,11 @@
  * limitations under the License.
  */
 
-'use strict';
+package utils
 
-angular.module('legendary')
-    .directive('navbar', function () {
-      return {
-        templateUrl: 'views/partials/navBar.html',
-        restrict: 'E',
-        controller: ['$scope',  'promiseTracker', 'loginService',
-          function ($scope, promiseTracker, loginService) {
-            $scope.isAuthenticated = loginService.isAuthenticated;
-
-            $scope.logout = loginService.logout;
-
-            $scope.loadingTracker = promiseTracker('loadingTracker');
-          }]
-      };
-    });
+object MagicStrings {
+  val authTokenHeader = "X-Auth-Token"
+  val landingPageUrl = "http://ll.leagueoflegends.com/landingpage/data/na/en_US.js"
+  val referer = "app:/LolClient.swf/[[DYNAMIC]]/4"
+  val userAgent = "User-Agent: Mozilla/5.0 (Windows; U; en-US) AppleWebKit/533.19.4 (KHTML, like Gecko) AdobeAIR/3.7"
+}

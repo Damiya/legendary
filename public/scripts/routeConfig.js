@@ -30,7 +30,7 @@ angular.module('legendary')
           .state('home', {
             abstract: true,
             url: '/',
-            templateUrl: 'assets/views/partials/home/index.html'
+            templateUrl: 'views/partials/home/index.html'
           })
           .state('home.landingPage', {
             url: '',
@@ -39,12 +39,12 @@ angular.module('legendary')
                 return loginService.requireAuthentication();
               }]
             },
-            templateUrl: 'assets/views/partials/home/landingPage.html',
+            templateUrl: 'views/partials/home/landingPage.html',
             controller: 'HomeController'
           })
           .state('home.loginRequired', {
             url: 'login',
-            templateUrl: 'assets/views/partials/security/loginForm.html',
+            templateUrl: 'views/partials/security/loginForm.html',
             controller: 'LoginFormController'
           });
     }]);

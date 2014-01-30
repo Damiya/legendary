@@ -25,7 +25,7 @@ angular.module('legendary')
 
             var checkTokens = function () {
                 authToken = $window.sessionStorage.getItem('backend-authToken');
-               // csrfToken = $window.sessionStorage.getItem('backend-csrfToken');
+                // csrfToken = $window.sessionStorage.getItem('backend-csrfToken');
 
                 return authToken; //&& csrfToken;
             };
@@ -42,17 +42,20 @@ angular.module('legendary')
             };
 
             var _setHeaders = function (auth, csrf) {
-                $http.defaults.headers.common['X-AuthToken'] = auth;
-             //   $http.defaults.headers.common['X-CSRFToken'] = csrf;
+                $http.defaults.headers.common['X-Auth-Token'] = auth;
+                //   $http.defaults.headers.common['X-CSRFToken'] = csrf;
             };
 
             setHttpHeaders();
 
             var factory = {
                 logout: function () {
-                    _setHeaders(null, null);
-                    removeCookies();
-                    currentUser = null;
+                    $http.delete(apiEndpoint + 'token/destroy', {tracker: 'loadingTracker'}).then(
+                        function success(response) {
+                            _setHeaders(null, null);
+                            removeCookies();
+                            currentUser = null;
+                        });
                 },
 
                 getTokens: function () {
@@ -70,7 +73,7 @@ angular.module('legendary')
                 },
 
                 login: function (username, password) {
-                    return $http.post(apiEndpoint + 'token/new', {username: username, password: password}, {tracker: 'loadingTracker'}).then(
+                    return $http.post(apiEndpoint + 'token/create', {username: username, password: password}, {tracker: 'loadingTracker'}).then(
                         function success(response) {
                             $window.sessionStorage.setItem('backend-authToken', response.data.token);
                             currentUser = response.data.user;

@@ -19,7 +19,7 @@
 angular.module('legendary')
     .factory('leagueProxy', ['$http', '$q', '$log', '$window', 'apiEndpoint',
         function ($http, $q, $log, $window, apiEndpoint) {
-            var isConnected = false;
+            var isConnected = true;
             var deferred = $q.defer();
 
             var service = {
@@ -28,24 +28,26 @@ angular.module('legendary')
                 },
 
                 logout: function () {
-                    $http.delete(apiEndpoint + 'league/logout', {tracker: 'loadingTracker'})
-                        .then(function () {
-                            isConnected = false;
-                        },function() {
-                            $log.error('oh dear');
-                        }
-                    );
+                    return true;
+//                    $http.delete(apiEndpoint + 'league/logout', {tracker: 'loadingTracker'})
+//                        .then(function () {
+//                            isConnected = false;
+//                        },function() {
+//                            $log.error('oh dear');
+//                        }
+//                    );
                 },
 
                 deferredLogin: function (username, password) {
-                    $http.post(apiEndpoint + 'league/login', {username: username, password: password}, {tracker: 'loadingTracker'})
-                        .then(function success(response) {
-                            isConnected = true;
-                            deferred.resolve();
-                        }, function error(response) {
-                            deferred.reject(response);
-                        });
-                    return deferred.promise;
+                    return true;
+//                    $http.post(apiEndpoint + 'league/login', {username: username, password: password}, {tracker: 'loadingTracker'})
+//                        .then(function success(response) {
+//                            isConnected = true;
+//                            deferred.resolve();
+//                        }, function error(response) {
+//                            deferred.reject(response);
+//                        });
+//                    return deferred.promise;
                 },
 
                 login: function (username, password) {

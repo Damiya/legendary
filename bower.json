@@ -12,7 +12,6 @@
     "angular-bootstrap": "~0.10.0",
     "angular-ui-router": "0.2.8-bowratic-tedium",
     "angular-promise-tracker": "2.0.0-beta2",
-    "cookies-js": "~0.3.1"
   },
   "devDependencies": {
     "angular-mocks": "1.2.10",

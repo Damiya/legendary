@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import actions.CORSFilter
+import play.api.mvc.WithFilters
 import scala.slick.driver.PostgresDriver.simple._
 
 import play.api.db._
@@ -22,7 +24,7 @@ import models.{AuthTokenDAO, UserDAO}
 
 import scala.slick.jdbc.meta.MTable
 
-object Global extends GlobalSettings {
+object Global extends WithFilters(CORSFilter()) with GlobalSettings {
 
   import play.api.Play.current
 

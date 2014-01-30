@@ -69,7 +69,22 @@ trait AuthTokenComponent {
   def findOrCreateAuthToken(user: User): AuthToken = {
     Database.forDataSource(DB.getDataSource()).withSession { implicit session =>
       val query = AuthTokens.where(_.userId === user.id).firstOption
-      query.getOrElse(insert(AuthToken(None, UUID.randomUUID().toString, DateTime.now(), DateTime.now(), user.id)))
+      val now = DateTime.now()
+
+      query.getOrElse(insert(AuthToken(None, UUID.randomUUID().toString, now, now.plusDays(2), user.id)))
+    }
+  }
+
+  def deleteAuthToken(user: User):Boolean = {
+    Database.forDataSource(DB.getDataSource()).withSession { implicit session =>
+      val query = AuthTokens.where(_.userId === user.id)
+      query.firstOption.isDefined match {
+        case true =>
+          query.delete
+          true
+        case false =>
+          false
+      }
     }
   }
 }
