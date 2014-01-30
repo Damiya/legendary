@@ -20,15 +20,12 @@ import scala.concurrent.{ExecutionContext, Promise, Future, Await}
 import scala.concurrent.duration._
 import akka.actor._
 import models.UserPass
-import akka.util.Timeout
-import com.achimala.leaguelib.connection.{LeagueServer, LeagueAccount}
-import com.achimala.leaguelib.errors.LeagueException
 import play.Logger
 
 object ConnectionStatus {
   val LOGGED_OUT = "loggedOut"
   val LOGGED_IN = "loggedIn"
-  val LOGIN_FORBIDDEN = "loggedForbidden"
+  val LOGIN_FORBIDDEN = "loginForbidden"
   val IN_GAME = "inGame"
 }
 
@@ -39,13 +36,10 @@ trait LeagueClient {
 }
 
 class LeagueClientImpl extends LeagueClient {
-  val client = new LeagueAccount(LeagueServer.NORTH_AMERICA, "4.1.14_01_15_16_01", null, null)
 
   implicit val ec: ExecutionContext = TypedActor.context.dispatcher
 
   def login(info: UserPass): Future[String] = {
-    client.setUsername(info.username)
-    client.setPassword(info.password)
 
 
     val connectionResult = Promise[String]()
@@ -53,16 +47,9 @@ class LeagueClientImpl extends LeagueClient {
 
     Future {
       try {
-        Logger.warn("Connection trying")
-        client.connect()
-        while (!client.isConnected) {
-          Logger.warn("Connection sleeping")
-          Thread.sleep(5000)
-        }
-        Logger.info("Connection succeeded")
         connectionResult.success(ConnectionStatus.LOGGED_IN)
       } catch {
-        case exception: LeagueException =>
+        case exception: Exception =>
           connectionResult.failure(exception)
           Logger.error(exception.toString)
       }
@@ -72,15 +59,10 @@ class LeagueClientImpl extends LeagueClient {
   }
 
   def isConnected:Boolean = {
-    return client.isConnected
+     true
   }
 
   def logout(): Unit = {
-    if (client.isConnected) {
-      Logger.info("Logging out " + client.getUsername)
-      client.close()
-    } else {
-      Logger.error("Client not logged in!")
-    }
+
   }
 }
