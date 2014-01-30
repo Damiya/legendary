@@ -17,16 +17,24 @@
 package models
 
 
-import play.api.libs.json._
-
 import com.github.tototoshi.slick.PostgresJodaSupport._
-import scala.slick.driver.PostgresDriver.simple._
 import java.util.UUID
-import play.api.db._
-import play.Logger
 import org.joda.time.DateTime
+import play.api.db._
+import scala.slick.driver.PostgresDriver.simple._
+import play.api.libs.json._
+import play.api.libs.functional.syntax._
 
 case class AuthToken(id: Option[Long], token: String, creationTime: DateTime, expirationTime: DateTime, userId: Option[Long])
+
+object AuthToken extends ((Option[Long], String, DateTime, DateTime, Option[Long]) => AuthToken) {
+  implicit val authTokenWrites: Writes[AuthToken] = (
+    (__ \ 'token).write[String] and
+      (__ \ 'expires).write[DateTime]
+    ) {
+    (a: AuthToken) => (a.token, a.expirationTime)
+  }
+}
 
 trait AuthTokenComponent {
 
@@ -59,10 +67,9 @@ trait AuthTokenComponent {
   }
 
   def findOrCreateAuthToken(user: User): AuthToken = {
-    Database.forDataSource(DB.getDataSource()).withSession {
-      implicit session =>
-        val query = AuthTokens.where(_.userId === user.id).firstOption
-        query.getOrElse(insert(AuthToken(None, UUID.randomUUID().toString, DateTime.now(), DateTime.now(), user.id)))
+    Database.forDataSource(DB.getDataSource()).withSession { implicit session =>
+      val query = AuthTokens.where(_.userId === user.id).firstOption
+      query.getOrElse(insert(AuthToken(None, UUID.randomUUID().toString, DateTime.now(), DateTime.now(), user.id)))
     }
   }
 }

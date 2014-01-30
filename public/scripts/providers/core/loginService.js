@@ -17,9 +17,9 @@
 'use strict';
 
 angular.module('legendary')
-    .factory('loginService', ['$state', '$q', 'loginQueueFactory', 'djangoAuthenticationFactory',
-      function ($state, $q, loginQueueFactory, djangoAuthenticationFactory) {
-        var djangoAuthenticated,
+    .factory('loginService', ['$state', '$q', 'loginQueueFactory', 'authenticationFactory',
+      function ($state, $q, loginQueueFactory, authenticationFactory) {
+        var backendAuthenticated,
             loginQueueAuthenticated;
 
         var redirect = function (url) {
@@ -28,14 +28,14 @@ angular.module('legendary')
         };
 
         var setAuthStatusFromCookies = function () {
-          djangoAuthenticated = djangoAuthenticationFactory.getCookies();
-          loginQueueAuthenticated = loginQueueFactory.getCookies();
+          backendAuthenticated = authenticationFactory.getTokens();
+          loginQueueAuthenticated = loginQueueFactory.getTokens();
         };
 
         var factory = {
           isAuthenticated: function () {
             setAuthStatusFromCookies();
-            return djangoAuthenticated && loginQueueAuthenticated;
+            return backendAuthenticated && loginQueueAuthenticated;
           },
 
           requireAuthentication: function () {
@@ -51,16 +51,16 @@ angular.module('legendary')
           },
 
           logout: function () {
-            djangoAuthenticationFactory.logout();
+            authenticationFactory.logout();
             loginQueueFactory.logout();
             redirect();
           },
 
           login: function (username, password) {
             var deferred = $q.defer();
-            djangoAuthenticationFactory.conditionalLogin(username, password)
+            authenticationFactory.conditionalLogin(username, password)
                 .then(function success() {
-                  djangoAuthenticated = true;
+                  backendAuthenticated = true;
                   return loginQueueFactory.deferredLogin(username, password);
                 },
                 function failure(response) {

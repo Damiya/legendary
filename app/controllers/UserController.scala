@@ -17,14 +17,13 @@
 package controllers
 
 
-import play.api.mvc.{Action, Controller}
+import models.User
 import play.api.libs.json._
-import play.Logger
-import models.{User, ModelConverters}
+import play.api.mvc.{Action, Controller}
 import services.UserService
 
 
-object UserController extends Controller with ModelConverters {
+object UserController extends Controller {
   def registerNewUser() = Action(parse.json) { implicit request =>
     request.body.validate[User].map { user =>
       val newUser = UserService.createNewUser(user)

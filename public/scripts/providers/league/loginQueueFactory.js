@@ -17,18 +17,18 @@
 'use strict';
 
 angular.module('legendary')
-    .factory('loginQueueFactory', ['$http', '$q', '$log', 'cookieManager', 'apiEndpoint',
-      function ($http, $q, $log, cookieManager, apiEndpoint) {
+    .factory('loginQueueFactory', ['$http', '$q', '$log', '$window', 'apiEndpoint',
+      function ($http, $q, $log, $window, apiEndpoint) {
         var deferred = $q.defer();
-        var loginToken = cookieManager.get('lol-loginToken');
+        var loginToken = $window.sessionStorage.getItem('lol-loginToken');
 
         var service = {
-          getCookies: function () {
-            return cookieManager.get('lol-loginToken');
+          getTokens: function () {
+            return $window.sessionStorage.getItem('lol-loginToken');
           },
 
           logout: function () {
-            cookieManager.remove('lol-loginToken');
+            $window.sessionStorage.removeItem('lol-loginToken');
             loginToken = null;
           },
 
@@ -44,7 +44,7 @@ angular.module('legendary')
                   if (data.lqt) {
                     $log.debug('loginQueueFactory: Got a new loginToken. Resolving');
                     var stringifiedToken = JSON.stringify(data.lqt);
-                    cookieManager.put('lol-loginToken', stringifiedToken, {expires: 24000});
+                    $window.sessionStorage.putItem('lol-loginToken', stringifiedToken, {expires: 24000});
                     loginToken = data.lqt;
                     deferred.resolve(data.lqt);
                   } else {

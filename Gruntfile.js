@@ -53,9 +53,9 @@ module.exports = function (grunt) {
       }
     },
     watch: {
-//      js: {
-//        files: ['<%= project.app %>/scripts/**/*.js']
-//      },
+      js: {
+        files: ['<%= project.app %>/scripts/**/*.js']
+      },
 //      jsTest: {
 //        files: [
 //          'test/e2e/**/*.spec.js',

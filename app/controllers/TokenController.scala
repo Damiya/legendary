@@ -16,14 +16,14 @@
 
 package controllers
 
-import models.{UserPass, ModelConverters}
-import play.Logger
+import models.{UserDAO, UserPass}
 import play.api.libs.json.Json
 import play.api.mvc.{Action, Controller}
 import services.UserService
 import utils.BCryptPasswordHasher
+import actions.SecuredAction
 
-object TokenController extends Controller with ModelConverters {
+object TokenController extends Controller {
 
   def create() = Action(parse.json) { implicit request =>
     request.body.validate[UserPass].asOpt match {
@@ -39,5 +39,9 @@ object TokenController extends Controller with ModelConverters {
         }
       case None => BadRequest("Malformed credentials submitted.")
     }
+  }
+
+  def test() = SecuredAction(parse.json) { implicit request =>
+    Ok("OK")
   }
 }
