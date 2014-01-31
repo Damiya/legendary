@@ -372,14 +372,6 @@ module.exports = function (grunt) {
         'watch'
     ]);
 
-
-    grunt.registerTask('netbeans', [
-        'clean:server',
-        'concurrent:netbeans',
-        'autoprefixer',
-        'watch'
-    ]);
-
     grunt.registerTask('test', [
         'clean:server',
         'concurrent:test',
@@ -402,7 +394,6 @@ module.exports = function (grunt) {
         'rev',
         'usemin'
     ]);
-
 
     grunt.registerTask('default', [
         'newer:jshint',
