@@ -27,7 +27,7 @@ angular.module('legendary')
       }]);
 
       // Todo: We should just generate a bunch of these states from arrays since there's so much boilerplate
-      $urlRouterProvider.otherwise('/login');
+      $urlRouterProvider.otherwise('/');
       $stateProvider
           .state('home', {
             abstract: true,
