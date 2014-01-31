@@ -34,6 +34,13 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import "../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap";
 
-.vertical-offset-100 {
-  padding-top: 100px;
+
+
+body {
+  padding-top: 50px;
+}
+
+// Fix margin on collapse
+.navbar-collapse.collapse.in .navbar-btn {
+  margin-left: 10px;
 }

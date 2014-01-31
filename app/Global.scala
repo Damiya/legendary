@@ -17,14 +17,14 @@
 import actions.CORSFilter
 import play.api.mvc.WithFilters
 import scala.slick.driver.PostgresDriver.simple._
-
+import play.filters.csrf.CSRFFilter
 import play.api.db._
 import play.api._
 import models.{AuthTokenDAO, UserDAO}
 
 import scala.slick.jdbc.meta.MTable
 
-object Global extends WithFilters(CORSFilter()) with GlobalSettings {
+object Global extends WithFilters(CORSFilter(), new CSRFFilter()) with GlobalSettings {
 
   import play.api.Play.current
 

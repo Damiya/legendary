@@ -21,8 +21,10 @@ angular.module('legendary')
       return {
         templateUrl: 'views/partials/navBar.html',
         restrict: 'E',
-        controller: ['$scope',  'promiseTracker', 'loginService',
+        controller: ['$scope', 'promiseTracker', 'loginService',
           function ($scope, promiseTracker, loginService) {
+
+            // Todo: Create directive that will highlight dropdown if child is active.
             $scope.isAuthenticated = loginService.isAuthenticated;
 
             $scope.logout = loginService.logout;

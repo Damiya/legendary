@@ -18,17 +18,17 @@
 
 angular.module('legendary')
     .factory('leagueProxy', ['$http', '$q', '$log', '$window', 'apiEndpoint',
-        function ($http, $q, $log, $window, apiEndpoint) {
-            var isConnected = true;
-            var deferred = $q.defer();
+      function ($http, $q, $log, $window, apiEndpoint) {
+        var isConnected = true;
+        var deferred = $q.defer();
 
-            var service = {
-                isConnected: function () {
-                    return isConnected;
-                },
+        var service = {
+          isConnected: function () {
+            return isConnected;
+          },
 
-                logout: function () {
-                    return true;
+          logout: function () {
+            return true;
 //                    $http.delete(apiEndpoint + 'league/logout', {tracker: 'loadingTracker'})
 //                        .then(function () {
 //                            isConnected = false;
@@ -36,10 +36,10 @@ angular.module('legendary')
 //                            $log.error('oh dear');
 //                        }
 //                    );
-                },
+          },
 
-                deferredLogin: function (username, password) {
-                    return true;
+          deferredLogin: function (username, password) {
+            return true;
 //                    $http.post(apiEndpoint + 'league/login', {username: username, password: password}, {tracker: 'loadingTracker'})
 //                        .then(function success(response) {
 //                            isConnected = true;
@@ -48,12 +48,12 @@ angular.module('legendary')
 //                            deferred.reject(response);
 //                        });
 //                    return deferred.promise;
-                },
+          },
 
-                login: function (username, password) {
-                    service.deferredLogin(username, password);
-                }
-            };
+          login: function (username, password) {
+            service.deferredLogin(username, password);
+          }
+        };
 
-            return service;
-        }]);
+        return service;
+      }]);

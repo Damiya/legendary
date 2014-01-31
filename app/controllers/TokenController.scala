@@ -51,8 +51,4 @@ object TokenController extends Controller {
       BadRequest("No token found. This is a problem.")
     }
   }
-
-  def test() = SecuredAction(parse.json) { implicit request =>
-    Ok("OK")
-  }
 }

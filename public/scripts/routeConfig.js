@@ -18,19 +18,21 @@
 
 angular.module('legendary')
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-      $urlRouterProvider.when('/', ['$state', 'loginService', function($state, loginService) {
+      $urlRouterProvider.when('/', ['$state', 'loginService', function ($state, loginService) {
         if (!loginService.isAuthenticated()) {
-          $state.go('home.loginRequred');
+          $state.go('home.loginRequired');
         } else {
           $state.go('home.landingPage');
         }
       }]);
+
+      // Todo: We should just generate a bunch of these states from arrays since there's so much boilerplate
       $urlRouterProvider.otherwise('/login');
       $stateProvider
           .state('home', {
             abstract: true,
             url: '/',
-            templateUrl: 'views/partials/home/index.html'
+            templateUrl: 'views/partials/abstract.html'
           })
           .state('home.landingPage', {
             url: '',
@@ -46,5 +48,50 @@ angular.module('legendary')
             url: 'login',
             templateUrl: 'views/partials/security/loginForm.html',
             controller: 'LoginFormController'
+          })
+          .state('profile', {
+            url: '/profile',
+            abstract: true,
+            templateUrl: 'views/partials/abstract.html'
+          })
+          .state('profile.overview', {
+            url: '',
+            resolve: {
+              login: ['loginService', function (loginService) {
+                return loginService.requireAuthentication();
+              }]
+            },
+            templateUrl: 'views/partials/profile/overview.html',
+            controller: 'ProfileOverviewController'
+          })
+          .state('profile.runes', {
+            url: '/runes',
+            resolve: {
+              login: ['loginService', function (loginService) {
+                return loginService.requireAuthentication();
+              }]
+            },
+            templateUrl: 'views/partials/profile/runes.html',
+            controller: 'RunesController'
+          })
+          .state('profile.masteries', {
+            url: '/masteries',
+            resolve: {
+              login: ['loginService', function (loginService) {
+                return loginService.requireAuthentication();
+              }]
+            },
+            templateUrl: 'views/partials/profile/masteries.html',
+            controller: 'MasteriesController'
+          }).state('profile.leagues', {
+            url: '/leagues',
+            resolve: {
+              login: ['loginService', function (loginService) {
+                return loginService.requireAuthentication();
+              }]
+            },
+            templateUrl: 'views/partials/profile/leagues.html',
+            controller: 'LeaguesController'
           });
+
     }]);

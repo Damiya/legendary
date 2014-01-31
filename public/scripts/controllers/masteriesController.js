@@ -17,17 +17,7 @@
 'use strict';
 
 angular.module('legendary')
-    .controller('HomeController', ['$scope', 'RestangularFactory', '$window',
-      function ($scope, RestangularFactory, $window) {
-        var storedLandingPage = $window.sessionStorage.getItem('landingPage');
+    .controller('MasteriesController', ['$scope', 'RestangularFactory',
+      function ($scope, RestangularFactory) {
 
-        if (!storedLandingPage) {
-          RestangularFactory.league.one('landingPage').get().then(function (response) {
-            var stringifiedData = JSON.stringify(response.originalElement);
-            $window.sessionStorage.setItem('landingPage', stringifiedData);
-            $scope.landingPage = response.originalElement;
-          });
-        } else {
-          $scope.landingPage = JSON.parse(storedLandingPage);
-        }
       }]);

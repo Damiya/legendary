@@ -17,9 +17,9 @@
 'use strict';
 
 angular.module('legendary', [
-      'ngResource',
-      'ngSanitize',
-      'ui.router',
-      'ui.bootstrap',
-      'ajoslin.promise-tracker'
-    ]);
+  'ngSanitize',
+  'ui.router',
+  'ui.bootstrap',
+  'ajoslin.promise-tracker',
+  'restangular'
+]);

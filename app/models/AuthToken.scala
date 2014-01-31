@@ -29,7 +29,7 @@ case class AuthToken(id: Option[Long], token: String, creationTime: DateTime, ex
 
 object AuthToken extends ((Option[Long], String, DateTime, DateTime, Option[Long]) => AuthToken) {
   implicit val authTokenWrites: Writes[AuthToken] = (
-    (__ \ 'token).write[String] and
+    (__ \ 'value).write[String] and
       (__ \ 'expires).write[DateTime]
     ) {
     (a: AuthToken) => (a.token, a.expirationTime)

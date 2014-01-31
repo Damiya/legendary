@@ -36,18 +36,6 @@ module.exports = function (grunt) {
             }
         },
         fileblocks: {
-            netbeans: {
-                src: '<%= project.app %>/views/index.html',
-                options: {
-                    removeFiles: true
-                },
-                blocks: {
-                    'app': {
-                        src: 'scripts/**/*.js',
-                        cwd: '<%= project.app %>'
-                    }
-                }
-            },
             scala: {
                 src: '<%= project.scala %>/views/index.scala.html',
                 options: {
@@ -66,7 +54,11 @@ module.exports = function (grunt) {
         },
         watch: {
             js: {
-                files: ['<%= project.app %>/scripts/**/*.js']
+                files: ['<%= project.app %>/scripts/**/*.js'],
+                tasks: ['fileblocks:scala'],
+                options: {
+                    events: ['added', 'deleted']
+                }
             },
 //      jsTest: {
 //        files: [
