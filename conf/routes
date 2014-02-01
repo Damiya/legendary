@@ -15,5 +15,5 @@ GET            /api/league/landingPage          controllers.LeagueController.lan
 GET            /api/league/featuredGames        controllers.LeagueController.featuredGames()
 DELETE         /api/league/logout               controllers.LeagueController.logout()
 
-GET            /                                controllers.Assets.at(path="/public", file="views/index.html")
+GET            /                                controllers.Assets.at(path="/public", file="index.html")
 GET            /*file                           controllers.Assets.at(path="/public", file)

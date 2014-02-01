@@ -32,12 +32,15 @@
 
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
+$carousel-control-color: #428bca;
+$carousel-indicator-active-bg: #428bca;
+$carousel-indicator-border-color: #428bca;
+$carousel-control-opacity: 0.0;
+
 @import "../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap";
 
-
-
 body {
-  padding-top: 50px;
+  padding-top: 65px;
 }
 
 // Fix margin on collapse
@@ -49,7 +52,10 @@ body {
 
 .overlay {
   position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background-color: rgba(0, 0, 0, 0.4);
   text-align: center;
   vertical-align: center;
@@ -69,4 +75,52 @@ body {
     font-size: 80px;
     font-weight: bold;
   }
+}
+
+.featured-game {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.featured-game-participant {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 200px;
+
+  &.left-align {
+    .champion-icon {
+      order: 1;
+    }
+    .participant-name {
+      text-align: left;
+      order: 2;
+    }
+  }
+
+  &.right-align {
+
+    .champion-icon {
+      order: 2;
+    }
+    .participant-name {
+      text-align: right;
+      order: 1;
+    }
+  }
+}
+
+.champion-icon {
+  flex-shrink: 0;
+  height: 40px;
+  width: 40px;
+}
+
+.participant-name {
+  flex-grow: 2;
+  margin: 0px 10px;
+  font-size: 75%;
 }

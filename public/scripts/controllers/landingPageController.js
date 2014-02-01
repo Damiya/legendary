@@ -17,7 +17,13 @@
 'use strict';
 
 angular.module('legendary')
-    .controller('LandingPageController', ['$scope', 'RestangularFactory', '$window',
-      function ($scope, RestangularFactory, $window) {
+    .controller('LandingPageController', ['$scope', 'landingPageDAO',
+      function ($scope, landingPageDAO) {
+        landingPageDAO.getLandingPageContent().then(function (content) {
+          $scope.content = content;
+        });
 
+        landingPageDAO.getGameList().then(function (gameList) {
+          $scope.gameList = gameList;
+        });
       }]);

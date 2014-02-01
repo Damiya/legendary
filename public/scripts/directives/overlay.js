@@ -19,13 +19,14 @@
 // Overlay from: https://github.com/filearts/plunker_www
 
 angular.module('legendary')
-    .directive('overlay', ['promiseTracker', function (promiseTracker) {
+    .directive('lgdOverlay', ['promiseTracker', function (promiseTracker) {
       return {
-        template: '<div ng-show="loadingTracker.active()" class="overlay">' +
+        template: '' +
+            '<div ng-show="loadingTracker.active()" class="overlay">' +
             '<p class="message">Loading...</p>' +
             '</div>',
         restrict: 'E',
-        replace: false,
+        replace: true,
         link: function (scope, elem, attrs) {
           scope.loadingTracker = promiseTracker('loadingTracker');
         }

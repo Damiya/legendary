@@ -35,7 +35,7 @@ angular.module('legendary')
 
         setHeaderFromSessionStorage();
 
-        var tokensRoute = RestangularFactory.root.one('token');
+        var tokensRoute = RestangularFactory.core.one('token');
 
         var factory = {
           logout: function () {

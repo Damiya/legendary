@@ -35,6 +35,12 @@ module.exports = function (grunt) {
         }
       }
     },
+    'gh-pages': {
+      options: {
+        base: 'build'
+      },
+      src: '**/*'
+    },
     fileblocks: {
       dev: {
         src: '<%= project.app %>/views/index.html',

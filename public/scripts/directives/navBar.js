@@ -17,10 +17,11 @@
 'use strict';
 
 angular.module('legendary')
-    .directive('navbar', function () {
+    .directive('lgdNavbar', function () {
       return {
         templateUrl: 'views/partials/navBar.html',
         restrict: 'E',
+        replace: true,
         controller: ['$scope', 'loginService',
           function ($scope, loginService) {
 
