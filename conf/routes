@@ -3,9 +3,6 @@
 # ~~~~
 
 OPTIONS        /*path                         controllers.Application.options(path)
-# Home page
-GET            /                              controllers.Application.index(any = "none")
-
 
 # Redirect all unknown routes to the index page
 #GET           /*any                       controllers.Application.index(any)
@@ -17,4 +14,5 @@ POST           /api/league/login              controllers.LeagueController.login
 GET            /api/league/landingPage        controllers.LeagueController.landingPage()
 DELETE         /api/league/logout             controllers.LeagueController.logout()
 
+GET            /                              controllers.Assets.at(path="/public", file="views/index.html")
 GET            /*file                         controllers.Assets.at(path="/public", file)

@@ -26,3 +26,4 @@ dist
 /node_modules
 public/bower_components
 /nbproject
+.idea/workspace.xml

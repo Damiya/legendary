@@ -17,3 +17,4 @@
 'use strict';
 angular.module('legendary')
     .value('apiEndpoint', 'http://localhost:9000/api/');
+
