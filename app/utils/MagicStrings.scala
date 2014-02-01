@@ -19,6 +19,7 @@ package utils
 object MagicStrings {
   val authTokenHeader = "X-Auth-Token"
   val landingPageUrl = "http://ll.leagueoflegends.com/landingpage/data/na/en_US.js"
+  val featuredGamesUrl = "http://spectator.na.lol.riotgames.com/observer-mode/rest/featured"
   val referer = "app:/LolClient.swf/[[DYNAMIC]]/4"
   val userAgent = "User-Agent: Mozilla/5.0 (Windows; U; en-US) AppleWebKit/533.19.4 (KHTML, like Gecko) AdobeAIR/3.7"
 }

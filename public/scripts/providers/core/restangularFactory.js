@@ -46,6 +46,6 @@ angular.module('legendary')
 
       return {
         league: restangular.all('league'),
-        root: restangular
+        core: restangular
       };
     }]);

@@ -41,12 +41,12 @@ angular.module('legendary')
                 return loginService.requireAuthentication();
               }]
             },
-            templateUrl: 'views/partials/home/landingPage.html',
-            controller: 'HomeController'
+            templateUrl: 'views/partials/landingPage/index.html',
+            controller: 'LandingPageController'
           })
           .state('home.loginRequired', {
             url: 'login',
-            templateUrl: 'views/partials/security/loginForm.html',
+            templateUrl: 'views/partials/core/login.html',
             controller: 'LoginFormController'
           })
           .state('profile', {
