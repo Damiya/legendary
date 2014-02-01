@@ -42,7 +42,7 @@ angular.module('legendary')
               }]
             },
             templateUrl: 'views/partials/home/landingPage.html',
-            controller: 'HomeController'
+            controller: 'LandingPageController'
           })
           .state('home.loginRequired', {
             url: 'login',

@@ -14,12 +14,20 @@
  * limitations under the License.
  */
 
-package utils
+'use strict';
 
-object MagicStrings {
-  val authTokenHeader = "X-Auth-Token"
-  val landingPageUrl = "http://ll.leagueoflegends.com/landingpage/data/na/en_US.js"
-  val featuredGamesUrl = "http://spectator.na.lol.riotgames.com/observer-mode/rest/featured"
-  val referer = "app:/LolClient.swf/[[DYNAMIC]]/4"
-  val userAgent = "User-Agent: Mozilla/5.0 (Windows; U; en-US) AppleWebKit/533.19.4 (KHTML, like Gecko) AdobeAIR/3.7"
-}
+// Overlay from: https://github.com/filearts/plunker_www
+
+angular.module('legendary')
+    .directive('overlay', ['promiseTracker', function (promiseTracker) {
+      return {
+        template: '<div ng-show="loadingTracker.active()" class="overlay">' +
+            '<p class="message">Loading...</p>' +
+            '</div>',
+        restrict: 'E',
+        replace: false,
+        link: function (scope, elem, attrs) {
+          scope.loadingTracker = promiseTracker('loadingTracker');
+        }
+      };
+    }]);

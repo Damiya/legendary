@@ -40,7 +40,7 @@ object LeagueController extends Controller with DefaultWebServices {
     implicit val timeout = Timeout(5.seconds)
     val potentialActor = Akka.system.actorSelection(s"/user/$username")
     val identifyFuture = new AskableActorSelection(potentialActor).ask(Identify(1))
-    val usernameActorRef = Await.result(identifyFuture, timeout.duration).asInstanceOf[ActorIdentity].getRef
+    val usernameActorRef = Await.result(identifyFuture, 5.seconds).asInstanceOf[ActorIdentity].getRef
     if (usernameActorRef == null) {
       TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), name = username)
     } else {
@@ -65,11 +65,16 @@ object LeagueController extends Controller with DefaultWebServices {
     }
   }
 
-  def landingPage() = SecuredAction.async { authenticatedRequest =>
-    val landingPageResponse = WS.url(MagicStrings.landingPageUrl)
-      .withDefaultHeaders().get()
+  def featuredGames() = SecuredAction.async { authenticatedRequest =>
+    WS.url(MagicStrings.featuredGamesUrl)
+      .withDefaultHeaders().get().map { response =>
+      Ok(response.json)
+    }
+  }
 
-    landingPageResponse.map { response =>
+  def landingPage() = SecuredAction.async { authenticatedRequest =>
+    WS.url(MagicStrings.landingPageUrl)
+      .withDefaultHeaders().get().map { response =>
       Ok(response.json)
     }
   }

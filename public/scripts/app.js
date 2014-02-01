@@ -17,9 +17,22 @@
 'use strict';
 
 angular.module('legendary', [
-  'ngSanitize',
-  'ui.router',
-  'ui.bootstrap',
-  'ajoslin.promise-tracker',
-  'restangular'
-]);
+      'ngSanitize',
+      'ui.router',
+      'ui.bootstrap',
+      'ajoslin.promise-tracker',
+      'restangular'
+    ])
+    .run(['$rootScope', 'promiseTracker', '$log', function ($rootScope, promiseTracker, $log) {
+      promiseTracker.register('loadingTracker');
+
+      $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState) {
+        $log.debug('Transition completed');
+      });
+      $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
+        $log.debug('Transition started from ' + fromState.name + ' to ' + toState.name);
+      });
+      $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState) {
+        $log.error('Transition errored');
+      });
+    }]);

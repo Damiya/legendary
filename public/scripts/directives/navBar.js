@@ -21,15 +21,14 @@ angular.module('legendary')
       return {
         templateUrl: 'views/partials/navBar.html',
         restrict: 'E',
-        controller: ['$scope', 'promiseTracker', 'loginService',
-          function ($scope, promiseTracker, loginService) {
+        controller: ['$scope', 'loginService',
+          function ($scope, loginService) {
 
             // Todo: Create directive that will highlight dropdown if child is active.
             $scope.isAuthenticated = loginService.isAuthenticated;
 
             $scope.logout = loginService.logout;
 
-            $scope.loadingTracker = promiseTracker('loadingTracker');
           }]
       };
     });

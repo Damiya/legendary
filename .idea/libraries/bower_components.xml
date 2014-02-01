@@ -1,5 +1,36 @@
 <component name="libraryTable">
   <library name="bower_components" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/public/bower_components/angular-bootstrap/ui-bootstrap-tpls.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/angular-mocks/angular-mocks.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/angular-promise-tracker/promise-tracker.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/angular-sanitize/angular-sanitize.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/angular-scenario/angular-scenario.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/angular-scenario/jstd-scenario-adapter-config.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/angular-scenario/jstd-scenario-adapter.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/angular-ui-router/release/angular-ui-router.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/angular/angular.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/affix.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/alert.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/button.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/collapse.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/dropdown.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/modal.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/popover.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/scrollspy.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tab.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tooltip.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/transition.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/es5-shim/es5-sham.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/es5-shim/es5-shim.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/json3/lib/json3.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/lodash/dist/lodash.compat.js" />
+        <item url="file://$PROJECT_DIR$/public/bower_components/restangular/dist/restangular.js" />
+      </sourceFilesUrls>
+    </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/public/bower_components/json3/lib/json3.min.js" />
       <root url="file://$PROJECT_DIR$/public/bower_components/lodash/dist/lodash.compat.min.js" />

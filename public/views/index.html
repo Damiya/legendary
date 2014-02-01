@@ -25,7 +25,8 @@ itsdamiya
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href=".tmp/styles/main.css"/>
     </head>
-    <body ng-controller="MainController">
+    <body>
+        <overlay></overlay>
         <navbar></navbar>
         <div ui-view></div>
 
@@ -48,10 +49,8 @@ itsdamiya
         <!-- fileblock:js app -->
         <script src="scripts/app.js"></script>
         <script src="scripts/constants.js"></script>
-        <script src="scripts/controllers/homeController.js"></script>
         <script src="scripts/controllers/leaguesController.js"></script>
         <script src="scripts/controllers/loginFormController.js"></script>
-        <script src="scripts/controllers/mainController.js"></script>
         <script src="scripts/controllers/masteriesController.js"></script>
         <script src="scripts/controllers/profileOverviewController.js"></script>
         <script src="scripts/controllers/runesController.js"></script>
@@ -62,6 +61,8 @@ itsdamiya
         <script src="scripts/providers/league/leagueProxy.js"></script>
         <script src="scripts/providers/security/authenticationFactory.js"></script>
         <script src="scripts/routeConfig.js"></script>
+        <script src="scripts/directives/overlay.js"></script>
+        <script src="scripts/controllers/landingPageController.js"></script>
         <!-- endfileblock -->
         <!-- endbuild -->
     </body>
