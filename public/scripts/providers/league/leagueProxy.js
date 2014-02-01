@@ -18,40 +18,42 @@
 
 angular.module('legendary')
     .factory('leagueProxy', ['$http', '$q', '$log', '$window', 'apiEndpoint',
-        function ($http, $q, $log, $window, apiEndpoint) {
-            var isConnected = false;
-            var deferred = $q.defer();
+      function ($http, $q, $log, $window, apiEndpoint) {
+        var isConnected = true;
+        var deferred = $q.defer();
 
-            var service = {
-                isConnected: function () {
-                    return isConnected;
-                },
+        var service = {
+          isConnected: function () {
+            return isConnected;
+          },
 
-                logout: function () {
-                    $http.delete(apiEndpoint + 'league/logout', {tracker: 'loadingTracker'})
-                        .then(function () {
-                            isConnected = false;
-                        },function() {
-                            $log.error('oh dear');
-                        }
-                    );
-                },
+          logout: function () {
+            return true;
+//                    $http.delete(apiEndpoint + 'league/logout', {tracker: 'loadingTracker'})
+//                        .then(function () {
+//                            isConnected = false;
+//                        },function() {
+//                            $log.error('oh dear');
+//                        }
+//                    );
+          },
 
-                deferredLogin: function (username, password) {
-                    $http.post(apiEndpoint + 'league/login', {username: username, password: password}, {tracker: 'loadingTracker'})
-                        .then(function success(response) {
-                            isConnected = true;
-                            deferred.resolve();
-                        }, function error(response) {
-                            deferred.reject(response);
-                        });
-                    return deferred.promise;
-                },
+          deferredLogin: function (username, password) {
+            return true;
+//                    $http.post(apiEndpoint + 'league/login', {username: username, password: password}, {tracker: 'loadingTracker'})
+//                        .then(function success(response) {
+//                            isConnected = true;
+//                            deferred.resolve();
+//                        }, function error(response) {
+//                            deferred.reject(response);
+//                        });
+//                    return deferred.promise;
+          },
 
-                login: function (username, password) {
-                    service.deferredLogin(username, password);
-                }
-            };
+          login: function (username, password) {
+            service.deferredLogin(username, password);
+          }
+        };
 
-            return service;
-        }]);
+        return service;
+      }]);

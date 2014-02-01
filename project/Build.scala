@@ -14,6 +14,7 @@ object ApplicationBuild extends Build {
     "org.joda" % "joda-convert" % "1.5",
     "org.mindrot" % "jbcrypt" % "0.3m",
     "com.github.tototoshi" %% "slick-joda-mapper" % "1.0.0",
+    filters,
     jdbc
   )
 

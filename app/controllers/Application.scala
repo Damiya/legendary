@@ -23,7 +23,7 @@ import play.api.mvc.Controller
 import play.Logger
 
 object Application extends Controller {
-  def index(any: String) = Action {
-    Ok(views.html.index())
+  def options(path: String) = Action {
+    Ok("")
   }
 }

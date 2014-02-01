@@ -16,37 +16,38 @@
 
 package controllers
 
-import play.api.mvc._
-import play.api.libs.concurrent.Execution.Implicits.defaultContext
-import scala.concurrent.duration._
-import actions.{AuthenticatedRequest, SecuredAction}
-import akka.actor._
+import actions.SecuredAction
 import actors.{ConnectionStatus, LeagueClientImpl, LeagueClient}
-import models.UserPass
-import play.api.libs.json._
-import play.api.libs.concurrent.Akka
-import scala.concurrent.{Await, Future}
-import play.api.Play.current
+import akka.actor._
 import akka.pattern.AskableActorSelection
 import akka.util.Timeout
-import scala.Some
-import akka.actor.Identify
+import models.UserPass
 import play.Logger
+import play.api.Play.current
+import play.api.libs.concurrent.Akka
+import play.api.libs.concurrent.Execution.Implicits.defaultContext
+import play.api.libs.json._
+import play.api.mvc._
+import scala.Some
+import scala.concurrent.duration._
+import scala.concurrent.{Await, Future}
+import play.api.libs.ws._
+import utils.{DefaultWebServices, MagicStrings}
 
-object LeagueController extends Controller {
+object LeagueController extends Controller with DefaultWebServices {
 
   private def getLeagueClient(username: String): LeagueClient = {
     implicit val timeout = Timeout(5.seconds)
     val potentialActor = Akka.system.actorSelection(s"/user/$username")
     val identifyFuture = new AskableActorSelection(potentialActor).ask(Identify(1))
-    val usernameActorRef = Await.result(identifyFuture, timeout.duration).asInstanceOf[ActorIdentity].getRef
-    usernameActorRef match {
-      case actorRef =>
-        TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), usernameActorRef)
-      case null =>
-        TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), name = username)
+    val usernameActorRef = Await.result(identifyFuture, 5.seconds).asInstanceOf[ActorIdentity].getRef
+    if (usernameActorRef == null) {
+      TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), name = username)
+    } else {
+      TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), usernameActorRef)
     }
   }
+
 
   def login() = SecuredAction.async(parse.json) { authenticatedRequest =>
     val loginActor = getLeagueClient(authenticatedRequest.user.username)
@@ -61,6 +62,20 @@ object LeagueController extends Controller {
         }
       case None =>
         Future.successful(Ok("Ok"))
+    }
+  }
+
+  def featuredGames() = SecuredAction.async { authenticatedRequest =>
+    WS.url(MagicStrings.featuredGamesUrl)
+      .withDefaultHeaders().get().map { response =>
+      Ok(response.json)
+    }
+  }
+
+  def landingPage() = SecuredAction.async { authenticatedRequest =>
+    WS.url(MagicStrings.landingPageUrl)
+      .withDefaultHeaders().get().map { response =>
+      Ok(response.json)
     }
   }
 

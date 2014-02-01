@@ -17,73 +17,60 @@
 'use strict';
 
 angular.module('legendary')
-    .factory('authenticationFactory', ['$http', '$q', '$state', '$log', 'apiEndpoint', '$window',
-        function ($http, $q, $state, $log, apiEndpoint, $window) {
-            var authToken,
-                csrfToken,
-                currentUser;
+    .factory('authenticationFactory', ['RestangularFactory', '$q' , '$log', '$window', '$http',
+      function (RestangularFactory, $q, $log, $window, $http) {
+        var currentUser;
 
-            var checkTokens = function () {
-                authToken = $window.sessionStorage.getItem('backend-authToken');
-               // csrfToken = $window.sessionStorage.getItem('backend-csrfToken');
+        var removeToken = function () {
+          $window.sessionStorage.removeItem('backend-authToken');
+        };
 
-                return authToken; //&& csrfToken;
-            };
+        var getAuthToken = function () {
+          return $window.sessionStorage.getItem('backend-authToken');
+        };
 
-            var setHttpHeaders = function () {
-                if (checkTokens()) {
-                    _setHeaders(authToken, csrfToken);
+        var setHeaderFromSessionStorage = function () {
+          $http.defaults.headers.common['X-Auth-Token'] = $window.sessionStorage.getItem('backend-authToken');
+        };
+
+        setHeaderFromSessionStorage();
+
+        var tokensRoute = RestangularFactory.core.one('token');
+
+        var factory = {
+          logout: function () {
+            tokensRoute.destroy().then(function () {
+              removeToken();
+              delete $http.defaults.headers.common['X-Auth-Token'];
+            });
+          },
+
+          getAuthToken: getAuthToken,
+
+          conditionalLogin: function (username, password) {
+            var deferred = $q.defer();
+            if (getAuthToken()) {
+              deferred.resolve();
+              return deferred.promise;
+            } else {
+              return $q.when(factory.login(username, password));
+            }
+          },
+
+          login: function (username, password) {
+            return tokensRoute.create({username: username, password: password}).then(
+                function success(token) {
+                  $window.sessionStorage.setItem('backend-authToken', token.value);
+                  setHeaderFromSessionStorage();
+                  $log.debug('Security: login success');
+                },
+                function error(response) {
+                  $log.debug('Security: Invalid credentials');
                 }
-            };
+            );
+          }
 
-            var removeCookies = function () {
-                $window.sessionStorage.removeItem('backend-authToken');
-                //$window.sessionStorage.removeItem('backend-csrfToken');
-            };
+        };
 
-            var _setHeaders = function (auth, csrf) {
-                $http.defaults.headers.common['X-AuthToken'] = auth;
-             //   $http.defaults.headers.common['X-CSRFToken'] = csrf;
-            };
-
-            setHttpHeaders();
-
-            var factory = {
-                logout: function () {
-                    _setHeaders(null, null);
-                    removeCookies();
-                    currentUser = null;
-                },
-
-                getTokens: function () {
-                    return $window.sessionStorage.getItem('backend-authToken');// && $window.sessionStorage.getItem('backend-csrfToken');
-                },
-
-                conditionalLogin: function (username, password) {
-                    var deferred = $q.defer();
-                    if (factory.getTokens()) {
-                        deferred.resolve();
-                        return deferred.promise;
-                    } else {
-                        return $q.when(factory.login(username, password));
-                    }
-                },
-
-                login: function (username, password) {
-                    return $http.post(apiEndpoint + 'token/new', {username: username, password: password}, {tracker: 'loadingTracker'}).then(
-                        function success(response) {
-                            $window.sessionStorage.setItem('backend-authToken', response.data.token);
-                            currentUser = response.data.user;
-                            setHttpHeaders();
-                            $log.debug('Security: login success');
-                        },
-                        function error(response) {
-                            $log.debug('Security: Invalid credentials');
-                        }
-                    );
-                }
-
-            };
-
-            return factory;
-        }]);
+        return factory;
+      }]);

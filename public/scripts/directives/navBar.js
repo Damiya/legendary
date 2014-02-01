@@ -17,17 +17,19 @@
 'use strict';
 
 angular.module('legendary')
-    .directive('navbar', function () {
+    .directive('lgdNavbar', function () {
       return {
-        templateUrl: 'assets/views/partials/navBar.html',
+        templateUrl: 'views/partials/navBar.html',
         restrict: 'E',
-        controller: ['$scope',  'promiseTracker', 'loginService',
-          function ($scope, promiseTracker, loginService) {
+        replace: true,
+        controller: ['$scope', 'loginService',
+          function ($scope, loginService) {
+
+            // Todo: Create directive that will highlight dropdown if child is active.
             $scope.isAuthenticated = loginService.isAuthenticated;
 
             $scope.logout = loginService.logout;
 
-            $scope.loadingTracker = promiseTracker('loadingTracker');
           }]
       };
     });

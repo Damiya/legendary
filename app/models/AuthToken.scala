@@ -29,7 +29,7 @@ case class AuthToken(id: Option[Long], token: String, creationTime: DateTime, ex
 
 object AuthToken extends ((Option[Long], String, DateTime, DateTime, Option[Long]) => AuthToken) {
   implicit val authTokenWrites: Writes[AuthToken] = (
-    (__ \ 'token).write[String] and
+    (__ \ 'value).write[String] and
       (__ \ 'expires).write[DateTime]
     ) {
     (a: AuthToken) => (a.token, a.expirationTime)
@@ -69,7 +69,22 @@ trait AuthTokenComponent {
   def findOrCreateAuthToken(user: User): AuthToken = {
     Database.forDataSource(DB.getDataSource()).withSession { implicit session =>
       val query = AuthTokens.where(_.userId === user.id).firstOption
-      query.getOrElse(insert(AuthToken(None, UUID.randomUUID().toString, DateTime.now(), DateTime.now(), user.id)))
+      val now = DateTime.now()
+
+      query.getOrElse(insert(AuthToken(None, UUID.randomUUID().toString, now, now.plusDays(2), user.id)))
+    }
+  }
+
+  def deleteAuthToken(user: User):Boolean = {
+    Database.forDataSource(DB.getDataSource()).withSession { implicit session =>
+      val query = AuthTokens.where(_.userId === user.id)
+      query.firstOption.isDefined match {
+        case true =>
+          query.delete
+          true
+        case false =>
+          false
+      }
     }
   }
 }

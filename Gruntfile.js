@@ -35,12 +35,18 @@ module.exports = function (grunt) {
         }
       }
     },
+    'gh-pages': {
+      options: {
+        base: 'build'
+      },
+      src: '**/*'
+    },
     fileblocks: {
-      app: {
-        src: '<%= project.scala %>/views/index.scala.html',
+      dev: {
+        src: '<%= project.app %>/views/index.html',
         options: {
           templates: {
-            js: '<script src=\'@routes.Assets.at("${file}")\'></script>'
+            js: '<script src=\"${file}"></script>'
           },
           removeFiles: true
         },
@@ -54,7 +60,11 @@ module.exports = function (grunt) {
     },
     watch: {
       js: {
-        files: ['<%= project.app %>/scripts/**/*.js']
+        files: ['<%= project.app %>/scripts/**/*.js'],
+        tasks: ['fileblocks:dev'],
+        options: {
+          events: ['added', 'deleted']
+        }
       },
 //      jsTest: {
 //        files: [
@@ -72,7 +82,6 @@ module.exports = function (grunt) {
       },
       livereload: {
         files: [
-          '<%= project.scala %>/views/**/*.scala.html',
           '<%= project.app %>/views/**/*.{html,jade}',
           '<%= project.app %>/styles/**/*.css',
           '<%= project.app %>/scripts/**/*.js',
@@ -124,9 +133,9 @@ module.exports = function (grunt) {
     compass: {
       options: {
         sassDir: '<%= project.app %>/styles',
-        cssDir: '<%= project.app %>/styles',
         generatedImagesDir: '<%= project.app %>/images/generated',
-        imagesDir: '<%= project.app %>/images',
+        cssDir: '<%= project.app %>/.tmp/styles',
+        imagesDir: '<%= project.app %>/.tmp/images',
         javascriptsDir: '<%= project.app %>/scripts',
         fontsDir: '<%= project.app %>/styles/fonts',
         importPath: '<%= project.app %>/bower_components',
@@ -303,9 +312,9 @@ module.exports = function (grunt) {
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
-      server: [
+      dev: [
         'compass:server',
-        'fileblocks'
+        'fileblocks:dev'
       ],
       test: [
         'compass'
@@ -357,18 +366,12 @@ module.exports = function (grunt) {
     this.async();
   });
 
-  grunt.registerTask('serve', function (target) {
-    if (target === 'dist') {
-      return grunt.task.run(['build', 'express:prod', 'open', 'express-keepalive']);
-    }
-
-    grunt.task.run([
-      'clean:server',
-      'concurrent:server',
-      'autoprefixer',
-      'watch'
-    ]);
-  });
+  grunt.registerTask('dev', [
+    'clean:server',
+    'concurrent:dev',
+    'autoprefixer',
+    'watch'
+  ]);
 
   grunt.registerTask('test', [
     'clean:server',
@@ -392,7 +395,6 @@ module.exports = function (grunt) {
     'rev',
     'usemin'
   ]);
-
 
   grunt.registerTask('default', [
     'newer:jshint',

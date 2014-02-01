@@ -25,7 +25,7 @@ case class AuthenticatedRequest[A](user: User, request: Request[A]) extends Wrap
 
 object SecuredAction extends ActionBuilder[AuthenticatedRequest] with Results {
   def invokeBlock[A](request: Request[A], block: (AuthenticatedRequest[A]) => Future[SimpleResult]) = {
-    request.headers.get("X-AuthToken") match {
+    request.headers.get("X-Auth-Token") match {
       case Some(authToken) =>
         UserDAO.findUserByToken(authToken) match {
           case Some(user) =>

@@ -2,17 +2,18 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET           /                         controllers.Application.index(any = "none")
+OPTIONS        /*path                           controllers.Application.options(path)
 
-# Map static resources from the /public folder to the /assets URL path
-GET           /assets/*file             controllers.Assets.at(path="/public", file)
 # Redirect all unknown routes to the index page
 #GET           /*any                       controllers.Application.index(any)
 
+DELETE         /api/token/destroy               controllers.TokenController.destroy()
+POST           /api/token/create                controllers.TokenController.create()
 
-POST          /api/token/new            controllers.TokenController.create()
-POST          /api/league/login         controllers.LeagueController.login()
-DELETE        /api/league/logout        controllers.LeagueController.logout()
-POST          /users/create             controllers.UserController.registerNewUser()
-POST          /test                     controllers.TokenController.test()
+POST           /api/league/login                controllers.LeagueController.login()
+GET            /api/league/landingPage          controllers.LeagueController.landingPage()
+GET            /api/league/featuredGames        controllers.LeagueController.featuredGames()
+DELETE         /api/league/logout               controllers.LeagueController.logout()
+
+GET            /                                controllers.Assets.at(path="/public", file="index.html")
+GET            /*file                           controllers.Assets.at(path="/public", file)

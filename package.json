@@ -1,13 +1,7 @@
 {
   "name": "roflclientjs",
   "version": "0.0.0",
-  "dependencies": {
-    "express": "~3.4.8",
-    "lodash": "~2.4.1",
-    "ejs": "~0.8.5",
-    "passport": "~0.2.0",
-    "passport-local": "~0.1.6"
-  },
+  "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-autoprefixer": "~0.6.5",
@@ -52,7 +46,8 @@
     "protractor": "~0.17.0",
     "astrolabe": "~0.3.0-alpha",
     "grunt-shell": "~0.6.4",
-    "grunt-file-blocks": "~0.2.2"
+    "grunt-file-blocks": "~0.2.2",
+    "grunt-gh-pages": "~0.9.0"
   },
   "engines": {
     "node": ">=0.8.0"
