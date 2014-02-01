@@ -25,6 +25,8 @@ case class CORSFilter() extends Filter {
   import scala.concurrent._
   import ExecutionContext.Implicits.global
 
+  // Todo: This code is ugly. needs to be deugly'd
+
   lazy val allowedDomain = play.api.Play.current.configuration.getString("cors.allowed.domain")
   val defaultMethods = "GET POST DELETE PUT"
   val defaultDomain = "http://localhost:*"

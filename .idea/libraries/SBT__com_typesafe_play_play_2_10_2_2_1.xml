@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="SBT: com.typesafe.play:play_2.10:2.2.1">
+    <CLASSES>
+      <root url="jar://F:/.ivy2/cache/com.typesafe.play/play_2.10/jars/play_2.10-2.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://F:/.ivy2/cache/com.typesafe.play/play_2.10/srcs/play_2.10-2.2.1-sources.jar!/" />
+      <root url="jar://F:/.ivy2/cache/com.typesafe.play/play_2.10/srcs/play_2.10-2.2.1-sources.jar!/" />
+      <root url="jar://F:/.ivy2/cache/com.typesafe.play/play_2.10/srcs/play_2.10-2.2.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

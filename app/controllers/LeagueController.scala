@@ -32,9 +32,9 @@ import scala.Some
 import scala.concurrent.duration._
 import scala.concurrent.{Await, Future}
 import play.api.libs.ws._
-import utils.MagicStrings
+import utils.{DefaultWebServices, MagicStrings}
 
-object LeagueController extends Controller {
+object LeagueController extends Controller with DefaultWebServices {
 
   private def getLeagueClient(username: String): LeagueClient = {
     implicit val timeout = Timeout(5.seconds)
@@ -47,6 +47,7 @@ object LeagueController extends Controller {
       TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), usernameActorRef)
     }
   }
+
 
   def login() = SecuredAction.async(parse.json) { authenticatedRequest =>
     val loginActor = getLeagueClient(authenticatedRequest.user.username)
@@ -66,10 +67,7 @@ object LeagueController extends Controller {
 
   def landingPage() = SecuredAction.async { authenticatedRequest =>
     val landingPageResponse = WS.url(MagicStrings.landingPageUrl)
-      .withHeaders(
-        "User-Agent" -> MagicStrings.userAgent,
-        "Referer" -> MagicStrings.referer
-      ).get()
+      .withDefaultHeaders().get()
 
     landingPageResponse.map { response =>
       Ok(response.json)

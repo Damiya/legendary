@@ -2,11 +2,6 @@
   "name": "roflclientjs",
   "version": "0.0.0",
   "dependencies": {
-    "express": "~3.4.8",
-    "lodash": "~2.4.1",
-    "ejs": "~0.8.5",
-    "passport": "~0.2.0",
-    "passport-local": "~0.1.6"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
