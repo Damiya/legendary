@@ -37,17 +37,14 @@ module.exports = function (grunt) {
     },
     'gh-pages': {
       options: {
-        base: 'build'
+        base: '<%= project.dist %>'
       },
       src: '**/*'
     },
     fileblocks: {
       dev: {
-        src: '<%= project.app %>/views/index.html',
+        src: '<%= project.app %>/index.html',
         options: {
-          templates: {
-            js: '<script src=\"${file}"></script>'
-          },
           removeFiles: true
         },
         blocks: {
@@ -55,6 +52,31 @@ module.exports = function (grunt) {
             src: 'scripts/**/*.js',
             cwd: '<%= project.app %>'
           }
+        }
+      },
+      dist: {
+        src: '<%= project.dist %>/index.html',
+        options: {
+          templates: {
+            'css': '<link href="legendary/${file}" rel="stylesheet" />',
+            'js': '<script src="legendary/${file}"></script>'
+          },
+          removeFiles: true
+        },
+        blocks: {
+          'vendor': {
+            src: 'scripts/vendor.js',
+            cwd: '<%= project.dist %>'
+          },
+          'style': {
+            src: 'styles/main.css',
+            cwd: '<%= project.dist %>'
+          },
+          'app': {
+            src: 'scripts/{legendary,templates}.js',
+            cwd: '<%= project.dist %>'
+          }
+
         }
       }
     },
@@ -97,19 +119,27 @@ module.exports = function (grunt) {
     // Empties folders to start fresh
     clean: {
       dist: {
+        options: {
+          force: true
+        },
         files: [
           {
             dot: true,
             src: [
               '.tmp',
-              '<%= yeoman.dist %>/views/*',
-              '<%= yeoman.dist %>/public/*',
-              '!<%= yeoman.dist %>/public/.git*'
+              '<%= project.dist %>'
             ]
           }
         ]
       },
       server: '.tmp'
+    },
+
+    'bower-install': {
+      app: {
+        src: '<%= project.app %>/index.html',
+        ignorePath: '<%= project.app %>/'
+      }
     },
 
     // Add vendor prefixed styles
@@ -121,9 +151,9 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= project.app%>/styles/',
+            cwd: '<%= project.app %>/styles/',
             src: '**/*.css',
-            dest: '<%= project.app%>/styles/'
+            dest: '<%= project.app %>/styles/'
           }
         ]
       }
@@ -148,7 +178,7 @@ module.exports = function (grunt) {
       },
       dist: {
         options: {
-          generatedImagesDir: '<%= yeoman.dist %>/public/images/generated'
+          generatedImagesDir: '<%= project.dist %>/images/generated'
         }
       },
       server: {
@@ -163,10 +193,10 @@ module.exports = function (grunt) {
       dist: {
         files: {
           src: [
-            '<%= yeoman.dist %>/public/scripts/**/*.js',
-            '<%= yeoman.dist %>/public/styles/**/*.css',
-            '<%= yeoman.dist %>/public/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
-            '<%= yeoman.dist %>/public/styles/fonts/*'
+            '<%= project.dist %>/scripts/**/*.js',
+            '<%= project.dist %>/styles/**/*.css',
+            //'<%= project.dist %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
+            '<%= project.dist %>/styles/fonts/*'
           ]
         }
       }
@@ -176,20 +206,20 @@ module.exports = function (grunt) {
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
     useminPrepare: {
-      html: ['<%= project.app %>/views/index.html',
-        '<%= project.app %>/views/index.jade'],
+      html: ['<%= project.app %>/index.html'],
       options: {
-        dest: '<%= yeoman.dist %>/public'
+        dest: '<%= project.dist %>'
       }
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
-      html: ['<%= yeoman.dist %>/views/**/*.html',
-        '<%= yeoman.dist %>/views/**/*.jade'],
-      css: ['<%= yeoman.dist %>/styles/**/*.css'],
+      html: ['<%= project.dist %>/views/**/*.html',
+        '<%= project.dist %>/index.html'],
+      css: ['<%= project.dist %>/styles/**/*.css'],
       options: {
-        assetsDirs: ['<%= yeoman.dist %>/public']
+        basedir: '<%= project.dist %>',
+        dirs: '<%= project.dist %>'
       }
     },
 
@@ -201,7 +231,7 @@ module.exports = function (grunt) {
             expand: true,
             cwd: '<%= project.app %>/images',
             src: '**/*.{png,jpg,jpeg,gif}',
-            dest: '<%= yeoman.dist %>/public/images'
+            dest: '<%= project.dist %>/images'
           }
         ]
       }
@@ -214,7 +244,7 @@ module.exports = function (grunt) {
             expand: true,
             cwd: '<%= project.app %>/images',
             src: '**/*.svg',
-            dest: '<%= yeoman.dist %>/public/images'
+            dest: '<%= project.dist %>/images'
           }
         ]
       }
@@ -223,18 +253,29 @@ module.exports = function (grunt) {
     htmlmin: {
       dist: {
         options: {
-          //collapseWhitespace: true,
-          //collapseBooleanAttributes: true,
-          //removeCommentsFromCDATA: true,
-          //removeOptionalTags: true
+          collapseBooleanAttributes: true,
+          collapseWhitespace: true,
+          removeAttributeQuotes: true,
+          removeComments: true, // Only if you don't use comment directives!
+          removeEmptyAttributes: true,
+          removeRedundantAttributes: true,
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true
         },
         files: [
           {
             expand: true,
-            cwd: '<%= project.app %>/views',
-            src: ['*.html', 'partials/*.html'],
-            dest: '<%= yeoman.dist %>/views'
+            cwd: '<%= project.dist %>',
+            src: ['views/**/*.html'],
+            dest: '<%= project.dist %>'
+          },
+          {
+            expand: true,
+            cwd: '<%= project.dist %>',
+            src: ['index.html'],
+            dest: '<%= project.dist %>'
           }
+
         ]
       }
     },
@@ -246,22 +287,33 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: '.tmp/concat/scripts',
+            cwd: '<%= project.dist %>/scripts',
             src: '*.js',
-            dest: '.tmp/concat/scripts'
+            dest: '<%= project.dist %>/scripts'
           }
         ]
+      }
+    },
+
+    ngtemplates: {
+      legendary: {
+        cwd: 'public',
+        src: ['template/**/*.html', 'views/**/*.html'],
+        dest: 'dist/scripts/templates.js',
+        options: {
+          htmlmin: '<%= htmlmin.dist %>'
+        }
       }
     },
 
     // Replace Google CDN references
     cdnify: {
       dist: {
-        html: ['<%= yeoman.dist %>/views/*.html']
+        html: ['<%= project.dist %>/*.html']
       }
     },
 
-    // Copies remaining files to places other tasks can use
+    // Moves files to dist directory
     copy: {
       dist: {
         files: [
@@ -269,7 +321,7 @@ module.exports = function (grunt) {
             expand: true,
             dot: true,
             cwd: '<%= project.app %>',
-            dest: '<%= yeoman.dist %>/public',
+            dest: '<%= project.dist %>',
             src: [
               '*.{ico,png,txt}',
               '.htaccess',
@@ -282,23 +334,26 @@ module.exports = function (grunt) {
             expand: true,
             dot: true,
             cwd: '<%= project.app %>/views',
-            dest: '<%= yeoman.dist %>/views',
-            src: '**/*.jade'
+            dest: '<%= project.dist %>/views',
+            src: '**/*.html'
+          },
+          {
+            expand: true,
+            cwd: '<%= project.app %>',
+            dest: '<%= project.dist %>',
+            src: 'index.html'
+          },
+          {
+            expand: true,
+            cwd: '.tmp/concat',
+            dest: '<%= project.dist %>',
+            src: '**/*'
           },
           {
             expand: true,
             cwd: '.tmp/images',
-            dest: '<%= yeoman.dist %>/public/images',
+            dest: '<%= project.dist %>/images',
             src: ['generated/*']
-          },
-          {
-            expand: true,
-            dest: '<%= yeoman.dist %>',
-            src: [
-              'package.json',
-              'server.js',
-              'lib/**/*'
-            ]
           }
         ]
       },
@@ -327,31 +382,41 @@ module.exports = function (grunt) {
       ]
     },
 
-    // By default, your `index.html`'s <!-- Usemin block --> will take care of
-    // minification. These next options are pre-configured if you do not wish
-    // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/**/*.css',
-    //         '<%= project.app %>/styles/**/*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
+//
+//    cssmin: {
+//      dist: {
+//        files: {
+//          '<%= project.dist %>/styles/main.css': [
+//            '.tmp/styles/**/*.css',
+//            '<%= project.app %>/styles/**/*.css'
+//          ]
+//        }
+//      }
+//    },
+//    uglify: {
+//      dist: {
+//        files: {
+//          '<%= project.dist %>/scripts/legendary.js': [
+//            '<%= project.dist %>/scripts/legendary.js'
+//          ],
+//          '<%= project.dist %>/scripts/vendor.js': [
+//            '<%= project.dist %>/scripts/vendor.js'
+//          ]
+//        }
+//      }
+//    },
+//    concat: {
+//      dist: {
+//        options: {
+//          stripBanners: true
+//        },
+//        files: {
+//          '<%= project.dist %>/scripts/legendary.js': ['public/scripts/**/*.js'],
+//          '<%= project.dist %>/scripts/vendor.js': ['public/bower_components/**/*.js']
+//        }
+//      }
+//    },
+
 
     // Test settings
     karma: {
@@ -360,10 +425,6 @@ module.exports = function (grunt) {
         singleRun: true
       }
     }
-  });
-
-  grunt.registerTask('express-keepalive', 'Keep grunt running', function () {
-    this.async();
   });
 
   grunt.registerTask('dev', [
@@ -384,15 +445,15 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'useminPrepare',
-    'concurrent:dist',
     'autoprefixer',
     'concat',
-    'ngmin',
     'copy:dist',
-    'cdnify',
+    'ngtemplates:legendary',
+    'fileblocks:dist',
+    'concurrent:dist',
+    'ngmin',
     'cssmin',
     'uglify',
-    'rev',
     'usemin'
   ]);
 

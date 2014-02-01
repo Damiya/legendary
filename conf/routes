@@ -6,7 +6,7 @@ OPTIONS        /*path                           controllers.Application.options(
 
 # Redirect all unknown routes to the index page
 #GET           /*any                       controllers.Application.index(any)
-
+POST           /api/user/create                 controllers.UserController.create()
 DELETE         /api/token/destroy               controllers.TokenController.destroy()
 POST           /api/token/create                controllers.TokenController.create()
 
@@ -16,4 +16,5 @@ GET            /api/league/featuredGames        controllers.LeagueController.fea
 DELETE         /api/league/logout               controllers.LeagueController.logout()
 
 GET            /                                controllers.Assets.at(path="/public", file="index.html")
+GET            /styles/main.css                 controllers.Assets.at(path="/public", file=".tmp/styles/main.css")
 GET            /*file                           controllers.Assets.at(path="/public", file)
