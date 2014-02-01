@@ -17,35 +17,45 @@
 'use strict';
 
 angular.module('legendary')
-    .factory('landingPageDAO', ['$rootScope', 'RestangularFactory', '$window', function ($rootScope, RestangularFactory, $window) {
-      var factory = {
-        gameList: null,
+  .factory('landingPageDAO', ['$rootScope', 'RestangularFactory', 'sessionStorage', '$q', function ($rootScope, RestangularFactory, sessionStorage, $q) {
+    var factory = {
+      nextGameListUpdate: 0,
 
-        nextGameListUpdate: null,
+      getLandingPageContent: function () {
+        var deferred = $q.defer();
+        var landingPageContent = sessionStorage.getItem('landingPageContent');
+        if (!landingPageContent) {
+          RestangularFactory.league.one('landingPage').get().then(function (response) {
+            sessionStorage.setItem('landingPageContent', response.originalElement);
 
-        getLandingPageContent: function () {
-          return RestangularFactory.league.one('landingPage').get().then(function (response) {
-            $window.sessionStorage.setItem('landingPageContent', JSON.stringify(response.originalElement));
-
-            return response.originalElement;
+            deferred.resolve(response.originalElement);
           });
-        },
-
-        getGameList: function () {
-          var now = new Date().getTime();
-
-          if (factory.nextGameListUpdate <= now) {
-            return RestangularFactory.league.one('featuredGames').get().then(function (response) {
-              factory.gameList = response.gameList;
-              factory.nextGameListUpdate = now + response.clientRefreshInterval;
-
-              return response.gameList;
-            });
-          } else {
-            return factory.gameList;
-          }
+        } else {
+          deferred.resolve(landingPageContent);
         }
-      };
 
-      return factory;
-    }]);
+        return deferred.promise;
+      },
+
+      getGameList: function () {
+        var deferred = $q.defer();
+        var now = new Date().getTime();
+        var gameList = sessionStorage.getItem('gameList');
+
+        if (!gameList || factory.nextGameListUpdate <= now) {
+          RestangularFactory.league.one('featuredGames').get().then(function (response) {
+            sessionStorage.setItem('gameList', response.gameList);
+            factory.nextGameListUpdate = now + response.clientRefreshInterval;
+
+            deferred.resolve(response.gameList);
+          });
+        } else {
+          deferred.resolve(gameList);
+        }
+
+        return deferred.promise;
+      }
+    };
+
+    return factory;
+  }]);

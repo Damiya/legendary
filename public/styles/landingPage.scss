@@ -1,0 +1,172 @@
+/*
+ * Copyright 2014 Kate von Roeder (katevonroder at gmail dot com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.left-column-panel {
+  min-width: 560px;
+}
+
+// Start Featured Games
+
+.featured-game-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.featured-game-participant {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 200px;
+
+  &.left-align {
+    .champion-icon {
+      order: 1;
+    }
+    .participant-name {
+      text-align: left;
+      order: 2;
+    }
+  }
+
+  &.right-align {
+
+    .champion-icon {
+      order: 2;
+    }
+    .participant-name {
+      text-align: right;
+      order: 1;
+    }
+  }
+}
+
+.champion-icon {
+  flex-shrink: 0;
+  height: 50px;
+  width: 50px;
+}
+
+.participant-name {
+  flex-grow: 2;
+  margin: 0px 10px;
+  font-size: 75%;
+}
+
+// End Featured Games
+
+// Start Featured Items
+
+.featured-item-container {
+  display: flex;
+}
+
+.champion-card {
+  flex: 1 0 auto;
+  order: 1;
+  height: 110px;
+  min-width: 80px;
+  max-width: 80px;
+  margin-right: 20px;
+}
+
+.lgd-featured-item {
+  & .panel-body {
+    padding: 8px;
+  }
+  & .panel {
+    margin-bottom: 10px;
+  }
+}
+
+.well.featured-item-container {
+  margin-bottom: 0px;
+}
+
+.featured-item-information {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column;
+  height: 110px;
+  width: 260px;
+  flex: 3 0 auto;
+  order: 2;
+}
+
+.featured-item-buttons {
+  display: flex;
+  justify-content: flex-start;
+  min-height: 34px;
+
+  & button {
+    margin-right: 10px;
+  }
+}
+
+// End Featured Items
+.left-column-panel {
+  min-width: 510px;
+}
+
+.lgd-featured-news.well {
+  margin-bottom: 0px;
+
+}
+
+.featured-news-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.featured-news-item {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: darken(#f5f5f5, 20%);
+  }
+}
+
+.news-icon {
+  order: 1;
+  max-height: 75px;
+  max-width: 100px;
+  flex: 0 0 auto;
+  margin-right: 15px;
+}
+
+.news-text {
+  order: 2;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+
+  > h4 {
+    margin-top: 5px;
+  }
+}
+
+.description {
+  word-wrap: break-word;
+}
+

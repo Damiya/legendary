@@ -1,18 +1,25 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title text-center">Featured Games</h3>
-                </div>
-                <div class="panel-body">
-                    <carousel interval="-1">
-                        <slide ng-repeat="game in gameList" active="game.active">
-                            <lgd-featured-game participants="game.participants"></lgd-featured-game>
-                        </slide>
-                    </carousel>
-                </div>
+    <div class="col-md-7">
+        <div class="panel panel-primary left-column-panel">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">Spectate Live</h3>
+            </div>
+            <div class="panel-body">
+                <carousel interval="-1">
+                    <slide ng-repeat="game in gameList" active="game.active">
+                        <lgd-featured-game participants="game.participants"></lgd-featured-game>
+                    </slide>
+                </carousel>
+            </div>
+        </div>
+        <div class="panel panel-primary left-column-panel">
+            <div class="panel-body">
+                <lgd-featured-news class="lgd-featured-news"></lgd-featured-news>
             </div>
         </div>
     </div>
+    <div class="col-md-5">
+        <lgd-featured-item ng-repeat="item in content.items" class="lgd-featured-item"></lgd-featured-item>
+    </div>
+
 </div>

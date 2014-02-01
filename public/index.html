@@ -1,59 +1,81 @@
 <!doctype html>
 <html ng-app="legendary">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <base href="/"/>
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- build:css({public/.tmp,public}) styles/main.css -->
-    <!-- fileblock:css style -->
-    <link rel="stylesheet" href="styles/main.css"/>
-    <!-- endfileblock -->
-    <!-- endbuild -->
-  </head>
-  <body>
-    <lgd-overlay></lgd-overlay>
-    <lgd-navbar></lgd-navbar>
-    <div ui-view></div>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <base href="/"/>
+        <title ng-bind="$state.current.name + ' | Legendary'"></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- build:css({public/.tmp,public}) styles/main.css -->
+        <!-- fileblock:css style -->
+        <link rel="stylesheet" href="styles/main.css"/>
+        <!-- endfileblock -->
+        <!-- endbuild -->
+    </head>
+    <body>
+        <lgd-overlay></lgd-overlay>
+        <lgd-navbar></lgd-navbar>
+        <div ui-view></div>
 
-    <!-- build:js(public) scripts/vendor.js -->
-    <!-- fileblock:js vendor -->
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/json3/lib/json3.min.js"></script>
-    <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/angular-promise-tracker/promise-tracker.js"></script>
-    <script src="bower_components/lodash/dist/lodash.compat.js"></script>
-    <script src="bower_components/restangular/dist/restangular.js"></script>
-    <!-- endfileblock -->
-    <!-- endbuild -->
 
-    <!-- build:js(public) scripts/legendary.js -->
-    <!-- fileblock:js app -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/constants.js"></script>
-    <script src="scripts/controllers/leaguesController.js"></script>
-    <script src="scripts/controllers/loginFormController.js"></script>
-    <script src="scripts/controllers/masteriesController.js"></script>
-    <script src="scripts/controllers/profileOverviewController.js"></script>
-    <script src="scripts/controllers/runesController.js"></script>
-    <script src="scripts/directives/navBar.js"></script>
-    <script src="scripts/providers/core/localizedMessages.js"></script>
-    <script src="scripts/providers/core/loginService.js"></script>
-    <script src="scripts/providers/core/restangularFactory.js"></script>
-    <script src="scripts/providers/league/leagueProxy.js"></script>
-    <script src="scripts/providers/security/authenticationFactory.js"></script>
-    <script src="scripts/routeConfig.js"></script>
-    <script src="scripts/directives/overlay.js"></script>
-    <script src="scripts/controllers/landingPageController.js"></script>
-    <script src="scripts/providers/league/landingPageDAO.js"></script>
-    <script src="scripts/directives/landingPage/featuredGames.js"></script>
-    <!-- endfileblock -->
-    <!-- endbuild -->
-  </body>
+        <!-- build:js(public) scripts/vendor.js -->
+        <!-- fileblock:js vendor -->
+        <script src="bower_components/es5-shim/es5-shim.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/json3/lib/json3.min.js"></script>
+        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-promise-tracker/promise-tracker.js"></script>
+        <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+        <script src="bower_components/restangular/dist/restangular.js"></script>
+        <!-- endfileblock -->
+        <!-- endbuild -->
+
+        <!-- build:js(public) scripts/legendary.js -->
+        <!-- fileblock:js app -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/constants.js"></script>
+        <script src="scripts/controllers/leaguesController.js"></script>
+        <script src="scripts/controllers/loginFormController.js"></script>
+        <script src="scripts/controllers/masteriesController.js"></script>
+        <script src="scripts/controllers/profileOverviewController.js"></script>
+        <script src="scripts/controllers/runesController.js"></script>
+        <script src="scripts/directives/navBar.js"></script>
+        <script src="scripts/providers/core/localizedMessages.js"></script>
+        <script src="scripts/providers/core/loginService.js"></script>
+        <script src="scripts/providers/core/restangularFactory.js"></script>
+        <script src="scripts/providers/league/leagueProxy.js"></script>
+        <script src="scripts/providers/security/authenticationFactory.js"></script>
+        <script src="scripts/routeConfig.js"></script>
+        <script src="scripts/directives/overlay.js"></script>
+        <script src="scripts/controllers/landingPageController.js"></script>
+        <script src="scripts/providers/league/landingPageDAO.js"></script>
+        <script src="scripts/directives/landingPage/featuredGames.js"></script>
+        <script src="scripts/directives/landingPage/featuredItem.js"></script>
+        <script src="scripts/providers/core/sessionStorage.js"></script>
+        <script src="scripts/directives/landingPage/featuredNews.js"></script>
+        <!-- endfileblock -->
+        <!-- endbuild -->
+
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-44114028-3', 'damiya.github.io');
+            ga('send', 'pageview');
+
+        </script>
+    </body>
 </html>

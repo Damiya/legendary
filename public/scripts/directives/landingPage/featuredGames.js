@@ -49,7 +49,7 @@ angular.module('legendary')
       return {
         template: '' +
             '<div class="featured-game-participant">' +
-            '<img ng-src="images/league/champion/icon/{{participant.championId}}_Web_0.jpg" class="champion-icon">' +
+            '<img ng-src="images/league/champion/icons/{{participant.championId}}_Web_0.jpg" class="champion-icon">' +
             '<strong class="participant-name well well-sm">{{participant.summonerName}}</strong>' +
             '</div>',
         restrict: 'E',
