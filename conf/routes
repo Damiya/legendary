@@ -6,7 +6,9 @@ OPTIONS        /*path                           controllers.Application.options(
 
 # Redirect all unknown routes to the index page
 #GET           /*any                       controllers.Application.index(any)
-POST           /api/user/create                 controllers.UserController.create()
+
+#POST           /api/user/create                 controllers.UserController.create()
+
 DELETE         /api/token/destroy               controllers.TokenController.destroy()
 POST           /api/token/create                controllers.TokenController.create()
 

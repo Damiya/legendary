@@ -1,6 +1,6 @@
 {
   "name": "legendary",
-  "version": "0.0.3",
+  "version": "0.0.4-SNAPSHOT",
   "dependencies": {
        "grunt": "~0.4.2",
     "grunt-autoprefixer": "~0.6.5",
@@ -43,7 +43,6 @@
     "astrolabe": "~0.3.0-alpha",
     "grunt-shell": "~0.6.4",
     "grunt-file-blocks": "~0.2.2",
-    "grunt-gh-pages": "~0.9.0",
     "grunt-contrib-copy": "~0.5.0",
     "grunt-angular-templates": "~0.5.1"
   },

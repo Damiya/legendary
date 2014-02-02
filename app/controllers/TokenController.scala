@@ -29,10 +29,10 @@ object TokenController extends Controller {
   def create() = Action(parse.json) { implicit request =>
     request.body.validate[UserPass].asOpt match {
       case Some(userPass) =>
-        UserService.find(userPass.username) match {
+        UserService.find(userPass.username.toLowerCase) match {
           case Some(user) =>
             if (BCryptPasswordHasher.matches(user.password, userPass.password)) {
-              Logger.debug("Issued a new token to " + user.username)
+              Logger.info("Issued a new token to " + user.username)
               Ok(Json.toJson(UserService.getAuthToken(user)))
             } else {
               Unauthorized("Invalid credentials submitted.")
@@ -45,7 +45,7 @@ object TokenController extends Controller {
 
   def destroy() = SecuredAction { authenticatedRequest =>
     if (AuthTokenDAO.deleteAuthToken(authenticatedRequest.user)) {
-      Logger.debug(s"Deleted token for ${authenticatedRequest.user.username}")
+      Logger.info(s"Deleted token for ${authenticatedRequest.user.username}")
       Ok("")
     } else {
       BadRequest("No token found. This is a problem.")

@@ -24,7 +24,7 @@ import models.{AuthTokenDAO, UserDAO}
 
 import scala.slick.jdbc.meta.MTable
 
-object Global extends WithFilters(CORSFilter(), new CSRFFilter()) with GlobalSettings {
+object Global extends WithFilters(new CSRFFilter()) with GlobalSettings {
 
   import play.api.Play.current
 
