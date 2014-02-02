@@ -27,3 +27,4 @@ dist
 public/bower_components
 /nbproject
 .idea/
+.grunt/

@@ -1,0 +1,19 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title text-left">Featured Item </h3>
+    </div>
+    <div class="panel-body">
+        <div class="well well-sm featured-item-container">
+            <img ng-src="images/league/champion/skins/{{item.Item.icon_url}}" class="champion-card"/>
+            <div class="featured-item-information">
+                <h4><strong>{{item.Item.name}}</strong></h4>
+                <h6 class="small"><span class="glyphicon glyphicon-heart">&nbsp</span>{{item.Item.rp_cost}}</h6>
+
+                <div class="featured-item-buttons">
+                    <button class="btn btn-success left">Info</button>
+                    <button class="btn btn-success">Unlock</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

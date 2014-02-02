@@ -14,23 +14,8 @@
  * limitations under the License.
  */
 
-/*
- * Copyright 2014 Kate von Roeder (katevonroder at gmail dot com) - twitter: @itsdamiya
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
-$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
+$icon-font-path: "/bower_components/bootstrap-sass/vendor/assets/fonts/bootstrap/";
 
 $carousel-control-color: #428bca;
 $carousel-indicator-active-bg: #428bca;
@@ -38,6 +23,7 @@ $carousel-indicator-border-color: #428bca;
 $carousel-control-opacity: 0.0;
 
 @import "../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap";
+@import "landingPage";
 
 body {
   padding-top: 65px;
@@ -75,52 +61,4 @@ body {
     font-size: 80px;
     font-weight: bold;
   }
-}
-
-.featured-game {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.featured-game-participant {
-  margin: 5px;
-  display: flex;
-  align-items: center;
-  height: 40px;
-  width: 200px;
-
-  &.left-align {
-    .champion-icon {
-      order: 1;
-    }
-    .participant-name {
-      text-align: left;
-      order: 2;
-    }
-  }
-
-  &.right-align {
-
-    .champion-icon {
-      order: 2;
-    }
-    .participant-name {
-      text-align: right;
-      order: 1;
-    }
-  }
-}
-
-.champion-icon {
-  flex-shrink: 0;
-  height: 40px;
-  width: 40px;
-}
-
-.participant-name {
-  flex-grow: 2;
-  margin: 0px 10px;
-  font-size: 75%;
 }

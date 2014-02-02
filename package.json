@@ -1,6 +1,6 @@
 {
-  "name": "roflclientjs",
-  "version": "0.0.0",
+  "name": "legendary",
+  "version": "0.0.3",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.2",
@@ -14,7 +14,7 @@
     "grunt-contrib-cssmin": "~0.7.0",
     "grunt-contrib-htmlmin": "~0.1.3",
     "jpegtran-bin": "0.2.3",
-    "grunt-contrib-imagemin": "~0.5.0",
+    "grunt-contrib-imagemin": "0.4.1",
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-uglify": "~0.3.2",
     "grunt-contrib-watch": "~0.5.3",
@@ -47,12 +47,8 @@
     "astrolabe": "~0.3.0-alpha",
     "grunt-shell": "~0.6.4",
     "grunt-file-blocks": "~0.2.2",
-    "grunt-gh-pages": "~0.9.0"
-  },
-  "engines": {
-    "node": ">=0.8.0"
-  },
-  "scripts": {
-    "test": "grunt test"
+    "grunt-gh-pages": "~0.9.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-angular-templates": "~0.5.1"
   }
 }

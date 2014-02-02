@@ -1,37 +1,26 @@
 <!doctype html>
-<!--
-  ~ Copyright 2014 Kate von Roeder (katevonroder at gmail dot com) - twitter:    @@
-itsdamiya
-~
-~ Licensed under the Apache License, Version 2.0 (the "License");
-~ you may not use this file except in compliance with the License.
-~ You may obtain a copy of the License at
-~
-~     http://www.apache.org/licenses/LICENSE-2.0
-~
-~ Unless required by applicable law or agreed to in writing, software
-~ distributed under the License is distributed on an "AS IS" BASIS,
-~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-~ See the License for the specific language governing permissions and
-~ limitations under the License.
--->
 <html ng-app="legendary">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <base href="/"/>
-        <title></title>
+        <title ng-bind="$state.current.name + ' | Legendary'"></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href=".tmp/styles/main.css"/>
+        <!-- build:css({public/.tmp,public}) styles/main.css -->
+        <!-- fileblock:css style -->
+        <link rel="stylesheet" href="styles/main.css"/>
+        <!-- endfileblock -->
+        <!-- endbuild -->
     </head>
     <body>
         <lgd-overlay></lgd-overlay>
         <lgd-navbar></lgd-navbar>
         <div ui-view></div>
 
-        <!-- build:js(app) scripts/vendor.js -->
-        <!-- bower:js -->
+
+        <!-- build:js(public) scripts/vendor.js -->
+        <!-- fileblock:js vendor -->
         <script src="bower_components/es5-shim/es5-shim.js"></script>
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/json3/lib/json3.min.js"></script>
@@ -40,12 +29,12 @@ itsdamiya
         <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
         <script src="bower_components/angular-promise-tracker/promise-tracker.js"></script>
-        <script src="bower_components/restangular/dist/restangular.js"></script>
         <script src="bower_components/lodash/dist/lodash.compat.js"></script>
-        <!-- endbower -->
+        <script src="bower_components/restangular/dist/restangular.js"></script>
+        <!-- endfileblock -->
         <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <!-- build:js(public) scripts/legendary.js -->
         <!-- fileblock:js app -->
         <script src="scripts/app.js"></script>
         <script src="scripts/constants.js"></script>
@@ -65,7 +54,21 @@ itsdamiya
         <script src="scripts/controllers/landingPageController.js"></script>
         <script src="scripts/providers/league/landingPageDAO.js"></script>
         <script src="scripts/directives/landingPage/featuredGames.js"></script>
+        <script src="scripts/directives/landingPage/featuredItem.js"></script>
+        <script src="scripts/providers/core/sessionStorage.js"></script>
+        <script src="scripts/directives/landingPage/featuredNews.js"></script>
         <!-- endfileblock -->
         <!-- endbuild -->
+
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-44114028-3', 'itsdamiya.com');
+          ga('send', 'pageview');
+
+        </script>
     </body>
 </html>

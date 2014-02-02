@@ -24,7 +24,7 @@ import services.UserService
 
 
 object UserController extends Controller {
-  def registerNewUser() = Action(parse.json) { implicit request =>
+  def create() = Action(parse.json) { implicit request =>
     request.body.validate[User].map { user =>
       val newUser = UserService.createNewUser(user)
       newUser.map { createdUser =>
