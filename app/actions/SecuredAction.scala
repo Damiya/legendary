@@ -16,27 +16,30 @@
 
 package actions
 
-import models.{UserDAO, User}
+import models.{ Users, User }
 import play.api.mvc._
 import scala.concurrent.Future
-import scala.concurrent.Future.{successful => resolve}
+import scala.concurrent.Future.{ successful => resolve }
+import play.api.Play.current
+import play.api.db.slick._
 
 case class AuthenticatedRequest[A](user: User, request: Request[A]) extends WrappedRequest[A](request)
-
-object SecuredAction extends ActionBuilder[AuthenticatedRequest] with Results {
-  def invokeBlock[A](request: Request[A], block: (AuthenticatedRequest[A]) => Future[SimpleResult]) = {
-    request.headers.get("X-Auth-Token") match {
-      case Some(authToken) =>
-        UserDAO.findUserByToken(authToken) match {
-          case Some(user) =>
-            block(AuthenticatedRequest(user, request))
-          case None =>
-            resolve(Forbidden("You must log in to access that resource."))
-        }
-
-      case None =>
-        resolve(Forbidden("You must log in to access that resource."))
-    }
-
-  }
-}
+object SecuredAction
+//
+//object SecuredAction extends ActionBuilder[AuthenticatedRequest] with Results {
+//  def invokeBlock[A](request: Request[A], block: (AuthenticatedRequest[A]) => Future[SimpleResult]) = {
+//    request.headers.get("X-Auth-Token") match {
+//      case Some(authToken) =>
+//        Users.findUserByToken(authToken) match {
+//          case Some(user) =>
+//            block(AuthenticatedRequest(user, request))
+//          case None =>
+//            resolve(Forbidden("You must log in to access that resource."))
+//        }
+//
+//      case None =>
+//        resolve(Forbidden("You must log in to access that resource."))
+//    }
+//
+//  }
+//}

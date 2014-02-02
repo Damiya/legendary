@@ -17,7 +17,7 @@
 package controllers
 
 import actions.SecuredAction
-import actors.{ConnectionStatus, LeagueClientImpl, LeagueClient}
+import actors.{ ConnectionStatus, LeagueClientImpl, LeagueClient }
 import akka.actor._
 import akka.pattern.AskableActorSelection
 import akka.util.Timeout
@@ -30,9 +30,10 @@ import play.api.libs.json._
 import play.api.mvc._
 import scala.Some
 import scala.concurrent.duration._
-import scala.concurrent.{Await, Future}
+import scala.concurrent.{ Await, Future }
 import play.api.libs.ws._
-import utils.{DefaultWebServices, MagicStrings}
+import utils.{ DefaultWebServices, MagicStrings }
+import play.api.db.slick.DBAction
 
 object LeagueController extends Controller with DefaultWebServices {
 
@@ -48,47 +49,56 @@ object LeagueController extends Controller with DefaultWebServices {
     }
   }
 
+  def login() = DBAction {
+    Ok("")
+  }
+  //    SecuredAction.async(parse.json) { authenticatedRequest =>
+  //    val loginActor = getLeagueClient(authenticatedRequest.user.username)
+  //
+  //    authenticatedRequest.request.body.validate[UserPass].asOpt match {
+  //      case Some(user) =>
+  //        loginActor.login(user).map { result =>
+  //          val resultObj = Json.obj(
+  //            "result" -> result
+  //          )
+  //          Ok(resultObj)
+  //        }
+  //      case None =>
+  //        Future.successful(Ok("Ok"))
+  //    }
+  //  }
 
-  def login() = SecuredAction.async(parse.json) { authenticatedRequest =>
-    val loginActor = getLeagueClient(authenticatedRequest.user.username)
+  def featuredGames() = DBAction {
+    Ok("")
+  }
+  //    SecuredAction.async { authenticatedRequest =>
+  //    WS.url(MagicStrings.featuredGamesUrl)
+  //      .withDefaultHeaders().get().map { response =>
+  //        Ok(response.json)
+  //      }
+  //  }
 
-    authenticatedRequest.request.body.validate[UserPass].asOpt match {
-      case Some(user) =>
-        loginActor.login(user).map { result =>
-          val resultObj = Json.obj(
-            "result" -> result
-          )
-          Ok(resultObj)
-        }
-      case None =>
-        Future.successful(Ok("Ok"))
-    }
+  def landingPage() = DBAction {
+    Ok("")
+    //    SecuredAction.async { authenticatedRequest =>
+    //    WS.url(MagicStrings.landingPageUrl)
+    //      .withDefaultHeaders().get().map { response =>
+    //        Ok(response.json)
+    //      }
   }
 
-  def featuredGames() = SecuredAction.async { authenticatedRequest =>
-    WS.url(MagicStrings.featuredGamesUrl)
-      .withDefaultHeaders().get().map { response =>
-      Ok(response.json)
-    }
-  }
-
-  def landingPage() = SecuredAction.async { authenticatedRequest =>
-    WS.url(MagicStrings.landingPageUrl)
-      .withDefaultHeaders().get().map { response =>
-      Ok(response.json)
-    }
-  }
-
-  def logout() = SecuredAction { authenticatedRequest =>
-    val loginActor = getLeagueClient(authenticatedRequest.user.username)
-    if (loginActor.isConnected) {
-      loginActor.logout()
-      Ok(Json.obj(
-        "result" -> ConnectionStatus.LOGGED_OUT
-      ))
-    } else {
-      Logger.error("Attempted to log out despite not being logged in on the client.")
-      BadRequest("Not current logged in.")
-    }
+  def logout() = DBAction {
+    Ok("")
+    //    SecuredAction { authenticatedRequest =>
+    //    val loginActor = getLeagueClient(authenticatedRequest.user.username)
+    //    if (loginActor.isConnected) {
+    //      loginActor.logout()
+    //      Ok(Json.obj(
+    //        "result" -> ConnectionStatus.LOGGED_OUT
+    //      ))
+    //    } else {
+    //      Logger.error("Attempted to log out despite not being logged in on the client.")
+    //      BadRequest("Not current logged in.")
+    //    }
   }
 }

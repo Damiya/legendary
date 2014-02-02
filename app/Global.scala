@@ -14,29 +14,35 @@
  * limitations under the License.
  */
 
-import play.api.mvc.WithFilters
-import scala.slick.driver.PostgresDriver.simple._
-import play.filters.csrf.CSRFFilter
-import play.api.db._
+import java.text.SimpleDateFormat
 import play.api._
-import models.{AuthTokenDAO, UserDAO}
+import models._
+import play.api.db.slick._
+import play.api.Play.current
 
-import scala.slick.jdbc.meta.MTable
-
-object Global extends WithFilters(new CSRFFilter()) with GlobalSettings {
-
-  import play.api.Play.current
+object Global extends GlobalSettings {
 
   override def onStart(app: Application) {
-    Database.forDataSource(DB.getDataSource()).withSession {
-      implicit session: Session =>
-        if (MTable.getTables("users").list().isEmpty) {
-          UserDAO.Users.ddl.create
-        }
+    InitialData.insert()
+    //    Database.forDataSource(DB.getDataSource()).withSession {
+    //      implicit session: Session =>
+    //        if (MTable.getTables("users").list().isEmpty) {
+    //          Users.ddl.create
+    //        }
+    //
+    //        if (MTable.getTables("auth_tokens").list().isEmpty) {
+    //          AuthTokenDAO.AuthTokens.ddl.create
+    //        }
+    //    }
+  }
+}
 
-        if (MTable.getTables("auth_tokens").list().isEmpty) {
-          AuthTokenDAO.AuthTokens.ddl.create
-        }
+object InitialData {
+  def insert() {
+    DB.withSession { implicit s: Session =>
+      if (Users.count==0 && play.api.Play.isDev) {
+        Users.insert(User(Option(1L),"jerleminara","Kate", "von Roeder", "katevonroeder@gmail.com","tempdev"))
+      }
     }
   }
 }

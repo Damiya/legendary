@@ -16,24 +16,24 @@
 
 package controllers
 
-import actions.SecuredAction
-import models.{AuthTokenDAO, UserPass}
-import play.Logger
-import play.api.libs.json.Json
-import play.api.mvc.{Action, Controller}
-import services.UserService
+import models.{Users, UserPass}
+import play.api.mvc.Controller
+import play.api.Play.current
 import utils.BCryptPasswordHasher
+import play.Logger
+import play.api.db.slick._
 
 object TokenController extends Controller {
 
-  def create() = Action(parse.json) { implicit request =>
-    request.body.validate[UserPass].asOpt match {
+  def create() = DBAction(parse.json) { implicit rs =>
+
+    rs.request.body.validate[UserPass].asOpt match {
       case Some(userPass) =>
-        UserService.find(userPass.username.toLowerCase) match {
+        Users.findUserByName(userPass.username.toLowerCase) match {
           case Some(user) =>
             if (BCryptPasswordHasher.matches(user.password, userPass.password)) {
               Logger.info("Issued a new token to " + user.username)
-              Ok(Json.toJson(UserService.getAuthToken(user)))
+              Ok("ok")
             } else {
               Unauthorized("Invalid credentials submitted.")
             }
@@ -43,12 +43,7 @@ object TokenController extends Controller {
     }
   }
 
-  def destroy() = SecuredAction { authenticatedRequest =>
-    if (AuthTokenDAO.deleteAuthToken(authenticatedRequest.user)) {
-      Logger.info(s"Deleted token for ${authenticatedRequest.user.username}")
-      Ok("")
-    } else {
-      BadRequest("No token found. This is a problem.")
-    }
+  def destroy() = DBAction { implicit rs =>
+    Ok("")
   }
 }

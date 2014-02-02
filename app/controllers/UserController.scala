@@ -16,24 +16,19 @@
 
 package controllers
 
-
-import models.User
-import play.api.libs.json._
-import play.api.mvc.{Action, Controller}
-import services.UserService
-
+import models.{Users, User}
+import play.api.mvc.Controller
+import play.api.db.slick._
+import play.api.Play.current
 
 object UserController extends Controller {
-  def create() = Action(parse.json) { implicit request =>
-    request.body.validate[User].map { user =>
-      val newUser = UserService.createNewUser(user)
-      newUser.map { createdUser =>
-        Ok(Json.toJson(createdUser))
-      }.getOrElse {
-        BadRequest("User already exists")
-      }
+  def create() = DBAction(parse.json) { implicit rs =>
+    rs.request.body.validate[User].map { user =>
+      Users.insert(user)
+      Ok("Ok")
     }.getOrElse {
       BadRequest("Invalid user registration")
+      //    }
     }
   }
 }
