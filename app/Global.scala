@@ -19,7 +19,7 @@ import scala.slick.driver.PostgresDriver.simple._
 import play.filters.csrf.CSRFFilter
 import play.api.db._
 import play.api._
-import models.{AuthTokenDAO, UserDAO}
+import models.{ AuthTokenDAO, UserDAO }
 
 import scala.slick.jdbc.meta.MTable
 

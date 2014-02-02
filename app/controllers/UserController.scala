@@ -16,12 +16,10 @@
 
 package controllers
 
-
 import models.User
 import play.api.libs.json._
-import play.api.mvc.{Action, Controller}
+import play.api.mvc.{ Action, Controller }
 import services.UserService
-
 
 object UserController extends Controller {
   def create() = Action(parse.json) { implicit request =>

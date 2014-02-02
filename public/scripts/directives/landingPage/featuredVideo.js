@@ -14,28 +14,15 @@
  * limitations under the License.
  */
 
-package services
+'use strict';
 
-import play.api.Application
-import models.{ AuthTokenDAO, AuthToken, User, UserDAO }
-import utils.BCryptPasswordHasher
+angular.module('legendary')
+  .directive('lgdFeaturedVideos', function () {
+    return {
+      templateUrl: 'views/partials/landingPage/directives/featuredVideo.html',
+      restrict: 'E',
+      link: function (scope, element, attrs) {
 
-object UserService {
-  def find(username: String): Option[User] = {
-    UserDAO.findUserByName(username)
-  }
-
-  def findByEmail(email: String): Option[User] = {
-    UserDAO.findUserByEmail(email)
-  }
-
-  def createNewUser(user: User): Option[User] = {
-    val newUser = user.copy(password = BCryptPasswordHasher.hash(user.password))
-    UserDAO.saveNewUser(newUser)
-  }
-
-  def getAuthToken(user: User): AuthToken = {
-    AuthTokenDAO.findOrCreateAuthToken(user)
-  }
-
-}
+      }
+    };
+  });

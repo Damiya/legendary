@@ -16,7 +16,6 @@
 
 package models
 
-
 import com.github.tototoshi.slick.PostgresJodaSupport._
 import java.util.UUID
 import org.joda.time.DateTime
@@ -30,10 +29,10 @@ case class AuthToken(id: Option[Long], token: String, creationTime: DateTime, ex
 object AuthToken extends ((Option[Long], String, DateTime, DateTime, Option[Long]) => AuthToken) {
   implicit val authTokenWrites: Writes[AuthToken] = (
     (__ \ 'value).write[String] and
-      (__ \ 'expires).write[DateTime]
-    ) {
-    (a: AuthToken) => (a.token, a.expirationTime)
-  }
+    (__ \ 'expires).write[DateTime]
+  ) {
+      (a: AuthToken) => (a.token, a.expirationTime)
+    }
 }
 
 trait AuthTokenComponent {
@@ -53,7 +52,7 @@ trait AuthTokenComponent {
 
     def legendaryUser = foreignKey("legendaryUser_FK", userId, UserDAO.Users)(_.id)
 
-    def * = (id, token, creationTime, expirationTime, userId) <>(AuthToken.tupled, AuthToken.unapply)
+    def * = (id, token, creationTime, expirationTime, userId) <> (AuthToken.tupled, AuthToken.unapply)
   }
 
   val AuthTokens = TableQuery[AuthTokens]
@@ -75,7 +74,7 @@ trait AuthTokenComponent {
     }
   }
 
-  def deleteAuthToken(user: User):Boolean = {
+  def deleteAuthToken(user: User): Boolean = {
     Database.forDataSource(DB.getDataSource()).withSession { implicit session =>
       val query = AuthTokens.where(_.userId === user.id)
       query.firstOption.isDefined match {

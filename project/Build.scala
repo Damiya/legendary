@@ -1,6 +1,9 @@
+import com.typesafe.sbt.SbtScalariform.scalariformSettings
 import sbt._
+
 import Keys._
 import play.Project._
+
 
 object ApplicationBuild extends Build {
 
@@ -15,12 +18,12 @@ object ApplicationBuild extends Build {
     "org.mindrot" % "jbcrypt" % "0.3m",
     "com.github.tototoshi" %% "slick-joda-mapper" % "1.0.0",
     filters,
-    jdbc
+    jdbc,
+    cache
   )
-
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
     scalacOptions ++= Seq("-feature", "-language:postfixOps", "-language:reflectiveCalls")
-  )
+  ).settings(scalariformSettings: _*)
 
 }

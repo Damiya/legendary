@@ -17,7 +17,7 @@
 package controllers
 
 import actions.SecuredAction
-import actors.{ConnectionStatus, LeagueClientImpl, LeagueClient}
+import actors.{ ConnectionStatus, LeagueClientImpl, LeagueClient }
 import akka.actor._
 import akka.pattern.AskableActorSelection
 import akka.util.Timeout
@@ -30,9 +30,10 @@ import play.api.libs.json._
 import play.api.mvc._
 import scala.Some
 import scala.concurrent.duration._
-import scala.concurrent.{Await, Future}
+import scala.concurrent.{ Await, Future }
 import play.api.libs.ws._
-import utils.{DefaultWebServices, MagicStrings}
+import utils.{ DefaultWebServices, MagicStrings }
+import play.api.cache.Cache
 
 object LeagueController extends Controller with DefaultWebServices {
 
@@ -47,7 +48,6 @@ object LeagueController extends Controller with DefaultWebServices {
       TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), usernameActorRef)
     }
   }
-
 
   def login() = SecuredAction.async(parse.json) { authenticatedRequest =>
     val loginActor = getLeagueClient(authenticatedRequest.user.username)
@@ -68,15 +68,15 @@ object LeagueController extends Controller with DefaultWebServices {
   def featuredGames() = SecuredAction.async { authenticatedRequest =>
     WS.url(MagicStrings.featuredGamesUrl)
       .withDefaultHeaders().get().map { response =>
-      Ok(response.json)
-    }
+        Ok(response.json)
+      }
   }
 
   def landingPage() = SecuredAction.async { authenticatedRequest =>
     WS.url(MagicStrings.landingPageUrl)
       .withDefaultHeaders().get().map { response =>
-      Ok(response.json)
-    }
+        Ok(response.json)
+      }
   }
 
   def logout() = SecuredAction { authenticatedRequest =>

@@ -16,10 +16,10 @@
 
 package actions
 
-import models.{UserDAO, User}
+import models.{ UserDAO, User }
 import play.api.mvc._
 import scala.concurrent.Future
-import scala.concurrent.Future.{successful => resolve}
+import scala.concurrent.Future.{ successful => resolve }
 
 case class AuthenticatedRequest[A](user: User, request: Request[A]) extends WrappedRequest[A](request)
 

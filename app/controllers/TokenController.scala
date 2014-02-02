@@ -17,10 +17,10 @@
 package controllers
 
 import actions.SecuredAction
-import models.{AuthTokenDAO, UserPass}
+import models.{ AuthTokenDAO, UserPass }
 import play.Logger
 import play.api.libs.json.Json
-import play.api.mvc.{Action, Controller}
+import play.api.mvc.{ Action, Controller }
 import services.UserService
 import utils.BCryptPasswordHasher
 

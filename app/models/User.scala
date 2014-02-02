@@ -23,33 +23,32 @@ import play.api.libs.json._
 import scala.Some
 import scala.slick.driver.PostgresDriver.simple._
 
-
 case class User(id: Option[Long] = None, username: String, firstName: String,
-                lastName: String, email: String,
-                password: String) {
+    lastName: String, email: String,
+    password: String) {
 }
 
 object User extends ((Option[Long], String, String, String, String, String) => User) {
   implicit val userWrites: Writes[User] = (
     (__ \ "id").writeNullable[Long] and
-      (__ \ "username").write[String] and
-      (__ \ "firstName").write[String] and
-      (__ \ "lastName").write[String] and
-      (__ \ "email").write[String]
-    ) {
-    (u: User) => (u.id, u.username, u.firstName, u.lastName, u.email)
-  }
+    (__ \ "username").write[String] and
+    (__ \ "firstName").write[String] and
+    (__ \ "lastName").write[String] and
+    (__ \ "email").write[String]
+  ) {
+      (u: User) => (u.id, u.username, u.firstName, u.lastName, u.email)
+    }
 
   implicit val userReads: Reads[User] = (
     (__ \ 'username).read[String] and
-      (__ \ 'firstName).read[String] and
-      (__ \ 'lastName).read[String] and
-      (__ \ 'email).read[String](email) and
-      (__ \ 'password).read[String]
-    ) {
-    (username: String, firstName: String, lastName: String, email: String, password: String) =>
-      User(None, username, firstName, lastName, email, password)
-  }
+    (__ \ 'firstName).read[String] and
+    (__ \ 'lastName).read[String] and
+    (__ \ 'email).read[String](email) and
+    (__ \ 'password).read[String]
+  ) {
+      (username: String, firstName: String, lastName: String, email: String, password: String) =>
+        User(None, username, firstName, lastName, email, password)
+    }
 }
 
 case class UserPass(username: String, password: String)
@@ -73,7 +72,7 @@ trait UserComponent {
 
     def password = column[String]("password")
 
-    def * = (id, username, firstName, lastName, email, password) <>(User.tupled, User.unapply)
+    def * = (id, username, firstName, lastName, email, password) <> (User.tupled, User.unapply)
   }
 
   import play.api.Play.current
