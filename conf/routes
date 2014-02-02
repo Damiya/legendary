@@ -17,5 +17,4 @@ DELETE         /api/league/logout               controllers.LeagueController.log
 
 
 GET            /                                controllers.Assets.at(path="/public", file="index.html")
-GET            /styles/main.css                 controllers.Assets.at(path="/public", file=".tmp/styles/main.css")
 GET            /*file                           controllers.Assets.at(path="/public", file)
