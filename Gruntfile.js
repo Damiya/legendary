@@ -58,8 +58,8 @@ module.exports = function (grunt) {
         src: '<%= project.dist %>/index.html',
         options: {
           templates: {
-            'css': '<link href="legendary/${file}" rel="stylesheet" />',
-            'js': '<script src="legendary/${file}"></script>'
+            'css': '<link href="${file}" rel="stylesheet" />',
+            'js': '<script src="${file}"></script>'
           },
           removeFiles: true
         },
@@ -128,6 +128,19 @@ module.exports = function (grunt) {
             src: [
               '.tmp',
               '<%= project.dist %>'
+            ]
+          }
+        ]
+      },
+      'heroku-from-buildpack': {
+        options: {
+          force: true
+        },
+        files: [
+          {
+            dot: true,
+            src: [
+              '<%= project.app %>'
             ]
           }
         ]
@@ -327,21 +340,10 @@ module.exports = function (grunt) {
               '.htaccess',
               'bower_components/**/*',
               'images/**/*.{webp}',
-              'fonts/**/*'
+              'fonts/**/*',
+              'views/**/*.html',
+              'index.html'
             ]
-          },
-          {
-            expand: true,
-            dot: true,
-            cwd: '<%= project.app %>/views',
-            dest: '<%= project.dist %>/views',
-            src: '**/*.html'
-          },
-          {
-            expand: true,
-            cwd: '<%= project.app %>',
-            dest: '<%= project.dist %>',
-            src: 'index.html'
           },
           {
             expand: true,
@@ -357,11 +359,18 @@ module.exports = function (grunt) {
           }
         ]
       },
-      styles: {
-        expand: true,
-        cwd: '<%= project.app %>/styles',
-        dest: '.tmp/styles/',
-        src: '**/*.css'
+      'heroku-from-buildpack': {
+        files: [
+          {
+            expand: true,
+            dot: true,
+            cwd: '<%= project.dist %>',
+            dest: '<%= project.app %>',
+            src: [
+              '**/*.*'
+            ]
+          }
+        ]
       }
     },
 
@@ -456,6 +465,15 @@ module.exports = function (grunt) {
     'uglify',
     'usemin'
   ]);
+
+  grunt.registerTask('heroku-from-buildpack', 'Execute a build sequence in the heroku buildpack', function () {
+    grunt.task.run([
+      'build',
+      'clean:heroku-from-buildpack',
+      'copy:heroku-from-buildpack',
+      'clean:dist'
+    ]);
+  });
 
   grunt.registerTask('default', [
     'newer:jshint',
