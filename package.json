@@ -1,9 +1,8 @@
 {
   "name": "legendary",
   "version": "0.0.3",
-  "dependencies": {},
-  "devDependencies": {
-    "grunt": "~0.4.2",
+  "dependencies": {
+       "grunt": "~0.4.2",
     "grunt-autoprefixer": "~0.6.5",
     "grunt-bower-install": "~0.8.0",
     "grunt-contrib-clean": "~0.5.0",
@@ -47,6 +46,8 @@
     "grunt-gh-pages": "~0.9.0",
     "grunt-contrib-copy": "~0.5.0",
     "grunt-angular-templates": "~0.5.1"
+  },
+  "devDependencies": {
   },
   "engines": {
     "node": "0.10.x"
