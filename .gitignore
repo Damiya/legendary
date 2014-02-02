@@ -28,4 +28,3 @@ public/bower_components
 /nbproject
 .idea/
 .grunt/
-!.idea/libraries/bower_components.xml
