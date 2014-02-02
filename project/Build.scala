@@ -5,7 +5,7 @@ import play.Project._
 object ApplicationBuild extends Build {
 
   val appName = "legendary"
-  val appVersion = "0.1.0-SNAPSHOT"
+  val appVersion = "0.0.3"
 
   val appDependencies = Seq(
     "com.typesafe.slick" %% "slick" % "2.0.0",

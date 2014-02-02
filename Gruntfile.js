@@ -384,7 +384,6 @@ module.exports = function (grunt) {
         'compass'
       ],
       dist: [
-        'compass:dist',
         'imagemin',
         'svgmin',
         'htmlmin'
@@ -455,6 +454,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'useminPrepare',
     'autoprefixer',
+    'compass:dist',
     'concat',
     'copy:dist',
     'ngtemplates:legendary',
