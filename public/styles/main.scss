@@ -14,15 +14,17 @@
  * limitations under the License.
  */
 
-
-$icon-font-path: "/bower_components/bootstrap-sass/vendor/assets/fonts/bootstrap/";
-
 $carousel-control-color: #428bca;
 $carousel-indicator-active-bg: #428bca;
 $carousel-indicator-border-color: #428bca;
 $carousel-control-opacity: 0.0;
 
 @import "../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap";
+
+$fa-font-path: "/bower_components/font-awesome/fonts";
+
+@import "../bower_components/font-awesome/scss/font-awesome";
+
 @import "landingPage";
 
 body {
