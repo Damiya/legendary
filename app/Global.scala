@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import actions.CORSFilter
 import play.api.mvc.WithFilters
 import scala.slick.driver.PostgresDriver.simple._
 import play.filters.csrf.CSRFFilter
