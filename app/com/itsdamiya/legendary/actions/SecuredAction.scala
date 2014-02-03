@@ -14,22 +14,24 @@
  * limitations under the License.
  */
 
-package actions
+package com.itsdamiya.legendary.actions
 
-import models.{UserDAO, User}
 import play.api.mvc._
-import scala.concurrent.Future
 import scala.concurrent.Future.{successful => resolve}
+import com.itsdamiya.legendary.models.{UserSession, User}
+import scala.concurrent.Future
+import com.itsdamiya.legendary.cache.Cache
+import play.api.Play.current
 
-case class AuthenticatedRequest[A](user: User, request: Request[A]) extends WrappedRequest[A](request)
+case class AuthenticatedRequest[A](userSession: UserSession, request: Request[A]) extends WrappedRequest[A](request)
 
 object SecuredAction extends ActionBuilder[AuthenticatedRequest] with Results {
   def invokeBlock[A](request: Request[A], block: (AuthenticatedRequest[A]) => Future[SimpleResult]) = {
     request.headers.get("X-Auth-Token") match {
       case Some(authToken) =>
-        UserDAO.findUserByToken(authToken) match {
-          case Some(user) =>
-            block(AuthenticatedRequest(user, request))
+        Cache.getAs[UserSession](authToken) match {
+          case Some(userSession) =>
+            block(AuthenticatedRequest(userSession, request))
           case None =>
             resolve(Forbidden("You must log in to access that resource."))
         }
