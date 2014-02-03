@@ -69,6 +69,8 @@ class Users(tag: Tag) extends Table[User](tag, "users") {
 
   def password = column[String]("password")
 
+  def idx = index("idx_users", username, unique = true)
+
   def * = (id.?, username, firstName, lastName, email, password) <> (User.tupled, User.unapply)
 }
 
