@@ -40,26 +40,5 @@ import com.itsdamiya.legendary.models.{User, Users}
 object Global extends GlobalSettings {
 
   override def onStart(app: Application) {
-    InitialData.insert()
-    //    Database.forDataSource(DB.getDataSource()).withSession {
-    //      implicit session: Session =>
-    //        if (MTable.getTables("users").list().isEmpty) {
-    //          Users.ddl.create
-    //        }
-    //
-    //        if (MTable.getTables("auth_tokens").list().isEmpty) {
-    //          AuthTokenDAO.AuthTokens.ddl.create
-    //        }
-    //    }
-  }
-}
-
-object InitialData {
-  def insert() {
-    DB.withSession { implicit s: Session =>
-      if (Users.count==0 && play.api.Play.isDev) {
-        Users.insert(User(Option(1L),"jerleminara","Kate", "von Roeder", "katevonroeder@gmail.com","tempdev"))
-      }
-    }
   }
 }
