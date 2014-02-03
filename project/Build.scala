@@ -1,4 +1,3 @@
-import com.typesafe.sbt.SbtScalariform.scalariformSettings
 import sbt._
 
 import sbt._
@@ -9,7 +8,7 @@ import play.Project._
 object ApplicationBuild extends Build {
 
   val appName = "legendary"
-  val appVersion = "0.0.4-SNAPSHOT"
+  val appVersion = "0.0.5-SNAPSHOT"
 
   val appDependencies = Seq(
     "com.typesafe.slick" %% "slick" % "2.0.0",
@@ -26,6 +25,6 @@ object ApplicationBuild extends Build {
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
     scalacOptions ++= Seq("-feature", "-language:postfixOps", "-language:reflectiveCalls")
-  ).settings(scalariformSettings: _*)
+  )
 
 }
