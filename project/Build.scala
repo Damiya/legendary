@@ -5,7 +5,7 @@ import play.Project._
 object ApplicationBuild extends Build {
 
   val appName = "legendary"
-  val appVersion = "0.0.4"
+  val appVersion = "0.0.4-1"
 
   val appDependencies = Seq(
     "com.typesafe.slick" %% "slick" % "2.0.0",
@@ -22,7 +22,10 @@ object ApplicationBuild extends Build {
 
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
-    scalacOptions ++= Seq("-feature", "-language:postfixOps", "-language:reflectiveCalls")
+    scalacOptions ++= Seq("-feature", "-language:postfixOps", "-language:reflectiveCalls"),
+    resolvers +=
+      "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
+
   )
 
 }
