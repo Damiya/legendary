@@ -14,15 +14,13 @@
  * limitations under the License.
  */
 
-package models
+package com.itsdamiya.legendary.models
 
-import play.api.db._
 import play.api.libs.functional.syntax._
 import play.api.libs.json.Reads._
 import play.api.libs.json._
-import scala.Some
 import scala.slick.driver.PostgresDriver.simple._
-
+import com.itsdamiya.legendary.utils.BCryptPasswordHasher
 
 case class User(id: Option[Long] = None, username: String, firstName: String,
                 lastName: String, email: String,
@@ -58,72 +56,37 @@ object UserPass extends ((String, String) => UserPass) {
   implicit val userPassReads = Json.reads[UserPass]
 }
 
-trait UserComponent {
+class Users(tag: Tag) extends Table[User](tag, "users") {
+  def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
 
-  class Users(tag: Tag) extends Table[User](tag, "users") {
-    def id = column[Option[Long]]("id", O.PrimaryKey, O.AutoInc, O.NotNull)
+  def username = column[String]("username")
 
-    def username = column[String]("username")
+  def firstName = column[String]("first_name")
 
-    def firstName = column[String]("first_name")
+  def lastName = column[String]("last_name")
 
-    def lastName = column[String]("last_name")
+  def email = column[String]("email")
 
-    def email = column[String]("email")
+  def password = column[String]("password")
 
-    def password = column[String]("password")
+  def * = (id.?, username, firstName, lastName, email, password) <>(User.tupled, User.unapply)
+}
 
-    def * = (id, username, firstName, lastName, email, password) <>(User.tupled, User.unapply)
+object Users extends DAO {
+  def count(implicit s: Session): Int = Query(Users.length).first
+
+  def insert(user: User)(implicit s: Session) = {
+    val hashedPassword = BCryptPasswordHasher.hash(user.password)
+
+    Users.insert(user.copy(password = hashedPassword))
   }
 
-  import play.api.Play.current
-
-  val Users = TableQuery[Users]
-
-  private val autoInc = Users returning Users.map(_.id) into {
-    case (p, pid) => p.copy(id = pid)
+  def findUserByName(username: String)(implicit s: Session): Option[User] = {
+    Users.where(_.username === username).firstOption
   }
 
-  def insert(user: User)(implicit session: Session): User = {
-    autoInc.insert(user)
-  }
-
-  def findUserByName(username: String): Option[User] = {
-    Database.forDataSource(DB.getDataSource()).withSession { implicit session =>
-      Users.where(_.username === username).firstOption
-    }
-  }
-
-  def findUserByEmail(email: String): Option[User] = {
-    Database.forDataSource(DB.getDataSource()).withSession { implicit session =>
-      Users.where(_.email === email).firstOption
-    }
-  }
-
-  def saveNewUser(user: User): Option[User] = {
-    Database.forDataSource(DB.getDataSource()).withSession { implicit session =>
-      Users.where(_.username === user.username).firstOption match {
-        case Some(existingUser) => // User already exists
-          None
-        case None =>
-          Some(insert(user))
-
-      }
-    }
-  }
-
-  def findUserByToken(token: String): Option[User] = {
-    Database.forDataSource(DB.getDataSource()).withSession { implicit session =>
-      val userForToken = for {
-        t <- AuthTokenDAO.AuthTokens if t.token === token
-        u <- Users if t.userId === u.id
-      } yield u
-
-      userForToken.firstOption
-    }
+  def findUserByEmail(email: String)(implicit s: Session): Option[User] = {
+    Users.where(_.email === email).firstOption
   }
 }
 
-object UserDAO extends UserComponent {
-
-}

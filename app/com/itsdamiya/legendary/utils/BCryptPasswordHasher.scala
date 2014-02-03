@@ -1,6 +1,5 @@
 /*
- * Copyright 2012-2014 Jorge Aliss (jaliss at gmail dot com) - twitter: @jaliss
- * With modifications by Kate von Roeder (katevonroeder at gmail dot com)
+ * Copyright 2014 Kate von Roeder (katevonroder at gmail dot com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +14,7 @@
  * limitations under the License.
  */
 
-package utils
+package com.itsdamiya.legendary.utils
 
 import org.mindrot.jbcrypt.BCrypt
 

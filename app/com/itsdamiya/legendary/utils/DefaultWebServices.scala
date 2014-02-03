@@ -14,26 +14,20 @@
  * limitations under the License.
  */
 
-package controllers
+package com.itsdamiya.legendary.utils
 
+import play.api.libs.ws.WS.WSRequestHolder
 
-import models.User
-import play.api.libs.json._
-import play.api.mvc.{Action, Controller}
-import services.UserService
+trait DefaultWebServices {
+  import scala.language.implicitConversions
 
-
-object UserController extends Controller {
-  def create() = Action(parse.json) { implicit request =>
-    request.body.validate[User].map { user =>
-      val newUser = UserService.createNewUser(user)
-      newUser.map { createdUser =>
-        Ok(Json.toJson(createdUser))
-      }.getOrElse {
-        BadRequest("User already exists")
-      }
-    }.getOrElse {
-      BadRequest("Invalid user registration")
+  implicit class DefaultWSRequest(requestHolder: WSRequestHolder) {
+    def withDefaultHeaders(): WSRequestHolder = {
+      requestHolder.withHeaders(
+        "User-Agent" -> MagicStrings.userAgent,
+        "Referer" -> MagicStrings.referer
+      )
     }
   }
 }
+

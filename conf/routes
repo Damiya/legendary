@@ -2,20 +2,20 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-OPTIONS        /*path                           controllers.Application.options(path)
+OPTIONS        /*path                           com.itsdamiya.legendary.controllers.Application.options(path)
 
 # Redirect all unknown routes to the index page
-#GET           /*any                       controllers.Application.index(any)
+#GET           /*any                       com.itsdamiya.legendary.controllers.Application.index(any)
 
-#POST           /api/user/create                 controllers.UserController.create()
+POST           /api/user/create                 com.itsdamiya.legendary.controllers.UserController.create()
 
-DELETE         /api/token/destroy               controllers.TokenController.destroy()
-POST           /api/token/create                controllers.TokenController.create()
+DELETE         /api/token/destroy               com.itsdamiya.legendary.controllers.SessionController.destroy()
+POST           /api/token/create                com.itsdamiya.legendary.controllers.SessionController.create()
 
-POST           /api/league/login                controllers.LeagueController.login()
-GET            /api/league/landingPage          controllers.LeagueController.landingPage()
-GET            /api/league/featuredGames        controllers.LeagueController.featuredGames()
-DELETE         /api/league/logout               controllers.LeagueController.logout()
+POST           /api/league/login                com.itsdamiya.legendary.controllers.LeagueController.login()
+GET            /api/league/landingPage          com.itsdamiya.legendary.controllers.LeagueController.landingPage()
+GET            /api/league/featuredGames        com.itsdamiya.legendary.controllers.LeagueController.featuredGames()
+DELETE         /api/league/logout               com.itsdamiya.legendary.controllers.LeagueController.logout()
 
 
 GET            /                                controllers.Assets.at(path="/public", file="index.html")

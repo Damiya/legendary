@@ -5,7 +5,7 @@ import play.Project._
 object ApplicationBuild extends Build {
 
   val appName = "legendary"
-  val appVersion = "0.0.4-SNAPSHOT"
+  val appVersion = "0.0.4"
 
   val appDependencies = Seq(
     "com.typesafe.slick" %% "slick" % "2.0.0",
@@ -14,6 +14,8 @@ object ApplicationBuild extends Build {
     "org.joda" % "joda-convert" % "1.5",
     "org.mindrot" % "jbcrypt" % "0.3m",
     "com.github.tototoshi" %% "slick-joda-mapper" % "1.0.0",
+    "com.typesafe.play" %% "play-slick" % "0.6.0-SNAPSHOT",
+    "net.sf.ehcache" % "ehcache-core" % "2.6.8",
     filters,
     jdbc
   )

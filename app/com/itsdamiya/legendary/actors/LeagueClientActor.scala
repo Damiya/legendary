@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package actors
+package com.itsdamiya.legendary.actors
 
-import scala.concurrent.{ExecutionContext, Promise, Future, Await}
+import scala.concurrent.{ ExecutionContext, Promise, Future, Await }
 import scala.concurrent.duration._
 import akka.actor._
-import models.UserPass
+import com.itsdamiya.legendary.models.UserPass
 import play.Logger
 
 object ConnectionStatus {
@@ -41,7 +41,6 @@ class LeagueClientImpl extends LeagueClient {
 
   def login(info: UserPass): Future[String] = {
 
-
     val connectionResult = Promise[String]()
     Logger.warn("Connection requested for " + info.username)
 
@@ -58,8 +57,8 @@ class LeagueClientImpl extends LeagueClient {
     connectionResult.future
   }
 
-  def isConnected:Boolean = {
-     true
+  def isConnected: Boolean = {
+    true
   }
 
   def logout(): Unit = {

@@ -14,29 +14,10 @@
  * limitations under the License.
  */
 
-package services
+package com.itsdamiya.legendary.models
 
-import play.api.Application
-import models.{AuthTokenDAO, AuthToken, User, UserDAO}
-import utils.BCryptPasswordHasher
+import play.api.db.slick.Config.driver.simple._
 
-
-object UserService {
-  def find(username: String): Option[User] = {
-    UserDAO.findUserByName(username)
-  }
-
-  def findByEmail(email: String): Option[User] = {
-    UserDAO.findUserByEmail(email)
-  }
-
-  def createNewUser(user: User): Option[User] = {
-    val newUser = user.copy(password = BCryptPasswordHasher.hash(user.password))
-    UserDAO.saveNewUser(newUser)
-  }
-
-  def getAuthToken(user: User): AuthToken = {
-    AuthTokenDAO.findOrCreateAuthToken(user)
-  }
-
+private[models] trait DAO {
+  val Users = TableQuery[Users]
 }

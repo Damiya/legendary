@@ -14,16 +14,12 @@
  * limitations under the License.
  */
 
-package controllers
+package com.itsdamiya.legendary.utils
 
-import play.api.db._
-import play.api.Play.current
-import play.api.mvc.Action
-import play.api.mvc.Controller
-import play.Logger
-
-object Application extends Controller {
-  def options(path: String) = Action {
-    Ok("")
-  }
+object MagicStrings {
+  val authTokenHeader = "X-Auth-Token"
+  val landingPageUrl = "http://ll.leagueoflegends.com/landingpage/data/na/en_US.js"
+  val featuredGamesUrl = "http://spectator.na.lol.riotgames.com/observer-mode/rest/featured"
+  val referer = "app:/LolClient.swf/[[DYNAMIC]]/4"
+  val userAgent = "User-Agent: Mozilla/5.0 (Windows; U; en-US) AppleWebKit/533.19.4 (KHTML, like Gecko) AdobeAIR/3.7"
 }
