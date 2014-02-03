@@ -15,6 +15,7 @@ object ApplicationBuild extends Build {
     "org.mindrot" % "jbcrypt" % "0.3m",
     "com.github.tototoshi" %% "slick-joda-mapper" % "1.0.0",
     "com.typesafe.play" %% "play-slick" % "0.6.0-SNAPSHOT",
+    "net.sf.ehcache" % "ehcache-core" % "2.6.8",
     filters,
     jdbc
   )

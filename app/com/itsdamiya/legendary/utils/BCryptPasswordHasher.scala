@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package utils
+package com.itsdamiya.legendary.utils
 
 import org.mindrot.jbcrypt.BCrypt
 

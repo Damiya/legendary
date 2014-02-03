@@ -14,14 +14,18 @@
  * limitations under the License.
  */
 
-package controllers
+package com.itsdamiya.legendary.controllers
 
-import models.{Users, UserPass}
 import play.api.mvc.Controller
 import play.api.Play.current
-import utils.BCryptPasswordHasher
+import com.itsdamiya.legendary.utils.BCryptPasswordHasher
 import play.Logger
 import play.api.db.slick._
+import java.util.UUID
+import scala.concurrent.duration._
+import com.itsdamiya.legendary.cache.Cache
+import com.itsdamiya.legendary.models.{UserSession, Users, UserPass}
+import play.api.libs.json.Json
 
 object TokenController extends Controller {
 
@@ -33,7 +37,12 @@ object TokenController extends Controller {
           case Some(user) =>
             if (BCryptPasswordHasher.matches(user.password, userPass.password)) {
               Logger.info("Issued a new token to " + user.username)
-              Ok("ok")
+              val authToken = UUID.randomUUID().toString
+              val userSession = new UserSession(user, authToken)
+              Cache.set(authToken, userSession, 2.hours)
+              Ok(Json.obj(
+                "value" -> authToken
+              ))
             } else {
               Unauthorized("Invalid credentials submitted.")
             }

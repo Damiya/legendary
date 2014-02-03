@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package actors
+package com.itsdamiya.legendary.actors
 
 import scala.concurrent.{ ExecutionContext, Promise, Future, Await }
 import scala.concurrent.duration._
 import akka.actor._
-import models.UserPass
+import com.itsdamiya.legendary.models.UserPass
 import play.Logger
 
 object ConnectionStatus {

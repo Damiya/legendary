@@ -1,3 +1,5 @@
+package com.itsdamiya.legendary
+
 /*
  * Copyright 2014 Kate von Roeder (katevonroder at gmail dot com)
  *
@@ -14,11 +16,10 @@
  * limitations under the License.
  */
 
-import java.text.SimpleDateFormat
 import play.api._
-import models._
 import play.api.db.slick._
 import play.api.Play.current
+import com.itsdamiya.legendary.models.{User, Users}
 
 object Global extends GlobalSettings {
 

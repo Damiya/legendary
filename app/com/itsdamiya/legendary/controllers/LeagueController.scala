@@ -14,25 +14,18 @@
  * limitations under the License.
  */
 
-package controllers
+package com.itsdamiya.legendary.controllers
 
-import actions.SecuredAction
-import actors.{ ConnectionStatus, LeagueClientImpl, LeagueClient }
+import com.itsdamiya.legendary.actors.{ LeagueClientImpl, LeagueClient }
 import akka.actor._
 import akka.pattern.AskableActorSelection
 import akka.util.Timeout
-import models.UserPass
-import play.Logger
 import play.api.Play.current
 import play.api.libs.concurrent.Akka
-import play.api.libs.concurrent.Execution.Implicits.defaultContext
-import play.api.libs.json._
 import play.api.mvc._
-import scala.Some
 import scala.concurrent.duration._
-import scala.concurrent.{ Await, Future }
-import play.api.libs.ws._
-import utils.{ DefaultWebServices, MagicStrings }
+import scala.concurrent.Await
+import com.itsdamiya.legendary.utils.DefaultWebServices
 import play.api.db.slick.DBAction
 
 object LeagueController extends Controller with DefaultWebServices {

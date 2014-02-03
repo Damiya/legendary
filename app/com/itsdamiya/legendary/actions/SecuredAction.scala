@@ -14,14 +14,11 @@
  * limitations under the License.
  */
 
-package actions
+package com.itsdamiya.legendary.actions
 
-import models.{ Users, User }
 import play.api.mvc._
-import scala.concurrent.Future
 import scala.concurrent.Future.{ successful => resolve }
-import play.api.Play.current
-import play.api.db.slick._
+import com.itsdamiya.legendary.models.User
 
 case class AuthenticatedRequest[A](user: User, request: Request[A]) extends WrappedRequest[A](request)
 object SecuredAction

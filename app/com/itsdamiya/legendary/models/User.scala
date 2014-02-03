@@ -14,16 +14,13 @@
  * limitations under the License.
  */
 
-package models
+package com.itsdamiya.legendary.models
 
-import play.api.db._
 import play.api.libs.functional.syntax._
 import play.api.libs.json.Reads._
 import play.api.libs.json._
-import scala.Some
 import scala.slick.driver.PostgresDriver.simple._
-import play.Logger
-import utils.BCryptPasswordHasher
+import com.itsdamiya.legendary.utils.BCryptPasswordHasher
 
 case class User(id: Option[Long] = None, username: String, firstName: String,
                 lastName: String, email: String,

@@ -1,4 +1,4 @@
-package models
+package com.itsdamiya.legendary.models
 
 import play.api.db.slick.Config.driver.simple._
 
