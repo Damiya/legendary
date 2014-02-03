@@ -16,82 +16,81 @@
 
 package com.itsdamiya.legendary.controllers
 
-import com.itsdamiya.legendary.actors.{ LeagueClientImpl, LeagueClient }
-import akka.actor._
-import akka.pattern.AskableActorSelection
-import akka.util.Timeout
-import play.api.Play.current
-import play.api.libs.concurrent.Akka
+import com.itsdamiya.legendary.actors.ConnectionStatus
 import play.api.mvc._
+import scala.concurrent.Future
+import com.itsdamiya.legendary.utils.{MagicStrings, DefaultWebServices}
+import com.itsdamiya.legendary.actions.SecuredAction
+import play.api.libs.ws.WS
 import scala.concurrent.duration._
-import scala.concurrent.Await
-import com.itsdamiya.legendary.utils.DefaultWebServices
-import play.api.db.slick.DBAction
+import play.api.libs.json.{JsValue, Json}
+import play.Logger
+import play.api.Play.current
+import play.api.libs.concurrent.Execution.Implicits.defaultContext
+import com.itsdamiya.legendary.models.UserPass
+import com.itsdamiya.legendary.cache.Cache
 
 object LeagueController extends Controller with DefaultWebServices {
+  def login() = SecuredAction.async(parse.json) { authenticatedRequest =>
+    val loginActor = authenticatedRequest.userSession.getLeagueConnection
 
-  private def getLeagueClient(username: String): LeagueClient = {
-    implicit val timeout = Timeout(5.seconds)
-    val potentialActor = Akka.system.actorSelection(s"/user/$username")
-    val identifyFuture = new AskableActorSelection(potentialActor).ask(Identify(1))
-    val usernameActorRef = Await.result(identifyFuture, 5.seconds).asInstanceOf[ActorIdentity].getRef
-    if (usernameActorRef == null) {
-      TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), name = username)
-    } else {
-      TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), usernameActorRef)
+    authenticatedRequest.request.body.validate[UserPass].asOpt match {
+      case Some(user) =>
+        loginActor.login(user).map { result =>
+          val resultObj = Json.obj(
+            "result" -> result
+          )
+          Ok(resultObj)
+        }
+      case None =>
+        Future.successful(Ok("Ok"))
     }
   }
 
-  def login() = DBAction {
-    Ok("")
-  }
-  //    SecuredAction.async(parse.json) { authenticatedRequest =>
-  //    val loginActor = getLeagueClient(authenticatedRequest.user.username)
-  //
-  //    authenticatedRequest.request.body.validate[UserPass].asOpt match {
-  //      case Some(user) =>
-  //        loginActor.login(user).map { result =>
-  //          val resultObj = Json.obj(
-  //            "result" -> result
-  //          )
-  //          Ok(resultObj)
-  //        }
-  //      case None =>
-  //        Future.successful(Ok("Ok"))
-  //    }
-  //  }
+  def featuredGames() = SecuredAction.async { authenticatedRequest =>
+    Cache.getAs[JsValue]("featuredGames") match {
+      case Some(featuredGames) =>
+        Logger.debug("Cache hit for featuredGames")
+        Future.successful(Ok(featuredGames))
+      case None =>
+        Logger.debug("Cache miss for featuredGames")
+        WS.url(MagicStrings.featuredGamesUrl)
+          .withDefaultHeaders().get().map { response =>
+          val json = response.json
+          val refreshInterval = (json \ "clientRefreshInterval").as[Int]
+          Cache.set("featuredGames", json, 0, refreshInterval)
+          Ok(json)
+        }
+    }
 
-  def featuredGames() = DBAction {
-    Ok("")
-  }
-  //    SecuredAction.async { authenticatedRequest =>
-  //    WS.url(MagicStrings.featuredGamesUrl)
-  //      .withDefaultHeaders().get().map { response =>
-  //        Ok(response.json)
-  //      }
-  //  }
-
-  def landingPage() = DBAction {
-    Ok("")
-    //    SecuredAction.async { authenticatedRequest =>
-    //    WS.url(MagicStrings.landingPageUrl)
-    //      .withDefaultHeaders().get().map { response =>
-    //        Ok(response.json)
-    //      }
   }
 
-  def logout() = DBAction {
-    Ok("")
-    //    SecuredAction { authenticatedRequest =>
-    //    val loginActor = getLeagueClient(authenticatedRequest.user.username)
-    //    if (loginActor.isConnected) {
-    //      loginActor.logout()
-    //      Ok(Json.obj(
-    //        "result" -> ConnectionStatus.LOGGED_OUT
-    //      ))
-    //    } else {
-    //      Logger.error("Attempted to log out despite not being logged in on the client.")
-    //      BadRequest("Not current logged in.")
-    //    }
+  def landingPage() = SecuredAction.async { authenticatedRequest =>
+    Cache.getAs[JsValue]("landingPage") match {
+      case Some(landingPageInfo) =>
+        Logger.debug("Cache hit for landingPage")
+        Future.successful(Ok(landingPageInfo))
+      case None =>
+        Logger.debug("Cache miss for landingPage")
+        WS.url(MagicStrings.landingPageUrl)
+          .withDefaultHeaders().get().map { response =>
+          Cache.set("landingPage", response.json, 2.hours)
+          Ok(response.json)
+        }
+    }
+  }
+
+  def logout() = SecuredAction { authenticatedRequest =>
+    val loginActor = authenticatedRequest.userSession.getLeagueConnection
+
+    if (loginActor.isConnected) {
+      loginActor.logout()
+      Ok(Json.obj(
+        "result" -> ConnectionStatus.LOGGED_OUT
+      ))
+    } else {
+      Logger.error("Attempted to log out despite not being logged in on the client.")
+      BadRequest("Not current logged in.")
+    }
   }
 }

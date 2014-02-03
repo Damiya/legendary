@@ -23,16 +23,10 @@ angular.module('legendary')
 
       getLandingPageContent: function () {
         var deferred = $q.defer();
-        var landingPageContent = sessionStorage.getItem('landingPageContent');
-        if (!landingPageContent) {
-          RestangularFactory.league.one('landingPage').get().then(function (response) {
-            sessionStorage.setItem('landingPageContent', response.originalElement);
+        RestangularFactory.league.one('landingPage').get().then(function (response) {
 
-            deferred.resolve(response.originalElement);
-          });
-        } else {
-          deferred.resolve(landingPageContent);
-        }
+          deferred.resolve(response.originalElement);
+        });
 
         return deferred.promise;
       },
@@ -40,18 +34,12 @@ angular.module('legendary')
       getGameList: function () {
         var deferred = $q.defer();
         var now = new Date().getTime();
-        var gameList = sessionStorage.getItem('gameList');
 
-        if (!gameList || factory.nextGameListUpdate <= now) {
-          RestangularFactory.league.one('featuredGames').get().then(function (response) {
-            sessionStorage.setItem('gameList', response.gameList);
-            factory.nextGameListUpdate = now + response.clientRefreshInterval;
+        RestangularFactory.league.one('featuredGames').get().then(function (response) {
+          factory.nextGameListUpdate = now + response.clientRefreshInterval;
 
-            deferred.resolve(response.gameList);
-          });
-        } else {
-          deferred.resolve(gameList);
-        }
+          deferred.resolve(response.gameList);
+        });
 
         return deferred.promise;
       }

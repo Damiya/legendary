@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2009-2013 Typesafe Inc. <http://www.typesafe.com>
+ * With modifications by Kate von Roeder (katevonroder at gmail dot com)
+ */
 package com.itsdamiya.legendary.cache
 
 import play.api._
@@ -6,6 +10,8 @@ import reflect.ClassTag
 import org.apache.commons.lang3.reflect.TypeUtils
 
 import scala.concurrent.duration.Duration
+import net.sf.ehcache.config.DiskStoreConfiguration
+import net.sf.ehcache.config.generator.ConfigurationSource
 
 /**
  * API for a Cache plugin.
@@ -20,6 +26,8 @@ trait CacheAPI {
    * @param timeToIdle Expiration time in seconds (0 second means eternity).
    */
   def set(key: String, value: Any, timeToIdle: Int)
+
+  def set(key: String, value: Any, timeToLive: Int, timeToIdle: Int)
 
   /**
    * Retrieve a value from the cache.
@@ -55,7 +63,7 @@ object Cache {
    * @param value Item value.
    * @param timeToIdle Expiration time in seconds (0 second means eternity).
    */
-  def set(key: String, value: Any, timeToIdle: Int = 0)(implicit app: Application): Unit = {
+  def set(key: String, value: Any, timeToIdle: Int)(implicit app: Application): Unit = {
     cacheAPI.set(key, value, timeToIdle)
   }
 
@@ -68,6 +76,14 @@ object Cache {
    */
   def set(key: String, value: Any, timeToIdle: Duration)(implicit app: Application): Unit = {
     set(key, value, timeToIdle.toSeconds.toInt)
+  }
+
+  def set(key: String, value: Any, timeToIdle: Int, timeToLive: Int)(implicit app: Application): Unit = {
+    cacheAPI.set(key, value, timeToIdle, timeToLive)
+  }
+
+  def set(key: String, value: Any, timeToIdle: Duration, timeToLive: Duration)(implicit app: Application): Unit = {
+    set(key, value, timeToIdle.toSeconds.toInt, timeToLive.toSeconds.toInt)
   }
 
   /**
@@ -86,13 +102,22 @@ object Cache {
    * @param timeToIdle timeToIdle period in seconds.
    * @param orElse The default function to invoke if the value was found in cache.
    */
-  def getOrElse[A](key: String, timeToIdle: Int = 0)(orElse: => A)(implicit app: Application, ct: ClassTag[A]): A = {
+  def getOrElse[A](key: String, timeToIdle: Int)(orElse: => A)(implicit app: Application, ct: ClassTag[A]): A = {
     getAs[A](key).getOrElse {
       val value = orElse
       set(key, value, timeToIdle)
       value
     }
   }
+
+  def getOrElse[A](key: String, timeToIdle: Int, timeToLive: Int)(orElse: => A)(implicit app: Application, ct: ClassTag[A]): A = {
+    getAs[A](key).getOrElse {
+      val value = orElse
+      set(key, value, timeToIdle, timeToLive)
+      value
+    }
+  }
+
 
   /**
    * Retrieve a value from the cache for the given type
@@ -142,8 +167,8 @@ class EhCachePlugin(app: Application) extends CachePlugin {
   }
 
   lazy val cache: Ehcache = {
-    manager.addCache("play")
-    manager.getEhcache("play")
+    manager.addCache("legendary")
+    manager.getEhcache("legendary")
   }
 
   /**
@@ -172,12 +197,16 @@ class EhCachePlugin(app: Application) extends CachePlugin {
 }
 
 class EhCacheImpl(private val cache: Ehcache) extends CacheAPI {
-
-  def set(key: String, value: Any, timeToIdle: Int) {
+  private def createElement(key: String, value: Any, timeToIdle: Int): Element = {
     val element = new Element(key, value)
     if (timeToIdle == 0) element.setEternal(true)
     element.setTimeToIdle(timeToIdle)
-    cache.put(element)
+    element
+  }
+
+
+  def set(key: String, value: Any, timeToIdle: Int) {
+    cache.put(createElement(key, value, timeToIdle))
   }
 
   def get(key: String): Option[Any] = {
@@ -186,5 +215,11 @@ class EhCacheImpl(private val cache: Ehcache) extends CacheAPI {
 
   def remove(key: String) {
     cache.remove(key)
+  }
+
+  def set(key: String, value: Any, timeToLive: Int, timeToIdle: Int) {
+    val element = createElement(key, value, timeToIdle)
+    element.setTimeToLive(timeToLive)
+    cache.put(element)
   }
 }

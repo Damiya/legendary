@@ -26,11 +26,11 @@ import scala.concurrent.duration._
 import com.itsdamiya.legendary.cache.Cache
 import com.itsdamiya.legendary.models.{UserSession, Users, UserPass}
 import play.api.libs.json.Json
+import com.itsdamiya.legendary.actions.SecuredAction
 
-object TokenController extends Controller {
+object SessionController extends Controller {
 
   def create() = DBAction(parse.json) { implicit rs =>
-
     rs.request.body.validate[UserPass].asOpt match {
       case Some(userPass) =>
         Users.findUserByName(userPass.username.toLowerCase) match {
@@ -52,7 +52,8 @@ object TokenController extends Controller {
     }
   }
 
-  def destroy() = DBAction { implicit rs =>
-    Ok("")
+  def destroy() = SecuredAction { authenticatedRequest =>
+    Cache.remove(authenticatedRequest.userSession.authToken)
+    Ok(Json.toJson("Session Destroyed"))
   }
 }
