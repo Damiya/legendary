@@ -18,7 +18,7 @@ package com.itsdamiya.legendary.actions
 
 import play.api.mvc._
 import scala.concurrent.Future.{ successful => resolve }
-import com.itsdamiya.legendary.models.{UserSession, User}
+import com.itsdamiya.legendary.models.{ UserSession, User }
 import scala.concurrent.Future
 import com.itsdamiya.legendary.cache.Cache
 import play.api.Play.current

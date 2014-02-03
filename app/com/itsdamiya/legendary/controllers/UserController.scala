@@ -20,7 +20,7 @@ import play.api.mvc.Controller
 import play.api.db.slick._
 import play.api.Play.current
 import play.api.libs.json.Json
-import com.itsdamiya.legendary.models.{Users, User}
+import com.itsdamiya.legendary.models.{ Users, User }
 
 object UserController extends Controller {
   def create() = DBAction(parse.json) { implicit rs =>

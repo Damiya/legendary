@@ -17,33 +17,33 @@
 'use strict';
 
 angular.module('legendary')
-  .factory('landingPageDAO', ['$rootScope', 'RestangularFactory', 'sessionStorage', '$q', function ($rootScope, RestangularFactory, sessionStorage, $q) {
-    var factory = {
-      nextGameListUpdate: 0,
+    .factory('landingPageDAO', ['$rootScope', 'RestangularFactory', 'sessionStorage', '$q', function ($rootScope, RestangularFactory, sessionStorage, $q) {
+      var factory = {
+        nextGameListUpdate: 0,
 
-      getLandingPageContent: function () {
-        var deferred = $q.defer();
-        RestangularFactory.league.one('landingPage').get().then(function (response) {
+        getLandingPageContent: function () {
+          var deferred = $q.defer();
+          RestangularFactory.league.one('landingPage').get().then(function (response) {
 
-          deferred.resolve(response.originalElement);
-        });
+            deferred.resolve(response.originalElement);
+          });
 
-        return deferred.promise;
-      },
+          return deferred.promise;
+        },
 
-      getGameList: function () {
-        var deferred = $q.defer();
-        var now = new Date().getTime();
+        getGameList: function () {
+          var deferred = $q.defer();
+          var now = new Date().getTime();
 
-        RestangularFactory.league.one('featuredGames').get().then(function (response) {
-          factory.nextGameListUpdate = now + response.clientRefreshInterval;
+          RestangularFactory.league.one('featuredGames').get().then(function (response) {
+            factory.nextGameListUpdate = now + response.clientRefreshInterval;
 
-          deferred.resolve(response.gameList);
-        });
+            deferred.resolve(response.gameList);
+          });
 
-        return deferred.promise;
-      }
-    };
+          return deferred.promise;
+        }
+      };
 
-    return factory;
-  }]);
+      return factory;
+    }]);

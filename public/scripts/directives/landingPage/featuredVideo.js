@@ -17,12 +17,12 @@
 'use strict';
 
 angular.module('legendary')
-  .directive('lgdFeaturedVideos', function () {
-    return {
-      templateUrl: 'views/partials/landingPage/directives/featuredVideo.html',
-      restrict: 'E',
-      link: function (scope, element, attrs) {
+    .directive('lgdFeaturedVideos', function () {
+      return {
+        templateUrl: 'views/partials/landingPage/directives/featuredVideo.html',
+        restrict: 'E',
+        link: function (scope, element, attrs) {
 
-      }
-    };
-  });
+        }
+      };
+    });

@@ -35,12 +35,12 @@ angular.module('legendary')
           return newResponse;
         });
 
-        RestangularConfigurer.addElementTransformer('token', function (tokens) {
+        RestangularConfigurer.addElementTransformer('session', function (sessions) {
 
-          tokens.addRestangularMethod('create', 'post', 'create');
+          sessions.addRestangularMethod('create', 'post', 'create');
 
-          tokens.addRestangularMethod('destroy', 'remove', 'destroy');
-          return tokens;
+          sessions.addRestangularMethod('destroy', 'remove', 'destroy');
+          return sessions;
         });
       });
 

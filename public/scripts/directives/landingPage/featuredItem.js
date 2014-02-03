@@ -17,12 +17,12 @@
 'use strict';
 
 angular.module('legendary')
-  .directive('lgdFeaturedItem', function () {
-    return {
-      templateUrl: 'views/partials/landingPage/directives/featuredItem.html',
-      restrict: 'E',
-      replace: true,
-      link: function (scope, element, attrs) {
-      }
-    };
-  });
+    .directive('lgdFeaturedItem', function () {
+      return {
+        templateUrl: 'views/partials/landingPage/directives/featuredItem.html',
+        restrict: 'E',
+        replace: true,
+        link: function (scope, element, attrs) {
+        }
+      };
+    });
