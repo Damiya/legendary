@@ -29,3 +29,5 @@ public/bower_components
 .idea/
 .grunt/
 data/
+*.data
+*.index
