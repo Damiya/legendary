@@ -14,28 +14,20 @@
  * limitations under the License.
  */
 
-package services
+package com.itsdamiya.legendary.utils
 
-import play.api.Application
-import models.{ AuthTokenDAO, AuthToken, User, UserDAO }
-import utils.BCryptPasswordHasher
+import play.api.libs.ws.WS.WSRequestHolder
 
-object UserService {
-  def find(username: String): Option[User] = {
-    UserDAO.findUserByName(username)
+trait DefaultWebServices {
+  import scala.language.implicitConversions
+
+  implicit class DefaultWSRequest(requestHolder: WSRequestHolder) {
+    def withDefaultHeaders(): WSRequestHolder = {
+      requestHolder.withHeaders(
+        "User-Agent" -> MagicStrings.userAgent,
+        "Referer" -> MagicStrings.referer
+      )
+    }
   }
-
-  def findByEmail(email: String): Option[User] = {
-    UserDAO.findUserByEmail(email)
-  }
-
-  def createNewUser(user: User): Option[User] = {
-    val newUser = user.copy(password = BCryptPasswordHasher.hash(user.password))
-    UserDAO.saveNewUser(newUser)
-  }
-
-  def getAuthToken(user: User): AuthToken = {
-    AuthTokenDAO.findOrCreateAuthToken(user)
-  }
-
 }
+

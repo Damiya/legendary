@@ -14,20 +14,13 @@
  * limitations under the License.
  */
 
-package utils
+package com.itsdamiya.legendary.controllers
 
-import play.api.libs.ws.WS.WSRequestHolder
+import play.api.mvc.Action
+import play.api.mvc.Controller
 
-trait DefaultWebServices {
-  import scala.language.implicitConversions
-
-  implicit class DefaultWSRequest(requestHolder: WSRequestHolder) {
-    def withDefaultHeaders(): WSRequestHolder = {
-      requestHolder.withHeaders(
-        "User-Agent" -> MagicStrings.userAgent,
-        "Referer" -> MagicStrings.referer
-      )
-    }
+object Application extends Controller {
+  def options(path: String) = Action {
+    Ok("")
   }
 }
-

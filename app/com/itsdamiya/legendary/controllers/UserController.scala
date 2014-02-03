@@ -14,12 +14,21 @@
  * limitations under the License.
  */
 
-package utils
+package com.itsdamiya.legendary.controllers
 
-object MagicStrings {
-  val authTokenHeader = "X-Auth-Token"
-  val landingPageUrl = "http://ll.leagueoflegends.com/landingpage/data/na/en_US.js"
-  val featuredGamesUrl = "http://spectator.na.lol.riotgames.com/observer-mode/rest/featured"
-  val referer = "app:/LolClient.swf/[[DYNAMIC]]/4"
-  val userAgent = "User-Agent: Mozilla/5.0 (Windows; U; en-US) AppleWebKit/533.19.4 (KHTML, like Gecko) AdobeAIR/3.7"
+import play.api.mvc.Controller
+import play.api.db.slick._
+import play.api.Play.current
+import play.api.libs.json.Json
+import com.itsdamiya.legendary.models.{Users, User}
+
+object UserController extends Controller {
+  def create() = DBAction(parse.json) { implicit rs =>
+    rs.request.body.validate[User].map { user =>
+      Users.insert(user)
+      Ok(Json.toJson("Success"))
+    }.getOrElse {
+      BadRequest("Invalid user registration")
+    }
+  }
 }

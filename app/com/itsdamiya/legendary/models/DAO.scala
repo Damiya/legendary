@@ -14,24 +14,10 @@
  * limitations under the License.
  */
 
-package controllers
+package com.itsdamiya.legendary.models
 
-import models.User
-import play.api.libs.json._
-import play.api.mvc.{ Action, Controller }
-import services.UserService
+import play.api.db.slick.Config.driver.simple._
 
-object UserController extends Controller {
-  def create() = Action(parse.json) { implicit request =>
-    request.body.validate[User].map { user =>
-      val newUser = UserService.createNewUser(user)
-      newUser.map { createdUser =>
-        Ok(Json.toJson(createdUser))
-      }.getOrElse {
-        BadRequest("User already exists")
-      }
-    }.getOrElse {
-      BadRequest("Invalid user registration")
-    }
-  }
+private[models] trait DAO {
+  val Users = TableQuery[Users]
 }
