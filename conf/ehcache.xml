@@ -1,7 +1,7 @@
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../config/ehcache.xsd"
          updateCheck="false">
 
-    <diskStore path="data"/>
+    <diskStore path="user.dir"/>
     <defaultCache
             maxElementsInMemory="10000"
             eternal="false"

@@ -9,3 +9,4 @@ This software contains, in addition to the listed dependencies, components based
 
 * [Plunker_WWW](https://github.com/filearts/plunker_www) (c) Geoffrey Goodman - [MIT License](https://github.com/filearts/plunker_www/blob/master/LICENSE)
 * [League of Legends](http://www.leagueoflegends.com) (c) Riot Games - [Terms of Use](http://na.leagueoflegends.com/en/legal/termsofuse)
+* [Play Framework](http://www.playframework.com) (c) Typesafe - [Apache License](http://www.apache.org/licenses/LICENSE-2.0)
