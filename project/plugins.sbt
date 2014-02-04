@@ -1,11 +1,18 @@
+import sbt.RepositoryHelpers.FileConfiguration
+
 // Comment to get more information during initialization
 logLevel := Level.Warn
 
 // The Typesafe repository 
-resolvers ++= Seq(Resolver.url("Typesafe SbtPlugin", url("http://repo.typesafe.com/typesafe/snapshots/"))(Resolver.ivyStylePatterns),
-  "Typesafe Releases" at "http://repo.typesafe.com/typesafe/releases/",
-  "Typesafe Snapshots" at "http://repo.typesafe.com/typesafe/snapshots/",
-  Resolver.url("sbt snapshot plugins", url("http://repo.scala-sbt.org/scalasbt/sbt-plugin-snapshots"))(Resolver.ivyStylePatterns))
+resolvers += Resolver.url("sbt snapshot maven", url("http://repo.scala-sbt.org/scalasbt/sbt-plugin-snapshots"))(Resolver.mavenStylePatterns)
+
+//
+//def generateLocalPattern() = {
+//  val pList = ("${ivy.home}/local/[organisation]/[module]_[scalaVersion]/[revision]/[type]s/[module]_[scalaVersion].[artifact]") :: Nil
+//  FileRepository("Local Publish", FileConfiguration(true, None), Patterns(pList, pList, false))
+//}
+//
+//resolvers += generateLocalPattern()
 
 // Use the Play sbt plugin for Play projects
-addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.3-20131213005945Z")
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.3-SNAPSHOT")
