@@ -34,7 +34,7 @@ object LeagueController extends Controller with DefaultWebServices {
   def login() = SecuredAction.async(parse.json) { authenticatedRequest =>
     val loginActor = authenticatedRequest.userSession.getLeagueConnection
 
-    authenticatedRequest.request.body.validate[UserPass].asOpt match {
+    authenticatedRequest.body.validate[UserPass].asOpt match {
       case Some(user) =>
         loginActor.login(user).map { result =>
           val resultObj = Json.obj(

@@ -20,7 +20,9 @@ object ApplicationBuild extends Build {
     "com.typesafe.play" %% "play-slick" % "0.6.0-SNAPSHOT",
     "net.sf.ehcache" % "ehcache-core" % "2.6.8",
     filters,
-    jdbc
+    jdbc,
+    json,
+    ws
   )
 
   val main = play.Project(appName, appVersion, appDependencies).settings(

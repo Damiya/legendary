@@ -16,7 +16,7 @@
 
 package com.itsdamiya.legendary.utils
 
-import play.api.libs.ws.WS.WSRequestHolder
+import play.api.libs.ws.WSRequestHolder
 
 trait DefaultWebServices {
   import scala.language.implicitConversions

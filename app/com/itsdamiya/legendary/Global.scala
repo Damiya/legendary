@@ -17,10 +17,9 @@
 package com.itsdamiya.legendary
 
 import play.api._
+import play.api.mvc.{EssentialAction, WithFilters}
+import com.itsdamiya.legendary.filters.HTTPSFilter
 
 object Global extends GlobalSettings {
-
-  override def onStart(app: Application) {
-
-  }
+  override def doFilter(action: EssentialAction) = HTTPSFilter(action)
 }

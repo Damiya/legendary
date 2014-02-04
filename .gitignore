@@ -31,3 +31,5 @@ public/bower_components
 data/
 *.data
 *.index
+*.lock
+conf/*.keystore
