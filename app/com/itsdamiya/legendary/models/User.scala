@@ -78,9 +78,7 @@ object Users extends DAO {
   def count(implicit s: Session): Int = Query(Users.length).first
 
   def insert(user: User)(implicit s: Session) = {
-    val hashedPassword = BCryptPasswordHasher.hash(user.password)
-
-    Users.insert(user.copy(password = hashedPassword))
+    Users.insert(user)
   }
 
   def findUserByName(username: String)(implicit s: Session): Option[User] = {

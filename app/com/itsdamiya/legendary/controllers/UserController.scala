@@ -22,12 +22,17 @@ import play.api.Play.current
 import play.api.Play
 import play.api.libs.json.Json
 import com.itsdamiya.legendary.models.{Users, User}
+import com.itsdamiya.legendary.utils.BCryptPasswordHasher
 
 object UserController extends Controller {
   def create() = DBAction(parse.json) { implicit rs =>
     if (Play.isDev) {
       rs.request.body.validate[User].map { user =>
-        Users.insert(user)
+        val hashedPassword = BCryptPasswordHasher.hash(user.password)
+
+        val newUser = user.copy(password = hashedPassword)
+
+        Users.insert(newUser)
         Ok(Json.toJson("Success"))
       }.getOrElse {
         BadRequest("Invalid user registration")
