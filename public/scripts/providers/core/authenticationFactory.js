@@ -35,14 +35,13 @@ angular.module('legendary')
 
         setHeaderFromSessionStorage();
 
-        var tokensRoute = RestangularFactory.core.one('token');
+        var sessionRoute = RestangularFactory.core.one('session');
 
         var factory = {
           logout: function () {
-            tokensRoute.destroy().then(function () {
-              removeToken();
-              delete $http.defaults.headers.common['X-Auth-Token'];
-            });
+            sessionRoute.destroy();
+            removeToken();
+            delete $http.defaults.headers.common['X-Auth-Token'];
           },
 
           getAuthToken: getAuthToken,
@@ -58,7 +57,7 @@ angular.module('legendary')
           },
 
           login: function (username, password) {
-            return tokensRoute.create({username: username, password: password}).then(
+            return sessionRoute.create({username: username, password: password}).then(
                 function success(token) {
                   $window.sessionStorage.setItem('backend-authToken', token.value);
                   setHeaderFromSessionStorage();

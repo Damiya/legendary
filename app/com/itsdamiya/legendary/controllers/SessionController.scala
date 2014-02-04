@@ -54,6 +54,9 @@ object SessionController extends Controller {
 
   def destroy() = SecuredAction { authenticatedRequest =>
     Cache.remove(authenticatedRequest.userSession.authToken)
-    Ok(Json.toJson("Session Destroyed"))
+    Logger.info(s"${authenticatedRequest.userSession.user.username} logged out.")
+    Ok(Json.obj(
+      "result" -> "Session destroyed"
+    ))
   }
 }

@@ -25,8 +25,6 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 
 @import "../bower_components/font-awesome/scss/font-awesome";
 
-@import "landingPage";
-
 body {
   padding-top: 65px;
 }
@@ -63,4 +61,12 @@ body {
     font-size: 80px;
     font-weight: bold;
   }
+}
+
+.no-padding {
+  padding: 0px;
+}
+
+.minimal-padding {
+  padding: 5px;
 }

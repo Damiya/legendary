@@ -1,6 +1,9 @@
 import sbt._
+
+import sbt._
 import Keys._
 import play.Project._
+
 
 object ApplicationBuild extends Build {
 
@@ -17,9 +20,10 @@ object ApplicationBuild extends Build {
     "com.typesafe.play" %% "play-slick" % "0.6.0-SNAPSHOT",
     "net.sf.ehcache" % "ehcache-core" % "2.6.8",
     filters,
-    jdbc
+    jdbc,
+    json,
+    ws
   )
-
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
     scalacOptions ++= Seq("-feature", "-language:postfixOps", "-language:reflectiveCalls"),

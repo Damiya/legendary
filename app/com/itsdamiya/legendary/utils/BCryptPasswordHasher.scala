@@ -19,31 +19,11 @@ package com.itsdamiya.legendary.utils
 import org.mindrot.jbcrypt.BCrypt
 
 object BCryptPasswordHasher {
-  val DefaultRounds = 10
-  val RoundsProperty = "bcrypt.rounds"
 
-  val id = "hasher"
-
-  /**
-   * Hashes a password. This implementation does not return the salt because it is not needed
-   * to verify passwords later.  Other implementations might need to return it so it gets saved in the
-   * backing store.
-   *
-   * @param plainPassword the password to hash
-   * @return a PasswordInfo containing the hashed password.
-   */
   def hash(plainPassword: String): String = {
-    val logRounds = DefaultRounds
-    BCrypt.hashpw(plainPassword, BCrypt.gensalt(logRounds))
+    BCrypt.hashpw(plainPassword, BCrypt.gensalt(10))
   }
 
-  /**
-   * Checks if a password matches the hashed version
-   *
-   * @param hashedPass the password retrieved from the backing store (by means of UserService)
-   * @param suppliedPassword the password supplied by the user trying to log in
-   * @return true if the password matches, false otherwise.
-   */
   def matches(hashedPass: String, suppliedPassword: String): Boolean = {
     BCrypt.checkpw(suppliedPassword, hashedPass)
   }

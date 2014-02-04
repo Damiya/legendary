@@ -7,10 +7,10 @@ OPTIONS        /*path                           com.itsdamiya.legendary.controll
 # Redirect all unknown routes to the index page
 #GET           /*any                       com.itsdamiya.legendary.controllers.Application.index(any)
 
-#POST           /api/user/create                 com.itsdamiya.legendary.controllers.UserController.create()
+POST           /api/user/create                 com.itsdamiya.legendary.controllers.UserController.create()
 
-DELETE         /api/token/destroy               com.itsdamiya.legendary.controllers.SessionController.destroy()
-POST           /api/token/create                com.itsdamiya.legendary.controllers.SessionController.create()
+DELETE         /api/session/destroy             com.itsdamiya.legendary.controllers.SessionController.destroy()
+POST           /api/session/create              com.itsdamiya.legendary.controllers.SessionController.create()
 
 POST           /api/league/login                com.itsdamiya.legendary.controllers.LeagueController.login()
 GET            /api/league/landingPage          com.itsdamiya.legendary.controllers.LeagueController.landingPage()

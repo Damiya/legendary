@@ -118,7 +118,6 @@ object Cache {
     }
   }
 
-
   /**
    * Retrieve a value from the cache for the given type
    *
@@ -203,7 +202,6 @@ class EhCacheImpl(private val cache: Ehcache) extends CacheAPI {
     element.setTimeToIdle(timeToIdle)
     element
   }
-
 
   def set(key: String, value: Any, timeToIdle: Int) {
     cache.put(createElement(key, value, timeToIdle))
