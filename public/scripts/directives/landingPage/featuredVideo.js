@@ -17,12 +17,24 @@
 'use strict';
 
 angular.module('legendary')
-    .directive('lgdFeaturedVideos', function () {
+    .directive('lgdFeaturedVideo', function () {
       return {
-        templateUrl: 'views/partials/landingPage/directives/featuredVideo.html',
+        template: '<div class="well well-sm featured-video-container"></div>',
         restrict: 'E',
+        scope: {
+          video: '='
+        },
+        replace: true,
         link: function (scope, element, attrs) {
+          var youtubeEmbedded = false;
 
+          scope.$watch('video', function (value) {
+            if (!youtubeEmbedded) {
+              var videoId = value.url.split('=')[1];
+              element.append('<iframe class="youtube-player" src="https://www.youtube.com/embed/' + videoId + '"' +
+                  ' type="text/html" width="425" height="295" id="player" allowfullscreen frameborder="0"></iframe>');
+            }
+          });
         }
       };
     });

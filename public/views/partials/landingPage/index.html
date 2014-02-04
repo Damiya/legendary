@@ -1,26 +1,42 @@
 <div class="container">
-    <div class="col-md-7">
-        <div class="panel panel-primary left-column-panel">
-            <div class="panel-heading">
-                <h3 class="panel-title text-center">Spectate Live</h3>
-            </div>
-            <div class="panel-body">
-                <carousel interval="-1">
-                    <slide ng-repeat="game in gameList" active="game.active">
-                        <lgd-featured-game participants="game.participants"></lgd-featured-game>
-                    </slide>
-                </carousel>
-            </div>
-        </div>
-        <div class="panel panel-primary left-column-panel">
-            <div class="panel-body">
-                <lgd-featured-news class="lgd-featured-news"></lgd-featured-news>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-5">
-        <lgd-featured-item ng-repeat="item in content.items" class="lgd-featured-item"></lgd-featured-item>
-        <lgd-featured-videos></lgd-featured-videos>
-    </div>
+    <div class="row">
+        <div class="col-md-7 minimal-padding">
 
+            <div class="panel panel-primary left-column-panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">Spectate Live</h3>
+                </div>
+                <div class="panel-body">
+                    <carousel interval="-1">
+                        <slide ng-repeat="game in gameList" active="game.active">
+                            <lgd-featured-game participants="game.participants"></lgd-featured-game>
+                        </slide>
+                    </carousel>
+                </div>
+            </div>
+
+            <div class="panel panel-primary left-column-panel">
+                <div class="panel-body">
+                    <lgd-featured-news class="lgd-featured-news"></lgd-featured-news>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-5 minimal-padding">
+
+            <lgd-featured-item ng-repeat="item in content.items"
+                               class="lgd-featured-item right-column-panel"></lgd-featured-item>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-left">Featured Video</h3>
+                </div>
+                <div class="panel-body">
+                    <lgd-featured-video video="content.spotlight[0].Videos"></lgd-featured-video>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>

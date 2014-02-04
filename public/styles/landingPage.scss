@@ -15,24 +15,37 @@
  */
 
 .left-column-panel {
-  min-width: 560px;
+  min-width: 460px;
+  margin-bottom: 5px;
+}
+
+.right-column-panel {
+  margin-bottom: 5px;
 }
 
 // Start Featured Games
 
-.featured-game-container {
+.featured-game {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  width: 100%;
+
+  .gap {
+    height: 200px;
+    flex: 4;
+  }
+}
+
+@each $team in red, blue {
+  .#{$team}-team {
+    flex: 5;
+  }
 }
 
 .featured-game-participant {
-  margin: 5px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  height: 50px;
-  width: 200px;
+  margin-bottom: 5px;
 
   &.left-align {
     .champion-icon {
@@ -57,13 +70,11 @@
 }
 
 .champion-icon {
-  flex-shrink: 0;
   height: 50px;
-  width: 50px;
 }
 
 .participant-name {
-  flex-grow: 2;
+  flex: 1;
   margin: 0px 10px;
   font-size: 75%;
 }
@@ -72,73 +83,74 @@
 
 // Start Featured Items
 
-.featured-item-container {
-  display: flex;
-}
-
-.champion-card {
-  flex: 1 0 auto;
-  order: 1;
-  height: 110px;
-  min-width: 80px;
-  max-width: 80px;
-  margin-right: 20px;
-}
-
 .lgd-featured-item {
-  & .panel-body {
+  .panel-body {
     padding: 8px;
   }
-  & .panel {
+  .panel {
     margin-bottom: 10px;
   }
 }
 
-.well.featured-item-container {
-  margin-bottom: 0px;
+.featured-item-container {
+  display: flex;
+
+  &.well {
+    margin-bottom: 0px;
+  }
+}
+
+.champion-card {
+  flex-shrink: 0;
+  order: 1;
+  height: 110px;
+  min-width: 80px;
+  width: 80px;
+  margin-right: 20px;
 }
 
 .featured-item-information {
   display: flex;
   justify-content: space-between;
   flex-flow: column;
-  height: 110px;
-  width: 260px;
-  flex: 3 0 auto;
   order: 2;
+
+  strong {
+    word-wrap: break-word;
+  }
+
+  h4 {
+    margin: auto;
+  }
 }
 
 .featured-item-buttons {
   display: flex;
   justify-content: flex-start;
-  min-height: 34px;
 
-  & button {
+  button {
     margin-right: 10px;
   }
 }
 
 // End Featured Items
-.left-column-panel {
-  min-width: 510px;
-}
 
+// Featured news
 .lgd-featured-news.well {
   margin-bottom: 0px;
-
+  height: 390px;
 }
 
 .featured-news-container {
   display: flex;
   flex-flow: column;
   justify-content: center;
-  min-height: 300px;
 }
 
 .featured-news-item {
   display: flex;
   justify-content: flex-start;
-  padding: 10px;
+  margin-bottom: 10px;
   cursor: pointer;
 
   &:hover,
@@ -149,24 +161,30 @@
 
 .news-icon {
   order: 1;
-  max-height: 75px;
-  max-width: 100px;
   flex: 0 0 auto;
-  margin-right: 15px;
 }
 
 .news-text {
   order: 2;
   display: flex;
   flex-flow: column;
-  align-items: flex-start;
+  margin-left: 10px;
 
   > h4 {
     margin-top: 5px;
   }
+
+  .description {
+    margin: auto;
+    word-wrap: break-word;
+  }
+}
+// End featured News
+
+// Featured Video
+.featured-video-container {
+  margin-bottom: 0px;
 }
 
-.description {
-  word-wrap: break-word;
-}
+
 
