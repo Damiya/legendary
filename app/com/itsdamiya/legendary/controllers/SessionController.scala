@@ -24,7 +24,7 @@ import play.api.db.slick._
 import java.util.UUID
 import scala.concurrent.duration._
 import com.itsdamiya.legendary.cache.Cache
-import com.itsdamiya.legendary.models.{ UserSession, Users, UserPass }
+import com.itsdamiya.legendary.models.{UserSession, Users, UserPass}
 import play.api.libs.json.Json
 import com.itsdamiya.legendary.actions.SecuredAction
 
@@ -54,6 +54,7 @@ object SessionController extends Controller {
 
   def destroy() = SecuredAction { authenticatedRequest =>
     Cache.remove(authenticatedRequest.userSession.authToken)
+    Logger.info(s"${authenticatedRequest.userSession.user.username} logged out.")
     Ok(Json.obj(
       "result" -> "Session destroyed"
     ))
