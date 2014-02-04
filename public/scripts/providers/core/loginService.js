@@ -19,7 +19,6 @@
 angular.module('legendary')
     .factory('loginService', ['$state', '$q', 'authenticationFactory', 'leagueProxy',
       function ($state, $q, authenticationFactory, leagueProxy) {
-        var backendAuthenticated;
 
         var redirect = function (url) {
           url = url || 'home.loginRequired';
@@ -29,7 +28,7 @@ angular.module('legendary')
 
         var factory = {
           isAuthenticated: function () {
-            return authenticationFactory.getAuthToken() && leagueProxy.isConnected();
+            return authenticationFactory.getAuthToken();
           },
 
           requireAuthentication: function () {
@@ -45,21 +44,13 @@ angular.module('legendary')
           },
 
           logout: function () {
-            leagueProxy.logout();
-            authenticationFactory.logout();
             redirect();
+            authenticationFactory.logout();
           },
 
           login: function (username, password) {
             var deferred = $q.defer();
             authenticationFactory.conditionalLogin(username, password)
-                .then(function success() {
-                  backendAuthenticated = true;
-                  return leagueProxy.deferredLogin(username, password);
-                },
-                function failure(response) {
-                  deferred.reject(response);
-                })
                 .then(function success() {
                   deferred.resolve();
                   redirect('home.landingPage');

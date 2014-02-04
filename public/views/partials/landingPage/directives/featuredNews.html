@@ -1,6 +1,7 @@
 <div class="well well-sm featured-news-container">
-    <div class="featured-news-item" ng-repeat="item in content.news | limitTo: 3" ng-click="openNewsItem(item)">
+    <div class="featured-news-item" ng-repeat="item in content.news" ng-click="openNewsItem(item)">
         <img class="news-icon" ng-src="{{item.thumbUrl}}"/>
+
         <div class="news-text">
             <h4 class="text-success">{{item.title}}</h4>
             <span class="description small">{{item.description}}</span>

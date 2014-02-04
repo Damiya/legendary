@@ -17,18 +17,18 @@
 'use strict';
 
 angular.module('legendary')
-  .factory('sessionStorage', ['$window', function ($window) {
-    return {
-      getItem: function (key) {
-        return JSON.parse($window.sessionStorage.getItem(key));
-      },
+    .factory('sessionStorage', ['$window', function ($window) {
+      return {
+        getItem: function (key) {
+          return JSON.parse($window.sessionStorage.getItem(key));
+        },
 
-      setItem: function (key, value) {
-        $window.sessionStorage.setItem(key,JSON.stringify(value));
-      },
+        setItem: function (key, value) {
+          $window.sessionStorage.setItem(key, JSON.stringify(value));
+        },
 
-      removeItem: function (key) {
-        $window.sessionStorage.removeItem(key);
-      }
-    };
-  }]);
+        removeItem: function (key) {
+          $window.sessionStorage.removeItem(key);
+        }
+      };
+    }]);

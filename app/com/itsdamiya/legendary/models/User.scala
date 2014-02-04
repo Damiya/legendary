@@ -23,31 +23,31 @@ import scala.slick.driver.PostgresDriver.simple._
 import com.itsdamiya.legendary.utils.BCryptPasswordHasher
 
 case class User(id: Option[Long] = None, username: String, firstName: String,
-                lastName: String, email: String,
-                password: String) {
+    lastName: String, email: String,
+    password: String) {
 }
 
 object User extends ((Option[Long], String, String, String, String, String) => User) {
   implicit val userWrites: Writes[User] = (
     (__ \ "id").writeNullable[Long] and
-      (__ \ "username").write[String] and
-      (__ \ "firstName").write[String] and
-      (__ \ "lastName").write[String] and
-      (__ \ "email").write[String]
-    ) {
-    (u: User) => (u.id, u.username, u.firstName, u.lastName, u.email)
-  }
+    (__ \ "username").write[String] and
+    (__ \ "firstName").write[String] and
+    (__ \ "lastName").write[String] and
+    (__ \ "email").write[String]
+  ) {
+      (u: User) => (u.id, u.username, u.firstName, u.lastName, u.email)
+    }
 
   implicit val userReads: Reads[User] = (
     (__ \ 'username).read[String] and
-      (__ \ 'firstName).read[String] and
-      (__ \ 'lastName).read[String] and
-      (__ \ 'email).read[String](email) and
-      (__ \ 'password).read[String]
-    ) {
-    (username: String, firstName: String, lastName: String, email: String, password: String) =>
-      User(None, username, firstName, lastName, email, password)
-  }
+    (__ \ 'firstName).read[String] and
+    (__ \ 'lastName).read[String] and
+    (__ \ 'email).read[String](email) and
+    (__ \ 'password).read[String]
+  ) {
+      (username: String, firstName: String, lastName: String, email: String, password: String) =>
+        User(None, username, firstName, lastName, email, password)
+    }
 }
 
 case class UserPass(username: String, password: String)
@@ -69,16 +69,16 @@ class Users(tag: Tag) extends Table[User](tag, "users") {
 
   def password = column[String]("password")
 
-  def * = (id.?, username, firstName, lastName, email, password) <>(User.tupled, User.unapply)
+  def idx = index("idx_users", username, unique = true)
+
+  def * = (id.?, username, firstName, lastName, email, password) <> (User.tupled, User.unapply)
 }
 
 object Users extends DAO {
   def count(implicit s: Session): Int = Query(Users.length).first
 
   def insert(user: User)(implicit s: Session) = {
-    val hashedPassword = BCryptPasswordHasher.hash(user.password)
-
-    Users.insert(user.copy(password = hashedPassword))
+    Users.insert(user)
   }
 
   def findUserByName(username: String)(implicit s: Session): Option[User] = {
