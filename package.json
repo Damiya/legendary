@@ -1,6 +1,6 @@
 {
   "name": "legendary",
-  "version": "0.0.5-SNAPSHOT",
+  "version": "0.0.5",
   "dependencies": {
     "grunt": "~0.4.2",
     "grunt-autoprefixer": "~0.6.5",
