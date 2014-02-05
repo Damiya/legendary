@@ -30,15 +30,12 @@ object HTTPSFilter extends EssentialFilter {
 class HTTPSAction(next: EssentialAction)(implicit httpsPort: Int) extends EssentialAction {
   def apply(request: RequestHeader) = {
     def continue = next(request)
+    val xForwardedProto = request.headers.get("X-Forwarded-Proto").getOrElse("None")
 
-    request.headers.get("X-Forwarded-Proto").collect {
-      case "https" => continue
-    } getOrElse {
-      if (request.secure) {
-        continue
-      } else {
-        Done(Redirect("https://" + request.host.split(":")(0) + s":$httpsPort" + request.uri))
-      }
+    if (request.secure || xForwardedProto  == "https") {
+      continue
+    } else {
+      Done(Redirect("https://" + request.host.split(":")(0) + s":$httpsPort" + request.uri))
     }
   }
 }

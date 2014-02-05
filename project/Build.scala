@@ -26,7 +26,7 @@ object ApplicationBuild extends Build {
   )
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
-    scalacOptions ++= Seq("-feature", "-language:postfixOps", "-language:reflectiveCalls"),
+    scalacOptions ++= Seq("-feature", "-language:postfixOps", "-language:reflectiveCalls", "-language:implicitConversions"),
     resolvers +=
       "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 

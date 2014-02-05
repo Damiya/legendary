@@ -26,7 +26,7 @@ import scala.concurrent.duration._
 import com.itsdamiya.legendary.cache.Cache
 import com.itsdamiya.legendary.models.{UserSession, Users, UserPass}
 import play.api.libs.json.Json
-import com.itsdamiya.legendary.actions.SecuredAction
+import com.itsdamiya.legendary.actions.Secured
 
 object SessionController extends Controller {
 
@@ -52,7 +52,7 @@ object SessionController extends Controller {
     }
   }
 
-  def destroy() = SecuredAction { authenticatedRequest =>
+  def destroy() = Secured { authenticatedRequest =>
     Cache.remove(authenticatedRequest.userSession.authToken)
     Logger.info(s"${authenticatedRequest.userSession.user.username} logged out.")
     Ok(Json.obj(

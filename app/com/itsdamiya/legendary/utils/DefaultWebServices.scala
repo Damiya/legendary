@@ -19,8 +19,6 @@ package com.itsdamiya.legendary.utils
 import play.api.libs.ws.WSRequestHolder
 
 trait DefaultWebServices {
-  import scala.language.implicitConversions
-
   implicit class DefaultWSRequest(requestHolder: WSRequestHolder) {
     def withDefaultHeaders(): WSRequestHolder = {
       requestHolder.withHeaders(

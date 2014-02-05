@@ -18,14 +18,14 @@ package com.itsdamiya.legendary.actions
 
 import play.api.mvc._
 import scala.concurrent.Future.{ successful => resolve }
-import com.itsdamiya.legendary.models.{ UserSession, User }
+import com.itsdamiya.legendary.models.UserSession
 import scala.concurrent.Future
 import com.itsdamiya.legendary.cache.Cache
 import play.api.Play.current
 
 class AuthenticatedRequest[A](val userSession: UserSession, request: Request[A]) extends WrappedRequest[A](request)
 
-object SecuredAction extends ActionBuilder[AuthenticatedRequest] with Results {
+object Secured extends ActionBuilder[AuthenticatedRequest] with Results {
   def invokeBlock[A](request: Request[A], block: (AuthenticatedRequest[A]) => Future[SimpleResult]) = {
     request.headers.get("X-Auth-Token") match {
       case Some(authToken) =>

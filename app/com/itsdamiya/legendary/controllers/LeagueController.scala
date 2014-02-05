@@ -19,19 +19,18 @@ package com.itsdamiya.legendary.controllers
 import com.itsdamiya.legendary.actors.ConnectionStatus
 import play.api.mvc._
 import scala.concurrent.Future
-import com.itsdamiya.legendary.utils.{ MagicStrings, DefaultWebServices }
-import com.itsdamiya.legendary.actions.SecuredAction
-import play.api.libs.ws.WS
+import com.itsdamiya.legendary.utils.{MagicStrings, DefaultWebServices}
 import scala.concurrent.duration._
-import play.api.libs.json.{ JsValue, Json }
+import play.api.libs.json.Json
 import play.Logger
-import play.api.Play.current
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import com.itsdamiya.legendary.models.UserPass
-import com.itsdamiya.legendary.cache.Cache
+import com.itsdamiya.legendary.cache.CacheableExternalWS
+import com.itsdamiya.legendary.actions.Secured
 
 object LeagueController extends Controller with DefaultWebServices {
-  def login() = SecuredAction.async(parse.json) { authenticatedRequest =>
+
+  def login() = Secured.async(parse.json) { authenticatedRequest =>
     val loginActor = authenticatedRequest.userSession.getLeagueConnection
 
     authenticatedRequest.body.validate[UserPass].asOpt match {
@@ -47,41 +46,16 @@ object LeagueController extends Controller with DefaultWebServices {
     }
   }
 
-  def featuredGames() = SecuredAction.async { authenticatedRequest =>
-    Cache.getAs[JsValue]("featuredGames") match {
-      case Some(featuredGames) =>
-        Logger.debug("Cache hit for featuredGames")
-        Future.successful(Ok(featuredGames))
-      case None =>
-        Logger.debug("Cache miss for featuredGames")
-        WS.url(MagicStrings.featuredGamesUrl)
-          .withDefaultHeaders().get().map { response =>
-            val json = response.json
-            val refreshInterval = (json \ "clientRefreshInterval").as[Int]
-            Cache.set("featuredGames", json, 0, refreshInterval)
-            Ok(json)
-          }
-    }
-
+  def featuredGames() = Secured.async { implicit request =>
+    CacheableExternalWS("featuredGames", 5.minutes, MagicStrings.featuredGamesUrl)
   }
 
-  def landingPage() = SecuredAction.async { authenticatedRequest =>
-    Cache.getAs[JsValue]("landingPage") match {
-      case Some(landingPageInfo) =>
-        Logger.debug("Cache hit for landingPage")
-        Future.successful(Ok(landingPageInfo))
-      case None =>
-        Logger.debug("Cache miss for landingPage")
-        WS.url(MagicStrings.landingPageUrl)
-          .withDefaultHeaders().get().map { response =>
-            Cache.set("landingPage", response.json, 2.hours)
-            Ok(response.json)
-          }
-    }
+  def landingPage() = Secured.async { implicit request =>
+    CacheableExternalWS("landingPage", 5.hours, MagicStrings.landingPageUrl)
   }
 
-  def logout() = SecuredAction { authenticatedRequest =>
-    val loginActor = authenticatedRequest.userSession.getLeagueConnection
+  def logout() = Secured { request =>
+    val loginActor = request.userSession.getLeagueConnection
 
     if (loginActor.isConnected) {
       loginActor.logout()
