@@ -19,7 +19,6 @@ object BuildSettings {
   val commonSettings = Seq(
     organization := appOrganization,
     scalacOptions ++= Seq("-feature", "-deprecation", "-language:postfixOps", "-language:reflectiveCalls", "-language:implicitConversions"),
-    javacOptions ++= Seq("-deprecation"),
     resolvers ++= commonResolvers
   )
 
