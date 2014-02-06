@@ -13,7 +13,8 @@ object BuildSettings {
 
   val commonResolvers = Seq(
     "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
-    "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
+    "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
+    "spray repo" at "http://repo.spray.io"
   )
 
   val commonSettings = Seq(
@@ -38,6 +39,8 @@ object BuildSettings {
   )
 
   val fateClasherDeps = Seq(
+    "io.spray" % "spray-client" % "1.2.0",
+    "io.spray" %% "spray-json" % "1.2.5",
     "org.scalatest" % "scalatest_2.10" % "2.0" % "test",
     "org.scalacheck" %% "scalacheck" % "1.11.3" % "test",
     "com.typesafe.akka" %% "akka-actor" % "2.2.3",

@@ -7,14 +7,17 @@ import java.net.InetSocketAddress
 import java.security.KeyStore
 import java.io.{FileInputStream, File}
 import akka.util.ByteString
+import spray.json.{JsonFormat, DefaultJsonProtocol}
 import akka.io.TcpPipelineHandler.{Init, WithinActorContext}
 import akka.actor.{Deploy, ActorLogging, Actor, Props}
+import java.util.UUID
+import spray.http.DateTime
 
 object RTMPSClient {
   def props(server: ServerInfo): Props = Props(classOf[RTMPSClient], server)
 }
 
-class RTMPSClient(server: ServerInfo) extends Actor with ActorLogging {
+class RTMPSClient(server: ServerInfo) extends Actor with ActorLogging  {
 
   import Tcp._
   import context.system
@@ -45,20 +48,20 @@ class RTMPSClient(server: ServerInfo) extends Actor with ActorLogging {
 
   def receive: Receive = {
     case Connected(remote, _) ⇒
-          val init = TcpPipelineHandler.withLogger(log,
-            new StringByteStringAdapter("utf-8") >>
-              new DelimiterFraming(maxSize = 1024, delimiter = ByteString('\n'),
-                includeDelimiter = true) >>
-              new TcpReadWriteAdapter >>
-              new SslTlsSupport(getSSLEngine(remote, server)) >>
-              new BackpressureBuffer(lowBytes = 100, highBytes = 1000, maxBytes = 1000000))
+      val init = TcpPipelineHandler.withLogger(log,
+        new StringByteStringAdapter("utf-8") >>
+          new DelimiterFraming(maxSize = 1024, delimiter = ByteString('\n'),
+            includeDelimiter = true) >>
+          new TcpReadWriteAdapter >>
+          new SslTlsSupport(getSSLEngine(remote, server)) >>
+          new BackpressureBuffer(lowBytes = 100, highBytes = 1000, maxBytes = 1000000))
 
-          val connection = sender
-          val handler = context.actorOf(Props(new AkkaSslHandler(init)).withDeploy(Deploy.local))
-          val pipeline = context.actorOf(TcpPipelineHandler.props(
-            init, connection, handler).withDeploy(Deploy.local))
+      val connection = sender
+      val handler = context.actorOf(Props(new AkkaSslHandler(init)).withDeploy(Deploy.local))
+      val pipeline = context.actorOf(TcpPipelineHandler.props(
+        init, connection, handler).withDeploy(Deploy.local))
 
-          connection ! Tcp.Register(pipeline)
+      connection ! Tcp.Register(pipeline)
   }
 }
 
