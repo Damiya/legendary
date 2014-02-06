@@ -50,11 +50,15 @@ object Build extends Build {
 
   import BuildSettings._
 
-  val FateClasherProject = Project("LibFateClasher", file("LibFateClasher"))
+  lazy val FateClasherProject = Project("LibFateClasher", file("LibFateClasher"))
     .settings(commonSettings: _*)
     .settings(libraryDependencies ++= fateClasherDeps)
 
-  val main = play.Project(appName, appVersion, coreDeps, path = file("Legendary-Core"))
+  lazy val LegendaryCoreProject = play.Project("Legendary-Core", appVersion, coreDeps, path = file("Legendary-Core"))
     .settings(commonSettings: _*)
     .dependsOn(FateClasherProject)
+
+  lazy val root = Project("Legendary", file("."))
+    .settings(commonSettings: _*)
+    .aggregate(Seq[ProjectReference](FateClasherProject, LegendaryCoreProject): _*)
 }
