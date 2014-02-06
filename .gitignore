@@ -33,3 +33,4 @@ data/
 *.index
 *.lock
 conf/*.keystore
+rawmessages/*

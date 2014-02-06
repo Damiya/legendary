@@ -17,7 +17,7 @@
 package com.itsdamiya.legendary.cache
 
 import play.api.libs.ws.{WS, WSResponse}
-import play.api.mvc.{Content, Request, Results, SimpleResult}
+import play.api.mvc.Results
 import scala.concurrent.Future
 import play.Logger
 import play.api.Play.current
@@ -25,14 +25,10 @@ import scala.concurrent.duration.Duration
 import play.api.libs.json.{JsValue, Json}
 import com.itsdamiya.legendary.utils.DefaultWebServices
 import scala.concurrent.ExecutionContext.Implicits.global
-import play.api.http.DefaultWriteables
-import com.itsdamiya.legendary.actions.AuthenticatedRequest
 import play.api.mvc._
 
 
 object CacheableExternalWS extends Results with DefaultWebServices {
-
-
   def apply(cacheKey: String, timeToLive: Int, url: String)(resultTransformer: String => JsValue)(responder: WSResponse => SimpleResult): Future[SimpleResult] = {
     val cacheResult = Cache.getAs[JsValue](cacheKey)
     cacheResult match {
@@ -48,7 +44,7 @@ object CacheableExternalWS extends Results with DefaultWebServices {
     }
   }
 
-  def apply(cacheKey: String, timeToLive: Duration, url: String)(implicit request: Request[AnyContent]): Future[SimpleResult] = {
+  def apply(cacheKey: String, timeToLive: Duration, url: String): Future[SimpleResult] = {
     apply(cacheKey, timeToLive.toSeconds.toInt, url)(result => Json.parse(result))(response => Ok(response.json))
   }
 }

@@ -18,5 +18,5 @@ GET            /api/league/featuredGames        com.itsdamiya.legendary.controll
 DELETE         /api/league/logout               com.itsdamiya.legendary.controllers.LeagueController.logout()
 
 
-GET            /                                controllers.Assets.at(path="/public", file="index.html")
-GET            /*file                           controllers.Assets.at(path="/public", file)
+GET            /                                controllers.ExternalAssets.at(path="../public", file="index.html")
+GET            /*file                           controllers.ExternalAssets.at(path="../public", file)

@@ -46,11 +46,11 @@ object LeagueController extends Controller with DefaultWebServices {
     }
   }
 
-  def featuredGames() = Secured.async { implicit request =>
+  def featuredGames() = Secured.async { request =>
     CacheableExternalWS("featuredGames", 5.minutes, MagicStrings.featuredGamesUrl)
   }
 
-  def landingPage() = Secured.async { implicit request =>
+  def landingPage() = Secured.async { request =>
     CacheableExternalWS("landingPage", 5.hours, MagicStrings.landingPageUrl)
   }
 
