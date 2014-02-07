@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="SBT: org.specs2:specs2-junit_2.10:2.3.7">
     <CLASSES>
-      <root url="jar://F:/.ivy2/cache/org.specs2/specs2-junit_2.10/jars/specs2-junit_2.10-2.3.7.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.specs2/specs2-junit_2.10/jars/specs2-junit_2.10-2.3.7.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://F:/.ivy2/cache/org.specs2/specs2-junit_2.10/docs/specs2-junit_2.10-2.3.7-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.specs2/specs2-junit_2.10/docs/specs2-junit_2.10-2.3.7-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://F:/.ivy2/cache/org.specs2/specs2-junit_2.10/srcs/specs2-junit_2.10-2.3.7-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.specs2/specs2-junit_2.10/srcs/specs2-junit_2.10-2.3.7-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

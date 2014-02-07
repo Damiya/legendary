@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="SBT: com.ning:async-http-client:1.7.23">
     <CLASSES>
-      <root url="jar://F:/.ivy2/cache/com.ning/async-http-client/jars/async-http-client-1.7.23.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.ning/async-http-client/jars/async-http-client-1.7.23.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://F:/.ivy2/cache/com.ning/async-http-client/docs/async-http-client-1.7.23-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.ning/async-http-client/docs/async-http-client-1.7.23-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://F:/.ivy2/cache/com.ning/async-http-client/srcs/async-http-client-1.7.23-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.ning/async-http-client/srcs/async-http-client-1.7.23-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

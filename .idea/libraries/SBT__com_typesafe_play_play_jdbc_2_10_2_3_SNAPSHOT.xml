@@ -2,12 +2,11 @@
   <library name="SBT: com.typesafe.play:play-jdbc_2.10:2.3-SNAPSHOT">
     <CLASSES>
       <root url="jar://F:/.ivy2/local/com.typesafe.play/play-jdbc_2.10/2.3-SNAPSHOT/jars/play-jdbc_2.10.jar!/" />
-      <root url="jar://F:/.ivy2/local/com.typesafe.play/play-jdbc_2.10/2.3-SNAPSHOT/srcs/play-jdbc_2.10-tests-sources.jar!/" />
-      <root url="file://F:/.ivy2/local/com.typesafe.play/play-jdbc_2.10/2.3-SNAPSHOT/poms/play-jdbc_2.10.pom" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://F:/.ivy2/local/com.typesafe.play/play-jdbc_2.10/2.3-SNAPSHOT/srcs/play-jdbc_2.10-sources.jar!/" />
+      <root url="jar://F:/.ivy2/local/com.typesafe.play/play-jdbc_2.10/2.3-SNAPSHOT/srcs/play-jdbc_2.10-tests-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

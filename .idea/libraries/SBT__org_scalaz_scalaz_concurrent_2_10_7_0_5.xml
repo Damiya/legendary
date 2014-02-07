@@ -1,14 +1,13 @@
 <component name="libraryTable">
   <library name="SBT: org.scalaz:scalaz-concurrent_2.10:7.0.5">
     <CLASSES>
-      <root url="jar://F:/.ivy2/cache/org.scalaz/scalaz-concurrent_2.10/jars/scalaz-concurrent_2.10-7.0.5.jar!/" />
-      <root url="jar://F:/.ivy2/cache/org.scalaz/scalaz-concurrent_2.10/bundles/scalaz-concurrent_2.10-7.0.5.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.scalaz/scalaz-concurrent_2.10/jars/scalaz-concurrent_2.10-7.0.5.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://F:/.ivy2/cache/org.scalaz/scalaz-concurrent_2.10/docs/scalaz-concurrent_2.10-7.0.5-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.scalaz/scalaz-concurrent_2.10/docs/scalaz-concurrent_2.10-7.0.5-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://F:/.ivy2/cache/org.scalaz/scalaz-concurrent_2.10/srcs/scalaz-concurrent_2.10-7.0.5-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.scalaz/scalaz-concurrent_2.10/srcs/scalaz-concurrent_2.10-7.0.5-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
