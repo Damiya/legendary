@@ -1,0 +1,507 @@
+{
+  "$type": "System.Collections.Generic.List`1[[FluorineFx.Messaging.Rtmp.Event.Notify, FluorineFx]], mscorlib",
+  "$values": [
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 8,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": null,
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.Messaging.Messages.RemotingMessage, FluorineFx",
+              "operation": "getAvailableQueues",
+              "source": null,
+              "timestamp": 0,
+              "timeToLive": 0,
+              "messageId": "D89A0730-57BA-5D91-988C-B4EDB228A14C",
+              "destination": "matchmakerService",
+              "body": {
+                "$type": "System.Object[], mscorlib",
+                "$values": []
+              },
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "DSId": "ADB86BAF-441D-4B4C-0F69-62B6A800AD00",
+                "DSEndpoint": "my-rtmps",
+                "DSRequestTimeout": 60
+              },
+              "clientId": null
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 311,
+        "StreamId": 0,
+        "Timer": 13,
+        "IsTimerRelative": true
+      },
+      "Object": null,
+      "Timestamp": 13,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    },
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 8,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "_result",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "DSK, LoLNotes",
+              "CorrelationId": "D89A0730-57BA-5D91-988C-B4EDB228A14C",
+              "CorrelationIdBytes": "Øš\u00070Wº]‘˜Œ´í²(¡L",
+              "Body": {
+                "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                "$values": [
+                  {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "blockedMinutesThreshold": 50,
+                    "ranked": false,
+                    "pointsConfigKey": "normalTwistedTreeLine",
+                    "minimumParticipantListSize": 1,
+                    "maxLevel": 100,
+                    "thresholdEnabled": false,
+                    "gameTypeConfigId": 1,
+                    "minLevel": 0,
+                    "teamOnly": false,
+                    "type": "NORMAL",
+                    "cacheName": "matching-queue-NORMAL-3x3-game-queue",
+                    "supportedMapIds": {
+                      "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                      "$values": [
+                        4
+                      ]
+                    },
+                    "futureData": null,
+                    "gameMode": "CLASSIC",
+                    "id": 8.0,
+                    "typeString": "NORMAL",
+                    "queueBonusKey": "normalQueueBonuses",
+                    "numPlayersPerTeam": 3,
+                    "maximumParticipantListSize": 3,
+                    "dataVersion": 0,
+                    "queueStateString": "ON",
+                    "thresholdSize": 2147483647.0,
+                    "matchingThrottleConfig": {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "limit": 2147483647.0,
+                      "matchingThrottleProperties": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": []
+                      },
+                      "dataVersion": 0,
+                      "cacheName": "",
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.matchmaking.MatchingThrottleConfig"
+                    },
+                    "TypeName": "com.riotgames.platform.matchmaking.GameQueueConfig"
+                  },
+                  {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "blockedMinutesThreshold": 75,
+                    "ranked": true,
+                    "pointsConfigKey": "rankedSummonersRift",
+                    "minimumParticipantListSize": 1,
+                    "maxLevel": 100,
+                    "thresholdEnabled": false,
+                    "gameTypeConfigId": 2,
+                    "minLevel": 30,
+                    "teamOnly": false,
+                    "type": "RANKED_SOLO_5x5",
+                    "cacheName": "matching-queue-RANKED_SOLO-5x5-game-queue",
+                    "supportedMapIds": {
+                      "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                      "$values": [
+                        1
+                      ]
+                    },
+                    "futureData": null,
+                    "gameMode": "CLASSIC",
+                    "id": 4.0,
+                    "typeString": "RANKED_SOLO_5x5",
+                    "queueBonusKey": "normalQueueBonuses",
+                    "numPlayersPerTeam": 5,
+                    "maximumParticipantListSize": 2,
+                    "dataVersion": 0,
+                    "queueStateString": "ON",
+                    "thresholdSize": 2147483647.0,
+                    "matchingThrottleConfig": {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "limit": 2147483647.0,
+                      "matchingThrottleProperties": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": []
+                      },
+                      "dataVersion": 0,
+                      "cacheName": "",
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.matchmaking.MatchingThrottleConfig"
+                    },
+                    "TypeName": "com.riotgames.platform.matchmaking.GameQueueConfig"
+                  },
+                  {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "blockedMinutesThreshold": 35,
+                    "ranked": false,
+                    "pointsConfigKey": "normalOdin",
+                    "minimumParticipantListSize": 1,
+                    "maxLevel": 100,
+                    "thresholdEnabled": false,
+                    "gameTypeConfigId": 1,
+                    "minLevel": 0,
+                    "teamOnly": false,
+                    "type": "ODIN_UNRANKED",
+                    "cacheName": "matching-queue-ODIN-5x5-game-queue",
+                    "supportedMapIds": {
+                      "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                      "$values": [
+                        8
+                      ]
+                    },
+                    "futureData": null,
+                    "gameMode": "ODIN",
+                    "id": 16.0,
+                    "typeString": "ODIN_UNRANKED",
+                    "queueBonusKey": "odinQueueBonuses",
+                    "numPlayersPerTeam": 5,
+                    "maximumParticipantListSize": 5,
+                    "dataVersion": 0,
+                    "queueStateString": "ON",
+                    "thresholdSize": 2147483647.0,
+                    "matchingThrottleConfig": {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "limit": 2147483647.0,
+                      "matchingThrottleProperties": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": []
+                      },
+                      "dataVersion": 0,
+                      "cacheName": "",
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.matchmaking.MatchingThrottleConfig"
+                    },
+                    "TypeName": "com.riotgames.platform.matchmaking.GameQueueConfig"
+                  },
+                  {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "blockedMinutesThreshold": 65,
+                    "ranked": false,
+                    "pointsConfigKey": "normalSummonersRift",
+                    "minimumParticipantListSize": 1,
+                    "maxLevel": 100,
+                    "thresholdEnabled": false,
+                    "gameTypeConfigId": 2,
+                    "minLevel": 0,
+                    "teamOnly": false,
+                    "type": "NORMAL",
+                    "cacheName": "matching-queue-NORMAL-5x5-draft-game-queue",
+                    "supportedMapIds": {
+                      "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                      "$values": [
+                        1,
+                        6
+                      ]
+                    },
+                    "futureData": null,
+                    "gameMode": "CLASSIC",
+                    "id": 14.0,
+                    "typeString": "NORMAL",
+                    "queueBonusKey": "normalQueueBonuses",
+                    "numPlayersPerTeam": 5,
+                    "maximumParticipantListSize": 5,
+                    "dataVersion": 0,
+                    "queueStateString": "ON",
+                    "thresholdSize": 2147483647.0,
+                    "matchingThrottleConfig": {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "limit": 2147483647.0,
+                      "matchingThrottleProperties": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": []
+                      },
+                      "dataVersion": 0,
+                      "cacheName": "",
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.matchmaking.MatchingThrottleConfig"
+                    },
+                    "TypeName": "com.riotgames.platform.matchmaking.GameQueueConfig"
+                  },
+                  {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "blockedMinutesThreshold": 75,
+                    "ranked": true,
+                    "pointsConfigKey": "rankedTwistedTreeLine",
+                    "minimumParticipantListSize": 3,
+                    "maxLevel": 100,
+                    "thresholdEnabled": false,
+                    "gameTypeConfigId": 2,
+                    "minLevel": 30,
+                    "teamOnly": true,
+                    "type": "RANKED_TEAM_3x3",
+                    "cacheName": "matching-queue-RANKED_TEAM-3x3-game-queue",
+                    "supportedMapIds": {
+                      "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                      "$values": [
+                        4
+                      ]
+                    },
+                    "futureData": null,
+                    "gameMode": "CLASSIC",
+                    "id": 41.0,
+                    "typeString": "RANKED_TEAM_3x3",
+                    "queueBonusKey": "normalQueueBonuses",
+                    "numPlayersPerTeam": 3,
+                    "maximumParticipantListSize": 3,
+                    "dataVersion": 0,
+                    "queueStateString": "ON",
+                    "thresholdSize": 2147483647.0,
+                    "matchingThrottleConfig": {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "limit": 2147483647.0,
+                      "matchingThrottleProperties": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": []
+                      },
+                      "dataVersion": 0,
+                      "cacheName": "",
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.matchmaking.MatchingThrottleConfig"
+                    },
+                    "TypeName": "com.riotgames.platform.matchmaking.GameQueueConfig"
+                  },
+                  {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "blockedMinutesThreshold": 75,
+                    "ranked": true,
+                    "pointsConfigKey": "rankedSummonersRift",
+                    "minimumParticipantListSize": 5,
+                    "maxLevel": 100,
+                    "thresholdEnabled": false,
+                    "gameTypeConfigId": 2,
+                    "minLevel": 30,
+                    "teamOnly": true,
+                    "type": "RANKED_TEAM_5x5",
+                    "cacheName": "matching-queue-RANKED_TEAM-5x5-game-queue",
+                    "supportedMapIds": {
+                      "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                      "$values": [
+                        1
+                      ]
+                    },
+                    "futureData": null,
+                    "gameMode": "CLASSIC",
+                    "id": 42.0,
+                    "typeString": "RANKED_TEAM_5x5",
+                    "queueBonusKey": "normalQueueBonuses",
+                    "numPlayersPerTeam": 5,
+                    "maximumParticipantListSize": 5,
+                    "dataVersion": 0,
+                    "queueStateString": "ON",
+                    "thresholdSize": 2147483647.0,
+                    "matchingThrottleConfig": {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "limit": 2147483647.0,
+                      "matchingThrottleProperties": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": []
+                      },
+                      "dataVersion": 0,
+                      "cacheName": "",
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.matchmaking.MatchingThrottleConfig"
+                    },
+                    "TypeName": "com.riotgames.platform.matchmaking.GameQueueConfig"
+                  },
+                  {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "blockedMinutesThreshold": 60,
+                    "ranked": false,
+                    "pointsConfigKey": "normalSummonersRift",
+                    "minimumParticipantListSize": 1,
+                    "maxLevel": 100,
+                    "thresholdEnabled": false,
+                    "gameTypeConfigId": 1,
+                    "minLevel": 0,
+                    "teamOnly": false,
+                    "type": "NORMAL",
+                    "cacheName": "matching-queue-NORMAL-5x5-game-queue",
+                    "supportedMapIds": {
+                      "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                      "$values": [
+                        1,
+                        6
+                      ]
+                    },
+                    "futureData": null,
+                    "gameMode": "CLASSIC",
+                    "id": 2.0,
+                    "typeString": "NORMAL",
+                    "queueBonusKey": "normalQueueBonuses",
+                    "numPlayersPerTeam": 5,
+                    "maximumParticipantListSize": 5,
+                    "dataVersion": 0,
+                    "queueStateString": "ON",
+                    "thresholdSize": 2147483647.0,
+                    "matchingThrottleConfig": {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "limit": 2147483647.0,
+                      "matchingThrottleProperties": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": []
+                      },
+                      "dataVersion": 0,
+                      "cacheName": "",
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.matchmaking.MatchingThrottleConfig"
+                    },
+                    "TypeName": "com.riotgames.platform.matchmaking.GameQueueConfig"
+                  },
+                  {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "blockedMinutesThreshold": 35,
+                    "ranked": false,
+                    "pointsConfigKey": "normalOdin",
+                    "minimumParticipantListSize": 1,
+                    "maxLevel": 100,
+                    "thresholdEnabled": false,
+                    "gameTypeConfigId": 2,
+                    "minLevel": 0,
+                    "teamOnly": false,
+                    "type": "ODIN_UNRANKED",
+                    "cacheName": "matching-queue-ODIN-5x5-draft-game-queue",
+                    "supportedMapIds": {
+                      "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                      "$values": [
+                        8
+                      ]
+                    },
+                    "futureData": null,
+                    "gameMode": "ODIN",
+                    "id": 17.0,
+                    "typeString": "ODIN_UNRANKED",
+                    "queueBonusKey": "odinQueueBonuses",
+                    "numPlayersPerTeam": 5,
+                    "maximumParticipantListSize": 5,
+                    "dataVersion": 0,
+                    "queueStateString": "ON",
+                    "thresholdSize": 2147483647.0,
+                    "matchingThrottleConfig": {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "limit": 2147483647.0,
+                      "matchingThrottleProperties": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": []
+                      },
+                      "dataVersion": 0,
+                      "cacheName": "",
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.matchmaking.MatchingThrottleConfig"
+                    },
+                    "TypeName": "com.riotgames.platform.matchmaking.GameQueueConfig"
+                  },
+                  {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "blockedMinutesThreshold": 60,
+                    "ranked": false,
+                    "pointsConfigKey": "customSummonersRift",
+                    "minimumParticipantListSize": 1,
+                    "maxLevel": 100,
+                    "thresholdEnabled": false,
+                    "gameTypeConfigId": 1,
+                    "minLevel": 0,
+                    "teamOnly": false,
+                    "type": "BOT",
+                    "cacheName": "matching-queue-BOT-5x5-game-queue",
+                    "supportedMapIds": {
+                      "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                      "$values": [
+                        1,
+                        6
+                      ]
+                    },
+                    "futureData": null,
+                    "gameMode": "CLASSIC",
+                    "id": 7.0,
+                    "typeString": "BOT",
+                    "queueBonusKey": "matchedBotsQueueBonuses",
+                    "numPlayersPerTeam": 5,
+                    "maximumParticipantListSize": 5,
+                    "dataVersion": 0,
+                    "queueStateString": "ON",
+                    "thresholdSize": 2147483647.0,
+                    "matchingThrottleConfig": {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "limit": 2147483647.0,
+                      "matchingThrottleProperties": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": []
+                      },
+                      "dataVersion": 0,
+                      "cacheName": "",
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.matchmaking.MatchingThrottleConfig"
+                    },
+                    "TypeName": "com.riotgames.platform.matchmaking.GameQueueConfig"
+                  }
+                ]
+              },
+              "ClientId": "ADB878F3-430B-73F6-7D39-62C9727C30C4",
+              "ClientIdBytes": "­¸xóC\u000bsö}9bÉr|0Ä",
+              "Destination": null,
+              "Headers": null,
+              "MessageId": "ADB87904-5A0B-EA7A-A8B3-A679972FADC7",
+              "MessageIdBytes": "­¸y\u0004Z\u000bêz¨³¦y—/­Ç",
+              "TimeStamp": 1325885407994,
+              "TimeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 1939,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    }
+  ]
+}

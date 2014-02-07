@@ -1,0 +1,222 @@
+{
+  "$type": "System.Collections.Generic.List`1[[FluorineFx.Messaging.Rtmp.Event.Notify, FluorineFx]], mscorlib",
+  "$values": [
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 44,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": null,
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.Messaging.Messages.RemotingMessage, FluorineFx",
+              "operation": "getAllPublicSummonerDataByAccount",
+              "source": null,
+              "timestamp": 0,
+              "timeToLive": 0,
+              "messageId": "E10F7D17-E9A6-8AE7-3BF3-B4FAA19AEF9F",
+              "destination": "summonerService",
+              "body": {
+                "$type": "System.Object[], mscorlib",
+                "$values": [
+                  40417939
+                ]
+              },
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "DSId": "ADB86BAF-441D-4B4C-0F69-62B6A800AD00",
+                "DSEndpoint": "my-rtmps",
+                "DSRequestTimeout": 60
+              },
+              "clientId": null
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 329,
+        "StreamId": 0,
+        "Timer": 242,
+        "IsTimerRelative": true
+      },
+      "Object": null,
+      "Timestamp": 242,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    },
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 44,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "_result",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "DSK, LoLNotes",
+              "CorrelationId": "E10F7D17-E9A6-8AE7-3BF3-B4FAA19AEF9F",
+              "CorrelationIdBytes": "á\u000f}\u0017é¦Šç;ó´ú¡šïŸ",
+              "Body": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "spellBook": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "dataVersion": 0,
+                  "spellBookPages": {
+                    "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                    "$values": [
+                      {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "dataVersion": 0,
+                        "pageId": 18539097.0,
+                        "name": "@@!PaG3!@@18539097",
+                        "slotEntries": {
+                          "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                          "$values": []
+                        },
+                        "isCurrent": false,
+                        "createDate": "\/Date(1317184029000)\/",
+                        "summonerId": 25930091.0,
+                        "futureData": null,
+                        "TypeName": "com.riotgames.platform.summoner.spellbook.SpellBookPage"
+                      },
+                      {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "dataVersion": 0,
+                        "pageId": 18539098.0,
+                        "name": "@@!PaG3!@@18539098",
+                        "slotEntries": {
+                          "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                          "$values": []
+                        },
+                        "isCurrent": true,
+                        "createDate": "\/Date(1317184029000)\/",
+                        "summonerId": 25930091.0,
+                        "futureData": null,
+                        "TypeName": "com.riotgames.platform.summoner.spellbook.SpellBookPage"
+                      }
+                    ]
+                  },
+                  "spellBookPagesJson": null,
+                  "dateString": "Tue Sep 27 21:27:09 PDT 2011",
+                  "summonerId": 25930091.0,
+                  "futureData": null,
+                  "TypeName": "com.riotgames.platform.summoner.spellbook.SpellBook"
+                },
+                "summonerDefaultSpells": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "dataVersion": 0,
+                  "summonerDefaultSpellsJson": null,
+                  "summonerDefaultSpellMap": {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "TypeName": null
+                  },
+                  "summonerId": 25930091.0,
+                  "futureData": null,
+                  "TypeName": "com.riotgames.platform.summoner.SummonerDefaultSpells"
+                },
+                "summonerTalentsAndPoints": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "talentPoints": 1,
+                  "unusedTalentPoints": 1,
+                  "dataVersion": 0,
+                  "summonerAssociatedTalents": {
+                    "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                    "$values": []
+                  },
+                  "modifyDate": null,
+                  "createDate": "\/Date(1317184039000)\/",
+                  "summonerId": 25930091.0,
+                  "futureData": null,
+                  "TypeName": "com.riotgames.platform.summoner.SummonerTalentsAndPoints"
+                },
+                "summoner": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "internalName": "jabebot",
+                  "seasonOneTier": "UNRANKED",
+                  "acctId": 40417939.0,
+                  "name": "JabeBot",
+                  "sumId": 25930091.0,
+                  "profileIconId": 0,
+                  "TypeName": "com.riotgames.platform.summoner.BasePublicSummonerDTO"
+                },
+                "summonerLevelAndPoints": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "infPoints": 0.0,
+                  "dataVersion": 0,
+                  "expPoints": 0.0,
+                  "summonerLevel": 1.0,
+                  "summonerId": 25930091.0,
+                  "futureData": null,
+                  "TypeName": "com.riotgames.platform.summoner.SummonerLevelAndPoints"
+                },
+                "summonerLevel": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "expTierMod": 1.0,
+                  "expForLoss": 43.0,
+                  "dataVersion": 0,
+                  "summonerTier": 1.0,
+                  "infTierMod": 1.0,
+                  "expToNextLevel": 90.0,
+                  "expForWin": 72.0,
+                  "summonerLevel": 1.0,
+                  "futureData": null,
+                  "TypeName": "com.riotgames.platform.summoner.SummonerLevel"
+                },
+                "TypeName": "com.riotgames.platform.summoner.AllPublicSummonerDataDTO"
+              },
+              "ClientId": "ADD80BDD-5608-8C8C-CDB1-059CA4E9920C",
+              "ClientIdBytes": "­Ø\u000bÝV\bŒŒÍ±\u0005œ¤é’\f",
+              "Destination": null,
+              "Headers": null,
+              "MessageId": "ADD80BE4-A90D-FC1C-9F12-1FA5A287C832",
+              "MessageIdBytes": "­Ø\u000bä©\rü\u001cŸ\u0012\u001f¥¢‡È2",
+              "TimeStamp": 1325886255545,
+              "TimeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 1453,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    }
+  ]
+}

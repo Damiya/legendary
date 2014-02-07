@@ -1,0 +1,541 @@
+{
+  "$type": "System.Collections.Generic.List`1[[FluorineFx.Messaging.Rtmp.Event.Notify, FluorineFx]], mscorlib",
+  "$values": [
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 60,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": null,
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.Messaging.Messages.RemotingMessage, FluorineFx",
+              "operation": "changeTalentRankings",
+              "source": null,
+              "timestamp": 0,
+              "clientId": null,
+              "timeToLive": 0,
+              "destination": "summonerService",
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "DSEndpoint": "my-rtmps",
+                "DSRequestTimeout": 60,
+                "DSId": "74DE1C77-0B4A-F316-5467-3070517834E9"
+              },
+              "body": {
+                "$type": "System.Object[], mscorlib",
+                "$values": [
+                  14376,
+                  {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "243": 4,
+                    "213": 4,
+                    "422": 4,
+                    "311": 1,
+                    "233": 1,
+                    "234": 3,
+                    "411": 1,
+                    "412": 3,
+                    "253": 4,
+                    "262": 1,
+                    "223": 4,
+                    "TypeName": null
+                  }
+                ]
+              },
+              "messageId": "811B034C-1F5D-1FA4-AA1C-06807CB84E79"
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 383,
+        "StreamId": 0,
+        "Timer": 22808,
+        "IsTimerRelative": true
+      },
+      "Object": null,
+      "Timestamp": 22808,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    },
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 23,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "_result",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "DSK, LoLNotes",
+              "CorrelationId": "811B034C-1F5D-1FA4-AA1C-06807CB84E79",
+              "CorrelationIdBytes": "\u001b\u0003L\u001f]\u001f¤ª\u001c\u0006€|¸Ny",
+              "Body": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "talentPoints": 30,
+                "unusedTalentPoints": 0,
+                "dataVersion": 0,
+                "summonerAssociatedTalents": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": [
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "rank": 1,
+                      "comp_id": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "dataVersion": 0,
+                        "sumId": 14376.0,
+                        "tltId": 233,
+                        "futureData": null,
+                        "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalentPK"
+                      },
+                      "dataVersion": 0,
+                      "talent": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "index": 2,
+                        "level5Desc": "Arcane Knowledge",
+                        "minLevel": 1,
+                        "maxRank": 1,
+                        "level4Desc": "Arcane Knowledge",
+                        "tltId": 233,
+                        "level3Desc": "Arcane Knowledge",
+                        "futureData": null,
+                        "talentGroupId": 1,
+                        "gameCode": 233,
+                        "minTier": 1,
+                        "prereqTalentGameCode": 223,
+                        "dataVersion": 0,
+                        "level2Desc": "Arcane Knowledge",
+                        "name": "Arcane Knowledge",
+                        "talentRowId": 3,
+                        "level1Desc": "Arcane Knowledge",
+                        "TypeName": "com.riotgames.platform.summoner.Talent"
+                      },
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalent"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "rank": 1,
+                      "comp_id": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "dataVersion": 0,
+                        "sumId": 14376.0,
+                        "tltId": 311,
+                        "futureData": null,
+                        "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalentPK"
+                      },
+                      "dataVersion": 0,
+                      "talent": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "index": 0,
+                        "level5Desc": "Summoner's Resolve",
+                        "minLevel": 1,
+                        "maxRank": 1,
+                        "level4Desc": "Summoner's Resolve",
+                        "tltId": 311,
+                        "level3Desc": "Summoner's Resolve",
+                        "futureData": null,
+                        "talentGroupId": 2,
+                        "gameCode": 311,
+                        "minTier": 1,
+                        "prereqTalentGameCode": null,
+                        "dataVersion": 0,
+                        "level2Desc": "Summoner's Resolve",
+                        "name": "Summoner's Resolve",
+                        "talentRowId": 7,
+                        "level1Desc": "Summoner's Resolve",
+                        "TypeName": "com.riotgames.platform.summoner.Talent"
+                      },
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalent"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "rank": 1,
+                      "comp_id": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "dataVersion": 0,
+                        "sumId": 14376.0,
+                        "tltId": 262,
+                        "futureData": null,
+                        "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalentPK"
+                      },
+                      "dataVersion": 0,
+                      "talent": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "index": 1,
+                        "level5Desc": "Executioner",
+                        "minLevel": 1,
+                        "maxRank": 1,
+                        "level4Desc": "Executioner",
+                        "tltId": 262,
+                        "level3Desc": "Executioner",
+                        "futureData": null,
+                        "talentGroupId": 1,
+                        "gameCode": 262,
+                        "minTier": 1,
+                        "prereqTalentGameCode": null,
+                        "dataVersion": 0,
+                        "level2Desc": "Executioner",
+                        "name": "Executioner",
+                        "talentRowId": 6,
+                        "level1Desc": "Executioner",
+                        "TypeName": "com.riotgames.platform.summoner.Talent"
+                      },
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalent"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "rank": 4,
+                      "comp_id": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "dataVersion": 0,
+                        "sumId": 14376.0,
+                        "tltId": 422,
+                        "futureData": null,
+                        "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalentPK"
+                      },
+                      "dataVersion": 0,
+                      "talent": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "index": 1,
+                        "level5Desc": "Swiftness",
+                        "minLevel": 1,
+                        "maxRank": 4,
+                        "level4Desc": "Swiftness",
+                        "tltId": 422,
+                        "level3Desc": "Swiftness",
+                        "futureData": null,
+                        "talentGroupId": 3,
+                        "gameCode": 422,
+                        "minTier": 1,
+                        "prereqTalentGameCode": null,
+                        "dataVersion": 0,
+                        "level2Desc": "Swiftness",
+                        "name": "Swiftness",
+                        "talentRowId": 14,
+                        "level1Desc": "Swiftness",
+                        "TypeName": "com.riotgames.platform.summoner.Talent"
+                      },
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalent"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "rank": 3,
+                      "comp_id": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "dataVersion": 0,
+                        "sumId": 14376.0,
+                        "tltId": 412,
+                        "futureData": null,
+                        "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalentPK"
+                      },
+                      "dataVersion": 0,
+                      "talent": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "index": 1,
+                        "level5Desc": "Good Hands",
+                        "minLevel": 1,
+                        "maxRank": 3,
+                        "level4Desc": "Good Hands",
+                        "tltId": 412,
+                        "level3Desc": "Good Hands",
+                        "futureData": null,
+                        "talentGroupId": 3,
+                        "gameCode": 412,
+                        "minTier": 1,
+                        "prereqTalentGameCode": null,
+                        "dataVersion": 0,
+                        "level2Desc": "Good Hands",
+                        "name": "Good Hands",
+                        "talentRowId": 13,
+                        "level1Desc": "Good Hands",
+                        "TypeName": "com.riotgames.platform.summoner.Talent"
+                      },
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalent"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "rank": 4,
+                      "comp_id": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "dataVersion": 0,
+                        "sumId": 14376.0,
+                        "tltId": 243,
+                        "futureData": null,
+                        "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalentPK"
+                      },
+                      "dataVersion": 0,
+                      "talent": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "index": 2,
+                        "level5Desc": "Blast",
+                        "minLevel": 1,
+                        "maxRank": 4,
+                        "level4Desc": "Blast",
+                        "tltId": 243,
+                        "level3Desc": "Blast",
+                        "futureData": null,
+                        "talentGroupId": 1,
+                        "gameCode": 243,
+                        "minTier": 1,
+                        "prereqTalentGameCode": null,
+                        "dataVersion": 0,
+                        "level2Desc": "Blast",
+                        "name": "Blast",
+                        "talentRowId": 4,
+                        "level1Desc": "Blast",
+                        "TypeName": "com.riotgames.platform.summoner.Talent"
+                      },
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalent"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "rank": 4,
+                      "comp_id": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "dataVersion": 0,
+                        "sumId": 14376.0,
+                        "tltId": 223,
+                        "futureData": null,
+                        "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalentPK"
+                      },
+                      "dataVersion": 0,
+                      "talent": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "index": 2,
+                        "level5Desc": "Sorcery",
+                        "minLevel": 1,
+                        "maxRank": 4,
+                        "level4Desc": "Sorcery",
+                        "tltId": 223,
+                        "level3Desc": "Sorcery",
+                        "futureData": null,
+                        "talentGroupId": 1,
+                        "gameCode": 223,
+                        "minTier": 1,
+                        "prereqTalentGameCode": null,
+                        "dataVersion": 0,
+                        "level2Desc": "Sorcery",
+                        "name": "Sorcery",
+                        "talentRowId": 2,
+                        "level1Desc": "Sorcery",
+                        "TypeName": "com.riotgames.platform.summoner.Talent"
+                      },
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalent"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "rank": 3,
+                      "comp_id": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "dataVersion": 0,
+                        "sumId": 14376.0,
+                        "tltId": 234,
+                        "futureData": null,
+                        "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalentPK"
+                      },
+                      "dataVersion": 0,
+                      "talent": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "index": 3,
+                        "level5Desc": "Havoc",
+                        "minLevel": 1,
+                        "maxRank": 3,
+                        "level4Desc": "Havoc",
+                        "tltId": 234,
+                        "level3Desc": "Havoc",
+                        "futureData": null,
+                        "talentGroupId": 1,
+                        "gameCode": 234,
+                        "minTier": 1,
+                        "prereqTalentGameCode": null,
+                        "dataVersion": 0,
+                        "level2Desc": "Havoc",
+                        "name": "Havoc",
+                        "talentRowId": 3,
+                        "level1Desc": "Havoc",
+                        "TypeName": "com.riotgames.platform.summoner.Talent"
+                      },
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalent"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "rank": 1,
+                      "comp_id": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "dataVersion": 0,
+                        "sumId": 14376.0,
+                        "tltId": 411,
+                        "futureData": null,
+                        "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalentPK"
+                      },
+                      "dataVersion": 0,
+                      "talent": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "index": 0,
+                        "level5Desc": "Summoner's Insight",
+                        "minLevel": 1,
+                        "maxRank": 1,
+                        "level4Desc": "Summoner's Insight",
+                        "tltId": 411,
+                        "level3Desc": "Summoner's Insight",
+                        "futureData": null,
+                        "talentGroupId": 3,
+                        "gameCode": 411,
+                        "minTier": 1,
+                        "prereqTalentGameCode": null,
+                        "dataVersion": 0,
+                        "level2Desc": "Summoner's Insight",
+                        "name": "Summoner's Insight",
+                        "talentRowId": 13,
+                        "level1Desc": "Summoner's Insight",
+                        "TypeName": "com.riotgames.platform.summoner.Talent"
+                      },
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalent"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "rank": 4,
+                      "comp_id": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "dataVersion": 0,
+                        "sumId": 14376.0,
+                        "tltId": 253,
+                        "futureData": null,
+                        "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalentPK"
+                      },
+                      "dataVersion": 0,
+                      "talent": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "index": 2,
+                        "level5Desc": "Archmage",
+                        "minLevel": 1,
+                        "maxRank": 4,
+                        "level4Desc": "Archmage",
+                        "tltId": 253,
+                        "level3Desc": "Archmage",
+                        "futureData": null,
+                        "talentGroupId": 1,
+                        "gameCode": 253,
+                        "minTier": 1,
+                        "prereqTalentGameCode": null,
+                        "dataVersion": 0,
+                        "level2Desc": "Archmage",
+                        "name": "Archmage",
+                        "talentRowId": 5,
+                        "level1Desc": "Archmage",
+                        "TypeName": "com.riotgames.platform.summoner.Talent"
+                      },
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalent"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "rank": 4,
+                      "comp_id": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "dataVersion": 0,
+                        "sumId": 14376.0,
+                        "tltId": 213,
+                        "futureData": null,
+                        "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalentPK"
+                      },
+                      "dataVersion": 0,
+                      "talent": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "index": 2,
+                        "level5Desc": "Mental Force",
+                        "minLevel": 1,
+                        "maxRank": 4,
+                        "level4Desc": "Mental Force",
+                        "tltId": 213,
+                        "level3Desc": "Mental Force",
+                        "futureData": null,
+                        "talentGroupId": 1,
+                        "gameCode": 213,
+                        "minTier": 1,
+                        "prereqTalentGameCode": null,
+                        "dataVersion": 0,
+                        "level2Desc": "Mental Force",
+                        "name": "Mental Force",
+                        "talentRowId": 1,
+                        "level1Desc": "Mental Force",
+                        "TypeName": "com.riotgames.platform.summoner.Talent"
+                      },
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.summoner.SummonerAssociatedTalent"
+                    }
+                  ]
+                },
+                "modifyDate": "\/Date(1327253987734)\/",
+                "createDate": "\/Date(1250445234000)\/",
+                "summonerId": 14376.0,
+                "futureData": null,
+                "TypeName": "com.riotgames.platform.summoner.SummonerTalentsAndPoints"
+              },
+              "ClientId": "74E00A73-010B-E333-22BE-BB78CD840A26",
+              "ClientIdBytes": "tà\ns\u0001\u000bã3\"¾»xÍ„\n&",
+              "Destination": null,
+              "Headers": null,
+              "MessageId": "74E00A84-180E-79FF-3E9E-C4C024597F95",
+              "MessageIdBytes": "tà\n„\u0018\u000eyÿ>žÄÀ$Y•",
+              "TimeStamp": 1327253987736,
+              "TimeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 1467,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    }
+  ]
+}
