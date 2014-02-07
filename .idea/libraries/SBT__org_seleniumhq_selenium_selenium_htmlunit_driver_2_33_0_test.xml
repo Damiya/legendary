@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="SBT: org.seleniumhq.selenium:selenium-htmlunit-driver:2.33.0:test">
+    <CLASSES>
+      <root url="jar://F:/.ivy2/cache/org.seleniumhq.selenium/selenium-htmlunit-driver/jars/selenium-htmlunit-driver-2.33.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://F:/.ivy2/cache/org.seleniumhq.selenium/selenium-htmlunit-driver/docs/selenium-htmlunit-driver-2.33.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://F:/.ivy2/cache/org.seleniumhq.selenium/selenium-htmlunit-driver/srcs/selenium-htmlunit-driver-2.33.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

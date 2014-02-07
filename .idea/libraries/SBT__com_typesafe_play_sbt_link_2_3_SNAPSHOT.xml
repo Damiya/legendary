@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="SBT: com.typesafe.play:sbt-link:2.3-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://F:/.ivy2/local/com.typesafe.play/sbt-link/2.3-SNAPSHOT/jars/sbt-link.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/local/com.typesafe.play/sbt-link/2.3-SNAPSHOT/srcs/sbt-link-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="CodeWrittenByMe" pattern="file[Legendary-Core]:app//*||file[LibFateClasher]:src/main/scala//*||file[LibFateClasher]:src/test/scala//*||file[Legendary]:public/scripts//*||file[Legendary]:public/styles//*||file[Legendary]:public/views//*" />
+</component>

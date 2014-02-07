@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="SBT: com.twitter:util-collection_2.10:6.3.6">
+    <CLASSES>
+      <root url="jar://F:/.ivy2/cache/com.twitter/util-collection_2.10/jars/util-collection_2.10-6.3.6.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://F:/.ivy2/cache/com.twitter/util-collection_2.10/docs/util-collection_2.10-6.3.6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://F:/.ivy2/cache/com.twitter/util-collection_2.10/srcs/util-collection_2.10-6.3.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

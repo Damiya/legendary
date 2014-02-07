@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea_modules/Legendary.iml" filepath="$PROJECT_DIR$/.idea_modules/Legendary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea_modules/Legendary-Core.iml" filepath="$PROJECT_DIR$/.idea_modules/Legendary-Core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea_modules/Legendary-Core-build.iml" filepath="$PROJECT_DIR$/.idea_modules/Legendary-Core-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea_modules/Legendary-FrontEnd.iml" filepath="$PROJECT_DIR$/.idea_modules/Legendary-FrontEnd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea_modules/Legendary-build.iml" filepath="$PROJECT_DIR$/.idea_modules/Legendary-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea_modules/LibFateClasher.iml" filepath="$PROJECT_DIR$/.idea_modules/LibFateClasher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea_modules/LibFateClasher-build.iml" filepath="$PROJECT_DIR$/.idea_modules/LibFateClasher-build.iml" />
+    </modules>
+  </component>
+</project>
+
