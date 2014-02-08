@@ -1,0 +1,122 @@
+{
+  "$type": "System.Collections.Generic.List`1[[FluorineFx.Messaging.Rtmp.Event.Notify, FluorineFx]], mscorlib",
+  "$values": [
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.Invoke, FluorineFx",
+      "Data": null,
+      "InvokeId": 1,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "connect",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            false,
+            "nil",
+            "",
+            {
+              "$type": "FluorineFx.Messaging.Messages.CommandMessage, FluorineFx",
+              "operation": 5,
+              "correlationId": "",
+              "timestamp": 0,
+              "timeToLive": 0,
+              "messageId": "39D4A46B-DEC2-3971-6C20-B4EDA6410B22",
+              "destination": "",
+              "body": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "TypeName": null
+              },
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "DSId": "my-rtmps",
+                "DSMessagingVersion": 1.0
+              },
+              "clientId": null
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": {
+        "$type": "FluorineFx.ASObject, FluorineFx",
+        "app": "",
+        "flashVer": "WIN 10,1,85,3",
+        "swfUrl": "app:/mod_ser.dat",
+        "tcUrl": "rtmps://prod.na1.lol.riotgames.com:2099",
+        "fpad": false,
+        "capabilities": 239.0,
+        "audioCodecs": 3191.0,
+        "videoCodecs": 252.0,
+        "videoFunction": 1.0,
+        "pageUrl": null,
+        "objectEncoding": 3.0
+      },
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 20,
+        "Size": 547,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 20,
+      "Source": null,
+      "HasSource": false
+    },
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.Invoke, FluorineFx",
+      "Data": null,
+      "InvokeId": 1,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "_result",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.ASObject, FluorineFx",
+              "id": "ADB86BAF-441D-4B4C-0F69-62B6A800AD00",
+              "objectEncoding": 3.0,
+              "level": "status",
+              "details": null,
+              "description": "Connection succeeded.",
+              "DSMessagingVersion": 1.0,
+              "code": "NetConnection.Connect.Success"
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 20,
+        "Size": 222,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 20,
+      "Source": null,
+      "HasSource": false
+    }
+  ]
+}

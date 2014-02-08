@@ -1,0 +1,131 @@
+{
+  "$type": "System.Collections.Generic.List`1[[FluorineFx.Messaging.Rtmp.Event.Notify, FluorineFx]], mscorlib",
+  "$values": [
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 140,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": null,
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.Messaging.Messages.RemotingMessage, FluorineFx",
+              "source": null,
+              "operation": "getSummonerSummaryByInternalName",
+              "messageId": "F222A8B3-7EE9-2B77-4B83-BA93D37241DC",
+              "timeToLive": 0,
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "DSId": "9D82A9BD-931B-5A86-7E38-8A27BE959AA0",
+                "DSRequestTimeout": 60,
+                "DSEndpoint": "my-rtmps"
+              },
+              "destination": "statisticsService",
+              "clientId": null,
+              "timestamp": 0,
+              "body": {
+                "$type": "System.Object[], mscorlib",
+                "$values": [
+                  "sum96692"
+                ]
+              }
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 335,
+        "StreamId": 0,
+        "Timer": 1,
+        "IsTimerRelative": true
+      },
+      "Object": null,
+      "Timestamp": 1,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    },
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 140,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "_result",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "DSK, LoLNotes",
+              "CorrelationId": "F222A8B3-7EE9-2B77-4B83-BA93D37241DC",
+              "CorrelationIdBytes": "ò\"¨³~é+wKƒº“ÓrAÜ",
+              "Body": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "id": 96692.0,
+                "internalName": "sum96692",
+                "level": 30.0,
+                "dataVersion": 0,
+                "name": "Cloudres",
+                "losses": 303.0,
+                "socialNetworkUserIds": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": []
+                },
+                "leaves": 1.0,
+                "wins": 363.0,
+                "futureData": null,
+                "TypeName": "com.riotgames.platform.summoner.SummonerSummary"
+              },
+              "ClientId": "9D82FFAD-160A-0100-B3B5-55DC5FC32C1D",
+              "ClientIdBytes": "‚ÿ­\u0016\n\u0001\u0000³µUÜ_Ã,\u001d",
+              "Destination": null,
+              "Headers": null,
+              "MessageId": "9D82FFBB-BC18-D88B-3582-E1713CBE9876",
+              "MessageIdBytes": "‚ÿ»¼\u0018Ø‹5‚áq<¾˜v",
+              "TimeStamp": 1334570114428,
+              "TimeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 343,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    }
+  ]
+}

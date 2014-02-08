@@ -1,0 +1,245 @@
+{
+  "$type": "System.Collections.Generic.List`1[[FluorineFx.Messaging.Rtmp.Event.Notify, FluorineFx]], mscorlib",
+  "$values": [
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 17,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": null,
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.Messaging.Messages.RemotingMessage, FluorineFx",
+              "source": null,
+              "operation": "createPracticeGame",
+              "clientId": null,
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "DSEndpoint": "my-rtmps",
+                "DSRequestTimeout": 60,
+                "DSId": "99E99676-8D18-3A26-3A18-1B4D83774C31"
+              },
+              "destination": "gameService",
+              "messageId": "7ECEEE35-64B2-D225-0DAD-8AD2214AE4A9",
+              "timestamp": 0,
+              "body": {
+                "$type": "System.Object[], mscorlib",
+                "$values": [
+                  {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "passbackDataPacket": null,
+                    "gamePassword": "",
+                    "passbackUrl": null,
+                    "gameMode": "ODIN",
+                    "maxNumPlayers": 6,
+                    "gameTypeConfig": 4,
+                    "gameName": "Jabe's game",
+                    "gameMap": {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "mapId": 8,
+                      "description": "The Crystal Scar was once known as the mining village of Kalamanda, until open war between Demacia and Noxus broke out over control of its vast underground riches. Settle your disputes on this Field of Justice by working with your allies to seize capture points and declare dominion over your enemies!",
+                      "name": "CrystalScar",
+                      "displayName": "The Crystal Scar",
+                      "totalPlayers": 10,
+                      "minCustomPlayers": 1,
+                      "dataVersion": null,
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.game.map.GameMap"
+                    },
+                    "allowSpectators": "DROPINONLY",
+                    "TypeName": "com.riotgames.platform.game.PracticeGameConfig"
+                  }
+                ]
+              },
+              "timeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 983,
+        "StreamId": 0,
+        "Timer": 34051,
+        "IsTimerRelative": true
+      },
+      "Object": null,
+      "Timestamp": 34051,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    },
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 17,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "_result",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "DSK, LoLNotes",
+              "CorrelationId": "7ECEEE35-64B2-D225-0DAD-8AD2214AE4A9",
+              "CorrelationIdBytes": "~Îî5d²Ò%\r­ŠÒ!Jä©",
+              "Body": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "spectatorsAllowed": "DROPINONLY",
+                "passwordSet": false,
+                "gameType": "PRACTICE_GAME",
+                "gameTypeConfigId": 4,
+                "gameState": "TEAM_SELECT",
+                "observers": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": []
+                },
+                "id": 402482910.0,
+                "ownerSummary": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "dateOfBirth": "\/Date(568800000000)\/",
+                  "timeAddedToQueue": null,
+                  "index": 0,
+                  "accountId": 41222.0,
+                  "queueRating": 0,
+                  "botDifficulty": "NONE",
+                  "summonerInternalName": "jabe",
+                  "lastSelectedSkinIndex": 0,
+                  "profileIconId": 6,
+                  "teamOwner": false,
+                  "futureData": null,
+                  "summonerId": 14376.0,
+                  "dataVersion": 0,
+                  "pickTurn": 0,
+                  "clientInSynch": false,
+                  "summonerName": "Jabe",
+                  "pickMode": 1,
+                  "teamParticipantId": null,
+                  "TypeName": "com.riotgames.platform.game.PlayerParticipant"
+                },
+                "teamTwo": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": []
+                },
+                "bannedChampions": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": []
+                },
+                "dataVersion": 0,
+                "roomName": null,
+                "name": "Jabe's game",
+                "spectatorDelay": 180,
+                "gameZoneGameId": null,
+                "teamOne": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": [
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "dateOfBirth": "\/Date(568800000000)\/",
+                      "timeAddedToQueue": null,
+                      "index": 0,
+                      "accountId": 41222.0,
+                      "queueRating": 0,
+                      "botDifficulty": "NONE",
+                      "summonerInternalName": "jabe",
+                      "lastSelectedSkinIndex": 0,
+                      "profileIconId": 6,
+                      "teamOwner": false,
+                      "futureData": null,
+                      "summonerId": 14376.0,
+                      "dataVersion": 0,
+                      "pickTurn": 0,
+                      "clientInSynch": false,
+                      "summonerName": "Jabe",
+                      "pickMode": 1,
+                      "teamParticipantId": null,
+                      "TypeName": "com.riotgames.platform.game.PlayerParticipant"
+                    }
+                  ]
+                },
+                "terminatedCondition": "NOT_TERMINATED",
+                "gameZoneHost": null,
+                "queueTypeName": "NONE",
+                "passbackUrl": null,
+                "optimisticLock": 1.0,
+                "maxNumPlayers": 6,
+                "queuePosition": 0,
+                "futureData": null,
+                "gameMode": "ODIN",
+                "expiryTime": 2699995.0,
+                "mapId": 8,
+                "banOrder": null,
+                "gameStateString": "TEAM_SELECT",
+                "pickTurn": 1,
+                "playerChampionSelections": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": [
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "summonerInternalName": "jabe",
+                      "dataVersion": 0,
+                      "spell2Id": -1.0,
+                      "selectedSkinIndex": 0,
+                      "championId": 0,
+                      "spell1Id": -1.0,
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.game.PlayerChampionSelectionDTO"
+                    }
+                  ]
+                },
+                "passbackDataPacket": null,
+                "gameZonePort": null,
+                "TypeName": "com.riotgames.platform.game.GameDTO"
+              },
+              "ClientId": "99EB10C6-B20C-251C-45D7-4EDE3041FF13",
+              "ClientIdBytes": "™ë\u0010Æ²\f%\u001cE×NÞ0Aÿ\u0013",
+              "Destination": null,
+              "Headers": null,
+              "MessageId": "99EB10D5-580A-CE10-4C8B-85751B0FF847",
+              "MessageIdBytes": "™ë\u0010ÕX\nÎ\u0010L‹…u\u001b\u000føG",
+              "TimeStamp": 1338063857368,
+              "TimeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 1189,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    }
+  ]
+}

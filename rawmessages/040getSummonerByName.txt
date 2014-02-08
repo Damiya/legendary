@@ -1,0 +1,132 @@
+{
+  "$type": "System.Collections.Generic.List`1[[FluorineFx.Messaging.Rtmp.Event.Notify, FluorineFx]], mscorlib",
+  "$values": [
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 43,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": null,
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.Messaging.Messages.RemotingMessage, FluorineFx",
+              "operation": "getSummonerByName",
+              "source": null,
+              "timestamp": 0,
+              "timeToLive": 0,
+              "messageId": "045A646F-5B6F-2A4A-DCBF-B4FAA08B4AF2",
+              "destination": "summonerService",
+              "body": {
+                "$type": "System.Object[], mscorlib",
+                "$values": [
+                  "JabeBot"
+                ]
+              },
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "DSId": "ADB86BAF-441D-4B4C-0F69-62B6A800AD00",
+                "DSEndpoint": "my-rtmps",
+                "DSRequestTimeout": 60
+              },
+              "clientId": null
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 317,
+        "StreamId": 0,
+        "Timer": 6500,
+        "IsTimerRelative": true
+      },
+      "Object": null,
+      "Timestamp": 6500,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    },
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 43,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "_result",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "DSK, LoLNotes",
+              "CorrelationId": "045A646F-5B6F-2A4A-DCBF-B4FAA08B4AF2",
+              "CorrelationIdBytes": "\u0004Zdo[o*JÜ¿´ú ‹Jò",
+              "Body": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "internalName": "jabebot",
+                "dataVersion": 0,
+                "acctId": 40417939.0,
+                "name": "JabeBot",
+                "profileIconId": 0,
+                "summonerAssociatedTalents": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": []
+                },
+                "revisionDate": "\/Date(1317184038000)\/",
+                "revisionId": 0.0,
+                "summonerLevel": 1.0,
+                "summonerId": 25930091.0,
+                "futureData": null,
+                "TypeName": "com.riotgames.platform.summoner.PublicSummoner"
+              },
+              "ClientId": "ADD80990-F51A-8906-2844-E72DDD5D3913",
+              "ClientIdBytes": "­Ø\tõ\u001a‰\u0006(Dç-Ý]9\u0013",
+              "Destination": null,
+              "Headers": null,
+              "MessageId": "ADD80995-D70D-B301-BACC-9AB0F4E78D48",
+              "MessageIdBytes": "­Ø\t•×\r³\u0001ºÌš°ôçH",
+              "TimeStamp": 1325886255303,
+              "TimeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 390,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    }
+  ]
+}

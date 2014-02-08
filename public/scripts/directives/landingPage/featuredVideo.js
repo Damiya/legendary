@@ -29,7 +29,7 @@ angular.module('legendary')
           var youtubeEmbedded = false;
 
           scope.$watch('video', function (value) {
-            if (!youtubeEmbedded) {
+            if (!youtubeEmbedded && value) {
               var videoId = value.url.split('=')[1];
               element.append('<iframe class="youtube-player" src="https://www.youtube.com/embed/' + videoId + '"' +
                   ' type="text/html" width="425" height="295" id="player" allowfullscreen frameborder="0"></iframe>');

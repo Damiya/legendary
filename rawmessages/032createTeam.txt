@@ -1,0 +1,170 @@
+{
+  "$type": "System.Collections.Generic.List`1[[FluorineFx.Messaging.Rtmp.Event.Notify, FluorineFx]], mscorlib",
+  "$values": [
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 30,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": null,
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.Messaging.Messages.RemotingMessage, FluorineFx",
+              "operation": "createTeam",
+              "source": null,
+              "timestamp": 0,
+              "timeToLive": 0,
+              "messageId": "4C95A71D-8FDA-65D3-D117-B4F6365059BF",
+              "destination": "summonerTeamService",
+              "body": {
+                "$type": "System.Object[], mscorlib",
+                "$values": [
+                  "testing1234",
+                  "P9y"
+                ]
+              },
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "DSId": "ADB86BAF-441D-4B4C-0F69-62B6A800AD00",
+                "DSEndpoint": "my-rtmps",
+                "DSRequestTimeout": 60
+              },
+              "clientId": null
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 323,
+        "StreamId": 0,
+        "Timer": 8655,
+        "IsTimerRelative": true
+      },
+      "Object": null,
+      "Timestamp": 8655,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    },
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 30,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "_result",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "DSK, LoLNotes",
+              "CorrelationId": "4C95A71D-8FDA-65D3-D117-B4F6365059BF",
+              "CorrelationIdBytes": "L•§\u001dÚeÓÑ\u0017´ö6PY¿",
+              "Body": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "lastJoinDate": "\/Date(1325885965937)\/",
+                "teamStatSummary": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "dataVersion": 0,
+                  "teamStatDetails": {
+                    "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                    "$values": []
+                  },
+                  "teamIdString": "TEAM-32c02912-1ed3-4655-aeec-b53ff3a80637",
+                  "teamId": {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "fullId": "TEAM-32c02912-1ed3-4655-aeec-b53ff3a80637",
+                    "dataVersion": 0,
+                    "futureData": null,
+                    "TypeName": "com.riotgames.team.TeamId"
+                  },
+                  "futureData": null,
+                  "TypeName": "com.riotgames.team.stats.TeamStatSummary"
+                },
+                "status": "PROVISIONAL",
+                "tag": "P9y",
+                "name": "testing1234",
+                "roster": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "ownerId": 14376.0,
+                  "memberList": {
+                    "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                    "$values": [
+                      {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "joinDate": "\/Date(1325885965937)\/",
+                        "playerName": "Jabe",
+                        "inviteDate": "\/Date(1325885965937)\/",
+                        "status": "MEMBER",
+                        "playerId": 14376.0,
+                        "TypeName": "com.riotgames.team.dto.TeamMemberInfoDTO"
+                      }
+                    ]
+                  },
+                  "TypeName": "com.riotgames.team.dto.RosterDTO"
+                },
+                "lastGameDate": null,
+                "modifyDate": "\/Date(1325885965937)\/",
+                "createDate": "\/Date(1325885965937)\/",
+                "teamId": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "fullId": "TEAM-32c02912-1ed3-4655-aeec-b53ff3a80637",
+                  "dataVersion": 0,
+                  "futureData": null,
+                  "TypeName": "com.riotgames.team.TeamId"
+                },
+                "TypeName": "com.riotgames.team.dto.TeamDTO"
+              },
+              "ClientId": "ADCD41D5-420B-67EA-B38E-97D23C35638D",
+              "ClientIdBytes": "­ÍAÕB\u000bgê³Ž—Ò<5c",
+              "Destination": null,
+              "Headers": null,
+              "MessageId": "ADCD422A-B50B-91E1-6405-493132B9FC28",
+              "MessageIdBytes": "­ÍB*µ\u000b‘ád\u0005I12¹ü(",
+              "TimeStamp": 1325885965957,
+              "TimeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 705,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    }
+  ]
+}
