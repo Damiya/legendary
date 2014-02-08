@@ -16,7 +16,7 @@
 
 package com.itsdamiya.legendary.models
 
-import com.itsdamiya.legendary.actors.{ LeagueClient, LeagueClientImpl }
+import com.itsdamiya.legendary.actors.{LeagueClient, LeagueClientImpl}
 import akka.actor._
 import play.api.Play.current
 import play.api.libs.concurrent.Akka

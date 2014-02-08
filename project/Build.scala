@@ -1,9 +1,8 @@
-import io.apigee.trireme.fromnode.path
 import sbt._
-
-import sbt._
-import Keys._
+import sbt.Keys._
 import play.Project._
+import org.scalastyle.sbt.ScalastylePlugin
+import com.typesafe.sbt.SbtScalariform
 
 object BuildSettings {
   val appOrganization = "com.itsdamiya"
@@ -20,8 +19,18 @@ object BuildSettings {
   val commonSettings = Seq(
     organization := appOrganization,
     scalacOptions ++= Seq("-feature", "-deprecation", "-language:postfixOps", "-language:reflectiveCalls", "-language:implicitConversions"),
+    ivyLoggingLevel := UpdateLogging.Quiet,
     resolvers ++= commonResolvers
+  ) ++ ScalastylePlugin.Settings ++ SbtScalariform.defaultScalariformSettings
+
+  val commonDeps = Seq(
+    "com.twitter" %% "util-collection" % "6.3.6",
+    json,
+    "org.scalatest" % "scalatest_2.10" % "2.0" % "test",
+    "org.scalacheck" %% "scalacheck" % "1.11.3" % "test",
+    "org.scalamock" %% "scalamock-scalatest-support" % "3.0.1" % "test"
   )
+
 
   val coreDeps = Seq(
     "com.typesafe.slick" %% "slick" % "2.0.0",
@@ -34,18 +43,17 @@ object BuildSettings {
     "net.sf.ehcache" % "ehcache-core" % "2.6.8",
     filters,
     jdbc,
-    json,
     ws
-  )
+  ) ++ commonDeps
+
 
   val fateClasherDeps = Seq(
     "io.spray" % "spray-client" % "1.2.0",
     "io.spray" %% "spray-json" % "1.2.5",
-    "org.scalatest" % "scalatest_2.10" % "2.0" % "test",
-    "org.scalacheck" %% "scalacheck" % "1.11.3" % "test",
-    "com.typesafe.akka" %% "akka-actor" % "2.2.3",
-    "org.scalamock" %% "scalamock-scalatest-support" % "3.0.1" % "test"
-  )
+    "com.typesafe.akka" %% "akka-actor" % "2.2.3"
+  ) ++ commonDeps
+
+
 }
 
 object Build extends Build {

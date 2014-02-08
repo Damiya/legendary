@@ -20,7 +20,6 @@ import play.api.libs.functional.syntax._
 import play.api.libs.json.Reads._
 import play.api.libs.json._
 import scala.slick.driver.PostgresDriver.simple._
-import com.itsdamiya.legendary.utils.BCryptPasswordHasher
 
 case class User(id: Option[Long] = None, username: String, firstName: String,
     lastName: String, email: String,
@@ -56,6 +55,7 @@ object UserPass extends ((String, String) => UserPass) {
   implicit val userPassReads = Json.reads[UserPass]
 }
 
+//scalastyle:off
 class Users(tag: Tag) extends Table[User](tag, "users") {
   def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
 
@@ -74,10 +74,12 @@ class Users(tag: Tag) extends Table[User](tag, "users") {
   def * = (id.?, username, firstName, lastName, email, password) <> (User.tupled, User.unapply)
 }
 
+//scalastyle:on
+
 object Users extends DAO {
   def count(implicit s: Session): Int = Query(Users.length).first
 
-  def insert(user: User)(implicit s: Session) = {
+  def insert(user: User)(implicit s: Session) {
     Users.insert(user)
   }
 

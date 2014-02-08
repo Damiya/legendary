@@ -19,9 +19,12 @@ package com.itsdamiya.legendary.utils
 import org.mindrot.jbcrypt.BCrypt
 
 object BCryptPasswordHasher {
+  //scalastyle:off magic.number
+  val genRounds = 10
+  //scalastyle:on magic.number
 
   def hash(plainPassword: String): String = {
-    BCrypt.hashpw(plainPassword, BCrypt.gensalt(10))
+    BCrypt.hashpw(plainPassword, BCrypt.gensalt(genRounds))
   }
 
   def matches(hashedPass: String, suppliedPassword: String): Boolean = {

@@ -16,16 +16,17 @@
 
 package com.itsdamiya.legendary.controllers
 
-import play.api.mvc.Controller
+import play.api.mvc.{Action, Controller}
 import play.api.db.slick._
 import play.api.Play.current
 import play.api.Play
-import play.api.libs.json.Json
+import play.api.libs.json.{JsValue, Json}
 import com.itsdamiya.legendary.models.{Users, User}
 import com.itsdamiya.legendary.utils.BCryptPasswordHasher
 
 object UserController extends Controller {
-  def create() = DBAction(parse.json) { implicit rs =>
+  def create(): Action[JsValue] = DBAction(parse.json) {
+    implicit rs =>
     if (Play.isDev) {
       rs.request.body.validate[User].map { user =>
         val hashedPassword = BCryptPasswordHasher.hash(user.password)

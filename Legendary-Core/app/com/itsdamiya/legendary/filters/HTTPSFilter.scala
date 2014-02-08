@@ -18,21 +18,31 @@ package com.itsdamiya.legendary.filters
 
 import play.api.libs.iteratee._
 import play.api.mvc.Results._
-import play.api.mvc.{RequestHeader, EssentialFilter, EssentialAction}
+import play.api.mvc.{SimpleResult, RequestHeader, EssentialFilter, EssentialAction}
 import play.api.Play.current
 
 object HTTPSFilter extends EssentialFilter {
-  implicit lazy val httpsPort: Int = current.configuration.getInt("https.port").getOrElse(443)
+  // scalastyle:off magic.number
+  lazy val defaultPort: Int = {
+    if (play.api.Play.isProd) {
+      443
+    } else {
+      9443
+    }
+  }
+  // scalastyle:on magic.number
 
-  def apply(next: EssentialAction): EssentialAction = new HTTPSAction(next)
+  lazy val httpsPort: Int = current.configuration.getInt("https.port").getOrElse(defaultPort)
+
+  def apply(next: EssentialAction): EssentialAction = new HTTPSAction(next, httpsPort)
 }
 
-class HTTPSAction(next: EssentialAction)(implicit httpsPort: Int) extends EssentialAction {
-  def apply(request: RequestHeader) = {
-    def continue = next(request)
+class HTTPSAction(next: EssentialAction, httpsPort: Int) extends EssentialAction {
+  def apply(request: RequestHeader): Iteratee[Array[Byte], SimpleResult] = {
+    def continue: Iteratee[Array[Byte], SimpleResult] = next(request)
     val xForwardedProto = request.headers.get("X-Forwarded-Proto").getOrElse("None")
 
-    if (request.secure || xForwardedProto  == "https") {
+    if (request.secure || xForwardedProto == "https") {
       continue
     } else {
       Done(Redirect("https://" + request.host.split(":")(0) + s":$httpsPort" + request.uri))

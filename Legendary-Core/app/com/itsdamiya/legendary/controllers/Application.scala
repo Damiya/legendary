@@ -16,11 +16,10 @@
 
 package com.itsdamiya.legendary.controllers
 
-import play.api.mvc.Action
-import play.api.mvc.Controller
+import play.api.mvc.{AnyContent, Action, Controller}
 
 object Application extends Controller {
-  def options(path: String) = Action {
+  def options(path: String): Action[AnyContent] = Action {
     Ok("")
   }
 }
