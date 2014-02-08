@@ -4,10 +4,10 @@
 logLevel := Level.Warn
 
 resolvers ++= Seq(
-  Resolver.url("sbt snapshot maven", url("http://repo.scala-sbt.org/scalasbt/sbt-plugin-snapshots"))(Resolver.ivyStylePatterns),
+  //Resolver.url("sbt snapshot maven", url("http://repo.scala-sbt.org/scalasbt/sbt-plugin-snapshots"))(Resolver.ivyStylePatterns),
   "Typesafe Snapshots" at "http://repo.typesafe.com/typesafe/snapshots/",
   "Typesafe Releases" at "http://repo.typesafe.com/typesafe/releases/",
-  Resolver.url("typesafe snapshot ivy", url("http://repo.typesafe.com/typesafe/snapshots"))(Resolver.ivyStylePatterns),
+  //Resolver.url("typesafe snapshot ivy", url("http://repo.typesafe.com/typesafe/snapshots"))(Resolver.ivyStylePatterns),
   "sonatype-releases" at "https://oss.sonatype.org/content/repositories/releases/"
 )
 
