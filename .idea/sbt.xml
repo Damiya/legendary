@@ -15,6 +15,7 @@
             <option value="E:\Projects\Legendary\LibFateClasher/project" />
           </set>
         </option>
+        <option name="useAutoImport" value="true" />
       </SbtProjectSettings>
     </option>
   </component>

@@ -6,7 +6,6 @@
     <JAVADOC />
     <SOURCES>
       <root url="jar://F:/.ivy2/local/com.typesafe.play/play-jdbc_2.10/2.3-SNAPSHOT/srcs/play-jdbc_2.10-sources.jar!/" />
-      <root url="jar://F:/.ivy2/local/com.typesafe.play/play-jdbc_2.10/2.3-SNAPSHOT/srcs/play-jdbc_2.10-tests-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

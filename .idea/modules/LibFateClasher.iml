@@ -33,8 +33,6 @@
     <orderEntry type="library" name="SBT: com.google.guava:guava:11.0.2" level="project" />
     <orderEntry type="library" name="SBT: com.twitter:util-collection_2.10:6.3.6" level="project" />
     <orderEntry type="library" name="SBT: com.twitter:util-core_2.10:6.3.6" level="project" />
-    <orderEntry type="library" name="SBT: com.typesafe:config:1.0.2" level="project" />
-    <orderEntry type="library" name="SBT: com.typesafe.akka:akka-actor_2.10:2.2.3" level="project" />
     <orderEntry type="library" name="SBT: com.typesafe.play:play-datacommons_2.10:2.3-SNAPSHOT" level="project" />
     <orderEntry type="library" name="SBT: com.typesafe.play:play-functional_2.10:2.3-SNAPSHOT" level="project" />
     <orderEntry type="library" name="SBT: com.typesafe.play:play-iteratees_2.10:2.3-SNAPSHOT" level="project" />
@@ -60,6 +58,8 @@
     <orderEntry type="library" scope="TEST" name="SBT: org.scalamock:scalamock-core_2.10:3.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.scalamock:scalamock-scalatest-support_2.10:3.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.scalatest:scalatest_2.10:2.0" level="project" />
+    <orderEntry type="library" name="SBT: com.typesafe:config:1.2.0" level="project" />
+    <orderEntry type="library" name="SBT: com.typesafe.akka:akka-actor_2.10:2.3.0-RC1" level="project" />
   </component>
 </module>
 

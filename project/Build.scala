@@ -50,7 +50,7 @@ object BuildSettings {
   val fateClasherDeps = Seq(
     "io.spray" % "spray-client" % "1.2.0",
     "io.spray" %% "spray-json" % "1.2.5",
-    "com.typesafe.akka" %% "akka-actor" % "2.2.3"
+    "com.typesafe.akka" %% "akka-actor" % "2.3.0-RC1"
   ) ++ commonDeps
 
 

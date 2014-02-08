@@ -20,6 +20,6 @@ addSbtPlugin("com.github.mpeltonen" % "sbt-idea" % "1.5.2")
 // Use the Play sbt plugin for Play projects
 addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.3-SNAPSHOT")
 
-addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.3.2")
+addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.4.0")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-scalariform" % "1.2.1")
