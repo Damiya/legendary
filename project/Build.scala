@@ -1,6 +1,6 @@
+import io.apigee.trireme.fromnode.path
 import sbt._
 import sbt.Keys._
-import play.Project._
 import org.scalastyle.sbt.ScalastylePlugin
 import com.typesafe.sbt.SbtScalariform
 
@@ -12,7 +12,8 @@ object BuildSettings {
 
   val commonResolvers = Seq(
     "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
-    "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
+    "Typesafe Releases" at "http://repo.typesafe.com/typesafe/releases/",
+    "Typesafe Snapshots" at "http://repo.typesafe.com/typesafe/snapshots/",
     "spray repo" at "http://repo.spray.io"
   )
 
