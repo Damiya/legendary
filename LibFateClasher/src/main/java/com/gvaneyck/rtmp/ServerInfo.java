@@ -47,7 +47,11 @@ public class ServerInfo {
         return name;
     }
 
+    public int getPort() {
+        return 2099;
+    }
+
     public InetSocketAddress getSocketAddress() {
-        return new InetSocketAddress(this.hostName, 2099);
+        return new InetSocketAddress(this.hostName, this.getPort());
     }
 }

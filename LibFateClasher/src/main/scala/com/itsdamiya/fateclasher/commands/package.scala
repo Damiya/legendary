@@ -17,26 +17,23 @@
 package com.itsdamiya.fateclasher
 
 import com.gvaneyck.rtmp.ServerInfo
-import akka.actor.ActorSystem
-import akka.util.Timeout
-import scala.concurrent.duration._
-import com.typesafe.config.ConfigFactory
-import com.itsdamiya.fateclasher.commands.LoginWithCredentials
+import com.itsdamiya.fateclasher.loginqueue.LQToken
 
+package object commands {
 
-object TempMain {
-  def main(args: Array[String]) {
-    implicit val timeout = Timeout(1 minute)
+  /**
+   * Used to perform parts of the login sequence that rely on having a username and password (Supervisor, Login Queue)
+   * @param username League username
+   * @param password League password
+   * @param targetServer Destination server
+   */
+  case class LoginWithCredentials(username: String, password: String, targetServer: ServerInfo)
 
-    val system = ActorSystem()
-    val server = ServerInfo.NA
+  /**
+   * Used for the part of the login sequence based on a login queue token (Platform login)
+   * @param lqt Signed login queue token
+   * @param targetServer Destination server
+   */
+  case class LoginWithToken(lqt: LQToken, targetServer: ServerInfo)
 
-    val conf = ConfigFactory.load("login")
-    val username = conf.getString("fateTester.username")
-    val password = conf.getString("fateTester.password")
-
-    val actor = system.actorOf(LeagueClientSupervisor(), s"league_$username")
-    actor ! LoginWithCredentials(username, password, server)
-    readLine()
-  }
 }

@@ -27,8 +27,10 @@ import scala.util.{Success, Failure}
 import spray.can.Http
 import spray.client.pipelining._
 import spray.http._
+import com.itsdamiya.fateclasher.commands.LoginWithCredentials
+import com.itsdamiya.fateclasher.events.LoginWithCredentialsComplete
+import akka.event.LoggingReceive
 
-case class LoginCommand(username: String, password: String, targetServer: ServerInfo)
 
 /**
  * Props generator for LoginQueueClient actors
@@ -40,7 +42,7 @@ object LoginQueueClient {
 /**
  * Fully contained Actor for interacting with the Riot LoginQueue
  *
- * @see com.itsdamiya.fateclasher.loginqueue.LoginCommand
+ * @see com.itsdamiya.fateclasher.loginqueue.LoginWithCredentials
  */
 class LoginQueueClient extends Actor with ActorLogging with LoginQueueProtocol with HTTPTransformers {
 
@@ -73,31 +75,30 @@ class LoginQueueClient extends Actor with ActorLogging with LoginQueueProtocol w
 
   /**
    * Kick off the login process
-   *
-   * @param command Received LoginCommand
+   * @param username League username
+   * @param password League password
+   * @param targetServer Server to log into
    * @param originalSender ActorRef pointing to the actor that requested a Login Token
    */
-  private def login(command: LoginCommand, originalSender: ActorRef) {
+  private def login(username: String, password: String, targetServer: ServerInfo, originalSender: ActorRef) {
     // We take an originalSender parameter to ensure that we're protected from issues with mutable state by the time the future completes
     // See http://doc.akka.io/docs/akka/2.2.3/general/jmm.html#jmm-shared-state for more details
 
-    val data: FormData = FormData(Map("payload" -> s"user=${command.username},password=${command.password}"))
+    val data: FormData = FormData(Map("payload" -> s"user=$username,password=$password"))
 
     val pipeline: HttpRequest => Future[AuthenticateResponse] = purePipeline ~> unmarshal[AuthenticateResponse]
 
     val httpFuture: Future[AuthenticateResponse] = pipeline(
-      Post(command.targetServer.loginQueue + "authenticate", data)
+      Post(targetServer.loginQueue + "authenticate", data)
     )
 
     httpFuture onComplete {
       case Success(response) =>
         if (response.status == "LOGIN") {
-          originalSender ! response.lqt
-          self ! ShutdownCommand
+          originalSender ! LoginWithCredentialsComplete(response.lqt, targetServer)
         } else {
           // We hit a queue, go into monitoring mode
-
-          scheduleTickerCheck(command.targetServer, response, originalSender)
+          scheduleTickerCheck(targetServer, response, originalSender)
         }
 
       case Failure(exception) =>
@@ -108,74 +109,70 @@ class LoginQueueClient extends Actor with ActorLogging with LoginQueueProtocol w
 
   /**
    * Poll the appropriate LQ Ticker for an update to the backlog
-   * @param command As named
+   * @param targetServer Server to log into
+   * @param lqt Partially signed LQ Token
+   * @param rate Queue drain rate
+   * @param delay Requested client update rate
+   * @param champ Ticker name
+   * @param originalSender ActorRef pointing to the actor that requested a Login Token
    */
-  private def checkTicker(command: CheckTickerCommand) {
+  private def checkTicker(targetServer: ServerInfo, lqt: LQToken, rate: Int, delay: Int, champ: String, originalSender: ActorRef) {
     val pipeline: HttpRequest => Future[TickerResponse] = purePipeline ~> unmarshal[TickerResponse]
 
     val httpFuture: Future[TickerResponse] = pipeline(
-      Get(command.targetServer.loginQueue + "ticker/" + command.champ)
+      Get(targetServer.loginQueue + "ticker/" + champ)
     )
 
     httpFuture onComplete {
       case Success(response) =>
         // Mathematically we should be about at the front (since we just waited a full delay)
-        if (response.backlog <= (command.delay / command.rate)) {
-          self ! RetrieveAuthTokenCommand(command.targetServer, command.lqt, command.originalSender)
+        if (response.backlog <= (delay / rate)) {
+          self ! RetrieveAuthTokenCommand(targetServer, lqt, originalSender)
         } else {
           // Still in queue
-          scheduleTickerCheck(command)
+          scheduleTickerCheck(CheckTickerCommand(targetServer, lqt, rate, delay, champ, originalSender))
         }
 
       case Failure(exception) =>
-        command.originalSender ! Status.Failure(exception)
+        originalSender ! Status.Failure(exception)
         log.error(exception.toString)
     }
   }
 
   /**
    * Invoked after getting to the end of the LQ; retrieves a signed LQToken for League of Legends
-   * @param command As named
+   * @param targetServer Server to log into
+   * @param lqt Partially signed LQ Token
+   * @param originalSender ActorRef pointing to the actor that requested a Login Token
    */
-  private def retrieveAuthToken(command: RetrieveAuthTokenCommand) {
+  private def retrieveAuthToken(targetServer: ServerInfo, lqt: LQToken, originalSender: ActorRef) {
     val pipeline: HttpRequest => Future[AuthTokenResponse] = purePipeline ~> unmarshal[AuthTokenResponse]
 
-    val httpFuture: Future[AuthTokenResponse] = pipeline(Post(command.targetServer.loginQueue + "token/", command.lqt))
+    val httpFuture: Future[AuthTokenResponse] = pipeline(Post(targetServer.loginQueue + "token/", lqt))
 
     httpFuture onComplete {
       case Success(response) =>
         // Join indicates that we are in fact ready to merge over to the League platform
         if (response.status == "JOIN") {
-          command.originalSender ! response.lqt
-          shutdown()
+          originalSender ! LoginWithCredentialsComplete(response.lqt, targetServer)
         } else {
           log.error("I haven't seen this case so I can't implement it")
         }
 
       case Failure(exception) =>
-        command.originalSender ! Status.Failure(exception)
+        originalSender ! Status.Failure(exception)
         log.error(exception.toString)
     }
   }
 
-  def receive: Receive = {
-    case command: LoginCommand =>
+  def receive: Receive = LoggingReceive {
+    case LoginWithCredentials(username, password, targetServer) =>
       val originalSender = sender
-      login(command, originalSender)
-    case command: CheckTickerCommand =>
-      checkTicker(command)
-    case command: RetrieveAuthTokenCommand =>
-      retrieveAuthToken(command)
-    case ShutdownCommand =>
-      shutdown()
-  }
-
-  /**
-   * Clean up any remaining HTTP sockets and terminate the actor.
-   */
-  def shutdown() {
-    IO(Http).ask(Http.CloseAll)(1.seconds)
-    self ! Kill
+      login(username, password, targetServer, originalSender)
+    case CheckTickerCommand(targetServer, lqt, rate, delay, champ, originalSender) =>
+      checkTicker(targetServer, lqt, rate, delay, champ, originalSender)
+    case RetrieveAuthTokenCommand(targetServer, lqt, originalSender) =>
+      retrieveAuthToken(targetServer, lqt, originalSender)
   }
 }
 

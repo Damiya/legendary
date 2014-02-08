@@ -16,3 +16,4 @@ public/bower_components
 conf/*.keystore
 .idea/workspace.xml
 .history
+login.conf

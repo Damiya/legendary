@@ -18,6 +18,7 @@ package com.itsdamiya.fateclasher.loginqueue
 
 import akka.actor.ActorRef
 import play.api.libs.json._
+import play.api.libs.functional.syntax._
 import spray.httpx.PlayJsonSupport
 import com.gvaneyck.rtmp.ServerInfo
 
@@ -27,7 +28,17 @@ trait LoginQueueProtocol extends PlayJsonSupport {
   implicit val inGameCredentialsReader = Json.reads[InGameCredentials]
   implicit val authenticateResponseReader = Json.reads[AuthenticateResponse]
   implicit val authTokenResponseReader = Json.reads[AuthTokenResponse]
-  implicit val tickerResponseReader = Json.reads[TickerResponse]
+  implicit val tickerResponseReader = (
+    (__ \ "backlog").read[String] and
+      (__ \ "1004").read[String] and
+      (__ \ "1005").read[String] and
+      (__ \ "1006").read[String] and
+      (__ \ "1008").read[String] and
+      (__ \ "1011").read[String]
+    ) {
+    (backlog: String, valOne: String, valTwo: String, valThree: String, valFour: String, valFive: String) =>
+      TickerResponse(backlog.toInt, valOne, valTwo, valThree, valFour, valFive)
+  }
 }
 
 /**
@@ -126,14 +137,14 @@ case class AuthenticateResponse(delay: Int, inGameCredentials: InGameCredentials
  * Looks like { backlog: a, 1004: b, 1005: c, 1006: d, 1007: e, 1008: f)
  *
  * @param backlog Unknown
- * @param numOne Unknown
- * @param numTwo Unknown
- * @param numThree Unknown
- * @param numFour Unknown
- * @param numFive Unknown
+ * @param valOne Unknown
+ * @param valTwo Unknown
+ * @param valThree Unknown
+ * @param valFour Unknown
+ * @param valFive Unknown
  */
 
-case class TickerResponse(backlog: Int, numOne: Int, numTwo: Int, numThree: Int, numFour: Int, numFive: Int)
+case class TickerResponse(backlog: Int, valOne: String, valTwo: String, valThree: String, valFour: String, valFive: String)
 
 /**
  * Response to a /token call, generating a signed LQ Token we can use to log into the League of Legends platform

@@ -14,29 +14,21 @@
  * limitations under the License.
  */
 
-package com.itsdamiya.fateclasher
+package com.itsdamiya.fateclasher.platform
 
-import com.gvaneyck.rtmp.{SavingTrustManager, ServerInfo}
-import akka.io._
-import javax.net.ssl._
 import java.net.InetSocketAddress
+import com.gvaneyck.rtmp.{SavingTrustManager, ServerInfo}
+import javax.net.ssl.{SSLContext, X509TrustManager, TrustManagerFactory, SSLEngine}
 import java.security.KeyStore
 import java.io.{FileInputStream, File}
-import akka.actor.{ActorLogging, Actor, Props}
-import akka.io.Tcp._
+import akka.io.Tcp.Connected
+import akka.actor.{Props, Actor, ActorLogging}
 
-object RTMPSClient {
-  def props(server: ServerInfo): Props = Props(classOf[RTMPSClient], server)
+object PlatformClient {
+  def apply(): Props = Props(classOf[PlatformClient])
 }
 
-class RTMPSClient(server: ServerInfo) extends Actor with ActorLogging {
-
-  import context.system
-
-  private val serverSocket = server.getSocketAddress
-
-  IO(Tcp) ! Connect(serverSocket)
-
+class PlatformClient extends Actor with ActorLogging {
   def getSSLEngine(remote: InetSocketAddress, server: ServerInfo): SSLEngine = {
     def createSavingTrustManager: SavingTrustManager = {
       val keyStore = KeyStore.getInstance(KeyStore.getDefaultType)
@@ -60,7 +52,7 @@ class RTMPSClient(server: ServerInfo) extends Actor with ActorLogging {
     ctx.init(null, Array(trustManager), null)
     //scalastyle:on null
 
-    ctx.createSSLEngine(serverSocket.getHostString, serverSocket.getPort)
+    ctx.createSSLEngine(server.hostName, server.getPort)
   }
 
   def receive: Receive = {
@@ -80,7 +72,9 @@ class RTMPSClient(server: ServerInfo) extends Actor with ActorLogging {
     //
     //      connection ! Tcp.Register(pipeline)
   }
+
 }
+
 
 //class AkkaSslHandler(init: Init[WithinActorContext, String, String])
 //  extends Actor with ActorLogging {

@@ -8,7 +8,7 @@ object BuildSettings {
   val appOrganization = "com.itsdamiya"
 
   val appName = "Legendary"
-  val appVersion = "0.0.5-SNAPSHOT"
+  val appVersion = "0.0.6-SNAPSHOT"
 
   val commonResolvers = Seq(
     "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
