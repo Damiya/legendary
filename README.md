@@ -5,8 +5,9 @@ This is a portfolio piece and a learning project.
 
 Long-Term Goal: Produce a working, HTML5 Frontend for League of Legends.
 
-Current Status: Landing Page complete and drawing data from League fo Legends Landing page
-![Yay Flexbox](http://i.imgur.com/5FphzqJl.png)
+Current Status: 
+Landing Page complete and drawing data from League of Legends Landing page. Built with Bootstrap and Angular and Flexbox!
+![Yay Flexbox](http://i.imgur.com/5FphzqJ.png)
 
 ## Milestone 1 Goals
 1. Build out a robust Akka-based interface to the League of Legends platform
