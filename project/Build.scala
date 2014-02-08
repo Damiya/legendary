@@ -1,16 +1,38 @@
 import sbt._
-
-import sbt._
-import Keys._
+import sbt.Keys._
 import play.Project._
+import org.scalastyle.sbt.ScalastylePlugin
+import com.typesafe.sbt.SbtScalariform
 
+object BuildSettings {
+  val appOrganization = "com.itsdamiya"
 
-object ApplicationBuild extends Build {
-
-  val appName = "legendary"
+  val appName = "Legendary"
   val appVersion = "0.0.5-SNAPSHOT"
 
-  val appDependencies = Seq(
+  val commonResolvers = Seq(
+    "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
+    "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
+    "spray repo" at "http://repo.spray.io"
+  )
+
+  val commonSettings = Seq(
+    organization := appOrganization,
+    scalacOptions ++= Seq("-feature", "-deprecation", "-language:postfixOps", "-language:reflectiveCalls", "-language:implicitConversions"),
+    ivyLoggingLevel := UpdateLogging.Quiet,
+    resolvers ++= commonResolvers
+  ) ++ ScalastylePlugin.Settings ++ SbtScalariform.defaultScalariformSettings
+
+  val commonDeps = Seq(
+    "com.twitter" %% "util-collection" % "6.3.6",
+    json,
+    "org.scalatest" % "scalatest_2.10" % "2.0" % "test",
+    "org.scalacheck" %% "scalacheck" % "1.11.3" % "test",
+    "org.scalamock" %% "scalamock-scalatest-support" % "3.0.1" % "test"
+  )
+
+
+  val coreDeps = Seq(
     "com.typesafe.slick" %% "slick" % "2.0.0",
     "postgresql" % "postgresql" % "9.1-901.jdbc4",
     "joda-time" % "joda-time" % "2.3 ",
@@ -21,15 +43,32 @@ object ApplicationBuild extends Build {
     "net.sf.ehcache" % "ehcache-core" % "2.6.8",
     filters,
     jdbc,
-    json,
     ws
-  )
+  ) ++ commonDeps
 
-  val main = play.Project(appName, appVersion, appDependencies).settings(
-    scalacOptions ++= Seq("-feature", "-language:postfixOps", "-language:reflectiveCalls", "-language:implicitConversions"),
-    resolvers +=
-      "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 
-  )
+  val fateClasherDeps = Seq(
+    "io.spray" % "spray-client" % "1.2.0",
+    "io.spray" %% "spray-json" % "1.2.5",
+    "com.typesafe.akka" %% "akka-actor" % "2.2.3"
+  ) ++ commonDeps
 
+
+}
+
+object Build extends Build {
+
+  import BuildSettings._
+
+  lazy val FateClasherProject = Project("LibFateClasher", file("LibFateClasher"))
+    .settings(commonSettings: _*)
+    .settings(libraryDependencies ++= fateClasherDeps)
+
+  lazy val LegendaryCoreProject = play.Project("Legendary-Core", appVersion, coreDeps, path = file("Legendary-Core"))
+    .settings(commonSettings: _*)
+    .dependsOn(FateClasherProject)
+
+  lazy val root = Project("Legendary", file("."))
+    .settings(commonSettings: _*)
+    .aggregate(Seq[ProjectReference](FateClasherProject, LegendaryCoreProject): _*)
 }

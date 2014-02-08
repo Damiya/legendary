@@ -1,0 +1,163 @@
+{
+  "$type": "System.Collections.Generic.List`1[[FluorineFx.Messaging.Rtmp.Event.Notify, FluorineFx]], mscorlib",
+  "$values": [
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 17,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": null,
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.Messaging.Messages.RemotingMessage, FluorineFx",
+              "operation": "saveSummoner",
+              "source": null,
+              "timestamp": 0,
+              "messageId": "16716F46-A7CD-AE50-2147-DA4C10EEC5FB",
+              "timeToLive": 0,
+              "clientId": null,
+              "destination": "summonerService",
+              "body": {
+                "$type": "System.Object[], mscorlib",
+                "$values": [
+                  {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "helpFlag": false,
+                    "nameChangeFlag": false,
+                    "revisionDate": "\/Date(1326512313713)\/",
+                    "socialNetworkUserIds": {
+                      "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                      "$values": []
+                    },
+                    "advancedTutorialFlag": false,
+                    "revisionId": 0,
+                    "isMe": true,
+                    "sumId": 28946655,
+                    "displayEloQuestionaire": false,
+                    "tutorialFlag": true,
+                    "lastGameDate": null,
+                    "seasonOneTier": "UNRANKED",
+                    "acctId": 43225320,
+                    "profileIconId": 0,
+                    "name": "acqwe",
+                    "summonerId": NaN,
+                    "internalName": "acqwe",
+                    "futureData": null,
+                    "dataVersion": null,
+                    "TypeName": "com.riotgames.platform.summoner.Summoner"
+                  }
+                ]
+              },
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "DSId": "8F2485C7-0495-AC84-88B7-8FDBCCD0EF8F",
+                "DSRequestTimeout": 60,
+                "DSEndpoint": "my-rtmps"
+              }
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 684,
+        "StreamId": 0,
+        "Timer": 1056,
+        "IsTimerRelative": true
+      },
+      "Object": null,
+      "Timestamp": 1056,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    },
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 17,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "_result",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "DSK, LoLNotes",
+              "CorrelationId": "16716F46-A7CD-AE50-2147-DA4C10EEC5FB",
+              "CorrelationIdBytes": "\u0016qoF§Í®P!GÚL\u0010îÅû",
+              "Body": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "internalName": "acqwe",
+                "acctId": 43225320.0,
+                "helpFlag": false,
+                "sumId": 28946655.0,
+                "profileIconId": 0,
+                "displayEloQuestionaire": false,
+                "lastGameDate": null,
+                "advancedTutorialFlag": false,
+                "revisionDate": "\/Date(1326512345363)\/",
+                "revisionId": 0.0,
+                "futureData": null,
+                "dataVersion": 0,
+                "seasonOneTier": "UNRANKED",
+                "name": "acqwe",
+                "nameChangeFlag": false,
+                "tutorialFlag": true,
+                "socialNetworkUserIds": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": []
+                },
+                "TypeName": "com.riotgames.platform.summoner.Summoner"
+              },
+              "ClientId": "8F3B5AA8-10A6-4B8D-BEAC-A4FF5766341F",
+              "ClientIdBytes": ";Z¨\u0010¦K¾¬¤ÿWf4\u001f",
+              "Destination": null,
+              "Headers": null,
+              "MessageId": "8F3B5C2E-B0C4-5EA9-CFBB-9965B195F1D3",
+              "MessageIdBytes": ";\\.°Ä^©Ï»™e±•ñÓ",
+              "TimeStamp": 1326512345371,
+              "TimeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 466,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    }
+  ]
+}

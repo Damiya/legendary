@@ -1,0 +1,318 @@
+{
+  "$type": "System.Collections.Generic.List`1[[FluorineFx.Messaging.Rtmp.Event.Notify, FluorineFx]], mscorlib",
+  "$values": [
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 21,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": null,
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.Messaging.Messages.RemotingMessage, FluorineFx",
+              "source": null,
+              "operation": "joinGame",
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "DSEndpoint": "my-rtmps",
+                "DSId": "9BA4235B-8219-87B2-DF69-BBBB94928369",
+                "DSRequestTimeout": 60
+              },
+              "destination": "gameService",
+              "timestamp": 0,
+              "body": {
+                "$type": "System.Object[], mscorlib",
+                "$values": [
+                  402555634.0,
+                  null
+                ]
+              },
+              "messageId": "D6003D51-A8E3-A05A-8E97-8B8700A2A478",
+              "clientId": null,
+              "timeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 305,
+        "StreamId": 0,
+        "Timer": 2969,
+        "IsTimerRelative": true
+      },
+      "Object": null,
+      "Timestamp": 2969,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    },
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 21,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "_result",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "DSK, LoLNotes",
+              "CorrelationId": "D6003D51-A8E3-A05A-8E97-8B8700A2A478",
+              "CorrelationIdBytes": "Ö\u0000=Q¨ã ZŽ—‹‡\u0000¢¤x",
+              "Body": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "spectatorsAllowed": "ALL",
+                "passwordSet": false,
+                "gameType": "PRACTICE_GAME",
+                "gameTypeConfigId": 1,
+                "gameState": "TEAM_SELECT",
+                "observers": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": []
+                },
+                "id": 402555634.0,
+                "ownerSummary": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "dateOfBirth": "\/Date(776502000000)\/",
+                  "timeAddedToQueue": null,
+                  "index": 0,
+                  "accountId": 47061137.0,
+                  "queueRating": 0,
+                  "botDifficulty": "NONE",
+                  "summonerInternalName": "madpking384",
+                  "lastSelectedSkinIndex": 0,
+                  "profileIconId": 10,
+                  "teamOwner": false,
+                  "futureData": null,
+                  "summonerId": 32246527.0,
+                  "dataVersion": 0,
+                  "pickTurn": 0,
+                  "clientInSynch": false,
+                  "summonerName": "madpking384",
+                  "pickMode": 1,
+                  "teamParticipantId": null,
+                  "TypeName": "com.riotgames.platform.game.PlayerParticipant"
+                },
+                "teamTwo": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": [
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "dateOfBirth": "\/Date(568800000000)\/",
+                      "timeAddedToQueue": null,
+                      "index": 0,
+                      "accountId": 41222.0,
+                      "queueRating": 0,
+                      "botDifficulty": "NONE",
+                      "summonerInternalName": "jabe",
+                      "lastSelectedSkinIndex": 0,
+                      "profileIconId": 6,
+                      "teamOwner": false,
+                      "futureData": null,
+                      "summonerId": 14376.0,
+                      "dataVersion": 0,
+                      "pickTurn": 0,
+                      "clientInSynch": false,
+                      "summonerName": "Jabe",
+                      "pickMode": 1,
+                      "teamParticipantId": null,
+                      "TypeName": "com.riotgames.platform.game.PlayerParticipant"
+                    }
+                  ]
+                },
+                "bannedChampions": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": []
+                },
+                "dataVersion": 0,
+                "roomName": null,
+                "name": "madpking384's game",
+                "spectatorDelay": 180,
+                "gameZoneGameId": null,
+                "teamOne": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": [
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "dateOfBirth": "\/Date(776502000000)\/",
+                      "timeAddedToQueue": null,
+                      "index": 0,
+                      "accountId": 47061137.0,
+                      "queueRating": 0,
+                      "botDifficulty": "NONE",
+                      "summonerInternalName": "madpking384",
+                      "lastSelectedSkinIndex": 0,
+                      "profileIconId": 10,
+                      "teamOwner": false,
+                      "futureData": null,
+                      "summonerId": 32246527.0,
+                      "dataVersion": 0,
+                      "pickTurn": 0,
+                      "clientInSynch": false,
+                      "summonerName": "madpking384",
+                      "pickMode": 1,
+                      "teamParticipantId": null,
+                      "TypeName": "com.riotgames.platform.game.PlayerParticipant"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "botDifficulty": "NONE",
+                      "summonerInternalName": "bot_Sona_100",
+                      "lastSelectedSkinIndex": 0,
+                      "teamId": "100",
+                      "futureData": null,
+                      "dataVersion": 0,
+                      "pickTurn": 0,
+                      "botSkillLevel": 0,
+                      "spell2Id": null,
+                      "role": null,
+                      "summonerName": "Sona bot",
+                      "pickMode": 0,
+                      "championId": null,
+                      "spell1Id": null,
+                      "TypeName": "com.riotgames.platform.game.BotParticipant"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "botDifficulty": "NONE",
+                      "summonerInternalName": "bot_Shyvana_100",
+                      "lastSelectedSkinIndex": 0,
+                      "teamId": "100",
+                      "futureData": null,
+                      "dataVersion": 0,
+                      "pickTurn": 0,
+                      "botSkillLevel": 0,
+                      "spell2Id": null,
+                      "role": null,
+                      "summonerName": "Shyvana bot",
+                      "pickMode": 0,
+                      "championId": null,
+                      "spell1Id": null,
+                      "TypeName": "com.riotgames.platform.game.BotParticipant"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "botDifficulty": "NONE",
+                      "summonerInternalName": "bot_Malphite_100",
+                      "lastSelectedSkinIndex": 0,
+                      "teamId": "100",
+                      "futureData": null,
+                      "dataVersion": 0,
+                      "pickTurn": 0,
+                      "botSkillLevel": 0,
+                      "spell2Id": null,
+                      "role": null,
+                      "summonerName": "Malphite bot",
+                      "pickMode": 0,
+                      "championId": null,
+                      "spell1Id": null,
+                      "TypeName": "com.riotgames.platform.game.BotParticipant"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "botDifficulty": "NONE",
+                      "summonerInternalName": "bot_XinZhao_100",
+                      "lastSelectedSkinIndex": 0,
+                      "teamId": "100",
+                      "futureData": null,
+                      "dataVersion": 0,
+                      "pickTurn": 0,
+                      "botSkillLevel": 0,
+                      "spell2Id": null,
+                      "role": null,
+                      "summonerName": "XinZhao bot",
+                      "pickMode": 0,
+                      "championId": null,
+                      "spell1Id": null,
+                      "TypeName": "com.riotgames.platform.game.BotParticipant"
+                    }
+                  ]
+                },
+                "terminatedCondition": "NOT_TERMINATED",
+                "gameZoneHost": null,
+                "queueTypeName": "NONE",
+                "passbackUrl": null,
+                "optimisticLock": 6.0,
+                "maxNumPlayers": 10,
+                "queuePosition": 0,
+                "futureData": null,
+                "gameMode": "CLASSIC",
+                "expiryTime": 2682676.0,
+                "mapId": 1,
+                "banOrder": null,
+                "gameStateString": "TEAM_SELECT",
+                "pickTurn": 1,
+                "playerChampionSelections": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": [
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "summonerInternalName": "jabe",
+                      "dataVersion": 0,
+                      "spell2Id": -1.0,
+                      "selectedSkinIndex": 0,
+                      "championId": 0,
+                      "spell1Id": -1.0,
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.game.PlayerChampionSelectionDTO"
+                    }
+                  ]
+                },
+                "passbackDataPacket": null,
+                "gameZonePort": null,
+                "TypeName": "com.riotgames.platform.game.GameDTO"
+              },
+              "ClientId": "9BA4A770-FC0D-BF4E-66BA-A4B01A506CFF",
+              "ClientIdBytes": "›¤§pü\r¿Nfº¤°\u001aPlÿ",
+              "Destination": null,
+              "Headers": null,
+              "MessageId": "9BA4A786-F50A-5AE8-A54D-6AEEC15D45A0",
+              "MessageIdBytes": "›¤§†õ\nZè¥MjîÁ]E ",
+              "TimeStamp": 1338075711173,
+              "TimeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 1600,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    }
+  ]
+}

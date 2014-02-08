@@ -1,0 +1,123 @@
+{
+  "$type": "System.Collections.Generic.List`1[[FluorineFx.Messaging.Rtmp.Event.Notify, FluorineFx]], mscorlib",
+  "$values": [
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 9,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": null,
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.Messaging.Messages.RemotingMessage, FluorineFx",
+              "operation": "getSumonerActiveBoosts",
+              "source": null,
+              "timestamp": 0,
+              "timeToLive": 0,
+              "messageId": "B0E34BFE-2105-6352-339D-B4EDB5627324",
+              "destination": "inventoryService",
+              "body": {
+                "$type": "System.Object[], mscorlib",
+                "$values": []
+              },
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "DSId": "ADB86BAF-441D-4B4C-0F69-62B6A800AD00",
+                "DSEndpoint": "my-rtmps",
+                "DSRequestTimeout": 60
+              },
+              "clientId": null
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 314,
+        "StreamId": 0,
+        "Timer": 816,
+        "IsTimerRelative": true
+      },
+      "Object": null,
+      "Timestamp": 816,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    },
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 9,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "_result",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "DSK, LoLNotes",
+              "CorrelationId": "B0E34BFE-2105-6352-339D-B4EDB5627324",
+              "CorrelationIdBytes": "°ãKþ!\u0005cR3´íµbs$",
+              "Body": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "xpBoostEndDate": 0.0,
+                "xpBoostPerWinCount": 0,
+                "xpLoyaltyBoost": 0,
+                "ipBoostPerWinCount": 0,
+                "ipLoyaltyBoost": 0,
+                "summonerId": 14376.0,
+                "ipBoostEndDate": 1283163135000.0,
+                "TypeName": "com.riotgames.platform.summoner.boost.SummonerActiveBoostsDTO"
+              },
+              "ClientId": "ADB87F03-FF0A-B095-95C2-AA4F4CC021FF",
+              "ClientIdBytes": "­¸\u0003ÿ\n°••ÂªOLÀ!ÿ",
+              "Destination": null,
+              "Headers": null,
+              "MessageId": "ADB87F06-700B-EAC6-33FB-B154453E9800",
+              "MessageIdBytes": "­¸\u0006p\u000bêÆ3û±TE>˜\u0000",
+              "TimeStamp": 1325885408624,
+              "TimeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 303,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    }
+  ]
+}

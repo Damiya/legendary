@@ -1,0 +1,234 @@
+{
+  "$type": "System.Collections.Generic.List`1[[FluorineFx.Messaging.Rtmp.Event.Notify, FluorineFx]], mscorlib",
+  "$values": [
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 50,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": null,
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.Messaging.Messages.RemotingMessage, FluorineFx",
+              "operation": "createPracticeGame",
+              "source": null,
+              "timestamp": 0,
+              "timeToLive": 0,
+              "messageId": "A0C2AA88-6404-2CD3-E4E0-B4FE052ADE4F",
+              "destination": "gameService",
+              "body": {
+                "$type": "System.Object[], mscorlib",
+                "$values": [
+                  "Jabe's game",
+                  "CLASSIC",
+                  {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "totalPlayers": 10,
+                    "minCustomPlayers": 1,
+                    "mapId": 1,
+                    "displayName": "Summoner's Rift",
+                    "name": "SummonersRift",
+                    "description": "The oldest and most venerated Field of Justice is known as Summoner's Rift.  This battleground is known for the constant conflicts fought between two opposing groups of Summoners.  Traverse down one of three different paths in order to attack your enemy at their weakest point.  Work with your allies to siege the enemy base and destroy their Headquarters!",
+                    "dataVersion": null,
+                    "futureData": null,
+                    "TypeName": "com.riotgames.platform.game.map.GameMap"
+                  },
+                  10,
+                  1,
+                  "",
+                  "ALL"
+                ]
+              },
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "DSId": "ADB86BAF-441D-4B4C-0F69-62B6A800AD00",
+                "DSEndpoint": "my-rtmps",
+                "DSRequestTimeout": 60
+              },
+              "clientId": null
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 868,
+        "StreamId": 0,
+        "Timer": 7827,
+        "IsTimerRelative": true
+      },
+      "Object": null,
+      "Timestamp": 7827,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    },
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 50,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "_result",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "DSK, LoLNotes",
+              "CorrelationId": "A0C2AA88-6404-2CD3-E4E0-B4FE052ADE4F",
+              "CorrelationIdBytes": " Âªˆd\u0004,Óäà´þ\u0005*ÞO",
+              "Body": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "spectatorsAllowed": true,
+                "passwordSet": false,
+                "gameType": "PRACTICE_GAME",
+                "gameTypeConfigId": 1,
+                "gameState": "TEAM_SELECT",
+                "observers": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": []
+                },
+                "id": 290566145.0,
+                "ownerSummary": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "dateOfBirth": "\/Date(568800000000)\/",
+                  "timeAddedToQueue": null,
+                  "accountId": 41222.0,
+                  "queueRating": 0,
+                  "botDifficulty": "NONE",
+                  "summonerInternalName": "jabe",
+                  "lastSelectedSkinIndex": 0,
+                  "profileIconId": 6,
+                  "teamOwner": false,
+                  "futureData": null,
+                  "summonerId": 14376.0,
+                  "dataVersion": 0,
+                  "pickTurn": 0,
+                  "clientInSynch": false,
+                  "summonerName": "Jabe",
+                  "pickMode": 1,
+                  "teamParticipantId": null,
+                  "TypeName": "com.riotgames.platform.game.PlayerParticipant"
+                },
+                "teamTwo": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": []
+                },
+                "bannedChampions": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": []
+                },
+                "dataVersion": 0,
+                "name": "Jabe's game",
+                "spectatorDelay": 180,
+                "creationTime": "\/Date(1325886477653)\/",
+                "teamOne": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": [
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "dateOfBirth": "\/Date(568800000000)\/",
+                      "timeAddedToQueue": null,
+                      "accountId": 41222.0,
+                      "queueRating": 0,
+                      "botDifficulty": "NONE",
+                      "summonerInternalName": "jabe",
+                      "lastSelectedSkinIndex": 0,
+                      "profileIconId": 6,
+                      "teamOwner": false,
+                      "futureData": null,
+                      "summonerId": 14376.0,
+                      "dataVersion": 0,
+                      "pickTurn": 0,
+                      "clientInSynch": false,
+                      "summonerName": "Jabe",
+                      "pickMode": 1,
+                      "teamParticipantId": null,
+                      "TypeName": "com.riotgames.platform.game.PlayerParticipant"
+                    }
+                  ]
+                },
+                "terminatedCondition": "NOT_TERMINATED",
+                "gameZoneHost": null,
+                "queueTypeName": "NONE",
+                "optimisticLock": 1.0,
+                "maxNumPlayers": 10,
+                "queuePosition": 0,
+                "futureData": null,
+                "gameMode": "CLASSIC",
+                "expiryTime": 2699995.0,
+                "mapId": 1,
+                "banOrder": null,
+                "gameStateString": "TEAM_SELECT",
+                "pickTurn": 1,
+                "playerChampionSelections": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": [
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "summonerInternalName": "jabe",
+                      "dataVersion": 0,
+                      "spell2Id": -1.0,
+                      "selectedSkinIndex": 0,
+                      "championId": 0,
+                      "spell1Id": -1.0,
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.game.PlayerChampionSelectionDTO"
+                    }
+                  ]
+                },
+                "gameZonePort": null,
+                "TypeName": "com.riotgames.platform.game.GameDTO"
+              },
+              "ClientId": "ADE0520D-3248-FB0F-B4DD-76555423021F",
+              "ClientIdBytes": "­àR\r2Hû\u000f´ÝvUT#\u0002\u001f",
+              "Destination": null,
+              "Headers": null,
+              "MessageId": "ADE05220-BA0F-5D5E-3B44-B1C8826B8C76",
+              "MessageIdBytes": "­àR º\u000f]^;D±È‚kŒv",
+              "TimeStamp": 1325886477658,
+              "TimeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 1137,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    }
+  ]
+}

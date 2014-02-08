@@ -1,0 +1,260 @@
+{
+  "$type": "System.Collections.Generic.List`1[[FluorineFx.Messaging.Rtmp.Event.Notify, FluorineFx]], mscorlib",
+  "$values": [
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 42,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": null,
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.Messaging.Messages.RemotingMessage, FluorineFx",
+              "source": null,
+              "operation": "saveMasteryBook",
+              "timeToLive": 0,
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "DSEndpoint": "my-rtmps",
+                "DSRequestTimeout": 60,
+                "DSId": "27AC5323-C318-493D-A5AF-86FF84F351AE"
+              },
+              "destination": "masteryBookService",
+              "timestamp": 0,
+              "messageId": "75085376-5952-7835-1478-C4EBF4D58B4F",
+              "body": {
+                "$type": "System.Object[], mscorlib",
+                "$values": [
+                  {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "bookPages": {
+                      "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                      "$values": [
+                        {
+                          "$type": "FluorineFx.ASObject, FluorineFx",
+                          "talentEntries": {
+                            "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                            "$values": [
+                              {
+                                "$type": "FluorineFx.ASObject, FluorineFx",
+                                "talentId": 211,
+                                "rank": 1,
+                                "futureData": null,
+                                "dataVersion": null,
+                                "TypeName": "com.riotgames.platform.summoner.masterybook.TalentEntry"
+                              }
+                            ]
+                          },
+                          "createDate": "\/Date(1334768493000)\/",
+                          "current": false,
+                          "name": "Mastery Page 1",
+                          "summonerId": 14376,
+                          "pageId": 168821,
+                          "futureData": null,
+                          "dataVersion": null,
+                          "TypeName": "com.riotgames.platform.summoner.masterybook.MasteryBookPageDTO"
+                        },
+                        {
+                          "$type": "FluorineFx.ASObject, FluorineFx",
+                          "talentEntries": {
+                            "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                            "$values": [
+                              {
+                                "$type": "FluorineFx.ASObject, FluorineFx",
+                                "talentId": 211,
+                                "rank": 1,
+                                "futureData": null,
+                                "dataVersion": null,
+                                "TypeName": "com.riotgames.platform.summoner.masterybook.TalentEntry"
+                              }
+                            ]
+                          },
+                          "createDate": null,
+                          "current": true,
+                          "name": "Mastery Page 2",
+                          "summonerId": 14376,
+                          "pageId": 168822,
+                          "futureData": null,
+                          "dataVersion": null,
+                          "TypeName": "com.riotgames.platform.summoner.masterybook.MasteryBookPageDTO"
+                        }
+                      ]
+                    },
+                    "dateString": "Wed Apr 18 10:01:33 PDT 2012",
+                    "sortByPageId": {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "unique": false,
+                      "compareFunction": null,
+                      "fields": {
+                        "$type": "System.Object[], mscorlib",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "descending": false,
+                            "caseInsensitive": false,
+                            "name": "pageId",
+                            "numeric": null,
+                            "compareFunction": null,
+                            "TypeName": null
+                          }
+                        ]
+                      },
+                      "TypeName": null
+                    },
+                    "summonerId": 14376,
+                    "futureData": null,
+                    "dataVersion": null,
+                    "TypeName": "com.riotgames.platform.summoner.masterybook.MasteryBookDTO"
+                  }
+                ]
+              },
+              "clientId": null
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 875,
+        "StreamId": 0,
+        "Timer": 1853,
+        "IsTimerRelative": true
+      },
+      "Object": null,
+      "Timestamp": 1853,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    },
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 40,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "_result",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "DSK, LoLNotes",
+              "CorrelationId": "75085376-5952-7835-1478-C4EBF4D58B4F",
+              "CorrelationIdBytes": "u\bSvYRx5\u0014xÄëôÕ‹O",
+              "Body": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "bookPagesJson": null,
+                "dataVersion": 0,
+                "bookPages": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": [
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "talentEntries": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "rank": 1,
+                            "talentId": 211,
+                            "dataVersion": 0,
+                            "talent": null,
+                            "summonerId": -1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.summoner.masterybook.TalentEntry"
+                          }
+                        ]
+                      },
+                      "dataVersion": 0,
+                      "pageId": 168821.0,
+                      "name": "Mastery Page 1",
+                      "current": false,
+                      "createDate": "\/Date(1334768493000)\/",
+                      "summonerId": 14376.0,
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.summoner.masterybook.MasteryBookPageDTO"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "talentEntries": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "rank": 1,
+                            "talentId": 211,
+                            "dataVersion": 0,
+                            "talent": null,
+                            "summonerId": -1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.summoner.masterybook.TalentEntry"
+                          }
+                        ]
+                      },
+                      "dataVersion": 0,
+                      "pageId": 168822.0,
+                      "name": "Mastery Page 2",
+                      "current": true,
+                      "createDate": null,
+                      "summonerId": 14376.0,
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.summoner.masterybook.MasteryBookPageDTO"
+                    }
+                  ]
+                },
+                "dateString": "Wed Apr 18 10:01:33 PDT 2012",
+                "summonerId": 14376.0,
+                "futureData": null,
+                "TypeName": "com.riotgames.platform.summoner.masterybook.MasteryBookDTO"
+              },
+              "ClientId": "27C4050F-BD08-180D-D04C-B1CAAD002A00",
+              "ClientIdBytes": "'Ä\u0005\u000f½\b\u0018\rÐL±Ê­\u0000*\u0000",
+              "Destination": null,
+              "Headers": null,
+              "MessageId": "27C40514-9F1F-3F83-726A-D61EEFEDBB55",
+              "MessageIdBytes": "'Ä\u0005\u0014Ÿ\u001f?ƒrjÖ\u001eïí»U",
+              "TimeStamp": 1339038625807,
+              "TimeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 640,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    }
+  ]
+}

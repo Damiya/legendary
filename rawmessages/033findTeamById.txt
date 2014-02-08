@@ -1,0 +1,239 @@
+{
+  "$type": "System.Collections.Generic.List`1[[FluorineFx.Messaging.Rtmp.Event.Notify, FluorineFx]], mscorlib",
+  "$values": [
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 31,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": null,
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.Messaging.Messages.RemotingMessage, FluorineFx",
+              "operation": "findTeamById",
+              "source": null,
+              "timestamp": 0,
+              "timeToLive": 0,
+              "messageId": "9483CA21-576D-E2A5-EAD9-B4F636F28AD5",
+              "destination": "summonerTeamService",
+              "body": {
+                "$type": "System.Object[], mscorlib",
+                "$values": [
+                  {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "fullId": "TEAM-32c02912-1ed3-4655-aeec-b53ff3a80637",
+                    "dataVersion": null,
+                    "futureData": null,
+                    "TypeName": "com.riotgames.team.TeamId"
+                  }
+                ]
+              },
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "DSId": "ADB86BAF-441D-4B4C-0F69-62B6A800AD00",
+                "DSEndpoint": "my-rtmps",
+                "DSRequestTimeout": 60
+              },
+              "clientId": null
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 410,
+        "StreamId": 0,
+        "Timer": 162,
+        "IsTimerRelative": true
+      },
+      "Object": null,
+      "Timestamp": 162,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    },
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 31,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "_result",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "DSK, LoLNotes",
+              "CorrelationId": "9483CA21-576D-E2A5-EAD9-B4F636F28AD5",
+              "CorrelationIdBytes": "”ƒÊ!Wmâ¥êÙ´ö6òŠÕ",
+              "Body": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "lastJoinDate": "\/Date(1325885965937)\/",
+                "teamStatSummary": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "dataVersion": 0,
+                  "teamStatDetails": {
+                    "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                    "$values": [
+                      {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "maxRating": 925,
+                        "dataVersion": 0,
+                        "teamIdString": "TEAM-32c02912-1ed3-4655-aeec-b53ff3a80637",
+                        "seedRating": 925,
+                        "losses": 0,
+                        "rating": 925,
+                        "teamStatTypeString": "ODIN_TEAM_PREMADE",
+                        "teamId": {
+                          "$type": "FluorineFx.ASObject, FluorineFx",
+                          "fullId": "TEAM-32c02912-1ed3-4655-aeec-b53ff3a80637",
+                          "dataVersion": 0,
+                          "futureData": null,
+                          "TypeName": "com.riotgames.team.TeamId"
+                        },
+                        "wins": 0,
+                        "teamStatType": "ODIN_TEAM_PREMADE",
+                        "futureData": null,
+                        "TypeName": "com.riotgames.team.stats.TeamStatDetail"
+                      },
+                      {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "maxRating": 925,
+                        "dataVersion": 0,
+                        "teamIdString": "TEAM-32c02912-1ed3-4655-aeec-b53ff3a80637",
+                        "seedRating": 925,
+                        "losses": 0,
+                        "rating": 925,
+                        "teamStatTypeString": "RANKED_TEAM_5x5",
+                        "teamId": {
+                          "$type": "FluorineFx.ASObject, FluorineFx",
+                          "fullId": "TEAM-32c02912-1ed3-4655-aeec-b53ff3a80637",
+                          "dataVersion": 0,
+                          "futureData": null,
+                          "TypeName": "com.riotgames.team.TeamId"
+                        },
+                        "wins": 0,
+                        "teamStatType": "RANKED_TEAM_5x5",
+                        "futureData": null,
+                        "TypeName": "com.riotgames.team.stats.TeamStatDetail"
+                      },
+                      {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "maxRating": 925,
+                        "dataVersion": 0,
+                        "teamIdString": "TEAM-32c02912-1ed3-4655-aeec-b53ff3a80637",
+                        "seedRating": 925,
+                        "losses": 0,
+                        "rating": 925,
+                        "teamStatTypeString": "RANKED_TEAM_3x3",
+                        "teamId": {
+                          "$type": "FluorineFx.ASObject, FluorineFx",
+                          "fullId": "TEAM-32c02912-1ed3-4655-aeec-b53ff3a80637",
+                          "dataVersion": 0,
+                          "futureData": null,
+                          "TypeName": "com.riotgames.team.TeamId"
+                        },
+                        "wins": 0,
+                        "teamStatType": "RANKED_TEAM_3x3",
+                        "futureData": null,
+                        "TypeName": "com.riotgames.team.stats.TeamStatDetail"
+                      }
+                    ]
+                  },
+                  "teamIdString": "TEAM-32c02912-1ed3-4655-aeec-b53ff3a80637",
+                  "teamId": {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "fullId": "TEAM-32c02912-1ed3-4655-aeec-b53ff3a80637",
+                    "dataVersion": 0,
+                    "futureData": null,
+                    "TypeName": "com.riotgames.team.TeamId"
+                  },
+                  "futureData": null,
+                  "TypeName": "com.riotgames.team.stats.TeamStatSummary"
+                },
+                "status": "PROVISIONAL",
+                "tag": "P9y",
+                "name": "testing1234",
+                "roster": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "ownerId": 14376.0,
+                  "memberList": {
+                    "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                    "$values": [
+                      {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "joinDate": "\/Date(1325885965937)\/",
+                        "playerName": "Jabe",
+                        "inviteDate": "\/Date(1325885965937)\/",
+                        "status": "MEMBER",
+                        "playerId": 14376.0,
+                        "TypeName": "com.riotgames.team.dto.TeamMemberInfoDTO"
+                      }
+                    ]
+                  },
+                  "TypeName": "com.riotgames.team.dto.RosterDTO"
+                },
+                "lastGameDate": null,
+                "modifyDate": "\/Date(1325885965937)\/",
+                "createDate": "\/Date(1325885965937)\/",
+                "teamId": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "fullId": "TEAM-32c02912-1ed3-4655-aeec-b53ff3a80637",
+                  "dataVersion": 0,
+                  "futureData": null,
+                  "TypeName": "com.riotgames.team.TeamId"
+                },
+                "TypeName": "com.riotgames.team.dto.TeamDTO"
+              },
+              "ClientId": "ADCD436F-6A0C-9121-5CD2-9623EF9128B7",
+              "ClientIdBytes": "­ÍCoj\f‘!\\Ò–#ï‘(·",
+              "Destination": null,
+              "Headers": null,
+              "MessageId": "ADCD437B-9F0A-6EE7-C918-A9F689362A7E",
+              "MessageIdBytes": "­ÍC{Ÿ\nnçÉ\u0018©ö‰6*~",
+              "TimeStamp": 1325885966095,
+              "TimeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 967,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    }
+  ]
+}

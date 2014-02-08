@@ -1,0 +1,137 @@
+{
+  "$type": "System.Collections.Generic.List`1[[FluorineFx.Messaging.Rtmp.Event.Notify, FluorineFx]], mscorlib",
+  "$values": [
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 28,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": null,
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.Messaging.Messages.RemotingMessage, FluorineFx",
+              "operation": "createTeam",
+              "source": null,
+              "timestamp": 0,
+              "timeToLive": 0,
+              "messageId": "9C1A8077-5395-5F90-1ECA-B4F60AF4F8A8",
+              "destination": "summonerTeamService",
+              "body": {
+                "$type": "System.Object[], mscorlib",
+                "$values": [
+                  "testing123",
+                  "TST"
+                ]
+              },
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "DSId": "ADB86BAF-441D-4B4C-0F69-62B6A800AD00",
+                "DSEndpoint": "my-rtmps",
+                "DSRequestTimeout": 60
+              },
+              "clientId": null
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 322,
+        "StreamId": 0,
+        "Timer": 52109,
+        "IsTimerRelative": true
+      },
+      "Object": null,
+      "Timestamp": 52109,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    },
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 28,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "_error",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.Messaging.Messages.ErrorMessage, FluorineFx",
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx"
+              },
+              "rootCause": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "message": "Team name [testing123] is already taken and can not be used.",
+                "rootCauseClassname": "com.riotgames.platform.messaging.PlatformException",
+                "localizedMessage": "Team name [testing123] is already taken and can not be used.",
+                "cause": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "message": "Team name [testing123] is already taken and can not be used.",
+                  "localizedMessage": "Team name [testing123] is already taken and can not be used.",
+                  "cause": null,
+                  "reason": "EXISTING_TEAM_NAME"
+                },
+                "substitutionArguments": {
+                  "$type": "System.Object[], mscorlib",
+                  "$values": []
+                },
+                "errorCode": "EXISTING_TEAM_NAME"
+              },
+              "body": null,
+              "correlationId": "9C1A8077-5395-5F90-1ECA-B4F60AF4F8A8",
+              "faultDetail": null,
+              "faultString": "com.riotgames.platform.messaging.PlatformException : Team name [testing123] is already taken and can not be used.",
+              "clientId": "ADCCD814-810E-C4EA-2C7C-DB7DDC16E8A4",
+              "timeToLive": 0,
+              "destination": "summonerTeamService",
+              "timestamp": 1325885954851,
+              "extendedData": null,
+              "faultCode": "Server.Processing",
+              "messageId": "ADCCD840-730C-BE0A-7080-769C0C3F13BB"
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 777,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    }
+  ]
+}

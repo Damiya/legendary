@@ -1,0 +1,3847 @@
+{
+  "$type": "System.Collections.Generic.List`1[[FluorineFx.Messaging.Rtmp.Event.Notify, FluorineFx]], mscorlib",
+  "$values": [
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 27,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": null,
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.Messaging.Messages.RemotingMessage, FluorineFx",
+              "operation": "getRecentGames",
+              "source": null,
+              "timestamp": 0,
+              "timeToLive": 0,
+              "messageId": "3625E17A-8BD7-97BB-FC07-B4F53F68EF21",
+              "destination": "playerStatsService",
+              "body": {
+                "$type": "System.Object[], mscorlib",
+                "$values": [
+                  41222
+                ]
+              },
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "DSId": "ADB86BAF-441D-4B4C-0F69-62B6A800AD00",
+                "DSEndpoint": "my-rtmps",
+                "DSRequestTimeout": 60
+              },
+              "clientId": null
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 312,
+        "StreamId": 0,
+        "Timer": 13972,
+        "IsTimerRelative": true
+      },
+      "Object": null,
+      "Timestamp": 13972,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    },
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 27,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "_result",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "DSK, LoLNotes",
+              "CorrelationId": "3625E17A-8BD7-97BB-FC07-B4F53F68EF21",
+              "CorrelationIdBytes": "6%áz‹×—»ü\u0007´õ?hï!",
+              "Body": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "recentGamesJson": null,
+                "playerGameStatsMap": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "278306549": null,
+                  "278323285": null,
+                  "278366754": null,
+                  "278362581": null,
+                  "278421945": null,
+                  "278698248": null,
+                  "278427916": null,
+                  "278709241": null,
+                  "278327823": null,
+                  "278691926": null,
+                  "TypeName": null
+                },
+                "gameStatistics": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": [
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "skinName": null,
+                      "ranked": false,
+                      "skinIndex": 0,
+                      "fellowPlayers": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 13.0,
+                            "teamId": 100,
+                            "summonerId": 20977020.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 35.0,
+                            "teamId": 100,
+                            "summonerId": 24760401.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 7.0,
+                            "teamId": 200,
+                            "summonerId": 19935500.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 67.0,
+                            "teamId": 100,
+                            "summonerId": 305128.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 2.0,
+                            "teamId": 100,
+                            "summonerId": 21151785.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 62.0,
+                            "teamId": 200,
+                            "summonerId": 20414478.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 27.0,
+                            "teamId": 200,
+                            "summonerId": 19955136.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 103.0,
+                            "teamId": 100,
+                            "summonerId": 20298222.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 104.0,
+                            "teamId": 200,
+                            "summonerId": 171558.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          }
+                        ]
+                      },
+                      "gameType": "MATCHED_GAME",
+                      "experienceEarned": 0.0,
+                      "rawStatsJson": null,
+                      "eligibleFirstWinOfDay": false,
+                      "difficulty": null,
+                      "gameMapId": 8,
+                      "leaver": false,
+                      "spell1": 14.0,
+                      "gameTypeEnum": "MATCHED_GAME",
+                      "teamId": 200.0,
+                      "summonerId": 0.0,
+                      "statistics": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM4",
+                            "dataVersion": 0,
+                            "value": 1038.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 20087.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_NEUTRALIZE_ASSIST",
+                            "dataVersion": 0,
+                            "value": 3.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "CHAMPIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 14.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_SCORE_RANK",
+                            "dataVersion": 0,
+                            "value": 4.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MINIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 48.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM3",
+                            "dataVersion": 0,
+                            "value": 3065.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 17524.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TEAM_OBJECTIVE",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_DEALT",
+                            "dataVersion": 0,
+                            "value": 57429.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "GOLD_EARNED",
+                            "dataVersion": 0,
+                            "value": 13312.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_MULTI_KILL",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM5",
+                            "dataVersion": 0,
+                            "value": 1042.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 1223.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "COMBAT_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 667.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 14095.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_HEAL",
+                            "dataVersion": 0,
+                            "value": 8860.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 36030.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM2",
+                            "dataVersion": 0,
+                            "value": 3006.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NUM_DEATHS",
+                            "dataVersion": 0,
+                            "value": 11.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "VICTORY_POINT_TOTAL",
+                            "dataVersion": 0,
+                            "value": 82.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM1",
+                            "dataVersion": 0,
+                            "value": 3078.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "OBJECTIVE_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 556.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_CRITICAL_STRIKE",
+                            "dataVersion": 0,
+                            "value": 543.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LEVEL",
+                            "dataVersion": 0,
+                            "value": 18.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 35637.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM0",
+                            "dataVersion": 0,
+                            "value": 3123.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_TIME_SPENT_DEAD",
+                            "dataVersion": 0,
+                            "value": 237.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_KILLING_SPREE",
+                            "dataVersion": 0,
+                            "value": 4.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "WIN",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_CAPTURE_ASSIST",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_CAPTURE",
+                            "dataVersion": 0,
+                            "value": 3.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ASSISTS",
+                            "dataVersion": 0,
+                            "value": 12.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          }
+                        ]
+                      },
+                      "spell2": 3.0,
+                      "afk": false,
+                      "id": null,
+                      "boostXpEarned": 0.0,
+                      "level": 30.0,
+                      "invalid": false,
+                      "dataVersion": 2,
+                      "userId": 41222.0,
+                      "createDate": "\/Date(1324320508788)\/",
+                      "userServerPing": 0,
+                      "adjustedRating": 0,
+                      "premadeSize": 1,
+                      "boostIpEarned": 0.0,
+                      "gameId": 278709241.0,
+                      "timeInQueue": 599,
+                      "ipEarned": 69.0,
+                      "eloChange": 13,
+                      "futureData": null,
+                      "gameMode": "ODIN",
+                      "difficultyString": null,
+                      "KCoefficient": 25.0,
+                      "teamRating": 2040,
+                      "subType": "ODIN_UNRANKED",
+                      "queueType": "ODIN_UNRANKED",
+                      "premadeTeam": false,
+                      "predictedWinPct": 0.5,
+                      "rating": 2083.0,
+                      "championId": 28.0,
+                      "TypeName": "com.riotgames.platform.statistics.PlayerGameStats"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "skinName": null,
+                      "ranked": false,
+                      "skinIndex": 0,
+                      "fellowPlayers": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 62.0,
+                            "teamId": 100,
+                            "summonerId": 430375.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 63.0,
+                            "teamId": 100,
+                            "summonerId": 90636.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 67.0,
+                            "teamId": 200,
+                            "summonerId": 22922002.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 59.0,
+                            "teamId": 200,
+                            "summonerId": 20034596.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 103.0,
+                            "teamId": 200,
+                            "summonerId": 21898578.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 78.0,
+                            "teamId": 100,
+                            "summonerId": 64227.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 82.0,
+                            "teamId": 200,
+                            "summonerId": 23441868.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 34.0,
+                            "teamId": 100,
+                            "summonerId": 65681.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 101.0,
+                            "teamId": 100,
+                            "summonerId": 19008346.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          }
+                        ]
+                      },
+                      "gameType": "MATCHED_GAME",
+                      "experienceEarned": 0.0,
+                      "rawStatsJson": null,
+                      "eligibleFirstWinOfDay": false,
+                      "difficulty": null,
+                      "gameMapId": 8,
+                      "leaver": false,
+                      "spell1": 14.0,
+                      "gameTypeEnum": "MATCHED_GAME",
+                      "teamId": 200.0,
+                      "summonerId": 0.0,
+                      "statistics": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 199.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "VICTORY_POINT_TOTAL",
+                            "dataVersion": 0,
+                            "value": 494.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "OBJECTIVE_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 383.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM1",
+                            "dataVersion": 0,
+                            "value": 2003.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "CHAMPIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_SCORE_RANK",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 203.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LEVEL",
+                            "dataVersion": 0,
+                            "value": 7.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM0",
+                            "dataVersion": 0,
+                            "value": 3057.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "WIN",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 245.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_CAPTURE",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_DEALT",
+                            "dataVersion": 0,
+                            "value": 481.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "GOLD_EARNED",
+                            "dataVersion": 0,
+                            "value": 3027.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_MULTI_KILL",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_NEUTRALIZE",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "COMBAT_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 30.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 413.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 259.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_HEAL",
+                            "dataVersion": 0,
+                            "value": 28.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 13.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          }
+                        ]
+                      },
+                      "spell2": 3.0,
+                      "afk": false,
+                      "id": null,
+                      "boostXpEarned": 0.0,
+                      "level": 30.0,
+                      "invalid": false,
+                      "dataVersion": 2,
+                      "userId": 41222.0,
+                      "createDate": "\/Date(1324268236280)\/",
+                      "userServerPing": 0,
+                      "adjustedRating": 0,
+                      "premadeSize": 1,
+                      "boostIpEarned": 0.0,
+                      "gameId": 278323285.0,
+                      "timeInQueue": 273,
+                      "ipEarned": 39.0,
+                      "eloChange": 13,
+                      "futureData": null,
+                      "gameMode": "ODIN",
+                      "difficultyString": null,
+                      "KCoefficient": 25.0,
+                      "teamRating": 1933,
+                      "subType": "ODIN_UNRANKED",
+                      "queueType": "ODIN_UNRANKED",
+                      "premadeTeam": false,
+                      "predictedWinPct": 0.48273747556762381,
+                      "rating": 2108.0,
+                      "championId": 28.0,
+                      "TypeName": "com.riotgames.platform.statistics.PlayerGameStats"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "skinName": null,
+                      "ranked": false,
+                      "skinIndex": 0,
+                      "fellowPlayers": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 24.0,
+                            "teamId": 200,
+                            "summonerId": 20962736.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 27.0,
+                            "teamId": 200,
+                            "summonerId": 21200037.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 39.0,
+                            "teamId": 200,
+                            "summonerId": 24985667.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 98.0,
+                            "teamId": 100,
+                            "summonerId": 19215240.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 13.0,
+                            "teamId": 200,
+                            "summonerId": 26209462.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 103.0,
+                            "teamId": 200,
+                            "summonerId": 20298222.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 99.0,
+                            "teamId": 100,
+                            "summonerId": 3675.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 35.0,
+                            "teamId": 100,
+                            "summonerId": 22410402.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 67.0,
+                            "teamId": 100,
+                            "summonerId": 276259.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          }
+                        ]
+                      },
+                      "gameType": "MATCHED_GAME",
+                      "experienceEarned": 0.0,
+                      "rawStatsJson": null,
+                      "eligibleFirstWinOfDay": false,
+                      "difficulty": null,
+                      "gameMapId": 8,
+                      "leaver": false,
+                      "spell1": 14.0,
+                      "gameTypeEnum": "MATCHED_GAME",
+                      "teamId": 100.0,
+                      "summonerId": 0.0,
+                      "statistics": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM4",
+                            "dataVersion": 0,
+                            "value": 3097.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 13318.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_NEUTRALIZE_ASSIST",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "CHAMPIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 13.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_SCORE_RANK",
+                            "dataVersion": 0,
+                            "value": 3.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MINIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 5.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM3",
+                            "dataVersion": 0,
+                            "value": 3031.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 20267.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TEAM_OBJECTIVE",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_DEALT",
+                            "dataVersion": 0,
+                            "value": 33128.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "GOLD_EARNED",
+                            "dataVersion": 0,
+                            "value": 11337.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_MULTI_KILL",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 1358.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "COMBAT_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 531.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_NEUTRALIZE",
+                            "dataVersion": 0,
+                            "value": 5.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 6229.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_HEAL",
+                            "dataVersion": 0,
+                            "value": 6572.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 29407.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM2",
+                            "dataVersion": 0,
+                            "value": 3047.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NUM_DEATHS",
+                            "dataVersion": 0,
+                            "value": 8.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "VICTORY_POINT_TOTAL",
+                            "dataVersion": 0,
+                            "value": 170.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM1",
+                            "dataVersion": 0,
+                            "value": 3078.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "OBJECTIVE_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 827.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_CRITICAL_STRIKE",
+                            "dataVersion": 0,
+                            "value": 560.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LEVEL",
+                            "dataVersion": 0,
+                            "value": 18.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 18399.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM0",
+                            "dataVersion": 0,
+                            "value": 3123.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_TIME_SPENT_DEAD",
+                            "dataVersion": 0,
+                            "value": 223.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_KILLING_SPREE",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "WIN",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_CAPTURE_ASSIST",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_CAPTURE",
+                            "dataVersion": 0,
+                            "value": 4.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ASSISTS",
+                            "dataVersion": 0,
+                            "value": 17.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          }
+                        ]
+                      },
+                      "spell2": 3.0,
+                      "afk": false,
+                      "id": null,
+                      "boostXpEarned": 0.0,
+                      "level": 30.0,
+                      "invalid": false,
+                      "dataVersion": 2,
+                      "userId": 41222.0,
+                      "createDate": "\/Date(1324279192843)\/",
+                      "userServerPing": 0,
+                      "adjustedRating": 0,
+                      "premadeSize": 1,
+                      "boostIpEarned": 0.0,
+                      "gameId": 278427916.0,
+                      "timeInQueue": 86,
+                      "ipEarned": 66.0,
+                      "eloChange": 12,
+                      "futureData": null,
+                      "gameMode": "ODIN",
+                      "difficultyString": null,
+                      "KCoefficient": 25.0,
+                      "teamRating": 2100,
+                      "subType": "ODIN_UNRANKED",
+                      "queueType": "ODIN_UNRANKED",
+                      "premadeTeam": false,
+                      "predictedWinPct": 0.502878199574811,
+                      "rating": 2096.0,
+                      "championId": 28.0,
+                      "TypeName": "com.riotgames.platform.statistics.PlayerGameStats"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "skinName": null,
+                      "ranked": false,
+                      "skinIndex": 0,
+                      "fellowPlayers": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 41.0,
+                            "teamId": 200,
+                            "summonerId": 19995981.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 103.0,
+                            "teamId": 100,
+                            "summonerId": 20159526.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 35.0,
+                            "teamId": 200,
+                            "summonerId": 24760401.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 76.0,
+                            "teamId": 200,
+                            "summonerId": 491488.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 64.0,
+                            "teamId": 100,
+                            "summonerId": 21133978.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 64.0,
+                            "teamId": 200,
+                            "summonerId": 273123.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 38.0,
+                            "teamId": 100,
+                            "summonerId": 20139623.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 75.0,
+                            "teamId": 100,
+                            "summonerId": 19489375.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 81.0,
+                            "teamId": 100,
+                            "summonerId": 19275276.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          }
+                        ]
+                      },
+                      "gameType": "MATCHED_GAME",
+                      "experienceEarned": 0.0,
+                      "rawStatsJson": null,
+                      "eligibleFirstWinOfDay": false,
+                      "difficulty": null,
+                      "gameMapId": 8,
+                      "leaver": false,
+                      "spell1": 14.0,
+                      "gameTypeEnum": "MATCHED_GAME",
+                      "teamId": 200.0,
+                      "summonerId": 0.0,
+                      "statistics": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM4",
+                            "dataVersion": 0,
+                            "value": 1057.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 7618.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "CHAMPIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 10.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_SCORE_RANK",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MINIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 8.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM3",
+                            "dataVersion": 0,
+                            "value": 1053.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 11344.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_DEALT",
+                            "dataVersion": 0,
+                            "value": 22137.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "GOLD_EARNED",
+                            "dataVersion": 0,
+                            "value": 9105.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_MULTI_KILL",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM5",
+                            "dataVersion": 0,
+                            "value": 1028.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "COMBAT_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 431.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 752.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_NEUTRALIZE",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 10891.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 23259.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_HEAL",
+                            "dataVersion": 0,
+                            "value": 3029.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM2",
+                            "dataVersion": 0,
+                            "value": 3078.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NUM_DEATHS",
+                            "dataVersion": 0,
+                            "value": 10.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM1",
+                            "dataVersion": 0,
+                            "value": 3117.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "OBJECTIVE_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 321.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_CRITICAL_STRIKE",
+                            "dataVersion": 0,
+                            "value": 442.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LEVEL",
+                            "dataVersion": 0,
+                            "value": 16.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 13763.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM0",
+                            "dataVersion": 0,
+                            "value": 3123.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_TIME_SPENT_DEAD",
+                            "dataVersion": 0,
+                            "value": 252.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_KILLING_SPREE",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_CAPTURE_ASSIST",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_CAPTURE",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LOSE",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ASSISTS",
+                            "dataVersion": 0,
+                            "value": 8.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          }
+                        ]
+                      },
+                      "spell2": 3.0,
+                      "afk": false,
+                      "id": null,
+                      "boostXpEarned": 0.0,
+                      "level": 30.0,
+                      "invalid": false,
+                      "dataVersion": 2,
+                      "userId": 41222.0,
+                      "createDate": "\/Date(1324315725351)\/",
+                      "userServerPing": 0,
+                      "adjustedRating": 0,
+                      "premadeSize": 1,
+                      "boostIpEarned": 0.0,
+                      "gameId": 278691926.0,
+                      "timeInQueue": 183,
+                      "ipEarned": 38.0,
+                      "eloChange": -12,
+                      "futureData": null,
+                      "gameMode": "ODIN",
+                      "difficultyString": null,
+                      "KCoefficient": 25.0,
+                      "teamRating": 1996,
+                      "subType": "ODIN_UNRANKED",
+                      "queueType": "ODIN_UNRANKED",
+                      "premadeTeam": false,
+                      "predictedWinPct": 0.47411906910883089,
+                      "rating": 2108.0,
+                      "championId": 28.0,
+                      "TypeName": "com.riotgames.platform.statistics.PlayerGameStats"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "skinName": null,
+                      "ranked": false,
+                      "skinIndex": 0,
+                      "fellowPlayers": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 32.0,
+                            "teamId": 200,
+                            "summonerId": 20346726.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 51.0,
+                            "teamId": 200,
+                            "summonerId": 180759.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 79.0,
+                            "teamId": 100,
+                            "summonerId": 19951389.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 62.0,
+                            "teamId": 100,
+                            "summonerId": 519318.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 13.0,
+                            "teamId": 200,
+                            "summonerId": 22919937.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 44.0,
+                            "teamId": 200,
+                            "summonerId": 22361847.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 62.0,
+                            "teamId": 200,
+                            "summonerId": 23930965.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 41.0,
+                            "teamId": 100,
+                            "summonerId": 19931678.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 103.0,
+                            "teamId": 100,
+                            "summonerId": 198130.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          }
+                        ]
+                      },
+                      "gameType": "MATCHED_GAME",
+                      "experienceEarned": 0.0,
+                      "rawStatsJson": null,
+                      "eligibleFirstWinOfDay": false,
+                      "difficulty": null,
+                      "gameMapId": 8,
+                      "leaver": false,
+                      "spell1": 14.0,
+                      "gameTypeEnum": "MATCHED_GAME",
+                      "teamId": 100.0,
+                      "summonerId": 0.0,
+                      "statistics": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM4",
+                            "dataVersion": 0,
+                            "value": 3071.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 11539.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_NEUTRALIZE_ASSIST",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "CHAMPIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 12.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_SCORE_RANK",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MINIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 23.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM3",
+                            "dataVersion": 0,
+                            "value": 1053.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 11634.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_DEALT",
+                            "dataVersion": 0,
+                            "value": 42085.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "GOLD_EARNED",
+                            "dataVersion": 0,
+                            "value": 12388.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_MULTI_KILL",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM5",
+                            "dataVersion": 0,
+                            "value": 1038.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 1420.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "COMBAT_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 586.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_NEUTRALIZE",
+                            "dataVersion": 0,
+                            "value": 7.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 21629.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_HEAL",
+                            "dataVersion": 0,
+                            "value": 4990.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 34423.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM2",
+                            "dataVersion": 0,
+                            "value": 3078.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NUM_DEATHS",
+                            "dataVersion": 0,
+                            "value": 11.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "VICTORY_POINT_TOTAL",
+                            "dataVersion": 0,
+                            "value": 53.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM1",
+                            "dataVersion": 0,
+                            "value": 3111.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "OBJECTIVE_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 834.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_CRITICAL_STRIKE",
+                            "dataVersion": 0,
+                            "value": 581.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LEVEL",
+                            "dataVersion": 0,
+                            "value": 18.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 28601.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM0",
+                            "dataVersion": 0,
+                            "value": 3123.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_TIME_SPENT_DEAD",
+                            "dataVersion": 0,
+                            "value": 207.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_KILLING_SPREE",
+                            "dataVersion": 0,
+                            "value": 4.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "WIN",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_CAPTURE",
+                            "dataVersion": 0,
+                            "value": 5.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ASSISTS",
+                            "dataVersion": 0,
+                            "value": 12.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          }
+                        ]
+                      },
+                      "spell2": 3.0,
+                      "afk": false,
+                      "id": null,
+                      "boostXpEarned": 0.0,
+                      "level": 30.0,
+                      "invalid": false,
+                      "dataVersion": 2,
+                      "userId": 41222.0,
+                      "createDate": "\/Date(1324270497423)\/",
+                      "userServerPing": 0,
+                      "adjustedRating": 0,
+                      "premadeSize": 1,
+                      "boostIpEarned": 0.0,
+                      "gameId": 278327823.0,
+                      "timeInQueue": 126,
+                      "ipEarned": 68.0,
+                      "eloChange": 14,
+                      "futureData": null,
+                      "gameMode": "ODIN",
+                      "difficultyString": null,
+                      "KCoefficient": 25.0,
+                      "teamRating": 1964,
+                      "subType": "ODIN_UNRANKED",
+                      "queueType": "ODIN_UNRANKED",
+                      "premadeTeam": false,
+                      "predictedWinPct": 0.44126863067523897,
+                      "rating": 2121.0,
+                      "championId": 28.0,
+                      "TypeName": "com.riotgames.platform.statistics.PlayerGameStats"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "skinName": null,
+                      "ranked": false,
+                      "skinIndex": 0,
+                      "fellowPlayers": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 9.0,
+                            "teamId": 200,
+                            "summonerId": 20288899.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 33.0,
+                            "teamId": 100,
+                            "summonerId": 20554233.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 86.0,
+                            "teamId": 200,
+                            "summonerId": 20275075.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 75.0,
+                            "teamId": 200,
+                            "summonerId": 20229348.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 103.0,
+                            "teamId": 100,
+                            "summonerId": 19991934.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 39.0,
+                            "teamId": 100,
+                            "summonerId": 22134799.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 80.0,
+                            "teamId": 100,
+                            "summonerId": 510779.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 103.0,
+                            "teamId": 200,
+                            "summonerId": 276259.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 35.0,
+                            "teamId": 100,
+                            "summonerId": 19569823.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          }
+                        ]
+                      },
+                      "gameType": "MATCHED_GAME",
+                      "experienceEarned": 0.0,
+                      "rawStatsJson": null,
+                      "eligibleFirstWinOfDay": false,
+                      "difficulty": null,
+                      "gameMapId": 8,
+                      "leaver": false,
+                      "spell1": 14.0,
+                      "gameTypeEnum": "MATCHED_GAME",
+                      "teamId": 200.0,
+                      "summonerId": 0.0,
+                      "statistics": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 4600.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_NEUTRALIZE_ASSIST",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "CHAMPIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 3.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_SCORE_RANK",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MINIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 3.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 4940.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TEAM_OBJECTIVE",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_DEALT",
+                            "dataVersion": 0,
+                            "value": 11667.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "GOLD_EARNED",
+                            "dataVersion": 0,
+                            "value": 6635.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_MULTI_KILL",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_NEUTRALIZE",
+                            "dataVersion": 0,
+                            "value": 3.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "COMBAT_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 277.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 583.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 9350.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 15241.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_HEAL",
+                            "dataVersion": 0,
+                            "value": 1354.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM2",
+                            "dataVersion": 0,
+                            "value": 3047.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NUM_DEATHS",
+                            "dataVersion": 0,
+                            "value": 8.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM1",
+                            "dataVersion": 0,
+                            "value": 3078.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "OBJECTIVE_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 306.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_CRITICAL_STRIKE",
+                            "dataVersion": 0,
+                            "value": 336.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LEVEL",
+                            "dataVersion": 0,
+                            "value": 13.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 6440.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_TIME_SPENT_DEAD",
+                            "dataVersion": 0,
+                            "value": 157.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM0",
+                            "dataVersion": 0,
+                            "value": 3123.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_CAPTURE_ASSIST",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LOSE",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ASSISTS",
+                            "dataVersion": 0,
+                            "value": 9.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          }
+                        ]
+                      },
+                      "spell2": 3.0,
+                      "afk": false,
+                      "id": null,
+                      "boostXpEarned": 0.0,
+                      "level": 30.0,
+                      "invalid": false,
+                      "dataVersion": 2,
+                      "userId": 41222.0,
+                      "createDate": "\/Date(1324274113613)\/",
+                      "userServerPing": 0,
+                      "adjustedRating": 0,
+                      "premadeSize": 1,
+                      "boostIpEarned": 0.0,
+                      "gameId": 278362581.0,
+                      "timeInQueue": 246,
+                      "ipEarned": 31.0,
+                      "eloChange": -13,
+                      "futureData": null,
+                      "gameMode": "ODIN",
+                      "difficultyString": null,
+                      "KCoefficient": 25.0,
+                      "teamRating": 2021,
+                      "subType": "ODIN_UNRANKED",
+                      "queueType": "ODIN_UNRANKED",
+                      "premadeTeam": false,
+                      "predictedWinPct": 0.50431723975505982,
+                      "rating": 2135.0,
+                      "championId": 28.0,
+                      "TypeName": "com.riotgames.platform.statistics.PlayerGameStats"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "skinName": null,
+                      "ranked": false,
+                      "skinIndex": 0,
+                      "fellowPlayers": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 38.0,
+                            "teamId": 200,
+                            "summonerId": 22381862.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 43.0,
+                            "teamId": 200,
+                            "summonerId": 19287556.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 39.0,
+                            "teamId": 200,
+                            "summonerId": 24985667.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 14.0,
+                            "teamId": 100,
+                            "summonerId": 23798623.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 29.0,
+                            "teamId": 200,
+                            "summonerId": 23721912.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 13.0,
+                            "teamId": 100,
+                            "summonerId": 22919937.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 62.0,
+                            "teamId": 100,
+                            "summonerId": 21796027.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 103.0,
+                            "teamId": 100,
+                            "summonerId": 346192.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 90.0,
+                            "teamId": 200,
+                            "summonerId": 20042997.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          }
+                        ]
+                      },
+                      "gameType": "MATCHED_GAME",
+                      "experienceEarned": 0.0,
+                      "rawStatsJson": null,
+                      "eligibleFirstWinOfDay": false,
+                      "difficulty": null,
+                      "gameMapId": 8,
+                      "leaver": false,
+                      "spell1": 14.0,
+                      "gameTypeEnum": "MATCHED_GAME",
+                      "teamId": 100.0,
+                      "summonerId": 0.0,
+                      "statistics": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 6127.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_NEUTRALIZE_ASSIST",
+                            "dataVersion": 0,
+                            "value": 3.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "CHAMPIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 6.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_SCORE_RANK",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MINIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 26.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 4678.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_DEALT",
+                            "dataVersion": 0,
+                            "value": 20938.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "GOLD_EARNED",
+                            "dataVersion": 0,
+                            "value": 6418.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_MULTI_KILL",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "COMBAT_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 220.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 700.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 6881.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 1590.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_HEAL",
+                            "dataVersion": 0,
+                            "value": 2159.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM2",
+                            "dataVersion": 0,
+                            "value": 3006.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NUM_DEATHS",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "VICTORY_POINT_TOTAL",
+                            "dataVersion": 0,
+                            "value": 426.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "OBJECTIVE_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 480.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_CRITICAL_STRIKE",
+                            "dataVersion": 0,
+                            "value": 418.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LEVEL",
+                            "dataVersion": 0,
+                            "value": 12.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 14594.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_TIME_SPENT_DEAD",
+                            "dataVersion": 0,
+                            "value": 28.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM0",
+                            "dataVersion": 0,
+                            "value": 3078.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_KILLING_SPREE",
+                            "dataVersion": 0,
+                            "value": 3.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "WIN",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_CAPTURE_ASSIST",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_CAPTURE",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ASSISTS",
+                            "dataVersion": 0,
+                            "value": 12.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          }
+                        ]
+                      },
+                      "spell2": 3.0,
+                      "afk": false,
+                      "id": null,
+                      "boostXpEarned": 0.0,
+                      "level": 30.0,
+                      "invalid": false,
+                      "dataVersion": 2,
+                      "userId": 41222.0,
+                      "createDate": "\/Date(1324266610778)\/",
+                      "userServerPing": 0,
+                      "adjustedRating": 0,
+                      "premadeSize": 1,
+                      "boostIpEarned": 0.0,
+                      "gameId": 278306549.0,
+                      "timeInQueue": 67,
+                      "ipEarned": 41.0,
+                      "eloChange": 13,
+                      "futureData": null,
+                      "gameMode": "ODIN",
+                      "difficultyString": null,
+                      "KCoefficient": 25.0,
+                      "teamRating": 1919,
+                      "subType": "ODIN_UNRANKED",
+                      "queueType": "ODIN_UNRANKED",
+                      "premadeTeam": false,
+                      "predictedWinPct": 0.4985608882908471,
+                      "rating": 2095.0,
+                      "championId": 28.0,
+                      "TypeName": "com.riotgames.platform.statistics.PlayerGameStats"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "skinName": null,
+                      "ranked": false,
+                      "skinIndex": 0,
+                      "fellowPlayers": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 80.0,
+                            "teamId": 200,
+                            "summonerId": 19995981.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 83.0,
+                            "teamId": 100,
+                            "summonerId": 155364.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 105.0,
+                            "teamId": 100,
+                            "summonerId": 22668963.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 27.0,
+                            "teamId": 200,
+                            "summonerId": 20723628.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 67.0,
+                            "teamId": 100,
+                            "summonerId": 22655375.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 62.0,
+                            "teamId": 100,
+                            "summonerId": 21133978.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 33.0,
+                            "teamId": 100,
+                            "summonerId": 19027495.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 9.0,
+                            "teamId": 200,
+                            "summonerId": 23238903.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 81.0,
+                            "teamId": 200,
+                            "summonerId": 350713.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          }
+                        ]
+                      },
+                      "gameType": "MATCHED_GAME",
+                      "experienceEarned": 0.0,
+                      "rawStatsJson": null,
+                      "eligibleFirstWinOfDay": false,
+                      "difficulty": null,
+                      "gameMapId": 8,
+                      "leaver": false,
+                      "spell1": 14.0,
+                      "gameTypeEnum": "MATCHED_GAME",
+                      "teamId": 200.0,
+                      "summonerId": 0.0,
+                      "statistics": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 17297.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "CHAMPIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 3.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_SCORE_RANK",
+                            "dataVersion": 0,
+                            "value": 3.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MINIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 22.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM3",
+                            "dataVersion": 0,
+                            "value": 1026.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 4752.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_DEALT",
+                            "dataVersion": 0,
+                            "value": 20331.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "GOLD_EARNED",
+                            "dataVersion": 0,
+                            "value": 7015.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_MULTI_KILL",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_NEUTRALIZE",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "COMBAT_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 260.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 479.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 5315.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 10181.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_HEAL",
+                            "dataVersion": 0,
+                            "value": 561.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM2",
+                            "dataVersion": 0,
+                            "value": 1058.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NUM_DEATHS",
+                            "dataVersion": 0,
+                            "value": 8.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM1",
+                            "dataVersion": 0,
+                            "value": 3158.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "OBJECTIVE_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 219.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LEVEL",
+                            "dataVersion": 0,
+                            "value": 13.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 2424.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_TIME_SPENT_DEAD",
+                            "dataVersion": 0,
+                            "value": 180.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM0",
+                            "dataVersion": 0,
+                            "value": 3128.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_CAPTURE",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LOSE",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ASSISTS",
+                            "dataVersion": 0,
+                            "value": 8.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          }
+                        ]
+                      },
+                      "spell2": 4.0,
+                      "afk": false,
+                      "id": null,
+                      "boostXpEarned": 0.0,
+                      "level": 30.0,
+                      "invalid": false,
+                      "dataVersion": 2,
+                      "userId": 41222.0,
+                      "createDate": "\/Date(1324318243233)\/",
+                      "userServerPing": 0,
+                      "adjustedRating": 0,
+                      "premadeSize": 1,
+                      "boostIpEarned": 0.0,
+                      "gameId": 278698248.0,
+                      "timeInQueue": 56,
+                      "ipEarned": 33.0,
+                      "eloChange": -13,
+                      "futureData": null,
+                      "gameMode": "ODIN",
+                      "difficultyString": null,
+                      "KCoefficient": 25.0,
+                      "teamRating": 1923,
+                      "subType": "ODIN_UNRANKED",
+                      "queueType": "ODIN_UNRANKED",
+                      "premadeTeam": false,
+                      "predictedWinPct": 0.502878199574811,
+                      "rating": 2096.0,
+                      "championId": 45.0,
+                      "TypeName": "com.riotgames.platform.statistics.PlayerGameStats"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "skinName": null,
+                      "ranked": false,
+                      "skinIndex": 0,
+                      "fellowPlayers": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 9.0,
+                            "teamId": 100,
+                            "summonerId": 3801.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 19.0,
+                            "teamId": 200,
+                            "summonerId": 20990930.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 67.0,
+                            "teamId": 100,
+                            "summonerId": 23225025.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 35.0,
+                            "teamId": 200,
+                            "summonerId": 19991934.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 15.0,
+                            "teamId": 200,
+                            "summonerId": 59785.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 39.0,
+                            "teamId": 200,
+                            "summonerId": 24985667.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 32.0,
+                            "teamId": 100,
+                            "summonerId": 19766115.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 103.0,
+                            "teamId": 200,
+                            "summonerId": 59849.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 7.0,
+                            "teamId": 100,
+                            "summonerId": 276259.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          }
+                        ]
+                      },
+                      "gameType": "MATCHED_GAME",
+                      "experienceEarned": 0.0,
+                      "rawStatsJson": null,
+                      "eligibleFirstWinOfDay": false,
+                      "difficulty": null,
+                      "gameMapId": 8,
+                      "leaver": false,
+                      "spell1": 14.0,
+                      "gameTypeEnum": "MATCHED_GAME",
+                      "teamId": 100.0,
+                      "summonerId": 0.0,
+                      "statistics": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 9671.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_NEUTRALIZE_ASSIST",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "CHAMPIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 9.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_SCORE_RANK",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MINIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 20.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM3",
+                            "dataVersion": 0,
+                            "value": 1038.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 7945.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_DEALT",
+                            "dataVersion": 0,
+                            "value": 31522.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "GOLD_EARNED",
+                            "dataVersion": 0,
+                            "value": 8692.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_MULTI_KILL",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_NEUTRALIZE",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "COMBAT_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 444.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 724.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 9851.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 18984.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_HEAL",
+                            "dataVersion": 0,
+                            "value": 2582.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM2",
+                            "dataVersion": 0,
+                            "value": 3078.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NUM_DEATHS",
+                            "dataVersion": 0,
+                            "value": 5.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM1",
+                            "dataVersion": 0,
+                            "value": 3047.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "OBJECTIVE_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 280.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_CRITICAL_STRIKE",
+                            "dataVersion": 0,
+                            "value": 443.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LEVEL",
+                            "dataVersion": 0,
+                            "value": 15.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 20951.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_TIME_SPENT_DEAD",
+                            "dataVersion": 0,
+                            "value": 126.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM0",
+                            "dataVersion": 0,
+                            "value": 3123.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_KILLING_SPREE",
+                            "dataVersion": 0,
+                            "value": 6.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_CAPTURE_ASSIST",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LOSE",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ASSISTS",
+                            "dataVersion": 0,
+                            "value": 6.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          }
+                        ]
+                      },
+                      "spell2": 3.0,
+                      "afk": false,
+                      "id": null,
+                      "boostXpEarned": 0.0,
+                      "level": 30.0,
+                      "invalid": false,
+                      "dataVersion": 2,
+                      "userId": 41222.0,
+                      "createDate": "\/Date(1324275568368)\/",
+                      "userServerPing": 0,
+                      "adjustedRating": 0,
+                      "premadeSize": 1,
+                      "boostIpEarned": 0.0,
+                      "gameId": 278366754.0,
+                      "timeInQueue": 220,
+                      "ipEarned": 37.0,
+                      "eloChange": -13,
+                      "futureData": null,
+                      "gameMode": "ODIN",
+                      "difficultyString": null,
+                      "KCoefficient": 25.0,
+                      "teamRating": 2080,
+                      "subType": "ODIN_UNRANKED",
+                      "queueType": "ODIN_UNRANKED",
+                      "premadeTeam": false,
+                      "predictedWinPct": 0.50143911170915278,
+                      "rating": 2122.0,
+                      "championId": 28.0,
+                      "TypeName": "com.riotgames.platform.statistics.PlayerGameStats"
+                    },
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "skinName": null,
+                      "ranked": false,
+                      "skinIndex": 0,
+                      "fellowPlayers": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 96.0,
+                            "teamId": 200,
+                            "summonerId": 23225025.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 17.0,
+                            "teamId": 100,
+                            "summonerId": 20990930.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 39.0,
+                            "teamId": 200,
+                            "summonerId": 24985667.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 106.0,
+                            "teamId": 100,
+                            "summonerId": 23312959.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 62.0,
+                            "teamId": 200,
+                            "summonerId": 19281116.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 67.0,
+                            "teamId": 200,
+                            "summonerId": 21898702.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 41.0,
+                            "teamId": 100,
+                            "summonerId": 22954709.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 90.0,
+                            "teamId": 200,
+                            "summonerId": 19883215.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "dataVersion": 2,
+                            "championId": 103.0,
+                            "teamId": 100,
+                            "summonerId": 23266484.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.FellowPlayerInfo"
+                          }
+                        ]
+                      },
+                      "gameType": "MATCHED_GAME",
+                      "experienceEarned": 0.0,
+                      "rawStatsJson": null,
+                      "eligibleFirstWinOfDay": false,
+                      "difficulty": null,
+                      "gameMapId": 8,
+                      "leaver": false,
+                      "spell1": 14.0,
+                      "gameTypeEnum": "MATCHED_GAME",
+                      "teamId": 100.0,
+                      "summonerId": 0.0,
+                      "statistics": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM4",
+                            "dataVersion": 0,
+                            "value": 3181.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 15076.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "CHAMPIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 21.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_SCORE_RANK",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MINIONS_KILLED",
+                            "dataVersion": 0,
+                            "value": 13.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM3",
+                            "dataVersion": 0,
+                            "value": 3071.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "MAGIC_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 14386.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TEAM_OBJECTIVE",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_DEALT",
+                            "dataVersion": 0,
+                            "value": 48341.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "GOLD_EARNED",
+                            "dataVersion": 0,
+                            "value": 12488.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_MULTI_KILL",
+                            "dataVersion": 0,
+                            "value": 2.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "COMBAT_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 755.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 1354.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_NEUTRALIZE",
+                            "dataVersion": 0,
+                            "value": 3.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 19727.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_DAMAGE_TAKEN",
+                            "dataVersion": 0,
+                            "value": 37181.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_HEAL",
+                            "dataVersion": 0,
+                            "value": 6364.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM2",
+                            "dataVersion": 0,
+                            "value": 3047.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NUM_DEATHS",
+                            "dataVersion": 0,
+                            "value": 11.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM1",
+                            "dataVersion": 0,
+                            "value": 3078.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "OBJECTIVE_PLAYER_SCORE",
+                            "dataVersion": 0,
+                            "value": 599.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_CRITICAL_STRIKE",
+                            "dataVersion": 0,
+                            "value": 717.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "PHYSICAL_DAMAGE_DEALT_PLAYER",
+                            "dataVersion": 0,
+                            "value": 32205.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LEVEL",
+                            "dataVersion": 0,
+                            "value": 18.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ITEM0",
+                            "dataVersion": 0,
+                            "value": 3123.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "TOTAL_TIME_SPENT_DEAD",
+                            "dataVersion": 0,
+                            "value": 274.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LARGEST_KILLING_SPREE",
+                            "dataVersion": 0,
+                            "value": 5.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_CAPTURE_ASSIST",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "NODE_CAPTURE",
+                            "dataVersion": 0,
+                            "value": 4.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "LOSE",
+                            "dataVersion": 0,
+                            "value": 1.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "statType": "ASSISTS",
+                            "dataVersion": 0,
+                            "value": 13.0,
+                            "futureData": null,
+                            "TypeName": "com.riotgames.platform.statistics.RawStat"
+                          }
+                        ]
+                      },
+                      "spell2": 3.0,
+                      "afk": false,
+                      "id": null,
+                      "boostXpEarned": 0.0,
+                      "level": 30.0,
+                      "invalid": false,
+                      "dataVersion": 2,
+                      "userId": 41222.0,
+                      "createDate": "\/Date(1324277530655)\/",
+                      "userServerPing": 0,
+                      "adjustedRating": 0,
+                      "premadeSize": 1,
+                      "boostIpEarned": 0.0,
+                      "gameId": 278421945.0,
+                      "timeInQueue": 301,
+                      "ipEarned": 52.0,
+                      "eloChange": -13,
+                      "futureData": null,
+                      "gameMode": "ODIN",
+                      "difficultyString": null,
+                      "KCoefficient": 25.0,
+                      "teamRating": 1975,
+                      "subType": "ODIN_UNRANKED",
+                      "queueType": "ODIN_UNRANKED",
+                      "premadeTeam": false,
+                      "predictedWinPct": 0.50431723975505982,
+                      "rating": 2109.0,
+                      "championId": 28.0,
+                      "TypeName": "com.riotgames.platform.statistics.PlayerGameStats"
+                    }
+                  ]
+                },
+                "dataVersion": 0,
+                "userId": 41222.0,
+                "futureData": null,
+                "TypeName": "com.riotgames.platform.statistics.RecentGames"
+              },
+              "ClientId": "ADCAE6FF-160C-8A5C-EF0F-DF6D4127C898",
+              "ClientIdBytes": "­Êæÿ\u0016\fŠ\\ï\u000fßmA'È˜",
+              "Destination": null,
+              "Headers": null,
+              "MessageId": "ADCAE72F-EA19-94EB-5D30-98FB297507A3",
+              "MessageIdBytes": "­Êç/ê\u0019”ë]0˜û)u\u0007£",
+              "TimeStamp": 1325885902730,
+              "TimeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 10776,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    }
+  ]
+}

@@ -1,0 +1,409 @@
+{
+  "$type": "System.Collections.Generic.List`1[[FluorineFx.Messaging.Rtmp.Event.Notify, FluorineFx]], mscorlib",
+  "$values": [
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 20,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": null,
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "FluorineFx.Messaging.Messages.RemotingMessage, FluorineFx",
+              "source": null,
+              "operation": "selectBotChampion",
+              "headers": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "DSId": "3D039AC8-8D6C-36C4-E2EE-2D1117BDC26F",
+                "DSRequestTimeout": 60,
+                "DSEndpoint": "my-rtmps"
+              },
+              "destination": "gameService",
+              "timestamp": 0,
+              "body": {
+                "$type": "System.Object[], mscorlib",
+                "$values": [
+                  99,
+                  {
+                    "$type": "FluorineFx.ASObject, FluorineFx",
+                    "champion": {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "freeToPlay": false,
+                      "championId": 99,
+                      "ownedByYourTeam": true,
+                      "botEnabled": true,
+                      "freeToPlayReward": false,
+                      "ownedByEnemyTeam": true,
+                      "owned": false,
+                      "championData": {
+                        "$type": "FluorineFx.ASObject, FluorineFx",
+                        "abilityIcon2": "LuxPrismaWrap.dds",
+                        "abilityIcon3": "LuxLightStrikeKugel.dds",
+                        "abilityIcon1": "LuxCrashingBlitz2.dds",
+                        "magicRank": 9,
+                        "abilityIcon4": "LuxFinaleFunkeln.dds",
+                        "attackRank": 2,
+                        "passiveIcon": "LuxIlluminatingFraulein.dds",
+                        "championId": 99,
+                        "skinName": "Lux",
+                        "defenseRank": 4,
+                        "skinInfo": {
+                          "$type": "FluorineFx.ASObject, FluorineFx",
+                          "99001": {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "skinIndex": 1,
+                            "name": "WitchLux",
+                            "skinId": 99001,
+                            "TypeName": null
+                          },
+                          "99002": {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "skinIndex": 2,
+                            "name": "SpellthiefLux",
+                            "skinId": 99002,
+                            "TypeName": null
+                          },
+                          "99003": {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "skinIndex": 3,
+                            "name": "CommandoLux",
+                            "skinId": 99003,
+                            "TypeName": null
+                          },
+                          "99004": {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "skinIndex": 4,
+                            "name": "ImperialLux",
+                            "skinId": 99004,
+                            "TypeName": null
+                          },
+                          "TypeName": null
+                        },
+                        "searchTags": {
+                          "$type": "System.Object[], mscorlib",
+                          "$values": [
+                            "support",
+                            "ranged",
+                            "mage"
+                          ]
+                        },
+                        "difficultyRank": 6,
+                        "TypeName": null
+                      },
+                      "description": "The Lady of Luminosity",
+                      "skinName": "Lux",
+                      "banned": false,
+                      "championSkins": {
+                        "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                        "$values": [
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "skinIndex": 2,
+                            "lastSelected": false,
+                            "stillObtainable": true,
+                            "championId": 99,
+                            "freeToPlayReward": false,
+                            "skinId": 99002,
+                            "owned": false,
+                            "endDate": 0,
+                            "purchaseDate": 0,
+                            "winCountRemaining": 0,
+                            "futureData": null,
+                            "dataVersion": null,
+                            "TypeName": "com.riotgames.platform.catalog.champion.ChampionSkinDTO"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "skinIndex": 1,
+                            "lastSelected": false,
+                            "stillObtainable": true,
+                            "championId": 99,
+                            "freeToPlayReward": false,
+                            "skinId": 99001,
+                            "owned": false,
+                            "endDate": 0,
+                            "purchaseDate": 0,
+                            "winCountRemaining": 0,
+                            "futureData": null,
+                            "dataVersion": null,
+                            "TypeName": "com.riotgames.platform.catalog.champion.ChampionSkinDTO"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "skinIndex": 4,
+                            "lastSelected": false,
+                            "stillObtainable": true,
+                            "championId": 99,
+                            "freeToPlayReward": false,
+                            "skinId": 99004,
+                            "owned": false,
+                            "endDate": 0,
+                            "purchaseDate": 0,
+                            "winCountRemaining": 0,
+                            "futureData": null,
+                            "dataVersion": null,
+                            "TypeName": "com.riotgames.platform.catalog.champion.ChampionSkinDTO"
+                          },
+                          {
+                            "$type": "FluorineFx.ASObject, FluorineFx",
+                            "skinIndex": 3,
+                            "lastSelected": false,
+                            "stillObtainable": true,
+                            "championId": 99,
+                            "freeToPlayReward": false,
+                            "skinId": 99003,
+                            "owned": false,
+                            "endDate": 0,
+                            "purchaseDate": 0,
+                            "winCountRemaining": 0,
+                            "futureData": null,
+                            "dataVersion": null,
+                            "TypeName": "com.riotgames.platform.catalog.champion.ChampionSkinDTO"
+                          }
+                        ]
+                      },
+                      "displayName": "Lux",
+                      "searchTags": {
+                        "$type": "System.Object[], mscorlib",
+                        "$values": [
+                          "support",
+                          "ranged",
+                          "mage"
+                        ]
+                      },
+                      "active": true,
+                      "endDate": 0,
+                      "purchaseDate": 0,
+                      "winCountRemaining": 0,
+                      "futureData": null,
+                      "dataVersion": null,
+                      "TypeName": "com.riotgames.platform.catalog.champion.ChampionDTO"
+                    },
+                    "botSkillLevelName": "Basic",
+                    "teamId": "200",
+                    "botSkillLevel": 0,
+                    "summonerInternalName": "bot_Lux_200",
+                    "pickTurn": 0,
+                    "isMe": false,
+                    "isGameOwner": false,
+                    "summonerName": "Lux bot",
+                    "pickMode": 0,
+                    "futureData": null,
+                    "dataVersion": null,
+                    "TypeName": "com.riotgames.platform.game.BotParticipant"
+                  }
+                ]
+              },
+              "messageId": "B97B826E-BF21-2E4B-CC3A-CDA0A3E94156",
+              "clientId": null,
+              "timeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 1519,
+        "StreamId": 0,
+        "Timer": 25968,
+        "IsTimerRelative": true
+      },
+      "Object": null,
+      "Timestamp": 25968,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    },
+    {
+      "$type": "FluorineFx.Messaging.Rtmp.Event.FlexInvoke, FluorineFx",
+      "CmdData": null,
+      "Data": null,
+      "InvokeId": 18,
+      "ServiceCall": {
+        "$type": "FluorineFx.Messaging.Rtmp.Service.PendingCall, FluorineFx",
+        "Result": null,
+        "IsSuccess": false,
+        "ServiceMethodName": "_result",
+        "ServiceName": null,
+        "Arguments": {
+          "$type": "System.Object[], mscorlib",
+          "$values": [
+            {
+              "$type": "DSK, LoLNotes",
+              "CorrelationId": "B97B826E-BF21-2E4B-CC3A-CDA0A3E94156",
+              "CorrelationIdBytes": "¹{‚n¿!.KÌ:Í £éAV",
+              "Body": {
+                "$type": "FluorineFx.ASObject, FluorineFx",
+                "spectatorsAllowed": "DROPINONLY",
+                "passwordSet": false,
+                "gameType": "PRACTICE_GAME",
+                "gameTypeConfigId": 1,
+                "gameState": "TEAM_SELECT",
+                "observers": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": []
+                },
+                "id": 414173412.0,
+                "ownerSummary": {
+                  "$type": "FluorineFx.ASObject, FluorineFx",
+                  "dateOfBirth": "\/Date(568800000000)\/",
+                  "timeAddedToQueue": null,
+                  "index": 0,
+                  "accountId": 41222.0,
+                  "queueRating": 0,
+                  "botDifficulty": "NONE",
+                  "summonerInternalName": "jabe",
+                  "lastSelectedSkinIndex": 0,
+                  "profileIconId": 6,
+                  "teamOwner": false,
+                  "futureData": null,
+                  "summonerId": 14376.0,
+                  "dataVersion": 0,
+                  "pickTurn": 0,
+                  "clientInSynch": false,
+                  "summonerName": "Jabe",
+                  "pickMode": 1,
+                  "teamParticipantId": null,
+                  "TypeName": "com.riotgames.platform.game.PlayerParticipant"
+                },
+                "teamTwo": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": [
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "botDifficulty": "NONE",
+                      "summonerInternalName": "bot_Lux_200",
+                      "lastSelectedSkinIndex": 0,
+                      "teamId": "200",
+                      "futureData": null,
+                      "dataVersion": 0,
+                      "pickTurn": 0,
+                      "botSkillLevel": 0,
+                      "spell2Id": null,
+                      "role": null,
+                      "summonerName": "Lux bot",
+                      "pickMode": 0,
+                      "championId": null,
+                      "spell1Id": null,
+                      "TypeName": "com.riotgames.platform.game.BotParticipant"
+                    }
+                  ]
+                },
+                "bannedChampions": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": []
+                },
+                "dataVersion": 0,
+                "roomName": null,
+                "name": "Jabe's game",
+                "spectatorDelay": 180,
+                "gameZoneGameId": null,
+                "teamOne": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": [
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "dateOfBirth": "\/Date(568800000000)\/",
+                      "timeAddedToQueue": null,
+                      "index": 0,
+                      "accountId": 41222.0,
+                      "queueRating": 0,
+                      "botDifficulty": "NONE",
+                      "summonerInternalName": "jabe",
+                      "lastSelectedSkinIndex": 0,
+                      "profileIconId": 6,
+                      "teamOwner": false,
+                      "futureData": null,
+                      "summonerId": 14376.0,
+                      "dataVersion": 0,
+                      "pickTurn": 0,
+                      "clientInSynch": false,
+                      "summonerName": "Jabe",
+                      "pickMode": 1,
+                      "teamParticipantId": null,
+                      "TypeName": "com.riotgames.platform.game.PlayerParticipant"
+                    }
+                  ]
+                },
+                "terminatedCondition": "NOT_TERMINATED",
+                "gameZoneHost": null,
+                "queueTypeName": "NONE",
+                "passbackUrl": null,
+                "optimisticLock": 2.0,
+                "maxNumPlayers": 10,
+                "queuePosition": 0,
+                "futureData": null,
+                "gameMode": "CLASSIC",
+                "expiryTime": 2677405.0,
+                "mapId": 1,
+                "banOrder": null,
+                "gameStateString": "TEAM_SELECT",
+                "pickTurn": 1,
+                "playerChampionSelections": {
+                  "$type": "FluorineFx.AMF3.ArrayCollection, FluorineFx",
+                  "$values": [
+                    {
+                      "$type": "FluorineFx.ASObject, FluorineFx",
+                      "summonerInternalName": "bot_Lux_200",
+                      "dataVersion": 0,
+                      "spell2Id": -1.0,
+                      "selectedSkinIndex": 0,
+                      "championId": 99,
+                      "spell1Id": -1.0,
+                      "futureData": null,
+                      "TypeName": "com.riotgames.platform.game.PlayerChampionSelectionDTO"
+                    }
+                  ]
+                },
+                "passbackDataPacket": null,
+                "gameZonePort": null,
+                "TypeName": "com.riotgames.platform.game.GameDTO"
+              },
+              "ClientId": "3D053704-C729-2ACB-212E-D08AC77F355A",
+              "ClientIdBytes": "=\u00057\u0004Ç)*Ë!.ÐŠÇ5Z",
+              "Destination": null,
+              "Headers": null,
+              "MessageId": "3D05370E-8B0E-A28E-96DC-0335351CDB8B",
+              "MessageIdBytes": "=\u00057\u000e‹\u000e¢Ž–Ü\u000355\u001cÛ‹",
+              "TimeStamp": 1339184686779,
+              "TimeToLive": 0
+            }
+          ]
+        },
+        "Status": 1,
+        "Exception": null
+      },
+      "ConnectionParameters": null,
+      "EventType": 2,
+      "Header": {
+        "$type": "FluorineFx.Messaging.Rtmp.RtmpHeader, FluorineFx",
+        "ChannelId": 3,
+        "DataType": 17,
+        "Size": 1374,
+        "StreamId": 0,
+        "Timer": 0,
+        "IsTimerRelative": false
+      },
+      "Object": null,
+      "Timestamp": 0,
+      "ExtendedTimestamp": -1,
+      "DataType": 17,
+      "Source": null,
+      "HasSource": false
+    }
+  ]
+}
