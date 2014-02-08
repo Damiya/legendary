@@ -4,6 +4,12 @@
     <option name="PER_PROJECT_SETTINGS">
       <value>
         <option name="LINE_SEPARATOR" value="&#10;" />
+        <ScalaCodeStyleSettings>
+          <option name="LOCAL_METHOD_TYPE_ANNOTATION" value="2" />
+          <option name="PUBLIC_METHOD_TYPE_ANNOTATION" value="2" />
+          <option name="PROTECTED_METHOD_TYPE_ANNOTATION" value="2" />
+          <option name="PRIVATE_METHOD_TYPE_ANNOTATION" value="2" />
+        </ScalaCodeStyleSettings>
         <XML>
           <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
         </XML>

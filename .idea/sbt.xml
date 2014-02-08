@@ -5,6 +5,16 @@
       <SbtProjectSettings>
         <option name="createEmptyContentRootDirectories" value="true" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="E:\Projects\Legendary" />
+            <option value="E:\Projects\Legendary/project" />
+            <option value="E:\Projects\Legendary\Legendary-Core" />
+            <option value="E:\Projects\Legendary\Legendary-Core/project" />
+            <option value="E:\Projects\Legendary\LibFateClasher" />
+            <option value="E:\Projects\Legendary\LibFateClasher/project" />
+          </set>
+        </option>
       </SbtProjectSettings>
     </option>
   </component>

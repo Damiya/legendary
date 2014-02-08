@@ -22,11 +22,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../Legendary-Core/conf" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../Legendary-Core/target/scala-2.10/resource_managed/test" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../Legendary-Core/test/resources" type="java-test-resource" />
-      <excludeFolder url="file://$MODULE_DIR$/../../Legendary-Core/public" />
-      <excludeFolder url="file://$MODULE_DIR$/../../Legendary-Core/target/native_libraries" />
-      <excludeFolder url="file://$MODULE_DIR$/../../Legendary-Core/target/resolution-cache" />
-      <excludeFolder url="file://$MODULE_DIR$/../../Legendary-Core/target/scala-2.10" />
-      <excludeFolder url="file://$MODULE_DIR$/../../Legendary-Core/target/streams" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
