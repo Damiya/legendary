@@ -20,7 +20,6 @@ import akka.actor.ActorRef
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
 import spray.httpx.PlayJsonSupport
-import com.gvaneyck.rtmp.ServerInfo
 
 trait LoginQueueProtocol extends PlayJsonSupport {
   implicit val lqTokenFormat = Json.format[LQToken]
@@ -44,23 +43,21 @@ trait LoginQueueProtocol extends PlayJsonSupport {
 /**
  * A command to retrieve the authToken from the LQ
  *
- * @param targetServer Target League Server
  * @param lqt Most current LQToken
  * @param originalSender ActorRef pointing to the actor that requested a Login Token
  */
-case class RetrieveAuthTokenCommand(targetServer: ServerInfo, lqt: LQToken, originalSender: ActorRef)
+case class RetrieveAuthTokenCommand(lqt: LQToken, originalSender: ActorRef)
 
 /**
  * A command to poll the ticker again
  *
- * @param targetServer Target League Server
  * @param lqt Most current LQToken
  * @param rate LQ Rate from original Authenticate call
  * @param delay LQ Delay from original Authenticate call
  * @param champ Ticker name
  * @param originalSender ActorRef pointing to the actor that requested a Login Token
  */
-case class CheckTickerCommand(targetServer: ServerInfo, lqt: LQToken, rate: Int, delay: Int, champ: String, originalSender: ActorRef)
+case class CheckTickerCommand(lqt: LQToken, rate: Int, delay: Int, champ: String, originalSender: ActorRef)
 
 // End Internal Commands
 

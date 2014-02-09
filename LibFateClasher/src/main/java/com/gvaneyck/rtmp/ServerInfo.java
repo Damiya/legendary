@@ -51,7 +51,7 @@ public class ServerInfo {
         return 2099;
     }
 
-    public InetSocketAddress getSocketAddress() {
+    public InetSocketAddress getPlatformAddress() {
         return new InetSocketAddress(this.hostName, this.getPort());
     }
 }

@@ -23,32 +23,36 @@ import com.itsdamiya.fateclasher.loginqueue.{LQToken, LoginQueueClient}
 import com.itsdamiya.fateclasher.commands.LoginWithCredentials
 import com.itsdamiya.fateclasher.events.LoginWithCredentialsComplete
 import akka.event.LoggingReceive
+import com.itsdamiya.fateclasher.platform.PlatformClient
 
 object LeagueClientSupervisor {
-  def apply(): Props = Props(classOf[LeagueClientSupervisor])
+  def apply(targetServer: ServerInfo): Props = Props(classOf[LeagueClientSupervisor], targetServer)
 }
 
-class LeagueClientSupervisor extends Actor with ActorLogging {
+class LeagueClientSupervisor(targetServer: ServerInfo) extends Actor with ActorLogging {
 
   import context._
 
   def receive: Receive = LoggingReceive {
     // Commands from outside
-    case LoginWithCredentials(username, password, targetServer) =>
-      obtainLoginToken(username, password, targetServer)
+    case LoginWithCredentials(username, password) =>
+      log.debug(s"Logging in as $username/$password")
+      obtainLoginToken(username, password)
 
     // Events from children
-    case LoginWithCredentialsComplete(lqt, targetServer) =>
-      performPlatformLogin(lqt, targetServer)
+    case LoginWithCredentialsComplete(lqt) =>
+      log.debug(s"Logging in with $lqt")
+      performPlatformLogin(lqt)
   }
 
-  def obtainLoginToken(username: String, password: String, targetServer: ServerInfo) {
-    val loginQueueClient = actorOf(LoginQueueClient(), "loginQueue")
-    loginQueueClient ! LoginWithCredentials(username, password, targetServer)
+  def obtainLoginToken(username: String, password: String) {
+    val loginQueueClient = actorOf(LoginQueueClient(targetServer), "loginQueue")
+    loginQueueClient ! LoginWithCredentials(username, password)
   }
 
-  def performPlatformLogin(lqt: LQToken, targetServer: ServerInfo) {
+  def performPlatformLogin(lqt: LQToken) {
     // Wind down the loginQueue actor since we're moving on to the platform
     stop(child("loginQueue").get)
+    val platformClient = actorOf(PlatformClient(lqt, targetServer), "platform")
   }
 }

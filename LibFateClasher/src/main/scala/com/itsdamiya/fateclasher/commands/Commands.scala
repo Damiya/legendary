@@ -14,13 +14,15 @@
  * limitations under the License.
  */
 
-package com.itsdamiya.fateclasher
+package com.itsdamiya.fateclasher.commands
 
-import com.itsdamiya.fateclasher.loginqueue.LQToken
 import com.gvaneyck.rtmp.ServerInfo
 
-package object events {
+/**
+ * Used to perform parts of the login sequence that rely on having a username and password (Supervisor, Login Queue)
+ * @param username League username
+ * @param password League password
+ */
+case class LoginWithCredentials(username: String, password: String)
 
-  case class LoginWithCredentialsComplete(lqt: LQToken, targetServer: ServerInfo)
-
-}
+case class OtherCommand()

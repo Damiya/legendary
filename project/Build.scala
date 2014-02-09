@@ -47,9 +47,8 @@ object BuildSettings {
 
 
   val fateClasherDeps = Seq(
-    "io.spray" % "spray-client" % "1.2.0",
-    "io.spray" %% "spray-json" % "1.2.5",
-    "com.typesafe.akka" %% "akka-actor" % "2.3.0-RC2"
+    "io.spray" % "spray-client" % "1.3-RC1",
+    "com.typesafe.akka" %% "akka-actor" % "2.3.0-RC1"
   ) ++ commonDeps
 
 
@@ -61,7 +60,7 @@ object Build extends Build {
 
   lazy val FateClasherProject = Project("LibFateClasher", file("LibFateClasher"))
     .settings(commonSettings: _*)
-    .settings(libraryDependencies ++= fateClasherDeps)
+    .settings(libraryDependencies := fateClasherDeps)
 
   lazy val LegendaryCoreProject = play.Project("Legendary-Core", appVersion, coreDeps, path = file("Legendary-Core"))
     .settings(commonSettings: _*)

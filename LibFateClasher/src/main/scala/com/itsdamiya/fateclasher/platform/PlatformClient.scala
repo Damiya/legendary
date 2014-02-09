@@ -16,47 +16,27 @@
 
 package com.itsdamiya.fateclasher.platform
 
-import java.net.InetSocketAddress
-import com.gvaneyck.rtmp.{SavingTrustManager, ServerInfo}
-import javax.net.ssl.{SSLContext, X509TrustManager, TrustManagerFactory, SSLEngine}
-import java.security.KeyStore
-import java.io.{FileInputStream, File}
-import akka.io.Tcp.Connected
 import akka.actor.{Props, Actor, ActorLogging}
+import akka.io.{IO, Tcp}
+import akka.io.Tcp._
+import com.itsdamiya.fateclasher.loginqueue.LQToken
+import com.gvaneyck.rtmp.ServerInfo
 
 object PlatformClient {
-  def apply(): Props = Props(classOf[PlatformClient])
+  def apply(lqt: LQToken, targetServer: ServerInfo): Props = Props(classOf[PlatformClient], lqt, targetServer)
 }
 
-class PlatformClient extends Actor with ActorLogging {
-  def getSSLEngine(remote: InetSocketAddress, server: ServerInfo): SSLEngine = {
-    def createSavingTrustManager: SavingTrustManager = {
-      val keyStore = KeyStore.getInstance(KeyStore.getDefaultType)
-      var file = new File("certs/" + server.hostName + ".cert")
-      if (!file.exists || !file.isFile) {
-        file = new File(System.getProperty("java.home") + "/lib/security/cacerts")
-      }
-      keyStore.load(new FileInputStream(file), "changeit".toCharArray)
+class PlatformClient(lqt: LQToken, targetServer: ServerInfo) extends Actor with ActorLogging with SSLAdditions {
 
-      val trustFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm)
-      trustFactory.init(keyStore)
-      val trustManager = new SavingTrustManager(trustFactory.getTrustManagers()(0).asInstanceOf[X509TrustManager])
+  import context.system
 
-      trustManager
-    }
-
-    val trustManager = createSavingTrustManager
-    val ctx = SSLContext.getInstance("TLS")
-
-    //scalastyle:off null
-    ctx.init(null, Array(trustManager), null)
-    //scalastyle:on null
-
-    ctx.createSSLEngine(server.hostName, server.getPort)
-  }
+  IO(Tcp) ! Connect(targetServer.getPlatformAddress)
 
   def receive: Receive = {
     case Connected(remote, _) =>
+      val connection = sender()
+      connection ! Register(self)
+      log.debug("Connected! Woohoo")
     //      val init = TcpPipelineHandler.withLogger(log,
     //        new StringByteStringAdapter("utf-8") >>
     //          new DelimiterFraming(maxSize = 1024, delimiter = ByteString('\n'),
