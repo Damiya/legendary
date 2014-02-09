@@ -24,19 +24,17 @@ import com.typesafe.config.ConfigFactory
 import com.itsdamiya.fateclasher.commands.LoginWithCredentials
 
 
-object TempMain {
-  def main(args: Array[String]) {
-    implicit val timeout = Timeout(1 minute)
+object TempMain extends App {
+  implicit val timeout = Timeout(1 minute)
 
-    val system = ActorSystem()
-    val server = ServerInfo.NA
+  val system = ActorSystem()
+  val server = ServerInfo.NA
 
-    val conf = ConfigFactory.load("login")
-    val username = conf.getString("fateTester.username")
-    val password = conf.getString("fateTester.password")
+  val conf = ConfigFactory.load("login")
+  val username = conf.getString("fateTester.username")
+  val password = conf.getString("fateTester.password")
 
-    val actor = system.actorOf(LeagueClientSupervisor(), s"league_$username")
-    actor ! LoginWithCredentials(username, password, server)
-    readLine()
-  }
+  val actor = system.actorOf(LeagueClientSupervisor(), s"league_$username")
+  actor ! LoginWithCredentials(username, password, server)
+  readLine()
 }

@@ -18,8 +18,7 @@ object BuildSettings {
 
   val commonSettings = Seq(
     organization := appOrganization,
-    scalacOptions ++= Seq("-feature", "-deprecation", "-language:postfixOps", "-language:reflectiveCalls", "-language:implicitConversions"),
-    ivyLoggingLevel := UpdateLogging.Quiet,
+    scalacOptions ++= Seq("-feature", "-deprecation", "-language:postfixOps", "-language:reflectiveCalls", "-language:implicitConversions", "-Xlint"),
     resolvers ++= commonResolvers
   ) ++ ScalastylePlugin.Settings ++ SbtScalariform.defaultScalariformSettings
 
@@ -50,7 +49,7 @@ object BuildSettings {
   val fateClasherDeps = Seq(
     "io.spray" % "spray-client" % "1.2.0",
     "io.spray" %% "spray-json" % "1.2.5",
-    "com.typesafe.akka" %% "akka-actor" % "2.3.0-RC1"
+    "com.typesafe.akka" %% "akka-actor" % "2.3.0-RC2"
   ) ++ commonDeps
 
 

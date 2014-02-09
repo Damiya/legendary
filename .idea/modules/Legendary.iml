@@ -5,7 +5,7 @@
       <configuration>
         <option name="compilerLibraryLevel" value="Project" />
         <option name="compilerLibraryName" value="SBT:: scala-compiler:2.10.3" />
-        <option name="compilerOptions" value="-feature -language:postfixOps -language:reflectiveCalls -language:implicitConversions" />
+        <option name="compilerOptions" value="-feature -language:postfixOps -language:reflectiveCalls -language:implicitConversions -Xlint" />
         <option name="deprecationWarnings" value="true" />
       </configuration>
     </facet>

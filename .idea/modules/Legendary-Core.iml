@@ -5,7 +5,7 @@
       <configuration>
         <option name="compilerLibraryLevel" value="Project" />
         <option name="compilerLibraryName" value="SBT:: scala-compiler:2.10.3" />
-        <option name="compilerOptions" value="-encoding utf8 -feature -language:postfixOps -language:reflectiveCalls -language:implicitConversions" />
+        <option name="compilerOptions" value="-encoding utf8 -feature -language:postfixOps -language:reflectiveCalls -language:implicitConversions -Xlint" />
         <option name="deprecationWarnings" value="true" />
         <option name="uncheckedWarnings" value="true" />
       </configuration>
@@ -46,8 +46,6 @@
     <orderEntry type="library" name="SBT: com.twitter:util-collection_2.10:6.3.6" level="project" />
     <orderEntry type="library" name="SBT: com.twitter:util-core_2.10:6.3.6" level="project" />
     <orderEntry type="library" name="SBT: com.typesafe:config:1.2.0" level="project" />
-    <orderEntry type="library" name="SBT: com.typesafe.akka:akka-actor_2.10:2.3.0-RC1" level="project" />
-    <orderEntry type="library" name="SBT: com.typesafe.akka:akka-slf4j_2.10:2.3.0-RC1" level="project" />
     <orderEntry type="library" name="SBT: com.typesafe.netty:netty-http-pipelining:1.1.2" level="project" />
     <orderEntry type="library" name="SBT: com.typesafe.play:filters-helpers_2.10:2.3-SNAPSHOT" level="project" />
     <orderEntry type="library" name="SBT: com.typesafe.play:play-datacommons_2.10:2.3-SNAPSHOT" level="project" />
@@ -153,6 +151,8 @@
     <orderEntry type="library" scope="TEST" name="SBT: xalan:xalan:2.7.1" level="project" />
     <orderEntry type="library" name="SBT: xerces:xercesImpl:2.11.0" level="project" />
     <orderEntry type="library" name="SBT: xml-apis:xml-apis:1.4.01" level="project" />
+    <orderEntry type="library" name="SBT: com.typesafe.akka:akka-actor_2.10:2.3.0-RC2" level="project" />
+    <orderEntry type="library" name="SBT: com.typesafe.akka:akka-slf4j_2.10:2.3.0-RC2" level="project" />
   </component>
 </module>
 

@@ -5,7 +5,7 @@
       <configuration>
         <option name="compilerLibraryLevel" value="Project" />
         <option name="compilerLibraryName" value="SBT:: scala-compiler:2.10.3" />
-        <option name="compilerOptions" value="-feature -language:postfixOps -language:reflectiveCalls -language:implicitConversions" />
+        <option name="compilerOptions" value="-feature -language:postfixOps -language:reflectiveCalls -language:implicitConversions -Xlint" />
         <option name="deprecationWarnings" value="true" />
       </configuration>
     </facet>
@@ -59,7 +59,7 @@
     <orderEntry type="library" scope="TEST" name="SBT: org.scalamock:scalamock-scalatest-support_2.10:3.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.scalatest:scalatest_2.10:2.0" level="project" />
     <orderEntry type="library" name="SBT: com.typesafe:config:1.2.0" level="project" />
-    <orderEntry type="library" name="SBT: com.typesafe.akka:akka-actor_2.10:2.3.0-RC1" level="project" />
+    <orderEntry type="library" name="SBT: com.typesafe.akka:akka-actor_2.10:2.3.0-RC2" level="project" />
   </component>
 </module>
 
