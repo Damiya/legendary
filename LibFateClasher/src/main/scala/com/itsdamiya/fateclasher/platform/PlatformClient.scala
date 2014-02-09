@@ -16,8 +16,8 @@
 
 package com.itsdamiya.fateclasher.platform
 
-import akka.actor.{Props, Actor, ActorLogging}
-import akka.io.{IO, Tcp}
+import akka.actor.{ Props, Actor, ActorLogging }
+import akka.io.{ IO, Tcp }
 import akka.io.Tcp._
 import com.itsdamiya.fateclasher.loginqueue.LQToken
 import com.gvaneyck.rtmp.ServerInfo
@@ -54,7 +54,6 @@ class PlatformClient(lqt: LQToken, targetServer: ServerInfo) extends Actor with 
   }
 
 }
-
 
 //class AkkaSslHandler(init: Init[WithinActorContext, String, String])
 //  extends Actor with ActorLogging {

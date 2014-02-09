@@ -17,10 +17,10 @@
 package com.itsdamiya.fateclasher.platform
 
 import java.net.InetSocketAddress
-import com.gvaneyck.rtmp.{SavingTrustManager, ServerInfo}
-import javax.net.ssl.{SSLContext, X509TrustManager, TrustManagerFactory, SSLEngine}
+import com.gvaneyck.rtmp.{ SavingTrustManager, ServerInfo }
+import javax.net.ssl.{ SSLContext, X509TrustManager, TrustManagerFactory, SSLEngine }
 import java.security.KeyStore
-import java.io.{FileInputStream, File}
+import java.io.{ FileInputStream, File }
 
 trait SSLAdditions {
   def getSSLEngine(remote: InetSocketAddress, server: ServerInfo): SSLEngine = {

@@ -16,7 +16,7 @@
 
 package com.itsdamiya.legendary.controllers
 
-import play.api.mvc.{AnyContent, Action, Controller}
+import play.api.mvc.{ AnyContent, Action, Controller }
 
 object Application extends Controller {
   def options(path: String): Action[AnyContent] = Action {

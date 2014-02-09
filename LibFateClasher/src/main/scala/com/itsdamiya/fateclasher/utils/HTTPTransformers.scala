@@ -16,7 +16,7 @@
 
 package com.itsdamiya.fateclasher.utils
 
-import spray.http.{HttpResponse, HttpRequest, ContentTypes, HttpEntity}
+import spray.http.{ HttpResponse, HttpRequest, ContentTypes, HttpEntity }
 import akka.actor.ActorLogging
 
 trait HTTPTransformers {

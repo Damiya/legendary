@@ -16,19 +16,11 @@
 
 package com.itsdamiya.legendary.models
 
-import com.itsdamiya.legendary.actors.{LeagueClient, LeagueClientImpl}
+import com.itsdamiya.legendary.actors.{ LeagueClient, LeagueClientImpl }
 import akka.actor._
 import play.api.Play.current
 import play.api.libs.concurrent.Akka
 import scala.concurrent.duration._
 
 class UserSession(val user: User, val authToken: String) extends Serializable {
-  private lazy val leagueActorRef = {
-    val typedActor = TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), name = user.username)
-    TypedActor.get(Akka.system).getActorRefFor(typedActor)
-  }
-
-  def getLeagueConnection: LeagueClient = {
-    TypedActor(Akka.system).typedActorOf(TypedProps[LeagueClientImpl]().withTimeout(60.seconds), leagueActorRef)
-  }
 }

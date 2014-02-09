@@ -23,7 +23,6 @@ import scala.concurrent.duration._
 import com.typesafe.config.ConfigFactory
 import com.itsdamiya.fateclasher.commands.LoginWithCredentials
 
-
 object TempMain extends App {
   implicit val timeout = Timeout(1 minute)
 

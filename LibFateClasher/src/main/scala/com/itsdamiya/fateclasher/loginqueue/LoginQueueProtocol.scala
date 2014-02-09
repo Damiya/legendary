@@ -29,15 +29,15 @@ trait LoginQueueProtocol extends PlayJsonSupport {
   implicit val authTokenResponseReader = Json.reads[AuthTokenResponse]
   implicit val tickerResponseReader = (
     (__ \ "backlog").read[String] and
-      (__ \ "1004").read[String] and
-      (__ \ "1005").read[String] and
-      (__ \ "1006").read[String] and
-      (__ \ "1008").read[String] and
-      (__ \ "1011").read[String]
-    ) {
-    (backlog: String, valOne: String, valTwo: String, valThree: String, valFour: String, valFive: String) =>
-      TickerResponse(backlog.toInt, valOne, valTwo, valThree, valFour, valFive)
-  }
+    (__ \ "1004").read[String] and
+    (__ \ "1005").read[String] and
+    (__ \ "1006").read[String] and
+    (__ \ "1008").read[String] and
+    (__ \ "1011").read[String]
+  ) {
+      (backlog: String, valOne: String, valTwo: String, valThree: String, valFour: String, valFive: String) =>
+        TickerResponse(backlog.toInt, valOne, valTwo, valThree, valFour, valFive)
+    }
 }
 
 /**
@@ -46,7 +46,7 @@ trait LoginQueueProtocol extends PlayJsonSupport {
  * @param lqt Most current LQToken
  * @param originalSender ActorRef pointing to the actor that requested a Login Token
  */
-case class RetrieveAuthTokenCommand(lqt: LQToken, originalSender: ActorRef)
+case class RetrieveAuthToken(lqt: LQToken, originalSender: ActorRef)
 
 /**
  * A command to poll the ticker again
@@ -57,7 +57,7 @@ case class RetrieveAuthTokenCommand(lqt: LQToken, originalSender: ActorRef)
  * @param champ Ticker name
  * @param originalSender ActorRef pointing to the actor that requested a Login Token
  */
-case class CheckTickerCommand(lqt: LQToken, rate: Int, delay: Int, champ: String, originalSender: ActorRef)
+case class CheckTicker(lqt: LQToken, rate: Int, delay: Int, champ: String, originalSender: ActorRef)
 
 // End Internal Commands
 
@@ -84,7 +84,7 @@ case class LQTicker(id: Int, node: Int, champ: String, current: Int)
  * @param summonerId Unknown
  */
 case class InGameCredentials(encryptionKey: Option[String], handshakeToken: Option[String], inGame: Boolean,
-                             serverIp: Option[String], serverPort: Option[Int], summonerId: Option[Int])
+  serverIp: Option[String], serverPort: Option[Int], summonerId: Option[Int])
 
 /**
  * LQ Token class, represent a partial login token from the Riot Games login service.
@@ -99,7 +99,7 @@ case class InGameCredentials(encryptionKey: Option[String], handshakeToken: Opti
  * @param uuid Unknown
  */
 case class LQToken(account_id: Int, account_name: String, fingerprint: String, other: Option[String],
-                   resources: Option[String], signature: String, timestamp: Long, uuid: String)
+  resources: Option[String], signature: String, timestamp: Long, uuid: String)
 
 // End Data Types
 
@@ -124,8 +124,8 @@ case class LQToken(account_id: Int, account_name: String, fingerprint: String, o
  * @param champ Ticker name to check
  */
 case class AuthenticateResponse(delay: Int, inGameCredentials: InGameCredentials, lqt: LQToken,
-                                rate: Int, reason: String, status: String, user: String, tickers: Option[Array[LQTicker]], node: Option[Int],
-                                vcap: Option[Int], backlog: Option[Int], champ: Option[String])
+  rate: Int, reason: String, status: String, user: String, tickers: Option[Array[LQTicker]], node: Option[Int],
+  vcap: Option[Int], backlog: Option[Int], champ: Option[String])
 
 /**
  * Response to a /ticker/{champName} call

@@ -18,7 +18,7 @@ package com.itsdamiya.legendary.filters
 
 import play.api.libs.iteratee._
 import play.api.mvc.Results._
-import play.api.mvc.{SimpleResult, RequestHeader, EssentialFilter, EssentialAction}
+import play.api.mvc.{ SimpleResult, RequestHeader, EssentialFilter, EssentialAction }
 import play.api.Play.current
 
 object HTTPSFilter extends EssentialFilter {

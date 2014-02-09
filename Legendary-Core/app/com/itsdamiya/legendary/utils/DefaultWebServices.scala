@@ -19,6 +19,7 @@ package com.itsdamiya.legendary.utils
 import play.api.libs.ws.WSRequestHolder
 
 trait DefaultWebServices {
+
   implicit class DefaultWSRequest(requestHolder: WSRequestHolder) {
     def withDefaultHeaders(): WSRequestHolder = {
       requestHolder.withHeaders(
@@ -27,5 +28,6 @@ trait DefaultWebServices {
       )
     }
   }
+
 }
 

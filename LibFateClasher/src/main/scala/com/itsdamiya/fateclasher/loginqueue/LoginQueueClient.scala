@@ -23,14 +23,13 @@ import com.gvaneyck.rtmp.ServerInfo
 import com.itsdamiya.fateclasher.utils.HTTPTransformers
 import scala.concurrent.Future
 import scala.concurrent.duration._
-import scala.util.{Success, Failure}
+import scala.util.{ Success, Failure }
 import spray.can.Http
 import spray.client.pipelining._
 import spray.http._
 import com.itsdamiya.fateclasher.commands.LoginWithCredentials
 import com.itsdamiya.fateclasher.events.LoginWithCredentialsComplete
 import akka.event.LoggingReceive
-
 
 /**
  * Props generator for LoginQueueClient actors
@@ -59,7 +58,7 @@ class LoginQueueClient(targetServer: ServerInfo) extends Actor with ActorLogging
    * Schedule another ticker update with a pollticker command
    * @param command Command with relevant ticker update information (and timing)
    */
-  private def scheduleTickerCheck(command: CheckTickerCommand) {
+  private def scheduleTickerCheck(command: CheckTicker) {
     context.system.scheduler.scheduleOnce(command.delay.milliseconds, self, command)
   }
 
@@ -69,7 +68,7 @@ class LoginQueueClient(targetServer: ServerInfo) extends Actor with ActorLogging
    * @param originalSender ActorRef pointing to the actor that requested a Login Token
    */
   private def scheduleTickerCheck(response: AuthenticateResponse, originalSender: ActorRef) {
-    scheduleTickerCheck(CheckTickerCommand(response.lqt, response.rate, response.delay, response.champ.get, originalSender))
+    scheduleTickerCheck(CheckTicker(response.lqt, response.rate, response.delay, response.champ.get, originalSender))
   }
 
   /**
@@ -124,10 +123,10 @@ class LoginQueueClient(targetServer: ServerInfo) extends Actor with ActorLogging
       case Success(response) =>
         // Mathematically we should be about at the front (since we just waited a full delay)
         if (response.backlog <= (delay / rate)) {
-          self ! RetrieveAuthTokenCommand(lqt, originalSender)
+          self ! RetrieveAuthToken(lqt, originalSender)
         } else {
           // Still in queue
-          scheduleTickerCheck(CheckTickerCommand(lqt, rate, delay, champ, originalSender))
+          scheduleTickerCheck(CheckTicker(lqt, rate, delay, champ, originalSender))
         }
 
       case Failure(exception) =>
@@ -165,9 +164,9 @@ class LoginQueueClient(targetServer: ServerInfo) extends Actor with ActorLogging
     case LoginWithCredentials(username, password) =>
       val originalSender = sender()
       login(username, password, originalSender)
-    case CheckTickerCommand(lqt, rate, delay, champ, originalSender) =>
+    case CheckTicker(lqt, rate, delay, champ, originalSender) =>
       checkTicker(lqt, rate, delay, champ, originalSender)
-    case RetrieveAuthTokenCommand(lqt, originalSender) =>
+    case RetrieveAuthToken(lqt, originalSender) =>
       retrieveAuthToken(lqt, originalSender)
   }
 }

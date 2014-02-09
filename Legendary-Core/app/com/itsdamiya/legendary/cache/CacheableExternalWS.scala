@@ -16,12 +16,12 @@
 
 package com.itsdamiya.legendary.cache
 
-import play.api.libs.ws.{WS, WSResponse}
+import play.api.libs.ws.{ WS, WSResponse }
 import scala.concurrent.Future
 import play.Logger
 import play.api.Play.current
 import scala.concurrent.duration.Duration
-import play.api.libs.json.{JsValue, Json}
+import play.api.libs.json.{ JsValue, Json }
 import com.itsdamiya.legendary.utils.DefaultWebServices
 import scala.concurrent.ExecutionContext.Implicits.global
 import play.api.mvc._
@@ -35,10 +35,9 @@ object CacheableExternalWS extends Results with DefaultWebServices {
         Future.successful(Ok(value))
       case None =>
         Logger.debug(s"Cache miss for $cacheKey")
-        WS.url(url).withDefaultHeaders().get().map {
-          response =>
-            Cache.set(cacheKey, resultTransformer(response.body), 0, timeToLive)
-            responder(response)
+        WS.url(url).withDefaultHeaders().get().map { response =>
+          Cache.set(cacheKey, resultTransformer(response.body), 0, timeToLive)
+          responder(response)
         }
     }
   }

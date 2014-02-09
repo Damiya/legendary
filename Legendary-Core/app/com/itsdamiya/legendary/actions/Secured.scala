@@ -17,7 +17,7 @@
 package com.itsdamiya.legendary.actions
 
 import play.api.mvc._
-import scala.concurrent.Future.{successful => resolve}
+import scala.concurrent.Future.{ successful => resolve }
 import com.itsdamiya.legendary.models.UserSession
 import scala.concurrent.Future
 import com.itsdamiya.legendary.cache.Cache
@@ -26,19 +26,14 @@ import play.api.Play.current
 class AuthenticatedRequest[A](val userSession: UserSession, request: Request[A]) extends WrappedRequest[A](request)
 
 object Secured extends ActionBuilder[AuthenticatedRequest] with Results {
-  def invokeBlock[A](request: Request[A],
-                     block: (AuthenticatedRequest[A]) => Future[SimpleResult]): Future[SimpleResult] = {
+  def invokeBlock[A](request: Request[A], block: (AuthenticatedRequest[A]) => Future[SimpleResult]): Future[SimpleResult] = {
     request.headers.get("X-Auth-Token") match {
       case Some(authToken) =>
         Cache.getAs[UserSession](authToken) match {
-          case Some(userSession) =>
-            block(new AuthenticatedRequest(userSession, request))
-          case None =>
-            resolve(Forbidden("You must log in to access that resource."))
+          case Some(userSession) => block(new AuthenticatedRequest(userSession, request))
+          case None => resolve(Forbidden("You must log in to access that resource."))
         }
-
-      case None =>
-        resolve(Forbidden("You must log in to access that resource."))
+      case None => resolve(Forbidden("You must log in to access that resource."))
     }
   }
 }
