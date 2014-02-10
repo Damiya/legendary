@@ -92,4 +92,5 @@ class LeagueRTMPSClient(targetServer: ServerInfo, clientVersion: String, lqToken
       ("objectEncoding" -> 3)
 
     val connect = AMFEncoder.encodeConnect(params).toList.toString()
+  }
 }
