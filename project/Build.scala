@@ -25,11 +25,12 @@ object BuildSettings {
   val commonDeps = Seq(
     "com.twitter" %% "util-collection" % "6.3.6",
     json,
+    "com.typesafe" %% "scalalogging-slf4j" % "1.0.1",
+    "ch.qos.logback" % "logback-classic" % "1.1.1",
     "org.scalatest" % "scalatest_2.10" % "2.0" % "test",
     "org.scalacheck" %% "scalacheck" % "1.11.3" % "test",
     "org.scalamock" %% "scalamock-scalatest-support" % "3.0.1" % "test"
   )
-
 
   val coreDeps = Seq(
     "com.typesafe.slick" %% "slick" % "2.0.0",
@@ -44,7 +45,6 @@ object BuildSettings {
     jdbc,
     ws
   ) ++ commonDeps
-
 
   val fateClasherDeps = Seq(
     "io.spray" % "spray-client" % "1.3-RC1",

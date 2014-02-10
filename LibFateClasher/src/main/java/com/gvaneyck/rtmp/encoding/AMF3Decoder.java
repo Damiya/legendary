@@ -116,7 +116,7 @@ public class AMF3Decoder {
         byte type = readByte();
         switch (type) {
         case 0x00:
-            throw new EncodingException("Undefined data type");
+            throw new EncodingException("Undefined data objectType");
 
         case 0x01:
             return null;
@@ -155,7 +155,7 @@ public class AMF3Decoder {
             return readByteArray();
         }
 
-        throw new EncodingException("Unexpected AMF3 data type: " + type);
+        throw new EncodingException("Unexpected AMF3 data objectType: " + type);
     }
 
     /**
@@ -407,7 +407,7 @@ public class AMF3Decoder {
                         throw new EncodingException(e.toString());
                     }
                     ret = new TypedObject((ObjectMap)JSON.parse(json));
-                    ret.type = cd.type;
+                    ret.objectType = cd.type;
                 }
                 else {
                     for (int i = dataPos; i < dataBuffer.length; i++)
@@ -553,7 +553,7 @@ public class AMF3Decoder {
     private TypedObject readDSK() throws EncodingException, NotImplementedException {
         // DSK is just a DSA + extra set of flags/objects
         TypedObject ret = readDSA();
-        ret.type = "DSK";
+        ret.objectType = "DSK";
 
         List<Integer> flags = readFlags();
         for (int i = 0; i < flags.size(); i++)
@@ -626,7 +626,7 @@ public class AMF3Decoder {
             return decode();
         }
 
-        throw new NotImplementedException("AMF0 type not supported: " + type);
+        throw new NotImplementedException("AMF0 objectType not supported: " + type);
     }
 
     /**
@@ -682,7 +682,7 @@ public class AMF3Decoder {
             else if (b == 0x05)
                 body.put(key, null);
             else
-                throw new NotImplementedException("AMF0 type not supported: " + b);
+                throw new NotImplementedException("AMF0 objectType not supported: " + b);
         }
         readByte(); // Skip object end marker
 

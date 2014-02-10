@@ -117,7 +117,7 @@ object Cache {
   }
 
   /**
-   * Retrieve a value from the cache for the given type
+   * Retrieve a value from the cache for the given objectType
    *
    * @param key Item key.
    * @return result as Option[T]

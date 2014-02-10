@@ -37,7 +37,7 @@ trait HTTPTransformers {
   }
 
   /**
-   * Converts an HTTPResponse into type Application/Json; useful in situations where
+   * Converts an HTTPResponse into objectType Application/Json; useful in situations where
    */
   val mapToJson: ResponseTransformer = {
     response =>

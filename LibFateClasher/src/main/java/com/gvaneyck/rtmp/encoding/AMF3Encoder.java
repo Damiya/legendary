@@ -352,7 +352,7 @@ public class AMF3Encoder {
      * @throws NotImplementedException
      */
     private void writeObject(List<Byte> ret, TypedObject val) throws EncodingException, NotImplementedException {
-        if (val.type == null || val.type.equals("")) {
+        if (val.objectType == null || val.objectType.equals("")) {
             ret.add((byte)0x0B); // Dynamic class
 
             ret.add((byte)0x01); // No class name
@@ -362,15 +362,15 @@ public class AMF3Encoder {
             }
             ret.add((byte)0x01); // End of dynamic
         }
-        else if (val.type.equals("flex.messaging.io.ArrayCollection")) {
+        else if (val.objectType.equals("flex.messaging.io.ArrayCollection")) {
             ret.add((byte)0x07); // Externalizable
-            writeString(ret, val.type);
+            writeString(ret, val.objectType);
 
             encode(ret, val.get("array"));
         }
         else {
             writeInt(ret, (val.size() << 4) | 3); // Inline + member count
-            writeString(ret, val.type);
+            writeString(ret, val.objectType);
 
             List<String> keyOrder = new ArrayList<String>();
             for (String key : val.keySet()) {

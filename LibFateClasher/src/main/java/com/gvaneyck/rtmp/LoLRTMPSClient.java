@@ -175,14 +175,14 @@ public class LoLRTMPSClient extends RTMPSClient {
             encbuff = (user.toLowerCase() + ":" + sessionToken).getBytes("UTF-8");
 
         body = wrapBody(Base64.encodeBytes(encbuff), "auth", 8);
-        body.type = "flex.messaging.messages.CommandMessage";
+        body.objectType = "flex.messaging.messages.CommandMessage";
 
         id = invoke(body);
         result = getResult(id); // Read result (and discard)
 
         // Subscribe to the necessary items
         body = wrapBody(new Object[] { new TypedObject() }, "messagingDestination", 0);
-        body.type = "flex.messaging.messages.CommandMessage";
+        body.objectType = "flex.messaging.messages.CommandMessage";
         TypedObject headers = body.getTO("headers");
         // headers.put("DSRemoteCredentialsCharset", null); // unneeded
         // headers.put("DSRemoteCredentials", "");

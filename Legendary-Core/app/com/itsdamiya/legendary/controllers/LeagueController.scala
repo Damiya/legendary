@@ -19,8 +19,8 @@ package com.itsdamiya.legendary.controllers
 import play.api.mvc._
 import scala.concurrent.Future
 import scala.concurrent.duration._
-import com.itsdamiya.legendary.utils.{ MagicStrings, DefaultWebServices }
-import play.api.libs.json.{ JsValue, Json }
+import com.itsdamiya.legendary.utils.{MagicStrings, DefaultWebServices}
+import play.api.libs.json.{JsValue, Json}
 import com.itsdamiya.legendary.models.UserPass
 import com.itsdamiya.legendary.actions.Secured
 import com.itsdamiya.legendary.cache.CacheableExternalWS
@@ -41,7 +41,7 @@ object LeagueController extends Controller with DefaultWebServices {
     CacheableExternalWS("landingPage", 5.hours, MagicStrings.landingPageUrl)
   }
 
-  def logout(): Action[JsValue] = Secured(parse.json) {
+  def logout(): Action[JsValue] = Secured(parse.json) { request =>
     Ok(Json.obj(
       "result" -> "Logged Out"
     ))

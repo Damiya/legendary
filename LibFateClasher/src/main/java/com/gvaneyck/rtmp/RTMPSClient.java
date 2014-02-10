@@ -305,7 +305,7 @@ public class RTMPSClient {
      * 
      * @throws IOException
      */
-    public void connect() throws IOException {
+    public byte[] connect() throws IOException {
         try {
             sslsocket = (SSLSocket)SSLSocketFactory.getDefault().createSocket(server, port);
             in = new BufferedInputStream(sslsocket.getInputStream());
@@ -344,20 +344,12 @@ public class RTMPSClient {
         params.put("audioCodecs", 3191);
         params.put("videoCodecs", 252);
         params.put("videoFunction", 1);
-        params.put("pageUrl", pageUrl);
+        params.put("pageUrl", null);
         params.put("objectEncoding", 3);
 
         byte[] connect = aec.encodeConnect(params);
 
-        out.write(connect, 0, connect.length);
-        out.flush();
-
-        while (!results.containsKey(1))
-            sleep(10);
-        TypedObject result = results.get(1);
-        DSId = result.getTO("data").getString("id");
-
-        connected = true;
+        return connect;
     }
 
     /**
@@ -720,7 +712,7 @@ public class RTMPSClient {
                     else
                     // Skip most messages
                     {
-                        System.out.println("Unrecognized message type");
+                        System.out.println("Unrecognized message objectType");
                         System.out.print(String.format("%02X ", p.getType()));
                         for (byte b : p.getData())
                             System.out.print(String.format("%02X", b & 0xff));

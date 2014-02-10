@@ -3,7 +3,7 @@ package com.gvaneyck.rtmp.encoding;
 import java.util.regex.Pattern;
 
 /**
- * A map that has a type, used to represent an object
+ * A map that has a objectType, used to represent an object
  * 
  * @author Gabriel Van Eyck
  */
@@ -12,23 +12,23 @@ public class TypedObject extends ObjectMap {
 
     private static Pattern linePattern = Pattern.compile("^", Pattern.MULTILINE);
 
-    public String type;
+    public String objectType;
 
     /**
-     * Creates a typed object that is simply a map (null type)
+     * Creates a typed object that is simply a map (null objectType)
      */
     public TypedObject() {
-        this.type = null;
+        this.objectType = null;
     }
 
     /**
-     * Initializes the type of the object, null type implies a dynamic class
+     * Initializes the objectType of the object, null objectType implies a dynamic class
      * (used for headers and some other things)
      * 
-     * @param type The type of the object
+     * @param type The objectType of the object
      */
     public TypedObject(String type) {
-        this.type = type;
+        this.objectType = type;
     }
 
     /**
@@ -37,7 +37,7 @@ public class TypedObject extends ObjectMap {
      * @param data
      */
     public TypedObject(ObjectMap data) {
-        this.type = null;
+        this.objectType = null;
         this.putAll(data);
     }
 
@@ -72,7 +72,7 @@ public class TypedObject extends ObjectMap {
      * @return The object array
      */
     public Object[] getArray(String key) {
-        if (get(key) instanceof TypedObject && getTO(key).type.equals("flex.messaging.io.ArrayCollection"))
+        if (get(key) instanceof TypedObject && getTO(key).objectType.equals("flex.messaging.io.ArrayCollection"))
             return (Object[])getTO(key).get("array");
         else
             return (Object[])get(key);

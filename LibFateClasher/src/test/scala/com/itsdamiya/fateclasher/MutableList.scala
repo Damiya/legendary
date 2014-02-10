@@ -14,8 +14,17 @@
  * limitations under the License.
  */
 
-package com.itsdamiya.legendary.models
+package com.itsdamiya.fateclasher
 
+import org.scalatest.{Suite, BeforeAndAfterEach}
+import scala.collection.mutable
 
-class UserSession(val user: User, val authToken: String) extends Serializable {
+trait MutableList extends BeforeAndAfterEach {this: Suite =>
+  val buffer = new mutable.MutableList[Byte]
+
+  override def afterEach() {
+    try super.afterEach()
+    finally buffer.clear()
+  }
+
 }

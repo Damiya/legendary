@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package com.itsdamiya.legendary.models
+package com.itsdamiya.fateclasher
 
+import org.scalatest._
 
-class UserSession(val user: User, val authToken: String) extends Serializable {
-}
+abstract class UnitSpec extends FunSpec with Matchers with OptionValues with Inside with Inspectors
+with PrivateMethodTester
