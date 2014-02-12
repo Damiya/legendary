@@ -4,6 +4,8 @@
 
 OPTIONS        /*path                           com.itsdamiya.legendary.controllers.Application.options(path)
 
+GET            /test                            com.itsdamiya.legendary.controllers.LeagueController.test()
+
 # Redirect all unknown routes to the index page
 #GET           /*any                       com.itsdamiya.legendary.controllers.Application.index(any)
 
@@ -17,6 +19,7 @@ GET            /api/league/landingPage          com.itsdamiya.legendary.controll
 GET            /api/league/featuredGames        com.itsdamiya.legendary.controllers.LeagueController.featuredGames()
 DELETE         /api/league/logout               com.itsdamiya.legendary.controllers.LeagueController.logout()
 
-
 GET            /                                controllers.ExternalAssets.at(path="../public", file="index.html")
 GET            /*file                           controllers.ExternalAssets.at(path="../public", file)
+
+

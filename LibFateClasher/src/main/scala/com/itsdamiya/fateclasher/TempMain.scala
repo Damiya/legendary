@@ -22,7 +22,7 @@ import akka.util.Timeout
 import scala.concurrent.duration._
 import com.typesafe.config.ConfigFactory
 import com.itsdamiya.fateclasher.commands.LoginWithCredentials
-import com.itsdamiya.fateclasher.platform.LeagueRTMPSClient
+import com.itsdamiya.fateclasher.platform.RTMPClient
 import com.itsdamiya.fateclasher.loginqueue.LQToken
 
 object TempMain extends App {
@@ -35,6 +35,6 @@ object TempMain extends App {
   val username = conf.getString("fateTester.username")
   val password = conf.getString("fateTester.password")
 
-  val leagueClient = new LeagueRTMPSClient(server, "3.14.159", LQToken(1, "", "", None, None, "", 1, ""))
+  val leagueClient = new RTMPClient(server, "3.14.159", LQToken(1, "", "", None, None, "", 1, ""))
   leagueClient.connect()
 }

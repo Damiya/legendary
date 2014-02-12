@@ -24,6 +24,7 @@ import play.api.libs.json.{JsValue, Json}
 import com.itsdamiya.legendary.models.UserPass
 import com.itsdamiya.legendary.actions.Secured
 import com.itsdamiya.legendary.cache.CacheableExternalWS
+import play.api.libs.iteratee.Enumerator
 
 object LeagueController extends Controller with DefaultWebServices {
 
@@ -37,7 +38,7 @@ object LeagueController extends Controller with DefaultWebServices {
     CacheableExternalWS("featuredGames", 5.minutes, MagicStrings.featuredGamesUrl)
   }
 
-  def landingPage(): Action[AnyContent] = Secured.async { request =>
+  def landingPage(): Action[AnyContent] = Action.async { request =>
     CacheableExternalWS("landingPage", 5.hours, MagicStrings.landingPageUrl)
   }
 
@@ -45,5 +46,9 @@ object LeagueController extends Controller with DefaultWebServices {
     Ok(Json.obj(
       "result" -> "Logged Out"
     ))
+  }
+
+  def test() = Action {
+    Ok.chunked(Enumerator("a", "b", "c"))
   }
 }

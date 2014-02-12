@@ -26,7 +26,7 @@ import play.api.Play.current
 class AuthenticatedRequest[A](val userSession: UserSession, request: Request[A]) extends WrappedRequest[A](request)
 
 object Secured extends ActionBuilder[AuthenticatedRequest] with Results {
-  def invokeBlock[A](request: Request[A], block: (AuthenticatedRequest[A]) => Future[SimpleResult]): Future[SimpleResult] = {
+  def invokeBlock[A](request: Request[A], block: AuthenticatedRequest[A] => Future[SimpleResult]): Future[SimpleResult] = {
     request.headers.get("X-Auth-Token") match {
       case Some(authToken) =>
         Cache.getAs[UserSession](authToken) match {

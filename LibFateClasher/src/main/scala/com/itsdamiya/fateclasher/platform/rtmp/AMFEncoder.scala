@@ -1,4 +1,3 @@
-
 // Based on AMF3Encoder.java by Gabriel van Eyck; ported to Scala by Kate von Roeder
 
 package com.itsdamiya.fateclasher.platform.rtmp

@@ -52,12 +52,11 @@ object SessionController extends Controller {
     }
   }
 
-  def destroy(): Action[JsValue] = Secured(parse.json) {
-    authenticatedRequest =>
-      Cache.remove(authenticatedRequest.userSession.authToken)
-      Logger.info(s"${authenticatedRequest.userSession.user.username} logged out.")
-      Ok(Json.obj(
-        "result" -> "Session destroyed"
-      ))
+  def destroy(): Action[JsValue] = Secured(parse.json) { request =>
+    Cache.remove(request.userSession.authToken)
+    Logger.info(s"${request.userSession.user.username} logged out.")
+    Ok(Json.obj(
+      "result" -> "Session destroyed"
+    ))
   }
 }

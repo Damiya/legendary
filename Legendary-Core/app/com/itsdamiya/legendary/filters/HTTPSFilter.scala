@@ -42,7 +42,7 @@ class HTTPSAction(next: EssentialAction, httpsPort: Int) extends EssentialAction
     def continue: Iteratee[Array[Byte], SimpleResult] = next(request)
     val xForwardedProto = request.headers.get("X-Forwarded-Proto").getOrElse("None")
 
-    if (request.secure || xForwardedProto == "https") {
+    if (request.secure || xForwardedProto == "https" || play.api.Play.isDev) {
       continue
     } else {
       Done(Redirect("https://" + request.host.split(":")(0) + s":$httpsPort" + request.uri))

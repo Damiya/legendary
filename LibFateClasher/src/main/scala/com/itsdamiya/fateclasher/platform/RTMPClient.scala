@@ -24,10 +24,10 @@ import scala.util.Random
 import com.typesafe.scalalogging.slf4j.Logging
 import com.itsdamiya.fateclasher.platform.rtmp.AMFEncoder
 
-class LeagueRTMPSClient(targetServer: ServerInfo, clientVersion: String, lqToken: LQToken) extends Logging {
-  lazy val sslSocket = SSLSocketFactory.getDefault.createSocket(targetServer.hostName, targetServer.getPort)
-  lazy val inputStream = new BufferedInputStream(sslSocket.getInputStream)
-  lazy val outputStream = new DataOutputStream(sslSocket.getOutputStream)
+class RTMPClient(targetServer: ServerInfo, clientVersion: String, lqToken: LQToken) extends Logging {
+  lazy val socket = SSLSocketFactory.getDefault.createSocket(targetServer.hostName, targetServer.getPort)
+  lazy val inputStream = new BufferedInputStream(socket.getInputStream)
+  lazy val outputStream = new DataOutputStream(socket.getOutputStream)
   lazy val rand = new Random()
 
   def connect() {
