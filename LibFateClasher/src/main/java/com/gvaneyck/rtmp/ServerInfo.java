@@ -47,11 +47,11 @@ public class ServerInfo {
         return name;
     }
 
-    public int getPort() {
+    public int getSecurePort() {
         return 2099;
     }
 
-    public InetSocketAddress getPlatformAddress() {
-        return new InetSocketAddress(this.hostName, this.getPort());
+    public int getInsecurePort() {
+        return 2043;
     }
 }

@@ -11,7 +11,6 @@ import com.typesafe.scalalogging.slf4j.Logging
 import scala.util.Random
 
 object AMFEncoder extends WrapAsJava with Logging {
-  private lazy val javaEncoder = new AMF3Encoder()
   private lazy val startTime = System.currentTimeMillis()
 
   def encodeConnect(connectionMap: immutable.Map[String, Any]): Array[Byte] = {

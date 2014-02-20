@@ -23,7 +23,6 @@ object BuildSettings {
   ) ++ ScalastylePlugin.Settings ++ SbtScalariform.defaultScalariformSettings
 
   val commonDeps = Seq(
-    "com.twitter" %% "util-collection" % "6.3.6",
     json,
     "com.typesafe" %% "scalalogging-slf4j" % "1.0.1",
     "ch.qos.logback" % "logback-classic" % "1.1.1",

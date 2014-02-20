@@ -23,7 +23,7 @@ import com.itsdamiya.fateclasher.loginqueue.{ LQToken, LoginQueueClient }
 import com.itsdamiya.fateclasher.commands.LoginWithCredentials
 import com.itsdamiya.fateclasher.events.LoginWithCredentialsComplete
 import akka.event.LoggingReceive
-import com.itsdamiya.fateclasher.platform.PlatformClient
+import com.itsdamiya.fateclasher.platform.{RTMPSClient, PlatformClient}
 
 object LeagueClientSupervisor {
   def apply(targetServer: ServerInfo): Props = Props(classOf[LeagueClientSupervisor], targetServer)
@@ -53,6 +53,6 @@ class LeagueClientSupervisor(targetServer: ServerInfo) extends Actor with ActorL
   def performPlatformLogin(lqt: LQToken) {
     // Wind down the loginQueue actor since we're moving on to the platform
     stop(child("loginQueue").get)
-    val platformClient = actorOf(PlatformClient(lqt, targetServer), "platform")
+    val platformClient = actorOf(RTMPSClient(targetServer), "platform")
   }
 }

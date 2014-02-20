@@ -2,13 +2,6 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-OPTIONS        /*path                           com.itsdamiya.legendary.controllers.Application.options(path)
-
-GET            /test                            com.itsdamiya.legendary.controllers.LeagueController.test()
-
-# Redirect all unknown routes to the index page
-#GET           /*any                       com.itsdamiya.legendary.controllers.Application.index(any)
-
 POST           /api/user/create                 com.itsdamiya.legendary.controllers.UserController.create()
 
 DELETE         /api/session/destroy             com.itsdamiya.legendary.controllers.SessionController.destroy()

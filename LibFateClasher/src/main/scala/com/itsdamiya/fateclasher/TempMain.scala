@@ -21,20 +21,20 @@ import akka.actor.ActorSystem
 import akka.util.Timeout
 import scala.concurrent.duration._
 import com.typesafe.config.ConfigFactory
-import com.itsdamiya.fateclasher.commands.LoginWithCredentials
-import com.itsdamiya.fateclasher.platform.RTMPClient
+import com.itsdamiya.fateclasher.commands.{LoginWithToken, LoginWithCredentials}
+import com.itsdamiya.fateclasher.platform.RTMPSClient
 import com.itsdamiya.fateclasher.loginqueue.LQToken
 
 object TempMain extends App {
   implicit val timeout = Timeout(1 minute)
 
-  val system = ActorSystem()
+  implicit val system = ActorSystem()
   val server = ServerInfo.NA
 
   val conf = ConfigFactory.load("login")
   val username = conf.getString("fateTester.username")
   val password = conf.getString("fateTester.password")
 
-  val leagueClient = new RTMPClient(server, "3.14.159", LQToken(1, "", "", None, None, "", 1, ""))
-  leagueClient.connect()
+  val platformClient = system.actorOf(RTMPSClient(server, useSSL = false), "platform")
+  platformClient ! LoginWithToken(LQToken(1, "", "", None, None, "", 1, ""), "3.14.159")
 }

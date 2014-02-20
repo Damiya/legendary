@@ -17,6 +17,7 @@
 package com.itsdamiya.fateclasher.commands
 
 import com.gvaneyck.rtmp.ServerInfo
+import com.itsdamiya.fateclasher.loginqueue.LQToken
 
 /**
  * Used to perform parts of the login sequence that rely on having a username and password (Supervisor, Login Queue)
@@ -24,5 +25,7 @@ import com.gvaneyck.rtmp.ServerInfo
  * @param password League password
  */
 case class LoginWithCredentials(username: String, password: String)
+
+case class LoginWithToken(lqToken: LQToken, clientVersion: String)
 
 case class OtherCommand()
