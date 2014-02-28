@@ -17,13 +17,12 @@
 package com.itsdamiya.fateclasher
 
 import com.gvaneyck.rtmp.ServerInfo
-import java.io.File
 import akka.actor.{ ActorLogging, Actor, Props }
 import com.itsdamiya.fateclasher.loginqueue.{ LQToken, LoginQueueClient }
 import com.itsdamiya.fateclasher.commands.LoginWithCredentials
 import com.itsdamiya.fateclasher.events.LoginWithCredentialsComplete
 import akka.event.LoggingReceive
-import com.itsdamiya.fateclasher.platform.{RTMPSClient, PlatformClient}
+import com.itsdamiya.fateclasher.platform.RTMPSClient
 
 object LeagueClientSupervisor {
   def apply(targetServer: ServerInfo): Props = Props(classOf[LeagueClientSupervisor], targetServer)

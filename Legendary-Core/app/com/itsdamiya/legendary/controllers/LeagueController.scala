@@ -25,6 +25,7 @@ import com.itsdamiya.legendary.models.UserPass
 import com.itsdamiya.legendary.actions.Secured
 import com.itsdamiya.legendary.cache.CacheableExternalWS
 import play.api.libs.iteratee.Enumerator
+import com.itsdamiya.legendary.Butts.Email
 
 object LeagueController extends Controller with DefaultWebServices {
 
@@ -46,9 +47,5 @@ object LeagueController extends Controller with DefaultWebServices {
     Ok(Json.obj(
       "result" -> "Logged Out"
     ))
-  }
-
-  def test() = Action {
-    Ok.chunked(Enumerator("a", "b", "c"))
   }
 }

@@ -35,6 +35,6 @@ object TempMain extends App {
   val username = conf.getString("fateTester.username")
   val password = conf.getString("fateTester.password")
 
-  val platformClient = system.actorOf(RTMPSClient(server, useSSL = false), "platform")
+  val platformClient = system.actorOf(RTMPSClient(server), "platform")
   platformClient ! LoginWithToken(LQToken(1, "", "", None, None, "", 1, ""), "3.14.159")
 }
